@@ -50,7 +50,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Patch\Patch.cs" />
+    <Compile Include="Patch\Patcher.cs" />
+    <Compile Include="Patch\Patches\PatchProjectile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shields\Building_Shield.cs" />
+    <Compile Include="Shields\CompProperties_ShieldBuilding.cs" />
+    <Compile Include="Shields\Comp_ShieldBuilding.cs" />
+    <Compile Include="Shields\EnumShieldStatus.cs" />
+    <Compile Include="Shields\ShieldManagerMapComp.cs" />
+    <Compile Include="Shields\Utilities\Graphics.cs" />
+    <Compile Include="Shields\Utilities\VectorsUtils.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
