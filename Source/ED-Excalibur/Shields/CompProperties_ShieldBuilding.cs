@@ -14,27 +14,27 @@ namespace EnhancedDevelopment.Excalibur.Shields
             this.compClass = typeof(Comp_ShieldBuilding);
         }
 
-        public int m_FieldIntegrity_Max;
-        public int m_FieldIntegrity_Initial;
-        public int m_Field_Radius;
+        public int m_FieldIntegrity_Max = 0;
+        public int m_FieldIntegrity_Initial = 0;
+        public int m_Field_Radius = 0;
 
-        public int m_PowerRequiredCharging;
-        public int m_PowerRequiredSustaining;
+        public int m_PowerRequiredCharging = 0;
+        public int m_PowerRequiredSustaining = 0;
 
-        public int m_RechargeTickDelayInterval;
-        public int m_RecoverWarmupDelayTicks;
+        public int m_RechargeTickDelayInterval = 0;
+        public int m_RecoverWarmupDelayTicks = 0;
 
-        public bool m_BlockIndirect_Avalable;
-        public bool m_BlockDirect_Avalable;
-        public bool m_FireSupression_Avalable;
-        public bool m_InterceptDropPod_Avalable;
+        public bool m_BlockIndirect_Avalable = false;
+        public bool m_BlockDirect_Avalable = false;
+        public bool m_FireSupression_Avalable = false;
+        public bool m_InterceptDropPod_Avalable = false;
 
-        public bool m_StructuralIntegrityMode;
+        public bool m_StructuralIntegrityMode = false;
 
-        public float m_ColourRed;
-        public float m_ColourGreen;
-        public float m_ColourBlue;
+        public float m_ColourRed = 0.0f;
+        public float m_ColourGreen = 0.0f;
+        public float m_ColourBlue = 0.0f;
 
-        public List<string> SIFBuildings;
+        public List<string> SIFBuildings = new List<string>();
     }
 }
