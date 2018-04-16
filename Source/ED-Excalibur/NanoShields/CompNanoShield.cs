@@ -33,7 +33,7 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
         {
             if (this.QuantumShieldActive)
             {
-                return "Quantum Shield:" + QuantumShieldChargeLevelCurrent + " / " + Mod_EDExcalibur.Settings.ShieldChargeLevelMax +
+                return "Quantum Shield:" + QuantumShieldChargeLevelCurrent + " / " + Mod_EDExcalibur.Settings.NanoShields.ShieldChargeLevelMax +
                         Environment.NewLine + base.GetDescriptionPart();
             }
             return base.GetDescriptionPart();
@@ -175,20 +175,20 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
 
         public int RechargeShield(int chargeAvalable)
         {
-            if (!this.QuantumShieldActive || this.QuantumShieldChargeLevelCurrent >= Mod_EDExcalibur.Settings.ShieldChargeLevelMax)
+            if (!this.QuantumShieldActive || this.QuantumShieldChargeLevelCurrent >= Mod_EDExcalibur.Settings.NanoShields.ShieldChargeLevelMax)
             {
                 return 0;
             }
 
             this.QuantumShieldChargeLevelCurrent += chargeAvalable;
 
-            if (this.QuantumShieldChargeLevelCurrent <= Mod_EDExcalibur.Settings.ShieldChargeLevelMax)
+            if (this.QuantumShieldChargeLevelCurrent <= Mod_EDExcalibur.Settings.NanoShields.ShieldChargeLevelMax)
             {
                 return chargeAvalable;
             }
             else
             {
-                int _Overcharge = this.QuantumShieldChargeLevelCurrent - Mod_EDExcalibur.Settings.ShieldChargeLevelMax;
+                int _Overcharge = this.QuantumShieldChargeLevelCurrent - Mod_EDExcalibur.Settings.NanoShields.ShieldChargeLevelMax;
                 this.QuantumShieldChargeLevelCurrent -= _Overcharge;
                 return chargeAvalable - _Overcharge;
             }

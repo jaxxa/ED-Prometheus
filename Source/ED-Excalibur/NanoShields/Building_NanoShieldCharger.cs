@@ -63,7 +63,7 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
 
             int currentTick = Find.TickManager.TicksGame;
             //Only every 10 ticks
-            if (currentTick % Mod_EDExcalibur.Settings.BuildingChargeDelay != 0)
+            if (currentTick % Mod_EDExcalibur.Settings.NanoShields.BuildingChargeDelay != 0)
             {
                 return;
             }
@@ -71,10 +71,10 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
             {
                 if (this.flag_charge)
                 {
-                    this.rechargePawns(Mod_EDExcalibur.Settings.BuildingChargeAmount);
+                    this.rechargePawns(Mod_EDExcalibur.Settings.NanoShields.BuildingChargeAmount);
                 }
 
-                if (this.ReservePowerCurrent < Mod_EDExcalibur.Settings.BuildingReservePowerMax)
+                if (this.ReservePowerCurrent < Mod_EDExcalibur.Settings.NanoShields.BuildingReservePowerMax)
                 {
                     this.ReservePowerCurrent += 1;
                 }
@@ -213,7 +213,7 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
         public override string GetInspectString()
         {
 
-            return "Reserve = " + this.ReservePowerCurrent + " / " + Mod_EDExcalibur.Settings.BuildingReservePowerMax + " - " + GameComponent_NanoShield.GetInspectStringStatus() + Environment.NewLine + base.GetInspectString();
+            return "Reserve = " + this.ReservePowerCurrent + " / " + Mod_EDExcalibur.Settings.NanoShields.BuildingReservePowerMax + " - " + GameComponent_NanoShield.GetInspectStringStatus() + Environment.NewLine + base.GetInspectString();
         }
 
     }

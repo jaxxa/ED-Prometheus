@@ -50,6 +50,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LaserDrill\Building_LaserDrill.cs" />
+    <Compile Include="LaserDrill\Building_LaserFiller.cs" />
     <Compile Include="NanoShields\Building_NanoShieldCharger.cs" />
     <Compile Include="NanoShields\CompNanoShield.cs" />
     <Compile Include="NanoShields\GameComponent_NanoShield.cs" />
@@ -61,6 +63,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings\ModSettings_EDExcalibur.cs" />
     <Compile Include="Settings\Mod_EDExcalibur.cs" />
+    <Compile Include="Settings\SettingSection_LaserDrill.cs" />
+    <Compile Include="Settings\SettingSection_NanoShields.cs" />
+    <Compile Include="Settings\SettingSection_Shields.cs" />
+    <Compile Include="Settings\SettingSection.cs" />
     <Compile Include="Shields\Building_Shield.cs" />
     <Compile Include="Shields\CompProperties_ShieldBuilding.cs" />
     <Compile Include="Shields\Comp_ShieldBuilding.cs" />

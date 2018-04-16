@@ -9,92 +9,62 @@ namespace EnhancedDevelopment.Excalibur.Settings
 {
     class ModSettings_EDExcalibur : ModSettings
     {
-        //Mod_QuantumShield.Settings.BuildingChargeDelay
-        public int ShieldChargeLevelMax;
+        public SettingSection_Shields Shields = new SettingSection_Shields();
+        public SettingSection_NanoShields NanoShields = new SettingSection_NanoShields();
+        public SettingSection_LaserDrill LaserDrill = new SettingSection_LaserDrill();
 
-        public int BuildingChargeDelay;
-        public int BuildingChargeAmount;
-        public int BuildingReservePowerMax;
-        
         public override void ExposeData()
         {
             base.ExposeData();
 
-            Scribe_Values.Look(ref ShieldChargeLevelMax, "ShieldChargeLevelMax", 200);
-
-            Scribe_Values.Look(ref BuildingChargeDelay, "BuildingChargeDelay", 30);
-            Scribe_Values.Look(ref BuildingChargeAmount, "BuildingChargeAmount", 1);
-
-            Scribe_Values.Look(ref BuildingReservePowerMax, "BuildingReservePowerMax", 400);
-
-
-
+            this.Shields.ExposeData();
+            this.NanoShields.ExposeData();
+            this.LaserDrill.ExposeData();
+            
             //            Scribe_Values.Look<bool>(ref ShowLettersThreatBig, "ShowLettersThreatBig", true, true);
         }
+        
+        private SettingSection m_CurrentSetting = null;
 
         public void DoSettingsWindowContents(Rect canvas)
         {
-            Listing_Standard listing_Standard = new Listing_Standard();
-            listing_Standard.ColumnWidth = 250f;
-            listing_Standard.Begin(canvas);
-            //listing_Standard.set_ColumnWidth(rect.get_width() - 4f);
+            
+            Rect _ButtonRect = new Rect(300f, 0f, 150f, 35f);
 
-            //ShieldChargeLevelMax
-            listing_Standard.GapLine(12f);
-            listing_Standard.Label("ShieldChargeLevelMax (Default 200):" + ShieldChargeLevelMax.ToString());
-            listing_Standard.Gap(12f);
-            Listing_Standard _listing_Standard_ShieldChargeLevelMax = new Listing_Standard();
-            _listing_Standard_ShieldChargeLevelMax.Begin(listing_Standard.GetRect(30f));
-            _listing_Standard_ShieldChargeLevelMax.ColumnWidth = 70;
-            _listing_Standard_ShieldChargeLevelMax.IntAdjuster(ref ShieldChargeLevelMax, 5, 1);
-            _listing_Standard_ShieldChargeLevelMax.NewColumn();
-            _listing_Standard_ShieldChargeLevelMax.IntAdjuster(ref ShieldChargeLevelMax, 20, 1);
-            _listing_Standard_ShieldChargeLevelMax.NewColumn();
-            _listing_Standard_ShieldChargeLevelMax.IntSetter(ref ShieldChargeLevelMax, 200, "Default");
-            _listing_Standard_ShieldChargeLevelMax.End();
+            if (Widgets.ButtonText(_ButtonRect, "Select Page", true, false, true))
+            {
+                
+                List<FloatMenuOption> list = new List<FloatMenuOption>();
+                
+                list.Add(new FloatMenuOption(this.Shields.Name(), delegate
+                {
+                    this.m_CurrentSetting = this.Shields;
+                }, MenuOptionPriority.Default, null, null, 0f, null, null));
 
-            //BuildingChargeDelay
-            listing_Standard.GapLine(12f);
-            listing_Standard.Label("BuildingChargeDelay (Default 30, measuered in Ticks):" + BuildingChargeDelay.ToString());
-            listing_Standard.Gap(12f);
-            Listing_Standard _listing_Standard_BuildingChargeDelay = new Listing_Standard();
-            _listing_Standard_BuildingChargeDelay.Begin(listing_Standard.GetRect(30f));
-            _listing_Standard_BuildingChargeDelay.ColumnWidth = 70;
-            _listing_Standard_BuildingChargeDelay.IntAdjuster(ref BuildingChargeDelay, 1, 1);
-            _listing_Standard_BuildingChargeDelay.NewColumn();
-            _listing_Standard_BuildingChargeDelay.IntAdjuster(ref BuildingChargeDelay, 10, 1);
-            _listing_Standard_BuildingChargeDelay.NewColumn();
-            _listing_Standard_BuildingChargeDelay.IntSetter(ref BuildingChargeDelay, 30, "Default");
-            _listing_Standard_BuildingChargeDelay.End();
+                list.Add(new FloatMenuOption(this.NanoShields.Name(), delegate
+                {
+                    this.m_CurrentSetting = this.NanoShields;
+                }, MenuOptionPriority.Default, null, null, 0f, null, null));
 
-            //BuildingChargeAmount
-            listing_Standard.GapLine(12f);
-            listing_Standard.Label("BuildingChargeAmount (Default 1):" + BuildingChargeAmount.ToString());
-            listing_Standard.Gap(12f);
-            Listing_Standard _listing_Standard_BuildingChargeAmount = new Listing_Standard();
-            _listing_Standard_BuildingChargeAmount.Begin(listing_Standard.GetRect(30f));
-            _listing_Standard_BuildingChargeAmount.ColumnWidth = 70;
-            _listing_Standard_BuildingChargeAmount.IntAdjuster(ref BuildingChargeAmount, 1, 1);
-            _listing_Standard_BuildingChargeAmount.NewColumn();
-            _listing_Standard_BuildingChargeAmount.IntAdjuster(ref BuildingChargeAmount, 10, 1);
-            _listing_Standard_BuildingChargeAmount.NewColumn();
-            _listing_Standard_BuildingChargeAmount.IntSetter(ref BuildingChargeAmount, 1, "Default");
-            _listing_Standard_BuildingChargeAmount.End();
+                list.Add(new FloatMenuOption(this.LaserDrill.Name(), delegate
+                {
+                    this.m_CurrentSetting = this.LaserDrill;
+                }, MenuOptionPriority.Default, null, null, 0f, null, null));
 
-            listing_Standard.GapLine(12f);
-            listing_Standard.Label("BuildingReservePowerMax (Default 400):" + BuildingReservePowerMax.ToString());
-            listing_Standard.Gap(12f);
-            // listing_Standard.IntAdjuster(ref BuildingReservePowerMax, 10, 10);
-            Listing_Standard _listing_Standard_BuildingReservePowerMax = new Listing_Standard();
-            _listing_Standard_BuildingReservePowerMax.Begin(listing_Standard.GetRect(30f));
-            _listing_Standard_BuildingReservePowerMax.ColumnWidth = 70;
-            _listing_Standard_BuildingReservePowerMax.IntAdjuster(ref BuildingReservePowerMax, 10, 1);
-            _listing_Standard_BuildingReservePowerMax.NewColumn();
-            _listing_Standard_BuildingReservePowerMax.IntAdjuster(ref BuildingReservePowerMax, 50, 1);
-            _listing_Standard_BuildingReservePowerMax.NewColumn();
-            _listing_Standard_BuildingReservePowerMax.IntSetter(ref BuildingReservePowerMax, 400, "Default");
-            _listing_Standard_BuildingReservePowerMax.End();
-            listing_Standard.End();
+                Find.WindowStack.Add(new FloatMenu(list));
+            }
+
+
+            if (this.m_CurrentSetting != null)
+            {
+
+                Text.Font = GameFont.Medium;
+                Widgets.Label(new Rect(460f, 0f, 150f , 35f), this.m_CurrentSetting.Name());
+                Text.Font = GameFont.Small;
+                
+                this.m_CurrentSetting.DoSettingsWindowContents(canvas);
+            }
         }
+        
     }
 }

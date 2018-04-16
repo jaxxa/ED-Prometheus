@@ -47,12 +47,12 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
                 Widgets.Label(rect2, "Nano Shield Status");
                 Rect rect3 = rect;
                 rect3.yMin = overRect.height / 2f;
-                float fillPercent = Mathf.Min(1f, (float)(Math.Max(1, this.QuantumShield.QuantumShieldChargeLevelCurrent)) / (float)Mod_EDExcalibur.Settings.ShieldChargeLevelMax);
+                float fillPercent = Mathf.Min(1f, (float)(Math.Max(1, this.QuantumShield.QuantumShieldChargeLevelCurrent)) / (float)Mod_EDExcalibur.Settings.NanoShields.ShieldChargeLevelMax);
                 //Log.Message("Fill: " + fillPercent);
                 Widgets.FillableBar(rect3, fillPercent, Gizmo_NanoShieldStatus.FullShieldBarTex, Gizmo_NanoShieldStatus.EmptyShieldBarTex, false);
                 Text.Font = GameFont.Small;
                 Text.Anchor = TextAnchor.MiddleCenter;
-                Widgets.Label(rect3, (this.QuantumShield.QuantumShieldChargeLevelCurrent).ToString("F0") + " / " + (Mod_EDExcalibur.Settings.ShieldChargeLevelMax).ToString("F0"));
+                Widgets.Label(rect3, (this.QuantumShield.QuantumShieldChargeLevelCurrent).ToString("F0") + " / " + (Mod_EDExcalibur.Settings.NanoShields.ShieldChargeLevelMax).ToString("F0"));
                 Text.Anchor = TextAnchor.UpperLeft;
             }, true, false, 1f);
             return new GizmoResult(GizmoState.Clear);
