@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ResearchTabDef>
+		<defName>EnhancedDevelopment</defName>
+		<label>Enhanced Development</label>
+	</ResearchTabDef>
+	
+	<ResearchProjectDef>
+		<defName>Personal_Quantum_Shield_Research</defName>
+		<label>Personal Quantum Shield Research</label>
+		<description>Allows the use of Quantum Virtual Particles to protect Colonists and Pets from damage.
+		This Quantum Charge must be recovered from the Quantum Shield Charging Station and pulls from a global charge level.</description>
+		<baseCost>2000</baseCost>
+		<techLevel>Spacer</techLevel>
+		<tab>EnhancedDevelopment</tab>
+		<researchViewX>0</researchViewX>
+		<researchViewY>4</researchViewY>
+	</ResearchProjectDef>
+
+</Defs>

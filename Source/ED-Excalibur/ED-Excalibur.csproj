@@ -50,9 +50,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NanoShields\Building_NanoShieldCharger.cs" />
+    <Compile Include="NanoShields\CompNanoShield.cs" />
+    <Compile Include="NanoShields\GameComponent_NanoShield.cs" />
+    <Compile Include="NanoShields\Gizmo_NanoShieldStatus.cs" />
     <Compile Include="Patch\Patch.cs" />
     <Compile Include="Patch\Patcher.cs" />
     <Compile Include="Patch\Patches\PatchProjectile.cs" />
+    <Compile Include="Patch\Patches\PatchThingWithComps_Nano.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings\ModSettings_EDExcalibur.cs" />
     <Compile Include="Settings\Mod_EDExcalibur.cs" />
@@ -64,9 +69,7 @@
     <Compile Include="Shields\Utilities\Graphics.cs" />
     <Compile Include="Shields\Utilities\VectorsUtils.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="NanoShields\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
