@@ -13,6 +13,13 @@ namespace EnhancedDevelopment.Excalibur.Settings
         public SettingSection_NanoShields NanoShields = new SettingSection_NanoShields();
         public SettingSection_LaserDrill LaserDrill = new SettingSection_LaserDrill();
 
+        public List<SettingSection> m_Settings;
+
+        public ModSettings_EDExcalibur()
+        {
+            this.m_Settings = new List<SettingSection>() { Shields, NanoShields, LaserDrill };
+        }
+
         public override void ExposeData()
         {
             base.ExposeData();
@@ -20,51 +27,42 @@ namespace EnhancedDevelopment.Excalibur.Settings
             this.Shields.ExposeData();
             this.NanoShields.ExposeData();
             this.LaserDrill.ExposeData();
-            
+
             //            Scribe_Values.Look<bool>(ref ShowLettersThreatBig, "ShowLettersThreatBig", true, true);
         }
-        
+
         private SettingSection m_CurrentSetting = null;
 
         public void DoSettingsWindowContents(Rect canvas)
         {
-            
+
             Rect _ButtonRect = new Rect(300f, 0f, 150f, 35f);
 
             if (Widgets.ButtonText(_ButtonRect, "Select Page", true, false, true))
             {
-                
+
                 List<FloatMenuOption> list = new List<FloatMenuOption>();
-                
-                list.Add(new FloatMenuOption(this.Shields.Name(), delegate
-                {
-                    this.m_CurrentSetting = this.Shields;
-                }, MenuOptionPriority.Default, null, null, 0f, null, null));
 
-                list.Add(new FloatMenuOption(this.NanoShields.Name(), delegate
+                foreach (SettingSection _CurrentSettings in this.m_Settings)
                 {
-                    this.m_CurrentSetting = this.NanoShields;
-                }, MenuOptionPriority.Default, null, null, 0f, null, null));
+                    list.Add(new FloatMenuOption(_CurrentSettings.Name(), delegate
+                    {
+                        this.m_CurrentSetting = _CurrentSettings;
+                    }, MenuOptionPriority.Default, null, null, 0f, null, null));
 
-                list.Add(new FloatMenuOption(this.LaserDrill.Name(), delegate
+                    Find.WindowStack.Add(new FloatMenu(list));
+                }
+
+                if (this.m_CurrentSetting != null)
                 {
-                    this.m_CurrentSetting = this.LaserDrill;
-                }, MenuOptionPriority.Default, null, null, 0f, null, null));
 
-                Find.WindowStack.Add(new FloatMenu(list));
+                    Text.Font = GameFont.Medium;
+                    Widgets.Label(new Rect(460f, 0f, 150f, 35f), this.m_CurrentSetting.Name());
+                    Text.Font = GameFont.Small;
+
+                    this.m_CurrentSetting.DoSettingsWindowContents(canvas);
+                }
             }
 
-
-            if (this.m_CurrentSetting != null)
-            {
-
-                Text.Font = GameFont.Medium;
-                Widgets.Label(new Rect(460f, 0f, 150f , 35f), this.m_CurrentSetting.Name());
-                Text.Font = GameFont.Small;
-                
-                this.m_CurrentSetting.DoSettingsWindowContents(canvas);
-            }
         }
-        
     }
-}
