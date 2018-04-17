@@ -53,15 +53,16 @@ namespace EnhancedDevelopment.Excalibur.Settings
                     Find.WindowStack.Add(new FloatMenu(list));
                 }
 
-                if (this.m_CurrentSetting != null)
-                {
+            }
 
-                    Text.Font = GameFont.Medium;
-                    Widgets.Label(new Rect(460f, 0f, 150f, 35f), this.m_CurrentSetting.Name());
-                    Text.Font = GameFont.Small;
 
-                    this.m_CurrentSetting.DoSettingsWindowContents(canvas);
-                }
+            if (this.m_CurrentSetting != null)
+            {
+                Text.Font = GameFont.Medium;
+                Widgets.Label(new Rect(460f, 0f, 150f, 35f), this.m_CurrentSetting.Name());
+                Text.Font = GameFont.Small;
+
+                this.m_CurrentSetting.DoSettingsWindowContents(canvas);
             }
 
         }
