@@ -13,6 +13,9 @@
 		<tab>EDSN-Excalibur</tab>
 		<researchViewX>0</researchViewX>
 		<researchViewY>1</researchViewY>
+		<requiredResearchFacilities>
+			<li>MultiAnalyzer</li>
+		</requiredResearchFacilities>
 	</ResearchProjectDef>
 
 	<ResearchProjectDef>
