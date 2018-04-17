@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ResearchTabDef>
+		<defName>EnhancedDevelopment</defName>
+		<label>Enhanced Development</label>
+	</ResearchTabDef>
+	
+	<ResearchProjectDef>
+		<defName>Research_MK1_Replicator</defName>
+		<label>Mark 1 Replicator</label>
+		<description>Allows you to build the MK1 Replicator, which can transform Omni-Gel into Slag or Rock.</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Spacer</techLevel>
+		<prerequisites/>
+		<tab>EnhancedDevelopment</tab>
+		<researchViewX>0</researchViewX>
+		<researchViewY>3</researchViewY>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>Research_MK2_Replicator</defName>
+		<label>Mark 2 Replicator</label>
+		<description>Allows you to build the MK2 Replicator, which can transform Omni-Gel into Metal or Silver.</description>
+		<baseCost>2000</baseCost>
+		<techLevel>Spacer</techLevel>
+		<tab>EnhancedDevelopment</tab>
+		<researchViewX>1</researchViewX>
+		<researchViewY>3</researchViewY>
+		<prerequisites>
+			<li>Research_MK1_Replicator</li>
+		</prerequisites>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>Research_MK3_Replicator</defName>
+		<label>Mark 3 Replicator</label>
+		<description>Allows you to build the MK3 Replicator, which can transform Omni-Gel into Uranium, Shells or Medicine.</description>
+		<baseCost>3000</baseCost>
+		<techLevel>Spacer</techLevel>
+		<tab>EnhancedDevelopment</tab>
+		<researchViewX>2</researchViewX>
+		<researchViewY>3</researchViewY>
+		<prerequisites>
+			<li>Research_MK2_Replicator</li>
+		</prerequisites>
+	</ResearchProjectDef>
+
+</Defs>

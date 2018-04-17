@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WorkGiverDef>
+    <defName>DoBillsOmniGel</defName>
+    <giverClass>WorkGiver_DoBill</giverClass>
+    <workType>Crafting</workType>
+    <priorityInType>104</priorityInType>
+	<fixedBillGiverDefs>
+	<li>Table_MK1_Replicator</li>
+	<li>Table_MK2_Replicator</li>
+	<li>Table_MK3_Replicator</li>
+	</fixedBillGiverDefs>
+    <verb>replicate</verb>
+    <gerund>replicating</gerund>
+	<requiredCapacities>
+		<li>Manipulation</li>
+	</requiredCapacities>
+  </WorkGiverDef>
+    
+</Defs>

@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- <ThingDef Name="BuildingBase" Abstract="True">
+		<category>Building</category>
+		<soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+		<selectable>true</selectable>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<repairEffect>Repair</repairEffect>
+		<statBases>
+			<WorkToMake>1800</WorkToMake>
+			<MaxHitPoints>350</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+		</statBases>
+		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+		<filthLeaving>BuildingRubble</filthLeaving>
+	</ThingDef> -->
+
+	<!-- ========================= Work tables ==========================-->
+
+	<ThingDef ParentName="BuildingBase">
+		<defName>Table_MK1_Replicator</defName>
+		<label>Mark 1 Matter Replicator</label>
+		<thingClass>Building_WorkTable</thingClass>
+		<description>An advanced matter replication device.</description>
+		<graphicData>
+			<texPath>Things/Items/MK1Replicator</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(3,1)</drawSize>
+		</graphicData>
+		<researchPrerequisites>
+			<li>Research_MK1_Replicator</li>
+		</researchPrerequisites>
+		<costList>
+			<Component>2</Component>
+			<Steel>100</Steel>
+			<Silver>50</Silver>
+		</costList>
+		<altitudeLayer>Building</altitudeLayer>
+		<size>(3,1)</size>
+		<designationCategory>Production</designationCategory>
+		<passability>Impassable</passability>
+		<hasInteractionCell>True</hasInteractionCell>
+		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+		<surfaceType>Item</surfaceType>
+		<constructEffect>ConstructMetal</constructEffect>
+		<recipes>
+			<li>Replicate_MK1_SlagFromOmniGel</li>
+			<li>Replicate_MK1_ChunkSandstoneFromOmniGel</li>
+			<li>Replicate_MK1_ChunkGraniteFromOmniGel</li>
+			<li>Replicate_MK1_ChunkLimestoneFromOmniGel</li>
+			<li>Replicate_MK1_ChunkSlateFromOmniGel</li>
+			<li>Replicate_MK1_ChunkMarbleFromOmniGel</li>
+		</recipes>
+		<inspectorTabs>
+			<li>ITab_Bills</li>
+		</inspectorTabs>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>1200</basePowerConsumption>
+				<transmitsPower>false</transmitsPower>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="CompProperties_Glower">
+				<glowRadius>6</glowRadius>
+				<glowColor>(217,112,33,0)</glowColor>
+			</li>
+		</comps>
+		<building>
+			<spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+		</building>
+	</ThingDef>
+
+
+	<ThingDef ParentName="BuildingBase">
+		<defName>Table_MK2_Replicator</defName>
+		<label>Mark 2 Matter Replicator</label>
+		<thingClass>Building_WorkTable</thingClass>
+		<description>An advanced matter replication device.</description>
+		<graphicData>
+			<texPath>Things/Items/MK2Replicator</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(3,1)</drawSize>
+		</graphicData>
+		<researchPrerequisites>
+			<li>Research_MK2_Replicator</li>
+		</researchPrerequisites>
+		<costList>
+			<Component>4</Component>
+			<Steel>200</Steel>
+			<Silver>100</Silver>
+		</costList>
+		<altitudeLayer>Building</altitudeLayer>
+		<size>(3,1)</size>
+		<designationCategory>Production</designationCategory>
+		<passability>Impassable</passability>
+		<hasInteractionCell>True</hasInteractionCell>
+		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+		<surfaceType>Item</surfaceType>
+		<constructEffect>ConstructMetal</constructEffect>
+		<recipes>
+			<li>Replicate_MK2_SteelFromOmniGel</li>
+			<li>Replicate_MK2_SilverFromOmniGel</li>
+			<li>Replicate_MK2_GoldFromOmniGel</li>
+		</recipes>
+		<inspectorTabs>
+			<li>ITab_Bills</li>
+		</inspectorTabs>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>1200</basePowerConsumption>
+				<transmitsPower>false</transmitsPower>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="CompProperties_Glower">
+				<glowRadius>6</glowRadius>
+				<glowColor>(217,112,33,0)</glowColor>
+			</li>
+		</comps>
+		<building>
+			<spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+		</building>
+	</ThingDef>
+
+	<ThingDef ParentName="BuildingBase">
+		<defName>Table_MK3_Replicator</defName>
+		<label>Mark 3 Matter Replicator</label>
+		<thingClass>Building_WorkTable</thingClass>
+		<description>An advanced matter replication device.</description>
+		<graphicData>
+			<texPath>Things/Items/MK3Replicator</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(3,1)</drawSize>
+		</graphicData>
+		<researchPrerequisites>
+			<li>Research_MK3_Replicator</li>
+		</researchPrerequisites>
+		<costList>
+			<Component>4</Component>
+			<Steel>200</Steel>
+			<Silver>400</Silver>
+		</costList>
+		<altitudeLayer>Building</altitudeLayer>
+		<size>(3,1)</size>
+		<designationCategory>Production</designationCategory>
+		<passability>Impassable</passability>
+		<hasInteractionCell>True</hasInteractionCell>
+		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+		<surfaceType>Item</surfaceType>
+		<constructEffect>ConstructMetal</constructEffect>
+		<recipes>
+			<li>Replicate_MK3_PlasteelFromOmniGel</li>
+			<li>Replicate_MK3_UraniumFromOmniGel</li>
+			<li>Replicate_MK3_JadeFromOmniGel</li>
+			<li>Replicate_MK3_MedicineFromOmniGel</li>
+			<li>Replicate_MK3_GlitterMedicineFromOmniGel</li>
+		</recipes>
+		<inspectorTabs>
+			<li>ITab_Bills</li>
+		</inspectorTabs>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>1200</basePowerConsumption>
+				<transmitsPower>false</transmitsPower>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="CompProperties_Glower">
+				<glowRadius>6</glowRadius>
+				<glowColor>(217,112,33,0)</glowColor>
+			</li>
+		</comps>
+		<building>
+			<spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+		</building>
+	</ThingDef>
+
+</Defs>
