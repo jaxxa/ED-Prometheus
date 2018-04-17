@@ -11,7 +11,8 @@
 			<li>DeepDrilling</li>
 			<li>GeothermalPower</li>
 		</prerequisites>
-		<researchViewX>10</researchViewX>
+		<tab>EDSN-Excalibur</tab>
+		<researchViewX>5</researchViewX>
 		<researchViewY>0</researchViewY>
 		
 	</ResearchProjectDef>
@@ -25,7 +26,8 @@
 		<prerequisites>
 			<li>Research_LaserSteamGeyser_Drill</li>
 		</prerequisites>
-		<researchViewX>11</researchViewX>
+		<tab>EDSN-Excalibur</tab>
+		<researchViewX>6</researchViewX>
 		<researchViewY>0</researchViewY>
 	</ResearchProjectDef>
 
