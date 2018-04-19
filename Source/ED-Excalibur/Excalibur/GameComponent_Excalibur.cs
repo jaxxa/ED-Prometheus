@@ -6,7 +6,7 @@ using Verse;
 
 namespace EnhancedDevelopment.Excalibur.NanoShields
 {
-    class GameComponent_NanoShield : Verse.GameComponent
+    class GameComponent_Excalibur : Verse.GameComponent
     {
 
         #region Variables
@@ -19,7 +19,7 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
         //public static GameComponent_QuantumShield GameComp;
         #endregion
 
-        public GameComponent_NanoShield(Game game)
+        public GameComponent_Excalibur(Game game)
         {
             // GameComponent_QuantumShield.GameComp = this;
         }
@@ -85,33 +85,33 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
                 return;
             }
 
-            GameComponent_NanoShield.ReturnCharge(1);
+            GameComponent_Excalibur.ReturnCharge(1);
             //Log.Message("GameCompTick");
 
         }
 
         public static int RequestCharge(int chargeToRequest)
         {
-            if (GameComponent_NanoShield.ChargeLevelCurrent > chargeToRequest)
+            if (GameComponent_Excalibur.ChargeLevelCurrent > chargeToRequest)
             {
-                GameComponent_NanoShield.ChargeLevelCurrent -= chargeToRequest;
+                GameComponent_Excalibur.ChargeLevelCurrent -= chargeToRequest;
                 return chargeToRequest;
             }
             else
             {
-                int _Temp = GameComponent_NanoShield.ChargeLevelCurrent;
-                GameComponent_NanoShield.ChargeLevelCurrent = 0;
+                int _Temp = GameComponent_Excalibur.ChargeLevelCurrent;
+                GameComponent_Excalibur.ChargeLevelCurrent = 0;
                 return _Temp;
             }
         }
 
         public static void ReturnCharge(int chargeLevel)
         {
-            GameComponent_NanoShield.ChargeLevelCurrent += chargeLevel;
+            GameComponent_Excalibur.ChargeLevelCurrent += chargeLevel;
 
-            if (GameComponent_NanoShield.ChargeLevelCurrent > GameComponent_NanoShield.ChargeLevelMax)
+            if (GameComponent_Excalibur.ChargeLevelCurrent > GameComponent_Excalibur.ChargeLevelMax)
             {
-                GameComponent_NanoShield.ChargeLevelCurrent = GameComponent_NanoShield.ChargeLevelMax;
+                GameComponent_Excalibur.ChargeLevelCurrent = GameComponent_Excalibur.ChargeLevelMax;
             }
         }
 
@@ -119,12 +119,12 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
         {
             base.ExposeData();
 
-            Scribe_Values.Look<int>(ref GameComponent_NanoShield.ChargeLevelCurrent, "ChargeLevelCurrent");
+            Scribe_Values.Look<int>(ref GameComponent_Excalibur.ChargeLevelCurrent, "ChargeLevelCurrent");
         }
 
         public static string GetInspectStringStatus()
         {
-            return "Global Quantum Charge: " + GameComponent_NanoShield.ChargeLevelCurrent.ToString() + " / " + GameComponent_NanoShield.ChargeLevelMax.ToString();
+            return "Global Quantum Charge: " + GameComponent_Excalibur.ChargeLevelCurrent.ToString() + " / " + GameComponent_Excalibur.ChargeLevelMax.ToString();
         }
     }
 }

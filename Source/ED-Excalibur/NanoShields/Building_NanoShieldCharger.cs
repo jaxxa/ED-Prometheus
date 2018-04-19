@@ -196,7 +196,7 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
 
         public int rechargePawns(int chargeToRequest)
         {
-            int _RemainingCharge = GameComponent_NanoShield.RequestCharge(chargeToRequest);
+            int _RemainingCharge = GameComponent_Excalibur.RequestCharge(chargeToRequest);
 
             foreach (CompNanoShield _ShieldComp in this.ShieldCompsInRangeAndOfFaction())
             {
@@ -206,14 +206,14 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
                 }
             }
 
-            GameComponent_NanoShield.ReturnCharge(_RemainingCharge);
+            GameComponent_Excalibur.ReturnCharge(_RemainingCharge);
             return _RemainingCharge;
         }
 
         public override string GetInspectString()
         {
 
-            return "Reserve = " + this.ReservePowerCurrent + " / " + Mod_EDExcalibur.Settings.NanoShields.BuildingReservePowerMax + " - " + GameComponent_NanoShield.GetInspectStringStatus() + Environment.NewLine + base.GetInspectString();
+            return "Reserve = " + this.ReservePowerCurrent + " / " + Mod_EDExcalibur.Settings.NanoShields.BuildingReservePowerMax + " - " + GameComponent_Excalibur.GetInspectStringStatus() + Environment.NewLine + base.GetInspectString();
         }
 
     }

@@ -54,7 +54,7 @@
     <Compile Include="LaserDrill\Building_LaserFiller.cs" />
     <Compile Include="NanoShields\Building_NanoShieldCharger.cs" />
     <Compile Include="NanoShields\CompNanoShield.cs" />
-    <Compile Include="NanoShields\GameComponent_NanoShield.cs" />
+    <Compile Include="Excalibur\GameComponent_Excalibur.cs" />
     <Compile Include="NanoShields\Gizmo_NanoShieldStatus.cs" />
     <Compile Include="Patch\Patch.cs" />
     <Compile Include="Patch\Patcher.cs" />
