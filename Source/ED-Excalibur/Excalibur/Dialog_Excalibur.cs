@@ -20,8 +20,10 @@ namespace EnhancedDevelopment.Excalibur.Excalibur
         public override void DoWindowContents(Rect inRect)
         {
 
-            Widgets.ButtonText(inRect, "Button1", true, false, true);
-           // throw new NotImplementedException();
+            this.InitialWindowContents(inRect);
+
+            //Widgets.ButtonText(inRect, "Button1", true, false, true);
+            // throw new NotImplementedException();
         }
 
         public override Vector2 InitialSize
@@ -30,6 +32,16 @@ namespace EnhancedDevelopment.Excalibur.Excalibur
             {
                 return new Vector2(1024f, (float)UI.screenHeight);
             }
+        }
+
+        private string introText = "You detect a strange transmission on the Comms Console, for the past while you thought you could find a ghost of something in the static, but this time it is clear enough to make out." + Environment.NewLine +
+"It appears to be Destress Call directed to a specific group and asking them to make contact using an encrypted system on nonstandard frequencies.One of your Researchers thinks that with a bit of work the encryption could be broken and they could come with a device to make contact." + Environment.NewLine +
+"Unlocked Research: Analyse Strange Signal" + Environment.NewLine +
+"-Needs Multi-Analyzer and High Tech Bench";
+
+        private void InitialWindowContents(Rect Canvas)
+        {
+            Widgets.TextArea(Canvas, introText, true);
         }
     }
 }
