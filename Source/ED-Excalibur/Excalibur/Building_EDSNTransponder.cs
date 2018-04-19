@@ -32,6 +32,8 @@ namespace EnhancedDevelopment.Excalibur.Excalibur
         public void ContactExcalibur()
         {
             Log.Message("Contacting Excalibur");
+
+            Find.WindowStack.Add(new Dialog_Excalibur());
         }
 
     }
