@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EnhancedDevelopment.Excalibur.Excalibur.Dialog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,25 +17,19 @@ namespace EnhancedDevelopment.Excalibur.Excalibur
             {
                 yield return g;
             }
-            
-                Command_Action act = new Command_Action();
-                //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
-                act.action = () => this.ContactExcalibur();
-                //act.icon = UI_DIRECT_ON;
-                act.defaultLabel = "Contact Excalibur";
-                act.defaultDesc = "Contact Excalibur";
-                act.activateSound = SoundDef.Named("Click");
-                //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
-                //act.groupKey = 689736;
-                yield return act;
-        }
 
-        public void ContactExcalibur()
-        {
-            Log.Message("Contacting Excalibur");
-
-            Find.WindowStack.Add(new Dialog_Excalibur());
+            Command_Action act = new Command_Action();
+            //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+            act.action = () => GameComponent_Excalibur.ContactExcalibur();
+            //act.icon = UI_DIRECT_ON;
+            act.defaultLabel = "Contact Excalibur";
+            act.defaultDesc = "Contact Excalibur";
+            act.activateSound = SoundDef.Named("Click");
+            //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+            //act.groupKey = 689736;
+            yield return act;
         }
+        
 
     }
 

@@ -6,13 +6,14 @@ using Verse;
 using RimWorld;
 using UnityEngine;
 
-namespace EnhancedDevelopment.Excalibur.Excalibur
+namespace EnhancedDevelopment.Excalibur.Excalibur.Dialog
 {
     class Dialog_Excalibur : Window
     {
         public Dialog_Excalibur()
         {
             this.resizeable = true;
+            this.optionalTitle = "First Contact";
             //this.SetInitialSizeAndPosition();
         }
 

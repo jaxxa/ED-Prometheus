@@ -1,10 +1,11 @@
-﻿using System;
+﻿using EnhancedDevelopment.Excalibur.Excalibur.Dialog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Verse;
 
-namespace EnhancedDevelopment.Excalibur.NanoShields
+namespace EnhancedDevelopment.Excalibur
 {
     class GameComponent_Excalibur : Verse.GameComponent
     {
@@ -34,8 +35,8 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
         "It appears to be Destress Call directed to a specific group and asking them to make contact using an encrypted system on nonstandard frequencies.One of your Researchers thinks that with a bit of work the encryption could be broken and they could come with a device to make contact." + Environment.NewLine +
         "Unlocked Research: Analyse Strange Signal" + Environment.NewLine +
         "-Needs Multi-Analyzer and High Tech Bench";
-
-        private bool _ShownInitial = false;
+        
+        private bool _ShownInitial = true;
 
         public override void GameComponentTick()
         {
@@ -75,19 +76,34 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
                 Find.WindowStack.Add(new Dialog_NodeTree(diaNode, false, false, "Strange Signal Detected"));
 
             }
+            this.NanoShieldTick();
+        }
+
+        public static void ContactExcalibur()
+        {
+
+            Log.Message("Contacting Excalibur");
+
+            Find.WindowStack.Add(new Dialog_1_SignalDetection());
+                      
+        }
 
 
+        #region Nano Shields
 
-            //Only Run every 20 Ticks.
-            int currentTick = Find.TickManager.TicksGame;
-            if (currentTick % 20 != 0)
-            {
-                return;
-            }
+        private void NanoShieldTick()
+        {
+            
+                //Only Run every 20 Ticks.
+                int currentTick = Find.TickManager.TicksGame;
+                if (currentTick % 20 != 0)
+                {
+                    return;
+                }
 
-            GameComponent_Excalibur.ReturnCharge(1);
-            //Log.Message("GameCompTick");
-
+                GameComponent_Excalibur.ReturnCharge(1);
+                //Log.Message("GameCompTick");
+                            
         }
 
         public static int RequestCharge(int chargeToRequest)
@@ -126,6 +142,10 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
         {
             return "Global Quantum Charge: " + GameComponent_Excalibur.ChargeLevelCurrent.ToString() + " / " + GameComponent_Excalibur.ChargeLevelMax.ToString();
         }
+
+
+        #endregion //Nano Shields
+
     }
 }
 
