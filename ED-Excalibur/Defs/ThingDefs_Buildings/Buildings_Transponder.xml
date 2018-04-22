@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+
+
+	<ThingDef ParentName="BuildingBase">
+		<defName>Building_Excalibur_Transponder</defName>
+		<label>Excalibur Transponder</label>
+		<description>Contacts the EDSN Excalibur.</description>
+		<thingClass>EnhancedDevelopment.Excalibur.Excalibur.Building_EDSNTransponder</thingClass>
+		<researchPrerequisites>
+			<li>Personal_Quantum_Shield_Research</li>
+		</researchPrerequisites>
+		<graphicData>
+			<texPath>Things/ShieldBuilding_Red</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<designationCategory>Security</designationCategory>
+		<uiIconPath>Things/ShieldBuilding_Red</uiIconPath>
+		<specialDisplayRadius>5</specialDisplayRadius>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>1000</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+		<costList>
+			<Steel>100</Steel>
+			<Silver>500</Silver>
+		</costList>
+
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<WorkToMake>2000</WorkToMake>
+			<Flammability>1.0</Flammability>
+			<Beauty>-2</Beauty>
+			<Mass>50</Mass>
+		</statBases>
+		<thingCategories>
+			<li>Furniture</li>
+		</thingCategories>
+	</ThingDef>
+
+</Defs>
