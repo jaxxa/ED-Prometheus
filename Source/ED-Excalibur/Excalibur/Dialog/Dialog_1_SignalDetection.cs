@@ -17,7 +17,7 @@ namespace EnhancedDevelopment.Excalibur.Excalibur.Dialog
             //this.CloseButSize = new Vector2(50, 50);
 
             this.doCloseButton = true;
-            this.doCloseX = true;
+            this.doCloseX = false;
             this.closeOnClickedOutside = false;
 
             //this.SetInitialSizeAndPosition();
