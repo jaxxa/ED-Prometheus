@@ -41,10 +41,9 @@ namespace EnhancedDevelopment.Excalibur.Excalibur.Dialog
         //    }
         //}
 
-        private string introText = "You detect a strange transmission on the Comms Console, for the past while you thought you could find a ghost of something in the static, but this time it is clear enough to make out." + Environment.NewLine + Environment.NewLine +
-"It appears to be Destress Call directed to a specific group and asking them to make contact using an encrypted system on nonstandard frequencies. One of your Researchers thinks that with a bit of work the encryption could be broken and they could come with a device to make contact." + Environment.NewLine + Environment.NewLine +
-"Enabled Research: Analyse Strange Signal" + Environment.NewLine +
-"-Needs Multi-Analyzer and High Tech Bench";
+        private string introText = "A strange transmission has been detected on the Comms Console, for the past while the operator thought they could hear a ghost of something in the static, elusive enough to slip away whenever they tried to make it out, but this time it was strong enough to be isolated and understood. " + Environment.NewLine + Environment.NewLine +
+            "It appears to be a repeating destress call and request for a further contact over a nonstandard encrypted frequency. Included are specifications for the device to make contact.One of the researchers thinks that with a bit of work they can go over the specifications and figure out how to build a device to make contact." + Environment.NewLine + Environment.NewLine +
+            "Unlocked Research - Analyse Strange Signal";
 
         private void InitialWindowContents(Rect canvas)
         {
