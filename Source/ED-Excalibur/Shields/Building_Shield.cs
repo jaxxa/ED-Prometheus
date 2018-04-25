@@ -393,7 +393,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
                                 HitSoundDef.PlayOneShot((SoundInfo)new TargetInfo(this.Position, this.Map, false));
 
                                 //Damage the shield
-                                ProcessDamage(pr.def.projectile.damageAmountBase);
+                                ProcessDamage(pr.def.projectile.DamageAmount);
                                 //add projectile to the list of things to be destroyed
                                 thingsToDestroy.Add(pr);
                             }
