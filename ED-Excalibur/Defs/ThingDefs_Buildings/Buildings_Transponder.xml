@@ -9,7 +9,6 @@
 		<description>Contacts the EDSN Excalibur.</description>
 		<thingClass>EnhancedDevelopment.Excalibur.Excalibur.Building_EDSNTransponder</thingClass>
 		<researchPrerequisites>
-			<li>Personal_Quantum_Shield_Research</li>
 		</researchPrerequisites>
 		<graphicData>
 			<texPath>Things/ShieldBuilding_Red</texPath>
@@ -31,13 +30,11 @@
 			<li Class="CompProperties_Breakdownable"/>
 		</comps>
 		<costList>
-			<Steel>100</Steel>
-			<Silver>500</Silver>
 		</costList>
 
 		<statBases>
 			<MaxHitPoints>500</MaxHitPoints>
-			<WorkToMake>2000</WorkToMake>
+			<WorkToMake>0</WorkToMake>
 			<Flammability>1.0</Flammability>
 			<Beauty>-2</Beauty>
 			<Mass>50</Mass>
