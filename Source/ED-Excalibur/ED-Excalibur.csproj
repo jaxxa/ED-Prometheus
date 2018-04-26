@@ -51,7 +51,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Excalibur\Building_EDSNTransponder.cs" />
-    <Compile Include="Excalibur\Dialog\Dialog_2_FirstContactn.cs" />
+    <Compile Include="Excalibur\Dialog\Dialog_6_ShipStabilised.cs" />
+    <Compile Include="Excalibur\Dialog\Dialog_5_ExecutingBurn.cs" />
+    <Compile Include="Excalibur\Dialog\Dialog_4_NeedResources.cs" />
+    <Compile Include="Excalibur\Dialog\Dialog_3_InitialCharge.cs" />
+    <Compile Include="Excalibur\Dialog\Dialog_2_FirstContact.cs" />
     <Compile Include="Excalibur\Dialog\Dialog_1_SignalDetection.cs" />
     <Compile Include="Excalibur\Dialog\Dialog_Excalibur.cs" />
     <Compile Include="LaserDrill\Building_LaserDrill.cs" />

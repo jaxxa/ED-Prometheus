@@ -8,9 +8,9 @@ using UnityEngine;
 
 namespace EnhancedDevelopment.Excalibur.Excalibur.Dialog
 {
-    class Dialog_2_FirstContactn : Window
+    class Dialog_2_FirstContact : Window
     {
-        public Dialog_2_FirstContactn()
+        public Dialog_2_FirstContact()
         {
             this.resizeable = false;
             this.optionalTitle = "First Contact";

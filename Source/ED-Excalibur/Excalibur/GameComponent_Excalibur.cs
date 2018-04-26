@@ -84,7 +84,7 @@ namespace EnhancedDevelopment.Excalibur
 
             Log.Message("Contacting Excalibur");
 
-            Find.WindowStack.Add(new Dialog_2_FirstContactn());
+            Find.WindowStack.Add(new Dialog_2_FirstContact());
 
             Find.WindowStack.Add(new Dialog_1_SignalDetection());
 
