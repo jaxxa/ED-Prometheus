@@ -13,7 +13,7 @@ namespace EnhancedDevelopment.Excalibur.Excalibur.Dialog
         public Dialog_3_InitialCharge()
         {
             this.resizeable = false;
-            this.optionalTitle = "First Contact";
+            this.optionalTitle = "Initial Charge";
             //this.CloseButSize = new Vector2(50, 50);
 
             this.doCloseButton = true;

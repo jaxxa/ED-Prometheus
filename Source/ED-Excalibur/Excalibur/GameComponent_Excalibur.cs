@@ -79,14 +79,47 @@ namespace EnhancedDevelopment.Excalibur
             this.NanoShieldTick();
         }
 
+        private static int m_QuestStatus = 1;
+
         public static void ContactExcalibur()
         {
 
             Log.Message("Contacting Excalibur");
 
-            Find.WindowStack.Add(new Dialog_2_FirstContact());
+            switch (m_QuestStatus)
+            {
+                case 1:
+                    m_QuestStatus++;
+                    Find.WindowStack.Add(new Dialog_1_SignalDetection());
+                    break;
+                case 2:
+                    m_QuestStatus++;
+                    Find.WindowStack.Add(new Dialog_2_FirstContact());
+                    break;
+                case 3:
+                    m_QuestStatus++;
+                    Find.WindowStack.Add(new Dialog_3_InitialCharge());
+                    break;
+                case 4:
+                    m_QuestStatus++;
+                    Find.WindowStack.Add(new Dialog_4_NeedResources());
+                    break;
+                case 5:
+                    m_QuestStatus++;
+                    Find.WindowStack.Add(new Dialog_5_ExecutingBurn());
+                    break;
+                case 6:
+                    m_QuestStatus++;
+                    Find.WindowStack.Add(new Dialog_6_ShipStabilised());
+                    break;
 
-            Find.WindowStack.Add(new Dialog_1_SignalDetection());
+                default:
+
+                    break;
+            }
+
+         //   Find.WindowStack.Add(new Dialog_2_FirstContact());
+
 
 
         }
@@ -96,17 +129,17 @@ namespace EnhancedDevelopment.Excalibur
 
         private void NanoShieldTick()
         {
-            
-                //Only Run every 20 Ticks.
-                int currentTick = Find.TickManager.TicksGame;
-                if (currentTick % 20 != 0)
-                {
-                    return;
-                }
 
-                GameComponent_Excalibur.ReturnCharge(1);
-                //Log.Message("GameCompTick");
-                            
+            //Only Run every 20 Ticks.
+            int currentTick = Find.TickManager.TicksGame;
+            if (currentTick % 20 != 0)
+            {
+                return;
+            }
+
+            GameComponent_Excalibur.ReturnCharge(1);
+            //Log.Message("GameCompTick");
+
         }
 
         public static int RequestCharge(int chargeToRequest)

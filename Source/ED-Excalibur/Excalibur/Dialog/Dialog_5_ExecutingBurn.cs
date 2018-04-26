@@ -13,7 +13,7 @@ namespace EnhancedDevelopment.Excalibur.Excalibur.Dialog
         public Dialog_5_ExecutingBurn()
         {
             this.resizeable = false;
-            this.optionalTitle = "First Contact";
+            this.optionalTitle = "Executing Burn";
             //this.CloseButSize = new Vector2(50, 50);
 
             this.doCloseButton = true;
