@@ -90,32 +90,33 @@ namespace EnhancedDevelopment.Excalibur
             {
                 case 1:
                     m_QuestStatus++;
-                    Find.WindowStack.Add(new Dialog_1_SignalDetection());
+                    Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_1_SignalDetection", "EDE_Dialog_1_SignalDetection".Translate()));
                     break;
                 case 2:
                     m_QuestStatus++;
-                    Find.WindowStack.Add(new Dialog_2_FirstContact());
+                    Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_2_FirstContact", "EDE_Dialog_2_FirstContact".Translate()));
                     break;
                 case 3:
                     m_QuestStatus++;
-                    Find.WindowStack.Add(new Dialog_3_InitialCharge());
+                    Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_3_InitialCharge", "EDE_Dialog_3_InitialCharges".Translate()));
                     break;
                 case 4:
                     m_QuestStatus++;
-                    Find.WindowStack.Add(new Dialog_4_NeedResources());
+                    Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_4_NeedResources", "EDE_Dialog_4_NeedResources".Translate()));
                     break;
                 case 5:
                     m_QuestStatus++;
-                    Find.WindowStack.Add(new Dialog_5_ExecutingBurn());
+                    Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_5_ExecutingBurn", "EDE_Dialog_5_ExecutingBurn".Translate()));
                     break;
                 case 6:
                     m_QuestStatus++;
-                    Find.WindowStack.Add(new Dialog_6_ShipStabilised());
+                    Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_6_ShipStabilised", "EDE_Dialog_6_ShipStabilised".Translate()));
                     break;
 
                 default:
-                    Find.WindowStack.Add(new Dialog_Excalibur());
+                    //Find.WindowStack.Add(new Dialog_Excalibur());
 
+                    Find.WindowStack.Add(new Dialog_0_Generic("EDETestString", "EDETestString".Translate()));
                     break;
             }
 

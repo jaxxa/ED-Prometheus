@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Excalibur\Building_EDSNTransponder.cs" />
+    <Compile Include="Excalibur\Dialog\Dialog_0_Generic.cs" />
     <Compile Include="Excalibur\Dialog\Dialog_6_ShipStabilised.cs" />
     <Compile Include="Excalibur\Dialog\Dialog_5_ExecutingBurn.cs" />
     <Compile Include="Excalibur\Dialog\Dialog_4_NeedResources.cs" />

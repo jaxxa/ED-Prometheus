@@ -12,8 +12,14 @@ namespace EnhancedDevelopment.Excalibur.Excalibur.Dialog
     {
         public Dialog_Excalibur()
         {
-            this.resizeable = true;
-            this.optionalTitle = "First Contact";
+            this.resizeable = false;
+            this.optionalTitle = "Signal Detected";
+            //this.CloseButSize = new Vector2(50, 50);
+
+            this.doCloseButton = true;
+            this.doCloseX = false;
+            this.closeOnClickedOutside = false;
+
             //this.SetInitialSizeAndPosition();
         }
 
