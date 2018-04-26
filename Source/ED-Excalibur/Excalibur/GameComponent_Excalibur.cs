@@ -114,6 +114,7 @@ namespace EnhancedDevelopment.Excalibur
                     break;
 
                 default:
+                    Find.WindowStack.Add(new Dialog_Excalibur());
 
                     break;
             }
