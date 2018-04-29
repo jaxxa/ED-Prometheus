@@ -23,7 +23,7 @@
 			<Mass>50</Mass>
 		</statBases>
     <thingCategories>
-      <li>Furniture</li>
+      <li>BuildingsSpecial</li>
     </thingCategories>
 		<costList>
 			<Steel>100</Steel>

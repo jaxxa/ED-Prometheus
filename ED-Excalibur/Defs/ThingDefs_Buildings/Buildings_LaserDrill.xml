@@ -41,7 +41,7 @@
 			<Mass>50</Mass>
 		</statBases>
     <thingCategories>
-      <li>Furniture</li>
+      <li>BuildingsSpecial</li>
     </thingCategories>
 		<description>Mines out rock to create a large hole through to the steam networks below the planets surface.</description>
 		<building>
@@ -95,7 +95,7 @@
 			<Mass>50</Mass>
 		</statBases>
     <thingCategories>
-      <li>Furniture</li>
+      <li>BuildingsSpecial</li>
     </thingCategories>
 		<tickerType>Rare</tickerType>
 		<description>Removes a nearby SteamGeyser by filling it with rock and melting that rock with a laser to create a buildable surface</description>
