@@ -10,13 +10,13 @@ namespace EnhancedDevelopment.Excalibur
     class GameComponent_Excalibur : Verse.GameComponent
     {
 
+        public static GameComponent_Excalibur Instance;
+
         #region Variables
 
 
-        private static int m_QuestStatus = 0;
-
-
-
+        private int m_QuestStatus = 0;
+        
         //--Nano Shields
         //--Saved
         public static int ChargeLevelCurrent = 200;
@@ -29,7 +29,7 @@ namespace EnhancedDevelopment.Excalibur
 
         public GameComponent_Excalibur(Game game)
         {
-            // GameComponent_QuantumShield.GameComp = this;
+            GameComponent_Excalibur.Instance = this;
         }
 
         //public override void GameComponentUpdate()
@@ -42,12 +42,34 @@ namespace EnhancedDevelopment.Excalibur
         {
             base.GameComponentTick();
 
-            Log.Message("GC.Tick");
+            int currentTick = Find.TickManager.TicksGame;
+            if (currentTick % 2000 != 0)
+            {
+                return;
+            }
 
-            this.NanoShieldTick();
+            switch (m_QuestStatus)
+            {
+                case 0:
+                    //Find.ResearchManager
+                    EnhancedDevelopment.Excalibur.Excalibur.ResearchHelper.QuestUnlock("ED_Excalibur_AnalyseStrangeSignal");
+                    m_QuestStatus++;
+                    this.ContactExcalibur();
+
+
+                    break;
+
+                default:
+
+                    break;
+            }
+
+            Log.Message("GC.Tick");
+            
+            //this.NanoShieldTick();
         }
         
-        public static void ContactExcalibur()
+        public void ContactExcalibur()
         {
 
             Log.Message("Contacting Excalibur");

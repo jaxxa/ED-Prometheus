@@ -20,7 +20,7 @@ namespace EnhancedDevelopment.Excalibur.Excalibur
 
             Command_Action act = new Command_Action();
             //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
-            act.action = () => GameComponent_Excalibur.ContactExcalibur();
+            act.action = () => GameComponent_Excalibur.Instance.ContactExcalibur();
             //act.icon = UI_DIRECT_ON;
             act.defaultLabel = "Contact Excalibur";
             act.defaultDesc = "Contact Excalibur";

@@ -59,6 +59,7 @@
     <Compile Include="Excalibur\Dialog\Dialog_2_FirstContact.cs" />
     <Compile Include="Excalibur\Dialog\Dialog_1_SignalDetection.cs" />
     <Compile Include="Excalibur\Dialog\Dialog_Excalibur.cs" />
+    <Compile Include="Excalibur\ResearchHelper.cs" />
     <Compile Include="LaserDrill\Building_LaserDrill.cs" />
     <Compile Include="LaserDrill\Building_LaserFiller.cs" />
     <Compile Include="NanoShields\Building_NanoShieldCharger.cs" />
