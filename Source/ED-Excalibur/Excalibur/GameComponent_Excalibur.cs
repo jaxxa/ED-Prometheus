@@ -14,21 +14,21 @@ namespace EnhancedDevelopment.Excalibur
 
         #region Variables
 
-
+        //----------------Quest-----------------------
         private int m_QuestStatus = 0;
-        
-        //--Nano Shields
-        //--Saved
+
+        //----------------Nano Shields----------------
+        //Saved
         public static int ChargeLevelCurrent = 200;
 
         //--Not Saved
         public static int ChargeLevelMax = 1000;
 
-        //public static GameComponent_QuantumShield GameComp;
         #endregion
 
         public GameComponent_Excalibur(Game game)
         {
+            //Record the instance for easy acess.
             GameComponent_Excalibur.Instance = this;
         }
 
@@ -41,6 +41,20 @@ namespace EnhancedDevelopment.Excalibur
         public override void GameComponentTick()
         {
             base.GameComponentTick();
+
+            this.NanoShieldTick();
+            this.TickQuest();
+
+            //Log.Message("GC.Tick");
+
+
+        }
+
+
+        #region Quest
+
+        private void TickQuest()
+        {
 
             int currentTick = Find.TickManager.TicksGame;
             if (currentTick % 2000 != 0)
@@ -55,20 +69,14 @@ namespace EnhancedDevelopment.Excalibur
                     EnhancedDevelopment.Excalibur.Excalibur.ResearchHelper.QuestUnlock("ED_Excalibur_AnalyseStrangeSignal");
                     m_QuestStatus++;
                     this.ContactExcalibur();
-
-
                     break;
 
                 default:
 
                     break;
             }
-
-            Log.Message("GC.Tick");
-            
-            //this.NanoShieldTick();
         }
-        
+
         public void ContactExcalibur()
         {
 
@@ -108,12 +116,11 @@ namespace EnhancedDevelopment.Excalibur
                     break;
             }
 
-         //   Find.WindowStack.Add(new Dialog_2_FirstContact());
-
-
-
         }
-        
+
+
+        #endregion
+
         #region Nano Shields
 
         private void NanoShieldTick()
