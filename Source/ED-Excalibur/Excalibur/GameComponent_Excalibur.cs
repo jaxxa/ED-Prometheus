@@ -16,6 +16,12 @@ namespace EnhancedDevelopment.Excalibur
 
         //----------------Quest-----------------------
         private int m_QuestStatus = 0;
+        
+        private int m_ReservesPower = 0;
+        private int m_ReservesMaterials = 0;
+
+        private int SolarPannels = 2;
+        private int MAX_SOLAR_PANNELS = 100;
 
         //----------------Nano Shields----------------
         //Saved
@@ -65,7 +71,7 @@ namespace EnhancedDevelopment.Excalibur
             switch (m_QuestStatus)
             {
                 case 0:
-                    //Find.ResearchManager
+                    //TODO: Check Prerequisites - Comms Console with Power.
                     EnhancedDevelopment.Excalibur.Excalibur.ResearchHelper.QuestUnlock("ED_Excalibur_AnalyseStrangeSignal");
                     m_QuestStatus++;
                     this.ContactExcalibur();
