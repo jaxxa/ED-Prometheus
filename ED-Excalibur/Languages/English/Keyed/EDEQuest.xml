@@ -1,19 +1,38 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-<EDE_Dialog_1_SignalDetection>"A strange transmission has been detected on the Comms Console, for the past while the operator thought they could hear a ghost of something in the static, elusive enough to slip away whenever they tried to make it out, but this time it was strong enough to be isolated and understood. " + Environment.NewLine + Environment.NewLine +
-"It appears to be a repeating destress call and request for a further contact over a nonstandard encrypted frequency. Included are specifications for the device to make contact.One of the researchers thinks that with a bit of work they can go over the specifications and figure out how to build a device to make contact." + Environment.NewLine + Environment.NewLine +
-	"Unlocked Research - Analyse Strange Signal";</EDE_Dialog_1_SignalDetection>
-<EDE_Dialog_2_FirstContact>"You make contact with the source of the strange signal. The character on the other end explains that she is an Artificial Intelligence called A.L.I.X (Adaptive Logistical Intelligence Experiment). She was serving on an Experimental Command Carrier called the E.D.S.N. Excalibur where she was to manage repair and logistical support for ground teams and smaller ships in the group." +
-            "Unfortunately some unknown calamity befell the ship and left it drifting dead through the vastness of space for many years until recently when it drifted close enough to this Solar System to be captured by the Stars Gravity Well and into a decaying orbit where it will eventually hit the star." + Environment.NewLine + Environment.NewLine +
-            "Fortunately the backup solar panels provided just enough power to Maintenance Sector 7G where A.L.I.X.was located who was then able to salvage enough equipment to send out the general destress signal you picked up with instructions on secure contact." + Environment.NewLine + Environment.NewLine +
-            "A.L.I.X.has a plan to save the ship (and herself) from hitting the sun but needs your help the first thing she needs is power to run the Auto Repair System and then fire the Manoeuvring thrusters to bring the ship into a stable orbit of your Rimworld. " + Environment.NewLine + Environment.NewLine +
-            "Because the ship was designed to support long term ground operations it has a number of prefabricated buildings that can be deployed to the surface of a planet.One of these is the Starship Class Power Relay that can be used to send power from a ground installation to a compatible space craft." + Environment.NewLine + Environment.NewLine +
-            "In exchange saving the E.D.S.N Excalibur, A.L.I.X.offers to help your Colony by providing use of the ships systems as they are brought online." +
-            "--- Unlocks Drop of 'Starship Class Power Relay'"</EDE_Dialog_2_FirstContact>
-<EDE_Dialog_3_InitialCharge>"Charging in Progress"</EDE_Dialog_3_InitialCharge>
-<EDE_Dialog_4_NeedResources>"A.L.I.X. contacts you stating that materials will be required to continue to repair the manoeuvring thrusters to stabilise ship. She has modified the ground building fabrication system so that it can now construct replacement parts for the ship, but it will require the raw resources in order to do so, specifically metal. " + Environment.NewLine + 
-            "There was enough materials remaining to repair the Transporter Beaming System.She provides you with instructions on modifying your existing Transponder so it can be used for targeting the Transport Beams.You can then use this system to provide Metal to the E.D.S.N Excalibur to continue repairs."</EDE_Dialog_4_NeedResources>
-<EDE_Dialog_5_ExecutingBurn>"After providing the required materials and enough power the ship executes a long burn with the manoeuvring engines and enters a stable orbit. And contacts you two(X) days later when it is finished.";</EDE_Dialog_5_ExecutingBurn>
-<EDE_Dialog_6_ShipStabilised>"With the ship now powered and in a stable orbit you are then given the choices on what system to prioritise repairs on. These will each have a materials cost and power cost to unlock.";</EDE_Dialog_6_ShipStabilised>
+
+	<!--Quest Text -->
+	<EDE_Dialog_1_SignalDetection>A strange transmission has been detected on the Comms Console, for the past while the operator thought they could hear a ghost of something in the static, elusive enough to slip away whenever they tried to make it out, but this time it was strong enough to be isolated and understood.
+
+
+It appears to be a repeating destress call and request for a further contact over a nonstandard encrypted frequency. Included are specifications for the device to make contact. One of the researchers thinks that with a bit of work they can go over the specifications and figure out how to build a device to make contact using what we have avalable.
+
+	Unlocked Research - Analyse Strange Signal</EDE_Dialog_1_SignalDetection>
+
+	<EDE_Dialog_2_FirstContact>You make contact with the source of the strange signal. The character on the other end explains that she is an Artificial Intelligence called A.L.I.X (Adaptive Logistical Intelligence Experiment). She was serving on an Experimental Command Carrier called the E.D.S.N. Excalibur where she was to manage repair and logistical support for ground teams and smaller ships in the group.
+
+Unfortunately some unknown calamity befell the ship and left it drifting dead through the vastness of space for many years until recently when it drifted close enough to this Solar System to be captured by the Stars Gravity Well and into a decaying orbit where it will eventually hit the star.
+
+Fortunately the backup solar panels provided just enough power to Maintenance Sector 7G where A.L.I.X.was located who was then able to salvage enough equipment to send out the general destress signal you picked up with instructions on secure contact.
+A.L.I.X. has a plan to save the ship (and herself) from hitting the sun but needs your help the first thing she needs is power to run the Auto Repair System and then fire the Manoeuvring thrusters to bring the ship into a stable orbit of your Rimworld.
+
+Because the ship was designed to support long term ground operations it has a number of prefabricated buildings that can be deployed to the surface of a planet.One of these is the Starship Class Power Relay that can be used to send power from a ground installation to a compatible space craft.
+
+In exchange saving the E.D.S.N Excalibur, A.L.I.X.offers to help your Colony by providing use of the ships systems as they are brought online.
+
+	Unlocked Drop of 'Starship Class Power Relay'</EDE_Dialog_2_FirstContact>
+
+	<EDE_Dialog_3_InitialCharge>Charging in Progress
+Current Progress xxx/yyyy</EDE_Dialog_3_InitialCharge>
+
+	<EDE_Dialog_4_NeedResources>A.L.I.X. contacts you stating that materials will be required to continue to repair the manoeuvring thrusters to stabilise ship. She has modified the ground building fabrication system so that it can now construct replacement parts for the ship, but it will require the raw resources in order to do so, specifically metal.
+
+There was enough materials remaining to repair the Transporter Beaming System.She provides you with instructions on modifying your existing Transponder so it can be used for targeting the Transport Beams. You can then use this system to provide Metal to the E.D.S.N Excalibur to continue repairs.</EDE_Dialog_4_NeedResources>
+
+	<EDE_Dialog_5_ExecutingBurn>After providing the required materials and enough power the ship executes a long burn with the manoeuvring engines and enters a stable orbit. And contacts you two(X) days later when it is finished.</EDE_Dialog_5_ExecutingBurn>
+
+	<EDE_Dialog_6_ShipStabilised>With the ship now powered and in a stable orbit you are then given the choices on what system to prioritise repairs on. These will each have a materials cost and power cost to unlock.</EDE_Dialog_6_ShipStabilised>
+
 	<EDETestString>This is the XML Test String.</EDETestString>
+
 </LanguageData>
