@@ -15,6 +15,8 @@ namespace EnhancedDevelopment.Excalibur.Core
         public GameComponent_Excalibur_NanoShields Shields;
         public GameComponent_Excalibur_Quest Quest;
 
+        private List<GameComponent_BaseClass> m_SubComponents = new List<GameComponent_BaseClass>();
+
         #region Variables
 
 
@@ -26,7 +28,11 @@ namespace EnhancedDevelopment.Excalibur.Core
             GameComponent_Excalibur.Instance = this;
 
             this.Shields = new GameComponent_Excalibur_NanoShields();
+            this.m_SubComponents.Add(this.Shields);
+
             this.Quest = new GameComponent_Excalibur_Quest();
+            this.m_SubComponents.Add(this.Quest);
+
         }
 
         //public override void GameComponentUpdate()
@@ -39,16 +45,22 @@ namespace EnhancedDevelopment.Excalibur.Core
         {
             base.GameComponentTick();
 
-            this.Shields.Tick();
-            this.Quest.Tick();
+            int _CurrentTick = Find.TickManager.TicksGame;
+
+            this.m_SubComponents.ForEach(x => x.TickIfRequired(_CurrentTick));
+
+            //this.Shields.Tick();
+            //this.Quest.Tick();
             
         }
 
         public override void ExposeData()
         {
             base.ExposeData();
-            this.Quest.ExposeData();
-            this.Shields.ExposeData();
+            this.m_SubComponents.ForEach(x => x.ExposeData());
+
+            //this.Quest.ExposeData();
+            //this.Shields.ExposeData();
         }
 
     }

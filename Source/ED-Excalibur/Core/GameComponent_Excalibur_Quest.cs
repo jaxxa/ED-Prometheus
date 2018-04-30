@@ -25,14 +25,9 @@ namespace EnhancedDevelopment.Excalibur.Core
             //throw new NotImplementedException();
         }
 
-        public override void Tick()
+        public override void TickOnInterval()
         {
-            int currentTick = Find.TickManager.TicksGame;
-            if (currentTick % 2000 != 0)
-            {
-                return;
-            }
-
+            Log.Message("QuestTick");
             switch (m_QuestStatus)
             {
                 case 0:
@@ -89,5 +84,9 @@ namespace EnhancedDevelopment.Excalibur.Core
 
         }
 
+        public override int GetTickInterval()
+        {
+            return 2000;
+        }
     }
 }

@@ -21,15 +21,8 @@ namespace EnhancedDevelopment.Excalibur.Core
             Scribe_Values.Look<int>(ref this.ChargeLevelCurrent, "ChargeLevelCurrent");
         }
 
-        public override void Tick()
+        public override void TickOnInterval()
         {
-            //Only Run every 20 Ticks.
-            int currentTick = Find.TickManager.TicksGame;
-            if (currentTick % 20 != 0)
-            {
-                return;
-            }
-
             GameComponent_Excalibur.Instance.Shields.ReturnCharge(1);
             //Log.Message("GameCompTick");
         }
@@ -64,6 +57,9 @@ namespace EnhancedDevelopment.Excalibur.Core
             return "Global Quantum Charge: " + this.ChargeLevelCurrent.ToString() + " / " + this.ChargeLevelMax.ToString();
         }
 
-
+        public override int GetTickInterval()
+        {
+            return 20;
+        }
     }
 }

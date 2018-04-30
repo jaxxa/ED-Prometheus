@@ -7,7 +7,18 @@ namespace EnhancedDevelopment.Excalibur.Core
 {
     abstract class GameComponent_BaseClass
     {
-        public abstract void Tick();
+        public void TickIfRequired(int currentTick)
+        {
+            
+            if (currentTick % this.GetTickInterval() == 0)
+            {
+                this.TickOnInterval();
+            }
+        }
+
+        public abstract int GetTickInterval();
+
+        public abstract void TickOnInterval();
 
         public abstract void ExposeData();
     }
