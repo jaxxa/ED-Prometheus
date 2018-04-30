@@ -12,23 +12,11 @@ namespace EnhancedDevelopment.Excalibur.Core
 
         public static GameComponent_Excalibur Instance;
 
+        public GameComponent_Excalibur_NanoShields Shields;
+        public GameComponent_Excalibur_Quest Quest;
+
         #region Variables
 
-        //----------------Quest-----------------------
-        private int m_QuestStatus = 0;
-        
-        private int m_ReservesPower = 0;
-        private int m_ReservesMaterials = 0;
-
-        private int SolarPannels = 2;
-        private int MAX_SOLAR_PANNELS = 100;
-
-        //----------------Nano Shields----------------
-        //Saved
-        public static int ChargeLevelCurrent = 200;
-
-        //--Not Saved
-        public static int ChargeLevelMax = 1000;
 
         #endregion
 
@@ -36,6 +24,9 @@ namespace EnhancedDevelopment.Excalibur.Core
         {
             //Record the instance for easy acess.
             GameComponent_Excalibur.Instance = this;
+
+            this.Shields = new GameComponent_Excalibur_NanoShields();
+            this.Quest = new GameComponent_Excalibur_Quest();
         }
 
         //public override void GameComponentUpdate()
@@ -48,143 +39,17 @@ namespace EnhancedDevelopment.Excalibur.Core
         {
             base.GameComponentTick();
 
-            this.NanoShieldTick();
-            this.TickQuest();
-
-            //Log.Message("GC.Tick");
-
-
-        }
-
-
-        #region Quest
-
-        private void TickQuest()
-        {
-
-            int currentTick = Find.TickManager.TicksGame;
-            if (currentTick % 2000 != 0)
-            {
-                return;
-            }
-
-            switch (m_QuestStatus)
-            {
-                case 0:
-                    //TODO: Check Prerequisites - Comms Console with Power.
-                    EnhancedDevelopment.Excalibur.Quest.ResearchHelper.QuestUnlock("ED_Excalibur_AnalyseStrangeSignal");
-                    m_QuestStatus++;
-                    this.ContactExcalibur();
-                    break;
-
-                default:
-
-                    break;
-            }
-        }
-
-        public void ContactExcalibur()
-        {
-
-            Log.Message("Contacting Excalibur");
-
-            switch (m_QuestStatus)
-            {
-                case 1:
-                    m_QuestStatus++;
-                    Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_1_SignalDetection", "EDE_Dialog_1_SignalDetection".Translate()));
-                    break;
-                case 2:
-                    m_QuestStatus++;
-                    Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_2_FirstContact", "EDE_Dialog_2_FirstContact".Translate()));
-                    break;
-                case 3:
-                    m_QuestStatus++;
-                    Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_3_InitialCharge", "EDE_Dialog_3_InitialCharges".Translate()));
-                    break;
-                case 4:
-                    m_QuestStatus++;
-                    Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_4_NeedResources", "EDE_Dialog_4_NeedResources".Translate()));
-                    break;
-                case 5:
-                    m_QuestStatus++;
-                    Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_5_ExecutingBurn", "EDE_Dialog_5_ExecutingBurn".Translate()));
-                    break;
-                case 6:
-                    m_QuestStatus++;
-                    Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_6_ShipStabilised", "EDE_Dialog_6_ShipStabilised".Translate()));
-                    break;
-
-                default:
-                    //Find.WindowStack.Add(new Dialog_Excalibur());
-
-                    Find.WindowStack.Add(new Dialog_0_Generic("EDETestString", "EDETestString".Translate()));
-                    break;
-            }
-
-        }
-
-
-        #endregion
-
-        #region Nano Shields
-
-        private void NanoShieldTick()
-        {
-
-            //Only Run every 20 Ticks.
-            int currentTick = Find.TickManager.TicksGame;
-            if (currentTick % 20 != 0)
-            {
-                return;
-            }
-
-            GameComponent_Excalibur.ReturnCharge(1);
-            //Log.Message("GameCompTick");
-
-        }
-
-        public static int RequestCharge(int chargeToRequest)
-        {
-            if (GameComponent_Excalibur.ChargeLevelCurrent > chargeToRequest)
-            {
-                GameComponent_Excalibur.ChargeLevelCurrent -= chargeToRequest;
-                return chargeToRequest;
-            }
-            else
-            {
-                int _Temp = GameComponent_Excalibur.ChargeLevelCurrent;
-                GameComponent_Excalibur.ChargeLevelCurrent = 0;
-                return _Temp;
-            }
-        }
-
-        public static void ReturnCharge(int chargeLevel)
-        {
-            GameComponent_Excalibur.ChargeLevelCurrent += chargeLevel;
-
-            if (GameComponent_Excalibur.ChargeLevelCurrent > GameComponent_Excalibur.ChargeLevelMax)
-            {
-                GameComponent_Excalibur.ChargeLevelCurrent = GameComponent_Excalibur.ChargeLevelMax;
-            }
+            this.Shields.Tick();
+            this.Quest.Tick();
+            
         }
 
         public override void ExposeData()
         {
             base.ExposeData();
-
-            Scribe_Values.Look<int>(ref GameComponent_Excalibur.ChargeLevelCurrent, "ChargeLevelCurrent");
+            this.Quest.ExposeData();
+            this.Shields.ExposeData();
         }
-
-        public static string GetInspectStringStatus()
-        {
-            return "Global Quantum Charge: " + GameComponent_Excalibur.ChargeLevelCurrent.ToString() + " / " + GameComponent_Excalibur.ChargeLevelMax.ToString();
-        }
-
-
-        #endregion //Nano Shields
-
-
 
     }
 }

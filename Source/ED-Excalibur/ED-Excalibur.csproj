@@ -50,6 +50,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\GameComponent_BaseClass.cs" />
+    <Compile Include="Core\GameComponent_Excalibur_NanoShields.cs" />
+    <Compile Include="Core\GameComponent_Excalibur_Quest.cs" />
     <Compile Include="Quest\Building_EDSNTransponder.cs" />
     <Compile Include="Quest\Dialog\Dialog_0_Generic.cs" />
     <Compile Include="Quest\Dialog\Dialog_6_ShipStabilised.cs" />
