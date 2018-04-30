@@ -50,21 +50,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Excalibur\Building_EDSNTransponder.cs" />
-    <Compile Include="Excalibur\Dialog\Dialog_0_Generic.cs" />
-    <Compile Include="Excalibur\Dialog\Dialog_6_ShipStabilised.cs" />
-    <Compile Include="Excalibur\Dialog\Dialog_5_ExecutingBurn.cs" />
-    <Compile Include="Excalibur\Dialog\Dialog_4_NeedResources.cs" />
-    <Compile Include="Excalibur\Dialog\Dialog_3_InitialCharge.cs" />
-    <Compile Include="Excalibur\Dialog\Dialog_2_FirstContact.cs" />
-    <Compile Include="Excalibur\Dialog\Dialog_1_SignalDetection.cs" />
-    <Compile Include="Excalibur\Dialog\Dialog_Excalibur.cs" />
-    <Compile Include="Excalibur\ResearchHelper.cs" />
+    <Compile Include="Quest\Building_EDSNTransponder.cs" />
+    <Compile Include="Quest\Dialog\Dialog_0_Generic.cs" />
+    <Compile Include="Quest\Dialog\Dialog_6_ShipStabilised.cs" />
+    <Compile Include="Quest\Dialog\Dialog_5_ExecutingBurn.cs" />
+    <Compile Include="Quest\Dialog\Dialog_4_NeedResources.cs" />
+    <Compile Include="Quest\Dialog\Dialog_3_InitialCharge.cs" />
+    <Compile Include="Quest\Dialog\Dialog_2_FirstContact.cs" />
+    <Compile Include="Quest\Dialog\Dialog_1_SignalDetection.cs" />
+    <Compile Include="Quest\Dialog\Dialog_Excalibur.cs" />
+    <Compile Include="Quest\ResearchHelper.cs" />
     <Compile Include="LaserDrill\Building_LaserDrill.cs" />
     <Compile Include="LaserDrill\Building_LaserFiller.cs" />
     <Compile Include="NanoShields\Building_NanoShieldCharger.cs" />
     <Compile Include="NanoShields\CompNanoShield.cs" />
-    <Compile Include="Excalibur\GameComponent_Excalibur.cs" />
+    <Compile Include="Quest\GameComponent_Excalibur.cs" />
     <Compile Include="NanoShields\Gizmo_NanoShieldStatus.cs" />
     <Compile Include="Patch\Patch.cs" />
     <Compile Include="Patch\Patcher.cs" />

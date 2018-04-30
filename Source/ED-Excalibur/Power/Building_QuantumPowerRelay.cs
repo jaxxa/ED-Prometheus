@@ -16,9 +16,7 @@ namespace EnhancedDevelopment.Excalibur.Power
         private static readonly Material BatteryBarFilledMat = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0.9f, 0.85f, 0.2f), false);
 
         private static readonly Material BatteryBarUnfilledMat = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0.3f, 0.3f, 0.3f), false);
-
-
-
+        
         private CompPowerBattery Comp
         {
             get
@@ -63,8 +61,13 @@ namespace EnhancedDevelopment.Excalibur.Power
         {
             base.Tick();
 
-            this.Comp.AddEnergy(1);
+            this.Comp.AddEnergy(1.0f);
+            
 
+            if (this.Comp.StoredEnergy >= 100.0f)
+            {
+                this.Comp.DrawPower(100.0f);
+            }
             //Equilise Power
 
         }

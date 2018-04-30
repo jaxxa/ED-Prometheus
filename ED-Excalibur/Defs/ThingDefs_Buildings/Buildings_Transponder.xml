@@ -7,7 +7,7 @@
 		<defName>Building_Excalibur_Transponder</defName>
 		<label>Excalibur Transponder</label>
 		<description>Contacts the EDSN Excalibur.</description>
-		<thingClass>EnhancedDevelopment.Excalibur.Excalibur.Building_EDSNTransponder</thingClass>
+		<thingClass>EnhancedDevelopment.Excalibur.Quest.Building_EDSNTransponder</thingClass>
 		<researchPrerequisites>
 			<li>ED_Excalibur_AnalyseStrangeSignal</li>
 		</researchPrerequisites>

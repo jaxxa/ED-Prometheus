@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Verse;
 
-namespace EnhancedDevelopment.Excalibur.Excalibur
+namespace EnhancedDevelopment.Excalibur.Quest
 {
     static class ResearchHelper
     {

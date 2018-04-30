@@ -1,11 +1,11 @@
-﻿using EnhancedDevelopment.Excalibur.Excalibur.Dialog;
+﻿using EnhancedDevelopment.Excalibur.Quest.Dialog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Verse;
 
-namespace EnhancedDevelopment.Excalibur
+namespace EnhancedDevelopment.Excalibur.Quest
 {
     class GameComponent_Excalibur : Verse.GameComponent
     {
@@ -72,7 +72,7 @@ namespace EnhancedDevelopment.Excalibur
             {
                 case 0:
                     //TODO: Check Prerequisites - Comms Console with Power.
-                    EnhancedDevelopment.Excalibur.Excalibur.ResearchHelper.QuestUnlock("ED_Excalibur_AnalyseStrangeSignal");
+                    EnhancedDevelopment.Excalibur.Quest.ResearchHelper.QuestUnlock("ED_Excalibur_AnalyseStrangeSignal");
                     m_QuestStatus++;
                     this.ContactExcalibur();
                     break;

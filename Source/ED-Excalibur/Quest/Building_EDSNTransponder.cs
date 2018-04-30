@@ -1,11 +1,11 @@
-﻿using EnhancedDevelopment.Excalibur.Excalibur.Dialog;
+﻿using EnhancedDevelopment.Excalibur.Quest.Dialog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Verse;
 
-namespace EnhancedDevelopment.Excalibur.Excalibur
+namespace EnhancedDevelopment.Excalibur.Quest
 {
     class Building_EDSNTransponder : Building
     {

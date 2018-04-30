@@ -6,7 +6,7 @@ using Verse;
 using RimWorld;
 using UnityEngine;
 
-namespace EnhancedDevelopment.Excalibur.Excalibur.Dialog
+namespace EnhancedDevelopment.Excalibur.Quest.Dialog
 {
     class Dialog_2_FirstContact : Window
     {

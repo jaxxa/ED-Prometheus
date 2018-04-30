@@ -6,14 +6,14 @@ using Verse;
 using RimWorld;
 using UnityEngine;
 
-namespace EnhancedDevelopment.Excalibur.Excalibur.Dialog
+namespace EnhancedDevelopment.Excalibur.Quest.Dialog
 {
-    class Dialog_3_InitialCharge : Window
+    class Dialog_Excalibur : Window
     {
-        public Dialog_3_InitialCharge()
+        public Dialog_Excalibur()
         {
             this.resizeable = false;
-            this.optionalTitle = "Initial Charge";
+            this.optionalTitle = "Signal Detected";
             //this.CloseButSize = new Vector2(50, 50);
 
             this.doCloseButton = true;
@@ -41,20 +41,11 @@ namespace EnhancedDevelopment.Excalibur.Excalibur.Dialog
             }
         }
 
-        private string introText = "Charging in Progress";
+        private string introText = "EDETestString".Translate();
 
-        private void InitialWindowContents(Rect canvas)
+        private void InitialWindowContents(Rect Canvas)
         {
-
-            //Rect _CloseButtons = Canvas.BottomPartPixels(40);
-            //if (Widgets.ButtonText(_CloseButtons.RightPartPixels(100), "Close", true, true, true))
-            //{
-            //    this.Close(true);
-            //}
-
-            Rect _TextArea = canvas.TopPartPixels(canvas.height - this.CloseButSize.y);
-
-            Widgets.TextArea(_TextArea, introText, true);
+            Widgets.TextArea(Canvas, introText, true);
         }
     }
 }
