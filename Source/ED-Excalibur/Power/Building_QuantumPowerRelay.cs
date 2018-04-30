@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using EnhancedDevelopment.Excalibur.Core;
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -67,6 +68,7 @@ namespace EnhancedDevelopment.Excalibur.Power
             if (this.Comp.StoredEnergy >= 100.0f)
             {
                 this.Comp.DrawPower(100.0f);
+                GameComponent_Excalibur.Instance.Quest.AddReservePower(100.0f);
             }
             //Equilise Power
 

@@ -11,13 +11,16 @@ namespace EnhancedDevelopment.Excalibur.Core
     {
         private int m_QuestStatus = 0;
 
-        private int m_ReservesPower = 0;
+        private float m_ReservesPower = 0;
         private int m_ReservesMaterials = 0;
 
         private int SolarPannels = 2;
         private int MAX_SOLAR_PANNELS = 100;
 
-
+        public void AddReservePower(float ammount)
+        {
+            this.m_ReservesPower += ammount;
+        }
 
         public override void ExposeData()
         {
@@ -27,7 +30,7 @@ namespace EnhancedDevelopment.Excalibur.Core
 
         public override void TickOnInterval()
         {
-            Log.Message("QuestTick");
+            Log.Message("QuestTick:" + this.m_ReservesPower.ToString());
             switch (m_QuestStatus)
             {
                 case 0:
