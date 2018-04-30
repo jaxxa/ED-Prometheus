@@ -1,4 +1,5 @@
-﻿using EnhancedDevelopment.Excalibur.Quest;
+﻿using EnhancedDevelopment.Excalibur.Core;
+using EnhancedDevelopment.Excalibur.Quest;
 using EnhancedDevelopment.Excalibur.Settings;
 using RimWorld;
 using System;

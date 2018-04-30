@@ -1,4 +1,5 @@
-﻿using EnhancedDevelopment.Excalibur.Quest.Dialog;
+﻿using EnhancedDevelopment.Excalibur.Core;
+using EnhancedDevelopment.Excalibur.Quest.Dialog;
 using System;
 using System.Collections.Generic;
 using System.Linq;

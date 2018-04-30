@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using Verse;
 
-namespace EnhancedDevelopment.Excalibur.Quest
+namespace EnhancedDevelopment.Excalibur.Core
 {
     class GameComponent_Excalibur : Verse.GameComponent
     {
