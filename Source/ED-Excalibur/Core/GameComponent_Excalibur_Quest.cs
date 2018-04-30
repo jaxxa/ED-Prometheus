@@ -9,7 +9,6 @@ namespace EnhancedDevelopment.Excalibur.Core
 {
     class GameComponent_Excalibur_Quest : GameComponent_BaseClass
     {
-        //----------------Quest-----------------------
         private int m_QuestStatus = 0;
 
         private int m_ReservesPower = 0;
@@ -22,6 +21,7 @@ namespace EnhancedDevelopment.Excalibur.Core
 
         public override void ExposeData()
         {
+            Scribe_Values.Look<int>(ref this.m_QuestStatus, "m_QuestStatus");
             //throw new NotImplementedException();
         }
 
@@ -60,7 +60,7 @@ namespace EnhancedDevelopment.Excalibur.Core
                     break;
                 case 3:
                     m_QuestStatus++;
-                    Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_3_InitialCharge", "EDE_Dialog_3_InitialCharges".Translate()));
+                    Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_3_InitialCharge", "EDE_Dialog_3_InitialCharge".Translate()));
                     break;
                 case 4:
                     m_QuestStatus++;
