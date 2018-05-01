@@ -62,21 +62,23 @@ namespace EnhancedDevelopment.Excalibur.Core
                 case 2:
                     m_QuestStatus++;
                     Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_2_FirstContact", "EDE_Dialog_2_FirstContact".Translate()));
-
-                    Log.Message("Drop");
+                    
                     Building_QuantumPowerRelay _PowerBuilding = (Building_QuantumPowerRelay)ThingMaker.MakeThing(ThingDef.Named("QuantumPowerRelay"), null);
-
-                    Log.Message("Drop1");
                     List<Thing> _Things = new List<Thing>();
                     _Things.Add(_PowerBuilding);
-
-                    Log.Message("Drop2");
+                    
                     DropPodUtility.DropThingsNear(contactSource.Position, contactSource.Map, _Things);
 
                     break;
                 case 3:
-                    m_QuestStatus++;
-                    Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_3_InitialCharge", "EDE_Dialog_3_InitialCharge".Translate()));
+
+
+                    Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_3_InitialCharge", "EDE_Dialog_3_InitialCharge".Translate() + " " + this.m_ReservesPower.ToString() + " / " + "10,000"));
+
+                    if (this.m_ReservesPower > 10000.0f)
+                    {
+                        m_QuestStatus++;
+                    }
                     break;
                 case 4:
                     m_QuestStatus++;
