@@ -12,8 +12,8 @@ namespace EnhancedDevelopment.Excalibur.Settings
         public int ShieldChargeLevelMax;
 
         public int BuildingChargeDelay = 30;
-        public int BuildingChargeAmount;
-        public int BuildingReservePowerMax;
+        public int BuildingChargeAmount = 1;
+        public int BuildingReservePowerMax = 400;
 
         public override void DoSettingsWindowContents(Rect canvas)
         {
