@@ -71,8 +71,7 @@ namespace EnhancedDevelopment.Excalibur.Core
 
                     break;
                 case 3:
-
-
+                    
                     Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_3_InitialCharge", "EDE_Dialog_3_InitialCharge".Translate() + " " + this.m_ReservesPower.ToString() + " / " + "10,000"));
 
                     if (this.m_ReservesPower > 10000.0f)
@@ -81,8 +80,12 @@ namespace EnhancedDevelopment.Excalibur.Core
                     }
                     break;
                 case 4:
-                    m_QuestStatus++;
-                    Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_4_NeedResources", "EDE_Dialog_4_NeedResources".Translate()));
+                    Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_4_NeedResources", "EDE_Dialog_4_NeedResources".Translate() + " Resources " + this.m_ReservesMaterials.ToString() + " / 20"));
+                    
+                    if (this.m_ReservesMaterials > 20 )
+                    {
+                        m_QuestStatus++;
+                    }
                     break;
                 case 5:
                     m_QuestStatus++;
