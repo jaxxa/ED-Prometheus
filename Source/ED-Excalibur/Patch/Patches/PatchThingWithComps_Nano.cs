@@ -17,7 +17,7 @@ namespace EnhancedDevelopment.Excalibur.Patch.Patches
             Patcher.LogNULL(_ThingWithComps_InitializeComps, "_ThingWithComps_InitializeComps", true);
 
             //Get the Prefix Patch
-            MethodInfo _InitializeCompsPrefix = typeof(Patch).GetMethod("InitializeCompsPrefix", BindingFlags.Public | BindingFlags.Static);
+            MethodInfo _InitializeCompsPrefix = typeof(PatchThingWithComps_Nano).GetMethod("InitializeCompsPrefix", BindingFlags.Public | BindingFlags.Static);
             Patcher.LogNULL(_InitializeCompsPrefix, "_AddCompPrefix", true);
 
             //Apply the Prefix Patch
@@ -27,7 +27,7 @@ namespace EnhancedDevelopment.Excalibur.Patch.Patches
 
         protected override string PatchDescription()
         {
-            throw new NotImplementedException();
+            return "PatchThingWithComps_Nano";
         }
 
         protected override bool ShouldPatchApply()

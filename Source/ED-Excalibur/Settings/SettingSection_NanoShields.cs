@@ -11,7 +11,7 @@ namespace EnhancedDevelopment.Excalibur.Settings
     {
         public int ShieldChargeLevelMax;
 
-        public int BuildingChargeDelay;
+        public int BuildingChargeDelay = 30;
         public int BuildingChargeAmount;
         public int BuildingReservePowerMax;
 
