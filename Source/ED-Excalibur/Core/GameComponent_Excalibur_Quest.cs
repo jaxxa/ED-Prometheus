@@ -24,6 +24,11 @@ namespace EnhancedDevelopment.Excalibur.Core
             this.m_ReservesPower += ammount;
         }
 
+        public void AddReserveMaterials(int ammount)
+        {
+            this.m_ReservesMaterials += ammount;
+        }
+
         public override void ExposeData()
         {
             Scribe_Values.Look<int>(ref this.m_QuestStatus, "m_QuestStatus");

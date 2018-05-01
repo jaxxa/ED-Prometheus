@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+
+
+	<ThingDef ParentName="BuildingBase">
+		<defName>Transporter</defName>
+		<label>E.D.S.N. Transporter</label>
+		<description>Transports Resources.</description>
+		<thingClass>EnhancedDevelopment.Excalibur.Transporter.Building_Transporter</thingClass>
+		<researchPrerequisites>
+			<li>ED_Excalibur_AnalyseStrangeSignal</li>
+		</researchPrerequisites>
+		<graphicData>
+			<texPath>Things/ShieldBuilding_Red</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>
+
+		
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<designationCategory>Security</designationCategory>
+		<uiIconPath>Things/ShieldBuilding_Red</uiIconPath>
+		<specialDisplayRadius>5</specialDisplayRadius>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>1000</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+		<costList>
+		</costList>
+
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<WorkToMake>0</WorkToMake>
+			<Flammability>1.0</Flammability>
+			<Beauty>-2</Beauty>
+			<Mass>50</Mass>
+		</statBases>
+		<thingCategories>
+			<li>BuildingsSpecial</li>
+		</thingCategories>
+	</ThingDef>
+
+</Defs>

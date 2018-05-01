@@ -88,6 +88,7 @@
     <Compile Include="Shields\ShieldManagerMapComp.cs" />
     <Compile Include="Shields\Utilities\Graphics.cs" />
     <Compile Include="Shields\Utilities\VectorsUtils.cs" />
+    <Compile Include="Transporter\Building_Transporter.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
