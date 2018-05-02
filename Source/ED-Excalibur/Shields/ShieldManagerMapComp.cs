@@ -45,8 +45,10 @@ namespace EnhancedDevelopment.Excalibur.Shields
                 Log.Message("Shield:" + x.Position.ToVector3());
 
                 Log.Message("Distance: " + _Distance.ToString());
+                float _Radius = x.GetComp<Comp_ShieldBuilding>().m_Field_Radius;
 
-                if (_Distance <= x.m_Field_Radius)
+
+                if (_Distance <= _Radius)
                 {
                     return this.CorrectAngleToIntercept(projectile, x);
                 }
