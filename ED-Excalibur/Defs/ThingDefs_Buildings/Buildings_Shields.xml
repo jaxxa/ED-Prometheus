@@ -63,7 +63,7 @@
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Breakdownable"/>
 
-			<li Class="EnhancedDevelopment.Excalibur.Shields.CompProperties_ShieldBuilding">
+			<li Class="EnhancedDevelopment.Excalibur.Shields.CompProperties_ShieldGenerator">
 
 				<m_FieldIntegrity_Max>4000</m_FieldIntegrity_Max>
 				<m_FieldIntegrity_Initial>100</m_FieldIntegrity_Initial>
@@ -115,7 +115,7 @@
 			</li>
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Breakdownable"/>
-			<li Class="EnhancedDevelopment.Excalibur.Shields.CompProperties_ShieldBuilding">
+			<li Class="EnhancedDevelopment.Excalibur.Shields.CompProperties_ShieldGenerator">
 				<m_FieldIntegrity_Max>2000</m_FieldIntegrity_Max>
 				<m_FieldIntegrity_Initial>100</m_FieldIntegrity_Initial>
 				<m_Field_Radius>2</m_Field_Radius>
@@ -162,7 +162,7 @@
 			</li>
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Breakdownable"/>
-			<li Class="EnhancedDevelopment.Excalibur.Shields.CompProperties_ShieldBuilding">
+			<li Class="EnhancedDevelopment.Excalibur.Shields.CompProperties_ShieldGenerator">
 				<m_FieldIntegrity_Max>16000</m_FieldIntegrity_Max>
 				<m_FieldIntegrity_Initial>100</m_FieldIntegrity_Initial>
 				<m_Field_Radius>20</m_Field_Radius>
@@ -215,7 +215,7 @@
 			</li>
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Breakdownable"/>
-			<li Class="EnhancedDevelopment.Excalibur.Shields.CompProperties_ShieldBuilding">
+			<li Class="EnhancedDevelopment.Excalibur.Shields.CompProperties_ShieldGenerator">
 				<m_FieldIntegrity_Max>6000</m_FieldIntegrity_Max>
 				<m_FieldIntegrity_Initial>100</m_FieldIntegrity_Initial>
 				<m_Field_Radius>8</m_Field_Radius>
