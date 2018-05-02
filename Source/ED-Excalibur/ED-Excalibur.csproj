@@ -83,8 +83,8 @@
     <Compile Include="Settings\SettingSection.cs" />
     <Compile Include="Shields\Building_Shield.cs" />
     <Compile Include="Shields\CompProperties_ShieldUpgrade.cs" />
-    <Compile Include="Shields\CompProperties_ShieldBuilding.cs" />
-    <Compile Include="Shields\Comp_ShieldBuilding.cs" />
+    <Compile Include="Shields\CompProperties_ShieldGenerator.cs" />
+    <Compile Include="Shields\Comp_ShieldGenerator.cs" />
     <Compile Include="Shields\Comp_ShieldUpgrade.cs" />
     <Compile Include="Shields\EnumShieldStatus.cs" />
     <Compile Include="Shields\ShieldManagerMapComp.cs" />

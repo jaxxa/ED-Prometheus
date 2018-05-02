@@ -10,7 +10,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
 {
 
     [StaticConstructorOnStartup]
-    public class Comp_ShieldBuilding : ThingComp
+    public class Comp_ShieldGenerator : ThingComp
     {
 
 
@@ -67,7 +67,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
 
         #region Initilisation
         
-        static Comp_ShieldBuilding()
+        static Comp_ShieldGenerator()
         {
             //Setup UI
             UI_DIRECT_OFF = ContentFinder<Texture2D>.Get("UI/DirectOff", true);
@@ -88,23 +88,23 @@ namespace EnhancedDevelopment.Excalibur.Shields
             this.m_Power = this.parent.GetComp<CompPowerTrader>();
             
             //Read in variables from the custom MyThingDef
-            m_FieldIntegrity_Max = ((CompProperties_ShieldBuilding)this.props).m_FieldIntegrity_Max;
-            m_FieldIntegrity_Initial = ((CompProperties_ShieldBuilding)this.props).m_FieldIntegrity_Initial;
-            m_Field_Radius = ((CompProperties_ShieldBuilding)this.props).m_Field_Radius;
+            m_FieldIntegrity_Max = ((CompProperties_ShieldGenerator)this.props).m_FieldIntegrity_Max;
+            m_FieldIntegrity_Initial = ((CompProperties_ShieldGenerator)this.props).m_FieldIntegrity_Initial;
+            m_Field_Radius = ((CompProperties_ShieldGenerator)this.props).m_Field_Radius;
 
-            m_PowerRequired_Charging = ((CompProperties_ShieldBuilding)this.props).m_PowerRequiredCharging;
-            m_PowerRequired_Sustaining = ((CompProperties_ShieldBuilding)this.props).m_PowerRequiredSustaining;
+            m_PowerRequired_Charging = ((CompProperties_ShieldGenerator)this.props).m_PowerRequiredCharging;
+            m_PowerRequired_Sustaining = ((CompProperties_ShieldGenerator)this.props).m_PowerRequiredSustaining;
 
-            m_RechargeTickDelayInterval = ((CompProperties_ShieldBuilding)this.props).m_RechargeTickDelayInterval;
-            m_RecoverWarmupDelayTicks = ((CompProperties_ShieldBuilding)this.props).m_RecoverWarmupDelayTicks;
+            m_RechargeTickDelayInterval = ((CompProperties_ShieldGenerator)this.props).m_RechargeTickDelayInterval;
+            m_RecoverWarmupDelayTicks = ((CompProperties_ShieldGenerator)this.props).m_RecoverWarmupDelayTicks;
 
-            m_BlockIndirect_Avalable = ((CompProperties_ShieldBuilding)this.props).m_BlockIndirect_Avalable;
-            m_BlockDirect_Avalable = ((CompProperties_ShieldBuilding)this.props).m_BlockDirect_Avalable;
-            m_InterceptDropPod_Avalable = ((CompProperties_ShieldBuilding)this.props).m_InterceptDropPod_Avalable;
+            m_BlockIndirect_Avalable = ((CompProperties_ShieldGenerator)this.props).m_BlockIndirect_Avalable;
+            m_BlockDirect_Avalable = ((CompProperties_ShieldGenerator)this.props).m_BlockDirect_Avalable;
+            m_InterceptDropPod_Avalable = ((CompProperties_ShieldGenerator)this.props).m_InterceptDropPod_Avalable;
             
-            m_ColourRed = ((CompProperties_ShieldBuilding)this.props).m_ColourRed;
-            m_ColourGreen = ((CompProperties_ShieldBuilding)this.props).m_ColourGreen;
-            m_ColourBlue = ((CompProperties_ShieldBuilding)this.props).m_ColourBlue;
+            m_ColourRed = ((CompProperties_ShieldGenerator)this.props).m_ColourRed;
+            m_ColourGreen = ((CompProperties_ShieldGenerator)this.props).m_ColourGreen;
+            m_ColourBlue = ((CompProperties_ShieldGenerator)this.props).m_ColourBlue;
         }
 
         #endregion Initilisation

@@ -6,12 +6,12 @@ using Verse;
 
 namespace EnhancedDevelopment.Excalibur.Shields
 {
-    class CompProperties_ShieldBuilding : CompProperties
+    class CompProperties_ShieldGenerator : CompProperties
     {
 
-        public CompProperties_ShieldBuilding()
+        public CompProperties_ShieldGenerator()
         {
-            this.compClass = typeof(Comp_ShieldBuilding);
+            this.compClass = typeof(Comp_ShieldGenerator);
         }
 
         public int m_FieldIntegrity_Max = 0;
