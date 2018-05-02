@@ -726,7 +726,19 @@ namespace EnhancedDevelopment.Excalibur.Shields
                 }
             }
 
-
+            if (true)
+            {
+                Command_Action act = new Command_Action();
+                //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                act.action = () => this.FindUpgrades();
+                act.icon = UI_SHOW_ON;
+                act.defaultLabel = "Find Upgrades";
+                act.defaultDesc = "Find Upgrades";
+                act.activateSound = SoundDef.Named("Click");
+                //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                //act.groupKey = 689736;
+                yield return act;
+            }
         }
 
         private void SwitchDirect()
@@ -747,6 +759,11 @@ namespace EnhancedDevelopment.Excalibur.Shields
         private void SwitchVisual()
         {
             m_ShowVisually_Active = !m_ShowVisually_Active;
+        }
+
+        private void FindUpgrades()
+        {
+            Log.Message("Comps:" + this.Map.listerBuildings.allBuildingsColonist.Where(x => x.AllComps.Any(c => c as Comp_ShieldUpgrade != null)).Count().ToString());
         }
 
         #endregion
