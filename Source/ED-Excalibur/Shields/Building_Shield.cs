@@ -16,6 +16,11 @@ namespace EnhancedDevelopment.Excalibur.Shields
     [StaticConstructorOnStartup]
     public class Building_Shield : Building
     {
+        
+        public override string GetInspectString()
+        {
+            return this.GetComp<Comp_ShieldGenerator>().CompInspectStringExtra();
+        }
 
         #region Methods
 
@@ -182,18 +187,6 @@ namespace EnhancedDevelopment.Excalibur.Shields
         }*/
 
         #endregion
-
-        #region UI
-
         
-        public override string GetInspectString()
-        {
-            return this.GetComp<Comp_ShieldGenerator>().CompInspectStringExtra();
-        }
-
-
-              
-        #endregion
-
     }
 }
