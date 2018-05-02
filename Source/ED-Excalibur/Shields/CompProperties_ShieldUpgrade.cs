@@ -14,5 +14,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
             this.compClass = typeof(Comp_ShieldUpgrade);
         }
         
+        public float m_FieldIntegrity_Multiplier = 2;
+
     }
 }

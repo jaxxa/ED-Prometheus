@@ -763,9 +763,22 @@ namespace EnhancedDevelopment.Excalibur.Shields
 
         private void FindUpgrades()
         {
-            Log.Message("Comps:" + this.Map.listerBuildings.allBuildingsColonist.Where(x => x.AllComps.Any(c => c as Comp_ShieldUpgrade != null)).Count().ToString());
-        }
+            this.Map.listerBuildings.allBuildingsColonist.Where(x => x.AllComps.Any(c => c as Comp_ShieldUpgrade != null)).ToList().ForEach(b =>
+            {
+                b.AllComps.ForEach( c => {
+                    CompProperties_ShieldUpgrade _Props = c.props as CompProperties_ShieldUpgrade;
+                    if (_Props != null)
+                    {
+                        Log.Message("Found Comp, mp= " + _Props.m_FieldIntegrity_Multiplier);
 
+                    }
+                    
+                });
+
+            }
+            );
+        }
+              
         #endregion
 
         #region Saving
