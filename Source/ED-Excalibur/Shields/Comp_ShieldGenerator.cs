@@ -12,8 +12,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
     [StaticConstructorOnStartup]
     public class Comp_ShieldGenerator : ThingComp
     {
-
-
+        
         Material currentMatrialColour;
 
         #region Variables
@@ -63,8 +62,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
         CompPowerTrader m_Power;
 
         #endregion
-
-
+        
         #region Initilisation
         
         static Comp_ShieldGenerator()
@@ -368,6 +366,48 @@ namespace EnhancedDevelopment.Excalibur.Shields
 
         #region UI
 
+        public override string CompInspectStringExtra()
+        {
+            StringBuilder _StringBuilder = new StringBuilder();
+            //return base.CompInspectStringExtra();
+            _StringBuilder.Append(base.CompInspectStringExtra());
+            
+            if (this.IsActive())
+            {
+                _StringBuilder.AppendLine("Shield: " + this.FieldIntegrity_Current + "/" + this.m_FieldIntegrity_Max);
+            }
+            else if (this.CurrentStatus == EnumShieldStatus.Initilising)
+            {
+                //stringBuilder.AppendLine("Initiating shield: " + ((warmupTicks * 100) / recoverWarmup) + "%");
+                _StringBuilder.AppendLine("Ready in " + Math.Round(GenTicks.TicksToSeconds(m_WarmupTicksRemaining)) + " seconds.");
+                //stringBuilder.AppendLine("Ready in " + m_warmupTicksCurrent + " seconds.");
+            }
+            else
+            {
+                _StringBuilder.AppendLine("Shield disabled!");
+            }
+
+            if (m_Power != null)
+            {
+                string text = m_Power.CompInspectStringExtra();
+                if (!text.NullOrEmpty())
+                {
+                    _StringBuilder.Append(text);
+                }
+                else
+                {
+                    _StringBuilder.Append("Error, No Power Comp Text.");
+                }
+            }
+            else
+            {
+                _StringBuilder.Append("Error, No Power Comp.");
+            }
+            
+            return _StringBuilder.ToString();
+
+        }
+
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
             //return base.CompGetGizmosExtra();
@@ -551,8 +591,6 @@ namespace EnhancedDevelopment.Excalibur.Shields
             m_ShowVisually_Active = !m_ShowVisually_Active;
         }
 
-        #endregion UI
-
         private void FindUpgrades()
         {
             this.parent.Map.listerBuildings.allBuildingsColonist.Where(x => x.AllComps.Any(c => c as Comp_ShieldUpgrade != null)).ToList().ForEach(b =>
@@ -571,6 +609,8 @@ namespace EnhancedDevelopment.Excalibur.Shields
             );
         }
 
+        #endregion UI
+        
         #region DataAcess
 
         public override void PostExposeData()

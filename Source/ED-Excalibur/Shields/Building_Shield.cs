@@ -185,45 +185,11 @@ namespace EnhancedDevelopment.Excalibur.Shields
 
         #region UI
 
-        /*
+        
         public override string GetInspectString()
         {
-            StringBuilder stringBuilder = new StringBuilder();
-
-            if (this.IsActive())
-            {
-                stringBuilder.AppendLine("Shield: " + this.FieldIntegrity_Current + "/" + this.m_FieldIntegrity_Max);
-            }
-            else if (this.CurrentStatus == EnumShieldStatus.Initilising)
-            {
-                //stringBuilder.AppendLine("Initiating shield: " + ((warmupTicks * 100) / recoverWarmup) + "%");
-                stringBuilder.AppendLine("Ready in " + Math.Round(GenTicks.TicksToSeconds(m_WarmupTicksRemaining)) + " seconds.");
-                //stringBuilder.AppendLine("Ready in " + m_warmupTicksCurrent + " seconds.");
-            }
-            else
-            {
-                stringBuilder.AppendLine("Shield disabled!");
-            }
-
-            if (m_Power != null)
-            {
-                string text = m_Power.CompInspectStringExtra();
-                if (!text.NullOrEmpty())
-                {
-                    stringBuilder.Append(text);
-                }
-                else
-                {
-                    stringBuilder.Append("Error, No Power Comp Text.");
-                }
-            }
-            else
-            {
-                stringBuilder.Append("Error, No Power Comp.");
-            }
-
-            return stringBuilder.ToString();
-        }*/
+            return this.GetComp<Comp_ShieldGenerator>().CompInspectStringExtra();
+        }
 
 
               
