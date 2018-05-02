@@ -16,46 +16,6 @@ namespace EnhancedDevelopment.Excalibur.Shields
     [StaticConstructorOnStartup]
     public class Building_Shield : Building
     {
-        
-
-        //Ratio of lost power per damage
-        //private const float powerToDamage = 1f;
-
-        //Hit sound
-        //public static readonly SoundDef HitSoundDef = SoundDef.Named("Shields_HitShield");
-        
-
-
-        #region Properties
-
-
-        #endregion
-
-        #region Initilisation
-
-        //Constructor
-
-        static Building_Shield()
-        {
- 
-        }
-
-        //Dummy override
-        //This is called before Spawn Setup.
-        public override void PostMake()
-        {
-            base.PostMake();
-            //Log.Message("PM");
-        }
-
-        //On spawn, get the power component reference
-        public override void SpawnSetup(Map map, bool respawningAfterLoad)
-        {
-            //Log.Message("SS");
-
-            base.SpawnSetup(map, respawningAfterLoad);
-        }
-        #endregion
 
         #region Methods
 
@@ -220,17 +180,6 @@ namespace EnhancedDevelopment.Excalibur.Shields
                 }
             }
         }*/
-
-        #endregion
-
-        #region Drawing
-
-        public override void Draw()
-        {
-            base.Draw();
-           // this.DrawShields();
-        }
-
 
         #endregion
 
