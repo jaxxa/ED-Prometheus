@@ -6,35 +6,34 @@ using Verse;
 
 namespace EnhancedDevelopment.Excalibur.Shields
 {
-    class CompProperties_ShieldGenerator : CompProperties
+    public class CompProperties_ShieldGenerator : CompProperties
     {
 
         public CompProperties_ShieldGenerator()
         {
             this.compClass = typeof(Comp_ShieldGenerator);
         }
-
-        public int m_FieldIntegrity_Max = 0;
+        
+        //Field Settings
         public int m_FieldIntegrity_Initial = 0;
-        public int m_Field_Radius = 0;
+        public int m_FieldIntegrity_Max_Base = 0;
+        public int m_Field_Radius_Base = 0;
 
-        public int m_PowerRequiredCharging = 0;
-        public int m_PowerRequiredSustaining = 0;
+        //Power Settings
+        public int m_PowerRequiredCharging_Base = 0;
+        public int m_PowerRequiredSustaining_Base = 0;
 
-        public int m_RechargeTickDelayInterval = 0;
-        public int m_RecoverWarmupDelayTicks = 0;
+        //Recovery Settings
+        public int m_RechargeTickDelayInterval_Base = 0; //Global Constant?
+        public int m_RechargeAmmount_Base = 1;
+        public int m_RecoverWarmupDelayTicks_Base = 0;
 
-        public bool m_BlockIndirect_Avalable = false;
+        //Mode Selections
         public bool m_BlockDirect_Avalable = false;
-        public bool m_FireSupression_Avalable = false;
+        public bool m_BlockIndirect_Avalable = false;
         public bool m_InterceptDropPod_Avalable = false;
-
         public bool m_StructuralIntegrityMode = false;
-
-        public float m_ColourRed = 0.0f;
-        public float m_ColourGreen = 0.0f;
-        public float m_ColourBlue = 0.0f;
-
-        public List<string> SIFBuildings = new List<string>();
+        
+       // public List<string> SIFBuildings = new List<string>(); // Move to Global List.
     }
 }

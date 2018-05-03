@@ -12,8 +12,10 @@ namespace EnhancedDevelopment.Excalibur.Shields
     [StaticConstructorOnStartup]
     public class Comp_ShieldGenerator : ThingComp
     {
-        
+
         Material currentMatrialColour;
+
+        public CompProperties_ShieldGenerator Properties;
 
         #region Variables
 
@@ -30,41 +32,46 @@ namespace EnhancedDevelopment.Excalibur.Shields
         private static Texture2D UI_SHOW_ON;
         private static Texture2D UI_SHOW_OFF;
 
-        //Default all flasgs to be shown initially
-        protected bool m_BlockIndirect_Active = true;
-        protected bool m_BlockDirect_Active = true;
-        protected bool m_ShowVisually_Active = true;
-        protected bool m_InterceptDropPod_Active = true;
-
-        //Variables to store what modes the shield have avalable.
-        protected bool m_BlockIndirect_Avalable;
-        protected bool m_BlockDirect_Avalable;
-        protected bool m_InterceptDropPod_Avalable;
-
-        //variables that are read in from XML
-        private int m_FieldIntegrity_Max;
-        private int m_FieldIntegrity_Initial;
-        public int m_Field_Radius;
-
-        private int m_PowerRequired_Charging;
-        private int m_PowerRequired_Sustaining;
-
-        private int m_RechargeTickDelayInterval;
-        private int m_RecoverWarmupDelayTicks;
-
+        //Visual Settings
+        private bool m_ShowVisually_Active = true;
         private float m_ColourRed;
         private float m_ColourGreen;
         private float m_ColourBlue;
 
-        private int m_WarmupTicksRemaining = 0;
-        private long m_TickCount = 0;
+        //Mode Settings - Active
+        private bool m_BlockIndirect_Active;
+        private bool m_BlockDirect_Active;
+        private bool m_InterceptDropPod_Active;
 
+        //Mode Settings - Avalable
+        private bool m_BlockIndirect_Avalable;
+        private bool m_BlockDirect_Avalable;
+        private bool m_InterceptDropPod_Avalable;
+
+        //Field Settings
+        private int m_FieldIntegrity_Max;
+        private int m_FieldIntegrity_Initial;
+        public int m_Field_Radius;
+
+        //Power Settings
+        private int m_PowerRequired_Charging;
+        private int m_PowerRequired_Sustaining;
+
+        //Recovery Settings
+        private int m_RechargeTickDelayInterval;
+        private int m_RecoverWarmupDelayTicks;
+        private int m_WarmupTicksRemaining;
+
+        //private long m_TickCount = 0;
+
+        //Comp, found each time.
         CompPowerTrader m_Power;
 
-        #endregion
-        
+        #endregion Variables
+
         #region Initilisation
-        
+
+        //Static Construtor
         static Comp_ShieldGenerator()
         {
             //Setup UI
@@ -82,27 +89,46 @@ namespace EnhancedDevelopment.Excalibur.Shields
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
             base.PostSpawnSetup(respawningAfterLoad);
-            
+
+            this.Properties = ((CompProperties_ShieldGenerator)this.props);
             this.m_Power = this.parent.GetComp<CompPowerTrader>();
-            
-            //Read in variables from the custom MyThingDef
-            m_FieldIntegrity_Max = ((CompProperties_ShieldGenerator)this.props).m_FieldIntegrity_Max;
-            m_FieldIntegrity_Initial = ((CompProperties_ShieldGenerator)this.props).m_FieldIntegrity_Initial;
-            m_Field_Radius = ((CompProperties_ShieldGenerator)this.props).m_Field_Radius;
 
-            m_PowerRequired_Charging = ((CompProperties_ShieldGenerator)this.props).m_PowerRequiredCharging;
-            m_PowerRequired_Sustaining = ((CompProperties_ShieldGenerator)this.props).m_PowerRequiredSustaining;
+            this.RecalculateStatistics();
+        }
 
-            m_RechargeTickDelayInterval = ((CompProperties_ShieldGenerator)this.props).m_RechargeTickDelayInterval;
-            m_RecoverWarmupDelayTicks = ((CompProperties_ShieldGenerator)this.props).m_RecoverWarmupDelayTicks;
+        private void RecalculateStatistics()
+        {
 
-            m_BlockIndirect_Avalable = ((CompProperties_ShieldGenerator)this.props).m_BlockIndirect_Avalable;
-            m_BlockDirect_Avalable = ((CompProperties_ShieldGenerator)this.props).m_BlockDirect_Avalable;
-            m_InterceptDropPod_Avalable = ((CompProperties_ShieldGenerator)this.props).m_InterceptDropPod_Avalable;
-            
-            m_ColourRed = ((CompProperties_ShieldGenerator)this.props).m_ColourRed;
-            m_ColourGreen = ((CompProperties_ShieldGenerator)this.props).m_ColourGreen;
-            m_ColourBlue = ((CompProperties_ShieldGenerator)this.props).m_ColourBlue;
+            //Visual Settings
+            this.m_ShowVisually_Active = true;
+            this.m_ColourRed = 0.5f;
+            this.m_ColourGreen = 0.0f;
+            this.m_ColourBlue = 0.5f;
+
+            //Mode Settings - Active
+            this.m_BlockIndirect_Active = this.Properties.m_BlockIndirect_Avalable;
+            this.m_BlockDirect_Active = this.Properties.m_BlockIndirect_Avalable;
+            this.m_InterceptDropPod_Active = this.Properties.m_InterceptDropPod_Avalable;
+
+            //Mode Settings - Avalable
+            this.m_BlockIndirect_Avalable = this.Properties.m_BlockIndirect_Avalable;
+            this.m_BlockDirect_Avalable = this.Properties.m_BlockDirect_Avalable;
+            this.m_InterceptDropPod_Avalable = this.Properties.m_InterceptDropPod_Avalable;
+
+            //Field Settings
+            this.m_FieldIntegrity_Max = this.Properties.m_FieldIntegrity_Max_Base;
+            this.m_FieldIntegrity_Initial = this.Properties.m_FieldIntegrity_Initial;
+            this.m_Field_Radius = this.Properties.m_Field_Radius_Base;
+
+            //Power Settings
+            this.m_PowerRequired_Charging = this.Properties.m_PowerRequiredCharging_Base;
+            this.m_PowerRequired_Sustaining = this.Properties.m_PowerRequiredSustaining_Base;
+
+            //Recovery Settings
+            this.m_RechargeTickDelayInterval = this.Properties.m_RechargeTickDelayInterval_Base;
+            this.m_RecoverWarmupDelayTicks = this.Properties.m_RecoverWarmupDelayTicks_Base;
+            this.m_WarmupTicksRemaining = this.Properties.m_RecoverWarmupDelayTicks_Base; // Dont do this???
+
         }
 
         #endregion Initilisation
@@ -112,11 +138,11 @@ namespace EnhancedDevelopment.Excalibur.Shields
         public override void CompTick()
         {
             base.CompTick();
-            
+
             this.UpdateShieldStatus();
 
             this.TickRecharge();
-            
+
         }
 
 
@@ -310,7 +336,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
 
 
         }
-        
+
         /// <summary>
         /// Draw the shield Field
         /// </summary>
@@ -320,7 +346,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
             //{
             //    return;
             //}
-            
+
             //Draw field
             this.DrawField(EnhancedDevelopment.Excalibur.Shields.Utilities.VectorsUtils.IntVecToVec(this.parent.Position));
 
@@ -339,8 +365,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
         //Draw the field on map
         public void DrawField(Vector3 center)
         {
-            DrawSubField(center, 10);
-            //DrawSubField(center, m_Field_Radius);
+            DrawSubField(center, this.m_Field_Radius);
         }
 
         public void DrawSubField(Vector3 position, float shieldShieldRadius)
@@ -354,8 +379,8 @@ namespace EnhancedDevelopment.Excalibur.Shields
             if (currentMatrialColour == null)
             {
                 //Log.Message("Creating currentMatrialColour");
-               // currentMatrialColour = SolidColorMaterials.NewSolidColorMaterial(new Color(m_ColourRed, m_ColourGreen, m_ColourBlue, 0.15f), ShaderDatabase.MetaOverlay);
-                currentMatrialColour = SolidColorMaterials.NewSolidColorMaterial(new Color(0.5f, 0.0f, 0.0f, 0.15f), ShaderDatabase.MetaOverlay);
+                 currentMatrialColour = SolidColorMaterials.NewSolidColorMaterial(new Color(m_ColourRed, m_ColourGreen, m_ColourBlue, 0.15f), ShaderDatabase.MetaOverlay);
+                //currentMatrialColour = SolidColorMaterials.NewSolidColorMaterial(new Color(0.5f, 0.0f, 0.0f, 0.15f), ShaderDatabase.MetaOverlay);
             }
 
             UnityEngine.Graphics.DrawMesh(EnhancedDevelopment.Excalibur.Shields.Utilities.Graphics.CircleMesh, matrix, currentMatrialColour, 0);
@@ -371,7 +396,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
             StringBuilder _StringBuilder = new StringBuilder();
             //return base.CompInspectStringExtra();
             _StringBuilder.Append(base.CompInspectStringExtra());
-            
+
             if (this.IsActive())
             {
                 _StringBuilder.AppendLine("Shield: " + this.FieldIntegrity_Current + "/" + this.m_FieldIntegrity_Max);
@@ -403,7 +428,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
             {
                 _StringBuilder.Append("Error, No Power Comp.");
             }
-            
+
             return _StringBuilder.ToString();
 
         }
@@ -417,7 +442,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
             {
                 yield return g;
             }
-            
+
             //Find Upgrades
             if (true)
             {
@@ -570,7 +595,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
 
 
         } //CompGetGizmosExtra()
-        
+
         private void SwitchDirect()
         {
             m_BlockIndirect_Active = !m_BlockIndirect_Active;
@@ -595,7 +620,8 @@ namespace EnhancedDevelopment.Excalibur.Shields
         {
             this.parent.Map.listerBuildings.allBuildingsColonist.Where(x => x.AllComps.Any(c => c as Comp_ShieldUpgrade != null)).ToList().ForEach(b =>
             {
-                b.AllComps.ForEach(c => {
+                b.AllComps.ForEach(c =>
+                {
                     CompProperties_ShieldUpgrade _Props = c.props as CompProperties_ShieldUpgrade;
                     if (_Props != null)
                     {
@@ -610,7 +636,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
         }
 
         #endregion UI
-        
+
         #region DataAcess
 
         public override void PostExposeData()
