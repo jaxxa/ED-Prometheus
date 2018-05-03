@@ -96,7 +96,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
             this.RecalculateStatistics();
         }
 
-        private void RecalculateStatistics()
+        public void RecalculateStatistics()
         {
 
             //Visual Settings
@@ -127,7 +127,21 @@ namespace EnhancedDevelopment.Excalibur.Shields
             //Recovery Settings
             this.m_RechargeTickDelayInterval = this.Properties.m_RechargeTickDelayInterval_Base;
             this.m_RecoverWarmupDelayTicks = this.Properties.m_RecoverWarmupDelayTicks_Base;
-            this.m_WarmupTicksRemaining = this.Properties.m_RecoverWarmupDelayTicks_Base; // Dont do this???
+            //this.m_WarmupTicksRemaining = this.Properties.m_RecoverWarmupDelayTicks_Base; // Dont do this???
+
+
+           parent.Map.listerBuildings.allBuildingsColonist.ForEach(_B => {
+               Comp_ShieldUpgrade _Comp = _B.GetComp<Comp_ShieldUpgrade>();
+               if (_Comp != null)
+               {
+                   this.m_FieldIntegrity_Max += 250;
+               }
+               
+           });
+
+
+
+
 
         }
 
