@@ -42,7 +42,7 @@ namespace EnhancedDevelopment.Excalibur.Core
             {
                 case 0:
                     //TODO: Check Prerequisites - Comms Console with Power.
-                    EnhancedDevelopment.Excalibur.Quest.ResearchHelper.QuestUnlock("ED_Excalibur_AnalyseStrangeSignal");
+                    EnhancedDevelopment.Excalibur.Quest.ResearchHelper.QuestUnlock("Research_ED_Excalibur_AnalyseStrangeSignal");
                     m_QuestStatus++;
                     this.ContactExcalibur();
                     break;

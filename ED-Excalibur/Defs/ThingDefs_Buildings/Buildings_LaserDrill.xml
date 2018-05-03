@@ -40,9 +40,9 @@
 			<Flammability>1.0</Flammability>
 			<Mass>50</Mass>
 		</statBases>
-    <thingCategories>
-      <li>BuildingsSpecial</li>
-    </thingCategories>
+		<thingCategories>
+			<li>BuildingsSpecial</li>
+		</thingCategories>
 		<description>Mines out rock to create a large hole through to the steam networks below the planets surface.</description>
 		<building>
 			<wantsHopperAdjacent>false</wantsHopperAdjacent>
@@ -53,8 +53,8 @@
 				<basePowerConsumption>1200</basePowerConsumption>
 				<transmitsPower>true</transmitsPower>
 			</li>
-      <li Class="CompProperties_Flickable"/>
-      <li Class="CompProperties_Breakdownable"/>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
 		</comps>
 		<size>(6,6)</size>
 		<costList>
@@ -67,7 +67,7 @@
 		<designationCategory>Power</designationCategory>
 		<staticSunShadowHeight>0.75</staticSunShadowHeight>
 		<researchPrerequisites>
-			<li>Research_LaserSteamGeyser_Drill</li>
+			<li>Research_ED_LaserSteamGeyser_Drill</li>
 		</researchPrerequisites>
 		<minifiedDef>MinifiedThing</minifiedDef>
 	</ThingDef>
@@ -94,9 +94,9 @@
 			<Beauty>-40</Beauty>
 			<Mass>50</Mass>
 		</statBases>
-    <thingCategories>
-      <li>BuildingsSpecial</li>
-    </thingCategories>
+		<thingCategories>
+			<li>BuildingsSpecial</li>
+		</thingCategories>
 		<tickerType>Rare</tickerType>
 		<description>Removes a nearby SteamGeyser by filling it with rock and melting that rock with a laser to create a buildable surface</description>
 		<size>(3,3)</size>
@@ -113,8 +113,8 @@
 				<basePowerConsumption>1200</basePowerConsumption>
 				<transmitsPower>true</transmitsPower>
 			</li>
-      <li Class="CompProperties_Flickable"/>
-      <li Class="CompProperties_Breakdownable"/>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
 		</comps>
 		<rotatable>false</rotatable>
 		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
@@ -124,7 +124,7 @@
 			<soundAmbient>GeothermalPlant_Ambience</soundAmbient>
 		</building>
 		<researchPrerequisites>
-			<li>Research_LaserSteamGeyser_Filler</li>
+			<li>Research_ED_LaserSteamGeyser_Filler</li>
 		</researchPrerequisites>
 		<minifiedDef>MinifiedThing</minifiedDef>
 	</ThingDef>

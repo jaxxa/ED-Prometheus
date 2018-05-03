@@ -1,43 +1,61 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-	
+
+
 	<ResearchProjectDef>
-		<defName>Research_MK1_Replicator</defName>
+		<defName>Research_ED_OmniGel</defName>
+		<label>Omni Gel</label>
+		<description>Allows you to build the MK1 Replicator, which can transform Omni-Gel into Slag or Rock.</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Spacer</techLevel>
+		<prerequisites>
+			<li>Research_ED_Excalibur_Fabrication</li>
+		</prerequisites>
+		<tab>EDSN-Excalibur</tab>
+		<researchViewX>2</researchViewX>
+		<researchViewY>1</researchViewY>
+	</ResearchProjectDef>
+
+
+	<ResearchProjectDef>
+		<defName>Research_ED_Replicator_MK1</defName>
 		<label>Mark 1 Replicator</label>
 		<description>Allows you to build the MK1 Replicator, which can transform Omni-Gel into Slag or Rock.</description>
 		<baseCost>1000</baseCost>
 		<techLevel>Spacer</techLevel>
-		<prerequisites/>
+		<prerequisites>
+			<li>Research_ED_OmniGel</li>
+		</prerequisites>
 		<tab>EDSN-Excalibur</tab>
-		<researchViewX>0</researchViewX>
-		<researchViewY>3</researchViewY>
+		<researchViewX>3</researchViewX>
+		<researchViewY>1</researchViewY>
 	</ResearchProjectDef>
 
 	<ResearchProjectDef>
-		<defName>Research_MK2_Replicator</defName>
+		<defName>Research_ED_Replicator_MK2</defName>
 		<label>Mark 2 Replicator</label>
 		<description>Allows you to build the MK2 Replicator, which can transform Omni-Gel into Metal or Silver.</description>
 		<baseCost>2000</baseCost>
 		<techLevel>Spacer</techLevel>
 		<tab>EDSN-Excalibur</tab>
-		<researchViewX>1</researchViewX>
-		<researchViewY>3</researchViewY>
+		<researchViewX>4</researchViewX>
+		<researchViewY>1</researchViewY>
 		<prerequisites>
-			<li>Research_MK1_Replicator</li>
+			<li>Research_ED_Replicator_MK1</li>
 		</prerequisites>
 	</ResearchProjectDef>
 
 	<ResearchProjectDef>
-		<defName>Research_MK3_Replicator</defName>
+		<defName>Research_ED_Replicator_MK3</defName>
 		<label>Mark 3 Replicator</label>
 		<description>Allows you to build the MK3 Replicator, which can transform Omni-Gel into Uranium, Shells or Medicine.</description>
 		<baseCost>3000</baseCost>
 		<techLevel>Spacer</techLevel>
 		<tab>EDSN-Excalibur</tab>
-		<researchViewX>2</researchViewX>
-		<researchViewY>3</researchViewY>
+		<researchViewX>5</researchViewX>
+		<researchViewY>1</researchViewY>
 		<prerequisites>
-			<li>Research_MK2_Replicator</li>
+			<li>Research_ED_Replicator_MK2</li>
 		</prerequisites>
 	</ResearchProjectDef>
 

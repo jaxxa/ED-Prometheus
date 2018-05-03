@@ -47,7 +47,7 @@
 		<label>Standard Shield</label>
 		<description>Creates shield field to protect important infrastructure.</description>
 		<researchPrerequisites>
-			<li>Building_ShieldStandard_research</li>
+			<li>Research_ED_ShieldGenerators</li>
 		</researchPrerequisites>
 		<graphicData>
 			<texPath>Things/ShieldBuilding_Blue</texPath>

@@ -30,7 +30,7 @@
 			<drawSize>(3,1)</drawSize>
 		</graphicData>
 		<researchPrerequisites>
-			<li>Research_MK1_Replicator</li>
+			<li>Research_ED_Replicator_MK1</li>
 		</researchPrerequisites>
 		<costList>
 			<Component>2</Component>
@@ -86,7 +86,7 @@
 			<drawSize>(3,1)</drawSize>
 		</graphicData>
 		<researchPrerequisites>
-			<li>Research_MK2_Replicator</li>
+			<li>Research_ED_Replicator_MK2</li>
 		</researchPrerequisites>
 		<costList>
 			<Component>4</Component>
@@ -138,7 +138,7 @@
 			<drawSize>(3,1)</drawSize>
 		</graphicData>
 		<researchPrerequisites>
-			<li>Research_MK3_Replicator</li>
+			<li>Research_ED_Replicator_MK3</li>
 		</researchPrerequisites>
 		<costList>
 			<Component>4</Component>

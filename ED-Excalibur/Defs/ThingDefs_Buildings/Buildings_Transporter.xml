@@ -9,7 +9,7 @@
 		<description>Transports Resources.</description>
 		<thingClass>EnhancedDevelopment.Excalibur.Transporter.Building_Transporter</thingClass>
 		<researchPrerequisites>
-			<li>ED_Excalibur_AnalyseStrangeSignal</li>
+			<li>Research_ED_Excalibur_AnalyseStrangeSignal</li>
 		</researchPrerequisites>
 		<graphicData>
 			<texPath>Things/ShieldBuilding_Red</texPath>
