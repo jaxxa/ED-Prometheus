@@ -24,7 +24,7 @@
 		<castEdgeShadows>true</castEdgeShadows>
 		<fillPercent>0.5</fillPercent>
 		<designationHotKey>Misc4</designationHotKey>
-		<designationCategory>Misc</designationCategory>
+		<designationCategory>Security</designationCategory>
 		<minifiedDef>MinifiedThing</minifiedDef>
 		<canOverlapZones>false</canOverlapZones>
 		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
@@ -43,18 +43,17 @@
 			<Gold>20</Gold>
 		</costList>
 		<comps>
+			<li Class="CompProperties_AffectedByFacilities">
+				<linkableFacilities>
+					<li>Building_ShieldStandard</li>
+				</linkableFacilities>
+			</li>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
 				<shortCircuitInRain>true</shortCircuitInRain>
 				<basePowerConsumption>200</basePowerConsumption>
 			</li>
 			<li Class="CompProperties_Flickable"/>
-			<li Class="CompProperties_Facility">
-				<statOffsets>
-					<ResearchSpeedFactor>0.1</ResearchSpeedFactor>
-				</statOffsets>
-				<maxSimultaneous>1</maxSimultaneous>
-			</li>
 			<li Class="EnhancedDevelopment.Excalibur.Shields.CompProperties_ShieldUpgrade">
 				<m_FieldIntegrity_Multiplier>5</m_FieldIntegrity_Multiplier>
 			</li>

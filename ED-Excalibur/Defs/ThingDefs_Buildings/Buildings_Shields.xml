@@ -62,7 +62,9 @@
 			</li>
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Breakdownable"/>
-
+			<li Class="CompProperties_Facility">
+				<maxSimultaneous>1</maxSimultaneous>
+			</li>
 			<li Class="EnhancedDevelopment.Excalibur.Shields.CompProperties_ShieldGenerator">
 
 				<m_FieldIntegrity_Initial>100</m_FieldIntegrity_Initial>
@@ -81,7 +83,7 @@
 				<m_BlockDirect_Avalable>true</m_BlockDirect_Avalable>
 				<m_InterceptDropPod_Avalable>false</m_InterceptDropPod_Avalable>
 				<m_StructuralIntegrityMode>false</m_StructuralIntegrityMode>
-				
+
 			</li>
 		</comps>
 	</ThingDef>
