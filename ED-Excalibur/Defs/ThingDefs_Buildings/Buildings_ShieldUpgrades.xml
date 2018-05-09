@@ -48,14 +48,11 @@
 					<li>Building_ShieldStandard</li>
 				</linkableFacilities>
 			</li>
-			<li Class="CompProperties_Power">
-				<compClass>CompPowerTrader</compClass>
-				<shortCircuitInRain>true</shortCircuitInRain>
-				<basePowerConsumption>200</basePowerConsumption>
-			</li>
 			<li Class="CompProperties_Flickable"/>
 			<li Class="EnhancedDevelopment.Excalibur.Shields.CompProperties_ShieldUpgrade">
 				<FieldIntegrity_Increase>255</FieldIntegrity_Increase>
+				<Range_Increase>5</Range_Increase>
+				<PowerUsage_Increase>500</PowerUsage_Increase>
 			</li>
 		</comps>
 		<placeWorkers>

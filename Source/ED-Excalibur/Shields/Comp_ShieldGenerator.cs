@@ -129,45 +129,60 @@ namespace EnhancedDevelopment.Excalibur.Shields
             this.m_RechargeTickDelayInterval = this.Properties.m_RechargeTickDelayInterval_Base;
             this.m_RecoverWarmupDelayTicks = this.Properties.m_RecoverWarmupDelayTicks_Base;
             //this.m_WarmupTicksRemaining = this.Properties.m_RecoverWarmupDelayTicks_Base; // Dont do this???
-            
 
-           //Store the List of Building in initilisation????
+
+            //Store the List of Building in initilisation????
 
             CompFacility _Facility = this.parent.GetComp<CompFacility>();
             Patch.Patcher.LogNULL(_Facility, "_Facility");
 
             FieldInfo _LinkedBuildingsInfo = typeof(CompFacility).GetField("linkedBuildings", BindingFlags.NonPublic | BindingFlags.Instance);
             Patch.Patcher.LogNULL(_LinkedBuildingsInfo, "_LinkedBuildingsInfo");
-            
+
             List<Thing> _LinkedBuildings = _LinkedBuildingsInfo.GetValue(_Facility) as List<Thing>;
             Patch.Patcher.LogNULL(_LinkedBuildings, "_LinkedBuildings");
-            
+
             //Log.Message(_LinkedBuildings.Count.ToString());
 
 
-            _LinkedBuildings.ForEach(b => {
+            _LinkedBuildings.ForEach(b =>
+            {
                 Building _Building = b as Building;
                 Comp_ShieldUpgrade _Comp = _Building.GetComp<Comp_ShieldUpgrade>();
 
                 Patch.Patcher.LogNULL(_Comp, "_Comp");
                 Patch.Patcher.LogNULL(_Comp.Properties, "_Comp.Properties");
 
-                this.m_FieldIntegrity_Max += _Comp.Properties.FieldIntegrity_Increase;
+                this.AddStatsFromUpgrade(_Comp);
 
                 //Patch.Patcher.LogNULL(_Comp, "_Comp");
                 //Log.Message(_Comp.SecretTestoValue);
 
             });
 
+        }
 
-            //parent.Map.listerBuildings.allBuildingsColonist.ForEach(_B => {
-            //    Comp_ShieldUpgrade _Comp = _B.GetComp<Comp_ShieldUpgrade>();
-            //    if (_Comp != null)
-            //    {
-            //        this.m_FieldIntegrity_Max += 250;
-            //    }
+        private void AddStatsFromUpgrade(Comp_ShieldUpgrade comp)
+        {
 
-            //});
+            this.m_FieldIntegrity_Max += comp.Properties.FieldIntegrity_Increase;
+            this.m_Power.powerOutputInt -= comp.Properties.PowerUsage_Increase;
+            this.m_Field_Radius += comp.Properties.Range_Increase;
+
+            if (comp.Properties.DropPodIntercept)
+            {
+                this.m_InterceptDropPod_Avalable = true;
+            }
+
+            if (comp.Properties.SIFMode)
+            {
+                //this.sif = true;
+            }
+
+            if (comp.Properties.SlowDischarge)
+            {
+                //this.m_InterceptDropPod_Avalable = true;
+            }
 
         }
 
@@ -185,8 +200,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
 
             this.RecalculateStatistics();
         }
-
-
+        
         public void UpdateShieldStatus()
         {
             Boolean _PowerAvalable = this.CheckPowerOn();
@@ -272,7 +286,6 @@ namespace EnhancedDevelopment.Excalibur.Shields
             }
         }
 
-
         public bool IsActive()
         {
             //return true;
@@ -293,8 +306,6 @@ namespace EnhancedDevelopment.Excalibur.Shields
             return false;
         }
 
-
-
         public void TickRecharge()
         {
             if (Find.TickManager.TicksGame % this.m_RechargeTickDelayInterval == 0)
@@ -310,12 +321,10 @@ namespace EnhancedDevelopment.Excalibur.Shields
             }
         }
 
-
         #endregion Methods
 
         #region Properties
-
-
+        
         public EnumShieldStatus CurrentStatus
         {
             get
@@ -420,7 +429,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
             if (currentMatrialColour == null)
             {
                 //Log.Message("Creating currentMatrialColour");
-                 currentMatrialColour = SolidColorMaterials.NewSolidColorMaterial(new Color(m_ColourRed, m_ColourGreen, m_ColourBlue, 0.15f), ShaderDatabase.MetaOverlay);
+                currentMatrialColour = SolidColorMaterials.NewSolidColorMaterial(new Color(m_ColourRed, m_ColourGreen, m_ColourBlue, 0.15f), ShaderDatabase.MetaOverlay);
                 //currentMatrialColour = SolidColorMaterials.NewSolidColorMaterial(new Color(0.5f, 0.0f, 0.0f, 0.15f), ShaderDatabase.MetaOverlay);
             }
 
@@ -483,21 +492,6 @@ namespace EnhancedDevelopment.Excalibur.Shields
             {
                 yield return g;
             }
-
-            //Find Upgrades
-            //if (true)
-            //{
-            //    Command_Action act = new Command_Action();
-            //    //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
-            //    act.action = () => this.FindUpgrades();
-            //    //act.icon = UI_SHOW_ON;
-            //    act.defaultLabel = "Find Upgrades";
-            //    act.defaultDesc = "Find Upgrades";
-            //    act.activateSound = SoundDef.Named("Click");
-            //    //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
-            //    //act.groupKey = 689736;
-            //    yield return act;
-            //}
 
             if (m_BlockDirect_Avalable)
             {
@@ -657,25 +651,6 @@ namespace EnhancedDevelopment.Excalibur.Shields
             m_ShowVisually_Active = !m_ShowVisually_Active;
         }
 
-        //private void FindUpgrades()
-        //{
-        //    this.parent.Map.listerBuildings.allBuildingsColonist.Where(x => x.AllComps.Any(c => c as Comp_ShieldUpgrade != null)).ToList().ForEach(b =>
-        //    {
-        //        b.AllComps.ForEach(c =>
-        //        {
-        //            CompProperties_ShieldUpgrade _Props = c.props as CompProperties_ShieldUpgrade;
-        //            if (_Props != null)
-        //            {
-        //                Log.Message("Found Comp, mp= " + _Props.m_FieldIntegrity_Multiplier);
-
-        //            }
-
-        //        });
-
-        //    }
-        //    );
-        //}
-
         #endregion UI
 
         #region DataAcess
@@ -715,9 +690,6 @@ namespace EnhancedDevelopment.Excalibur.Shields
         }
 
         #endregion DataAcess
-
-
-
 
     }
 }
