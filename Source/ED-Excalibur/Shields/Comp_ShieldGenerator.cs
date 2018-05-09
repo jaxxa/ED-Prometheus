@@ -5,6 +5,7 @@ using System.Text;
 using Verse;
 using RimWorld;
 using UnityEngine;
+using System.Reflection;
 
 namespace EnhancedDevelopment.Excalibur.Shields
 {
@@ -128,20 +129,40 @@ namespace EnhancedDevelopment.Excalibur.Shields
             this.m_RechargeTickDelayInterval = this.Properties.m_RechargeTickDelayInterval_Base;
             this.m_RecoverWarmupDelayTicks = this.Properties.m_RecoverWarmupDelayTicks_Base;
             //this.m_WarmupTicksRemaining = this.Properties.m_RecoverWarmupDelayTicks_Base; // Dont do this???
+            
+
+           //Store the List of Building in initilisation????
+
+            CompFacility _Facility = this.parent.GetComp<CompFacility>();
+            Patch.Patcher.LogNULL(_Facility, "_Facility");
+
+            FieldInfo _LinkedBuildingsInfo = typeof(CompFacility).GetField("linkedBuildings", BindingFlags.NonPublic | BindingFlags.Instance);
+            Patch.Patcher.LogNULL(_LinkedBuildingsInfo, "_LinkedBuildingsInfo");
+            
+            List<Thing> _LinkedBuildings = _LinkedBuildingsInfo.GetValue(_Facility) as List<Thing>;
+            Patch.Patcher.LogNULL(_LinkedBuildings, "_LinkedBuildings");
+            
+            Log.Message(_LinkedBuildings.Count.ToString());
 
 
-           parent.Map.listerBuildings.allBuildingsColonist.ForEach(_B => {
-               Comp_ShieldUpgrade _Comp = _B.GetComp<Comp_ShieldUpgrade>();
-               if (_Comp != null)
-               {
-                   this.m_FieldIntegrity_Max += 250;
-               }
-               
-           });
+            _LinkedBuildings.ForEach(b => {
+                Building _Building = b as Building;
+                Comp_ShieldUpgrade _Comp = _Building.GetComp<Comp_ShieldUpgrade>();
+
+                //Patch.Patcher.LogNULL(_Comp, "_Comp");
+                //Log.Message(_Comp.SecretTestoValue);
+
+            });
 
 
+            //parent.Map.listerBuildings.allBuildingsColonist.ForEach(_B => {
+            //    Comp_ShieldUpgrade _Comp = _B.GetComp<Comp_ShieldUpgrade>();
+            //    if (_Comp != null)
+            //    {
+            //        this.m_FieldIntegrity_Max += 250;
+            //    }
 
-
+            //});
 
         }
 
@@ -157,6 +178,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
 
             this.TickRecharge();
 
+            this.RecalculateStatistics();
         }
 
 
@@ -688,6 +710,9 @@ namespace EnhancedDevelopment.Excalibur.Shields
         }
 
         #endregion DataAcess
+
+
+
 
     }
 }
