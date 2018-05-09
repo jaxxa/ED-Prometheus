@@ -9,11 +9,15 @@ namespace EnhancedDevelopment.Excalibur.Shields
 {
     class Comp_ShieldUpgrade : ThingComp
     {
-        public Comp_ShieldUpgrade() : base()
-        {
 
+        public CompProperties_ShieldUpgrade Properties;
+
+        public override void PostSpawnSetup(bool respawningAfterLoad)
+        {
+            base.PostSpawnSetup(respawningAfterLoad);
+
+            this.Properties = ((CompProperties_ShieldUpgrade)this.props);
         }
-        
-        public string SecretTestoValue = "Temp42";
+
     }
 }

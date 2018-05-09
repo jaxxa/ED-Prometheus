@@ -55,7 +55,70 @@
 			</li>
 			<li Class="CompProperties_Flickable"/>
 			<li Class="EnhancedDevelopment.Excalibur.Shields.CompProperties_ShieldUpgrade">
-				<m_FieldIntegrity_Multiplier>5</m_FieldIntegrity_Multiplier>
+				<FieldIntegrity_Increase>255</FieldIntegrity_Increase>
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_ShowFacilitiesConnections</li>
+		</placeWorkers>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+	</ThingDef>
+
+	<ThingDef ParentName="BuildingBase">
+		<defName>ShieldUpgradeSmall</defName>
+		<label>ShieldUpgradeSmall</label>
+		<thingClass>Building</thingClass>
+		<description>Upgrades Shields.</description>
+		<graphicData>
+			<texPath>Things/Building/Misc/MultiAnalyzer</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(2,2)</drawSize>
+			<damageData>
+				<rect>(0.15,0.15,1.7,1.7)</rect>
+			</damageData>
+		</graphicData>
+		<researchPrerequisites>
+			<li>MultiAnalyzer</li>
+		</researchPrerequisites>
+		<size>(2,2)</size>
+		<rotatable>false</rotatable>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<castEdgeShadows>true</castEdgeShadows>
+		<fillPercent>0.5</fillPercent>
+		<designationHotKey>Misc4</designationHotKey>
+		<designationCategory>Security</designationCategory>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<canOverlapZones>false</canOverlapZones>
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<thingCategories>
+			<li>BuildingsMisc</li>
+		</thingCategories>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<WorkToBuild>10000</WorkToBuild>
+			<Mass>100</Mass>
+			<Flammability>1.0</Flammability>
+		</statBases>
+		<costList>
+			<Steel>100</Steel>
+			<Plasteel>50</Plasteel>
+			<Gold>20</Gold>
+		</costList>
+		<comps>
+			<li Class="CompProperties_AffectedByFacilities">
+				<linkableFacilities>
+					<li>Building_ShieldStandard</li>
+				</linkableFacilities>
+			</li>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<shortCircuitInRain>true</shortCircuitInRain>
+				<basePowerConsumption>200</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="EnhancedDevelopment.Excalibur.Shields.CompProperties_ShieldUpgrade">
+				<FieldIntegrity_Increase>99</FieldIntegrity_Increase>
 			</li>
 		</comps>
 		<placeWorkers>

@@ -142,12 +142,17 @@ namespace EnhancedDevelopment.Excalibur.Shields
             List<Thing> _LinkedBuildings = _LinkedBuildingsInfo.GetValue(_Facility) as List<Thing>;
             Patch.Patcher.LogNULL(_LinkedBuildings, "_LinkedBuildings");
             
-            Log.Message(_LinkedBuildings.Count.ToString());
+            //Log.Message(_LinkedBuildings.Count.ToString());
 
 
             _LinkedBuildings.ForEach(b => {
                 Building _Building = b as Building;
                 Comp_ShieldUpgrade _Comp = _Building.GetComp<Comp_ShieldUpgrade>();
+
+                Patch.Patcher.LogNULL(_Comp, "_Comp");
+                Patch.Patcher.LogNULL(_Comp.Properties, "_Comp.Properties");
+
+                this.m_FieldIntegrity_Max += _Comp.Properties.FieldIntegrity_Increase;
 
                 //Patch.Patcher.LogNULL(_Comp, "_Comp");
                 //Log.Message(_Comp.SecretTestoValue);
@@ -480,19 +485,19 @@ namespace EnhancedDevelopment.Excalibur.Shields
             }
 
             //Find Upgrades
-            if (true)
-            {
-                Command_Action act = new Command_Action();
-                //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
-                act.action = () => this.FindUpgrades();
-                //act.icon = UI_SHOW_ON;
-                act.defaultLabel = "Find Upgrades";
-                act.defaultDesc = "Find Upgrades";
-                act.activateSound = SoundDef.Named("Click");
-                //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
-                //act.groupKey = 689736;
-                yield return act;
-            }
+            //if (true)
+            //{
+            //    Command_Action act = new Command_Action();
+            //    //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+            //    act.action = () => this.FindUpgrades();
+            //    //act.icon = UI_SHOW_ON;
+            //    act.defaultLabel = "Find Upgrades";
+            //    act.defaultDesc = "Find Upgrades";
+            //    act.activateSound = SoundDef.Named("Click");
+            //    //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+            //    //act.groupKey = 689736;
+            //    yield return act;
+            //}
 
             if (m_BlockDirect_Avalable)
             {
@@ -652,24 +657,24 @@ namespace EnhancedDevelopment.Excalibur.Shields
             m_ShowVisually_Active = !m_ShowVisually_Active;
         }
 
-        private void FindUpgrades()
-        {
-            this.parent.Map.listerBuildings.allBuildingsColonist.Where(x => x.AllComps.Any(c => c as Comp_ShieldUpgrade != null)).ToList().ForEach(b =>
-            {
-                b.AllComps.ForEach(c =>
-                {
-                    CompProperties_ShieldUpgrade _Props = c.props as CompProperties_ShieldUpgrade;
-                    if (_Props != null)
-                    {
-                        Log.Message("Found Comp, mp= " + _Props.m_FieldIntegrity_Multiplier);
+        //private void FindUpgrades()
+        //{
+        //    this.parent.Map.listerBuildings.allBuildingsColonist.Where(x => x.AllComps.Any(c => c as Comp_ShieldUpgrade != null)).ToList().ForEach(b =>
+        //    {
+        //        b.AllComps.ForEach(c =>
+        //        {
+        //            CompProperties_ShieldUpgrade _Props = c.props as CompProperties_ShieldUpgrade;
+        //            if (_Props != null)
+        //            {
+        //                Log.Message("Found Comp, mp= " + _Props.m_FieldIntegrity_Multiplier);
 
-                    }
+        //            }
 
-                });
+        //        });
 
-            }
-            );
-        }
+        //    }
+        //    );
+        //}
 
         #endregion UI
 

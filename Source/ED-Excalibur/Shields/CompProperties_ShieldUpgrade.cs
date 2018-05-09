@@ -15,13 +15,13 @@ namespace EnhancedDevelopment.Excalibur.Shields
             this.compClass = typeof(Comp_ShieldUpgrade);
         }
 
-        public float m_PowerUsage_Multiplier = 2;
-        public float m_FieldIntegrity_Multiplier = 2;
-        public float m_Range_Multiplier = 2;
+        public int PowerUsage_Increase = 0;
+        public int FieldIntegrity_Increase = 0;
+        public int Range_Increase = 0;
 
-        public bool m_DropPodIntercept = false;
-        public bool m_DropPodInterceptIFF = false;
-        public bool m_SIFMode = false;
+        public bool DropPodIntercept = false;
+        public bool SIFMode = false;
+        public bool SlowDischarge = false;
 
     }
 }
