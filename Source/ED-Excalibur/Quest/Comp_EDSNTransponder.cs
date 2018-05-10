@@ -1,5 +1,4 @@
 ﻿using EnhancedDevelopment.Excalibur.Core;
-using EnhancedDevelopment.Excalibur.Quest.Dialog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,20 +7,20 @@ using Verse;
 
 namespace EnhancedDevelopment.Excalibur.Quest
 {
-    class Building_EDSNTransponder : Building
+    class Comp_EDSNTransponder : ThingComp
     {
-
-        public override IEnumerable<Gizmo> GetGizmos()
+        public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
-            //Add the stock Gizmoes
-            foreach (var g in base.GetGizmos())
+            //   return base.CompGetGizmosExtra();
+
+            foreach (var g in base.CompGetGizmosExtra())
             {
                 yield return g;
             }
 
             Command_Action act = new Command_Action();
             //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
-            act.action = () => GameComponent_Excalibur.Instance.Quest.ContactExcalibur(this);
+            act.action = () => GameComponent_Excalibur.Instance.Quest.ContactExcalibur(this.parent as Building);
             //act.icon = UI_DIRECT_ON;
             act.defaultLabel = "Contact Excalibur";
             act.defaultDesc = "Contact Excalibur";
@@ -30,8 +29,6 @@ namespace EnhancedDevelopment.Excalibur.Quest
             //act.groupKey = 689736;
             yield return act;
         }
-        
 
     }
-
 }

@@ -56,7 +56,8 @@
     <Compile Include="LaserDrill\CompProperties_LaserDrill.cs" />
     <Compile Include="LaserDrill\Comp_LaserDrill.cs" />
     <Compile Include="LaserDrill\MapComp_LaserDrill.cs" />
-    <Compile Include="Quest\Building_EDSNTransponder.cs" />
+    <Compile Include="Quest\CompProperties_EDSNTransponder.cs" />
+    <Compile Include="Quest\Comp_EDSNTransponder.cs" />
     <Compile Include="Quest\Dialog\Dialog_0_Generic.cs" />
     <Compile Include="Quest\Dialog\Dialog_6_ShipStabilised.cs" />
     <Compile Include="Quest\Dialog\Dialog_5_ExecutingBurn.cs" />
