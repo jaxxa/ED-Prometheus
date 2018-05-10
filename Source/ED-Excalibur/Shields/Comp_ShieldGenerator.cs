@@ -50,7 +50,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
         private bool m_InterceptDropPod_Avalable;
 
         //Field Settings
-        private int m_FieldIntegrity_Max;
+        public int m_FieldIntegrity_Max;
         private int m_FieldIntegrity_Initial;
         public int m_Field_Radius;
 
@@ -166,7 +166,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
         {
 
             this.m_FieldIntegrity_Max += comp.Properties.FieldIntegrity_Increase;
-            this.m_Power.powerOutputInt -= comp.Properties.PowerUsage_Increase;
+            //this.m_Power.powerOutputInt -= comp.Properties.PowerUsage_Increase;
             this.m_Field_Radius += comp.Properties.Range_Increase;
 
             if (comp.Properties.DropPodIntercept)
@@ -347,7 +347,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
         }
         private EnumShieldStatus m_CurrentStatus = EnumShieldStatus.Offline;
 
-        private int FieldIntegrity_Current
+        public int FieldIntegrity_Current
         {
             get
             {
