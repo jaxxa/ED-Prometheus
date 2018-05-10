@@ -53,6 +53,9 @@
     <Compile Include="Core\GameComponent_BaseClass.cs" />
     <Compile Include="Core\GameComponent_Excalibur_NanoShields.cs" />
     <Compile Include="Core\GameComponent_Excalibur_Quest.cs" />
+    <Compile Include="LaserDrill\CompProperties_LaserDrill.cs" />
+    <Compile Include="LaserDrill\Comp_LaserDrill.cs" />
+    <Compile Include="LaserDrill\MapComp_LaserDrill.cs" />
     <Compile Include="Quest\Building_EDSNTransponder.cs" />
     <Compile Include="Quest\Dialog\Dialog_0_Generic.cs" />
     <Compile Include="Quest\Dialog\Dialog_6_ShipStabilised.cs" />
@@ -63,8 +66,6 @@
     <Compile Include="Quest\Dialog\Dialog_1_SignalDetection.cs" />
     <Compile Include="Quest\Dialog\Dialog_Excalibur.cs" />
     <Compile Include="Quest\ResearchHelper.cs" />
-    <Compile Include="LaserDrill\Building_LaserDrill.cs" />
-    <Compile Include="LaserDrill\Building_LaserFiller.cs" />
     <Compile Include="NanoShields\Building_NanoShieldCharger.cs" />
     <Compile Include="NanoShields\CompNanoShield.cs" />
     <Compile Include="Core\GameComponent_Excalibur.cs" />

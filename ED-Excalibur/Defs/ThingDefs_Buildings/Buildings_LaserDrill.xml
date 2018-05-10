@@ -4,7 +4,8 @@
 
 	<!--================================ Abstract bases ======================================-->
 
-	<!--<ThingDef Name="BuildingBase" Abstract="True">
+	<!--
+	<ThingDef Name="BuildingBase" Abstract="True">
 		<category>Building</category>
 		<thingClass>Building</thingClass>
 		<soundImpactDefault>BulletImpactMetal</soundImpactDefault>
@@ -14,7 +15,8 @@
 		<repairEffect>Repair</repairEffect>
 		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
 		<filthLeaving>BuildingRubble</filthLeaving>
-	</ThingDef>-->
+	</ThingDef>
+	-->
 
 
 
@@ -23,7 +25,7 @@
 	<ThingDef ParentName="BuildingBase">
 		<defName>LaserDrill</defName>
 		<label>Laser Steam Geyser Drill</label>
-		<thingClass>EnhancedDevelopment.Excalibur.LaserDrill.Building_LaserDrill</thingClass>
+		<thingClass>Building</thingClass>
 		<graphicData>
 			<texPath>Things/Buildings/LaserDrill</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -34,20 +36,23 @@
 		<castEdgeShadows>true</castEdgeShadows>
 		<fillPercent>1</fillPercent>
 		<tickerType>Rare</tickerType>
+				<thingCategories>
+			<li>BuildingsMisc</li>
+		</thingCategories>
 		<statBases>
 			<WorkToBuild>1800</WorkToBuild>
 			<MaxHitPoints>350</MaxHitPoints>
 			<Flammability>1.0</Flammability>
-			<Mass>50</Mass>
+			<Mass>100</Mass>
 		</statBases>
-		<thingCategories>
-			<li>BuildingsSpecial</li>
-		</thingCategories>
 		<description>Mines out rock to create a large hole through to the steam networks below the planets surface.</description>
 		<building>
 			<wantsHopperAdjacent>false</wantsHopperAdjacent>
 		</building>
 		<comps>
+			<li Class="EnhancedDevelopment.Excalibur.LaserDrill.CompProperties_LaserDrill">
+				<FillMode>False</FillMode>
+			</li>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
 				<basePowerConsumption>1200</basePowerConsumption>
@@ -76,7 +81,7 @@
 	<ThingDef ParentName="BuildingBase">
 		<defName>LaserFiller</defName>
 		<label>Laser Steam Geyser Filler</label>
-		<thingClass>EnhancedDevelopment.Excalibur.LaserDrill.Building_LaserFiller</thingClass>
+		<thingClass>Building</thingClass>
 		<graphicData>
 			<texPath>Things/Buildings/LaserFiller</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -91,13 +96,12 @@
 			<MaxHitPoints>500</MaxHitPoints>
 			<WorkToBuild>6000</WorkToBuild>
 			<Flammability>1.0</Flammability>
-			<Beauty>-40</Beauty>
-			<Mass>50</Mass>
+			<Mass>100</Mass>
 		</statBases>
-		<thingCategories>
-			<li>BuildingsSpecial</li>
-		</thingCategories>
 		<tickerType>Rare</tickerType>
+				<thingCategories>
+			<li>BuildingsMisc</li>
+		</thingCategories>
 		<description>Removes a nearby SteamGeyser by filling it with rock and melting that rock with a laser to create a buildable surface</description>
 		<size>(3,3)</size>
 		<costList>
@@ -108,6 +112,9 @@
 			<li>Stony</li>
 		</stuffCategories>
 		<comps>
+			<li Class="EnhancedDevelopment.Excalibur.LaserDrill.CompProperties_LaserDrill">
+				<FillMode>True</FillMode>
+			</li>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
 				<basePowerConsumption>1200</basePowerConsumption>
