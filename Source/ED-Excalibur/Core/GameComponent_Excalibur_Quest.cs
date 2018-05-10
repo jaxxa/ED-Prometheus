@@ -24,9 +24,19 @@ namespace EnhancedDevelopment.Excalibur.Core
             this.m_ReservesPower += ammount;
         }
 
+        public int GetReservePower()
+        {
+            return (int)this.m_ReservesPower;
+        }
+
         public void AddReserveMaterials(int ammount)
         {
             this.m_ReservesMaterials += ammount;
+        }
+
+        public int GetReserveMaterials()
+        {
+            return this.m_ReservesMaterials;
         }
 
         public override void ExposeData()
