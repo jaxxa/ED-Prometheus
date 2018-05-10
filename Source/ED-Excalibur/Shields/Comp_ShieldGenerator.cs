@@ -392,10 +392,10 @@ namespace EnhancedDevelopment.Excalibur.Shields
         /// </summary>
         public void DrawShields()
         {
-            //if (!this.IsActive() || !this.m_ShowVisually_Active)
-            //{
-            //    return;
-            //}
+            if (!this.IsActive() || !this.m_ShowVisually_Active)
+            {
+                return;
+            }
 
             //Draw field
             this.DrawField(EnhancedDevelopment.Excalibur.Shields.Utilities.VectorsUtils.IntVecToVec(this.parent.Position));
