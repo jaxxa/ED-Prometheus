@@ -88,6 +88,7 @@
     <Compile Include="Shields\Comp_ShieldGenerator.cs" />
     <Compile Include="Shields\Comp_ShieldUpgrade.cs" />
     <Compile Include="Shields\EnumShieldStatus.cs" />
+    <Compile Include="Shields\ITab_ShieldGenerator.cs" />
     <Compile Include="Shields\ShieldManagerMapComp.cs" />
     <Compile Include="Shields\Utilities\Graphics.cs" />
     <Compile Include="Shields\Utilities\VectorsUtils.cs" />

@@ -37,6 +37,9 @@
 			<Silver>100</Silver>
 			<Component>15</Component>
 		</costList>
+		<inspectorTabs>
+			<li>EnhancedDevelopment.Excalibur.Shields.ITab_ShieldGenerator</li>
+		</inspectorTabs>
 		<passability>Impassable</passability>
 		<selectable>true</selectable>
 		<tickerType>Normal</tickerType>
