@@ -7,7 +7,7 @@
 		<defName>Transporter</defName>
 		<label>E.D.S.N. Transporter</label>
 		<description>Transports Resources.</description>
-		<thingClass>EnhancedDevelopment.Excalibur.Transporter.Building_Transporter</thingClass>
+		<thingClass>Building</thingClass>
 		<researchPrerequisites>
 			<li>Research_ED_Excalibur_AnalyseStrangeSignal</li>
 		</researchPrerequisites>
@@ -17,7 +17,7 @@
 			<drawSize>(1,1)</drawSize>
 		</graphicData>
 
-		
+
 		<drawerType>MapMeshAndRealTime</drawerType>
 		<designationCategory>Security</designationCategory>
 		<uiIconPath>Things/ShieldBuilding_Red</uiIconPath>
@@ -30,6 +30,7 @@
 			</li>
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Breakdownable"/>
+			<li Class="EnhancedDevelopment.Excalibur.Transporter.CompProperties_Transporter"/>
 		</comps>
 		<costList>
 		</costList>

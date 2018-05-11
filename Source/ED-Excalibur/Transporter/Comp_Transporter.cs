@@ -8,16 +8,15 @@ using Verse;
 
 namespace EnhancedDevelopment.Excalibur.Transporter
 {
-    class Building_Transporter : Building
+    class Comp_Transporter : ThingComp
     {
-
-
-        public override IEnumerable<Gizmo> GetGizmos()
+        
+        public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
-            //return base.GetGizmos();
+            //return base.CompGetGizmosExtra();
 
             //Add the stock Gizmoes
-            foreach (var g in base.GetGizmos())
+            foreach (var g in base.CompGetGizmosExtra())
             {
                 yield return g;
             }
@@ -37,10 +36,10 @@ namespace EnhancedDevelopment.Excalibur.Transporter
             }
 
         }
-
+        
         private void SendMaterials()
         {
-            List<Thing> _FoundThings = GenRadial.RadialDistinctThingsAround(this.Position, this.Map, 5, true).Where(x => x.def.category == ThingCategory.Item).Where(x => x.Spawned).Where(x => x.def.defName == "Steel").ToList();
+            List<Thing> _FoundThings = GenRadial.RadialDistinctThingsAround(this.parent.Position, this.parent.Map, 5, true).Where(x => x.def.category == ThingCategory.Item).Where(x => x.Spawned).Where(x => x.def.defName == "Steel").ToList();
 
             if (_FoundThings.Any())
             {
@@ -58,26 +57,18 @@ namespace EnhancedDevelopment.Excalibur.Transporter
 
                     _x.DeSpawn();
 
-                        // Tell the MapDrawer that here is something thats changed
-                        this.Map.mapDrawer.MapMeshDirty(_x.Position, MapMeshFlag.Things, true, false);
+                    // Tell the MapDrawer that here is something thats changed
+                    this.parent.Map.mapDrawer.MapMeshDirty(_x.Position, MapMeshFlag.Things, true, false);
                 });
 
 
             }
 
         }
-
-
+        
         private void DisplayTransportEffect(Thing thingToTransport)
         {
-
             MoteMaker.MakeStaticMote(thingToTransport.Position, thingToTransport.Map, ThingDefOf.Mote_ExplosionFlash, 10);
-            //int num2 = 10;
-            //for (int i = 0; i < num2; i++)
-            //{
-            //    MoteMaker.ThrowDustPuff(_Thing.Position, _Thing.Map, Rand.Range(0.8f, 1.2f));
-            //}
-
         }
 
     }
