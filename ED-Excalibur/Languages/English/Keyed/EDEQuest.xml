@@ -2,25 +2,26 @@
 <LanguageData>
 
 	<!--Quest Text -->
-	<EDE_Dialog_1_SignalDetection>A strange transmission has been detected on the Comms Console, for the past while the operator thought they could hear a ghost of something in the static, elusive enough to slip away whenever they tried to make it out, but this time it was strong enough to be isolated and understood.
+	<EDE_Dialog_1_SignalDetection>A strange transmission has been detected on the Comms Console. For the past while the operator thought they could hear a ghost of something in the static, elusive enough to slip away whenever they tried to make it out, but growing a little stronger each time. Finally, this time it was strong enough to be isolated and understood.
 
+It is a repeating automated message that appears to be a destress call. It explains little specifics, but whoever sent it are in dire need of help and have lost the ability to receive messages on this frequency. Included are specifications for a device they claim will allow you to make contact with them, it appears very advanced beyond even what would be available on the average Glitterworld. Fortunately while you can't understand all of how the device works the instructions are very detailed. One of your more technical colonists thinks that with a bit of research they can go over the specifications and figure out exactly how to build the device with what the colony can get access to.
+ 
+Unlocked Research - "Analyse Strange Signal"</EDE_Dialog_1_SignalDetection>
 
-It appears to be a repeating destress call and request for a further contact over a nonstandard encrypted frequency. Included are specifications for the device to make contact. One of the researchers thinks that with a bit of work they can go over the specifications and figure out how to build a device to make contact using what we have avalable.
+	<EDE_Dialog_2_FirstContact>
+You make contact with the source of the strange signal. The female voice on the other end identifies themselves as Alex. They state that they are the only survivor onboard an Experimental Command Carrier named the E.D.S.N. Excalibur, further explaining that it was once the Flagship of an incredibly advance Glitterworld, able to support an entire fleet of ship and ground forces to exert control over entire star systems. 
 
-	Unlocked Research - Analyse Strange Signal</EDE_Dialog_1_SignalDetection>
+Unordinary in its present condition it is little better than derelict, not even a vague shadow of its former glory. An indeterminable time ago an unknown calamity befell the ship, causing it to drift dead through space for many years until recently when it drifted close enough to this Solar System to be captured by this star's gravity well and into a decaying orbit where it will eventually hit the star.
 
-	<EDE_Dialog_2_FirstContact>You make contact with the source of the strange signal. The character on the other end explains that she is an Artificial Intelligence called A.L.I.X (Adaptive Logistical Intelligence Experiment). She was serving on an Experimental Command Carrier called the E.D.S.N. Excalibur where she was to manage repair and logistical support for ground teams and smaller ships in the group.
+Fortunately the increase in solar energy also caused Alex to awaken, but stuck on a dead ship. She managed to cobble together a transmitter for an open frequency from the equipment designed for use by ground forces. Using this she sent instructions on how to create a Transponder for the ships encrypted point to point communication systems, the signal that you originally picked up.
 
-Unfortunately some unknown calamity befell the ship and left it drifting dead through the vastness of space for many years until recently when it drifted close enough to this Solar System to be captured by the Stars Gravity Well and into a decaying orbit where it will eventually hit the star.
+Alex has a plan to save the ship (and herself) from hitting the Star by bring the propulsion systems online and entering orbit of the Rimworld that you are on, but to do this she will need help from your colony. The first thing she needs is energy to power up the Auto Repair System and run a diagnostic on the Engines, then if they are working to actually fire the engines.
 
-Fortunately the backup solar panels provided just enough power to Maintenance Sector 7G where A.L.I.X.was located who was then able to salvage enough equipment to send out the general destress signal you picked up with instructions on secure contact.
-A.L.I.X. has a plan to save the ship (and herself) from hitting the sun but needs your help the first thing she needs is power to run the Auto Repair System and then fire the Manoeuvring thrusters to bring the ship into a stable orbit of your Rimworld.
+Because the ship was designed for long term operations including ground operations it has a number of prefabricated buildings and the facilities that can be deployed to the surface of a planet. One of these is the Quantum Power Relay that can be used to send power from a ground installation back to the Excalibur.
 
-Because the ship was designed to support long term ground operations it has a number of prefabricated buildings that can be deployed to the surface of a planet.One of these is the Starship Class Power Relay that can be used to send power from a ground installation to a compatible space craft.
+In exchange for helping save the E.D.S.N Excalibur, Alex offers to help your Colony using of the ships systems as they are brought online.
 
-In exchange saving the E.D.S.N Excalibur, A.L.I.X.offers to help your Colony by providing use of the ships systems as they are brought online.
-
-	Unlocked Drop of 'Starship Class Power Relay'</EDE_Dialog_2_FirstContact>
+	Unlocked Drop of "Quantum Power Relay"</EDE_Dialog_2_FirstContact>
 
 	<EDE_Dialog_3_InitialCharge>Charging in Progress
 Current Progress xxx/yyyy</EDE_Dialog_3_InitialCharge>
