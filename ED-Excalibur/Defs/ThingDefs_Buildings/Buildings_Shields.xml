@@ -20,7 +20,7 @@
 		<drawerType>MapMeshAndRealTime</drawerType>
 		<staticSunShadowHeight>1.0</staticSunShadowHeight>
 		<fillPercent>1</fillPercent>
-		<size>(1,1)</size>
+		<size>(3,3)</size>
 		<rotatable>false</rotatable>
 		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
 		<designationCategory>Security</designationCategory>
@@ -55,7 +55,7 @@
 		<graphicData>
 			<texPath>Things/ShieldBuilding_Blue</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(1,1)</drawSize>
+			<drawSize>(3,3)</drawSize>
 		</graphicData>
 		<uiIconPath>Things/ShieldBuilding_Blue</uiIconPath>
 		<comps>
