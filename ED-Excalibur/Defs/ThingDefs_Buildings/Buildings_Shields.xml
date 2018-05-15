@@ -11,9 +11,20 @@
 		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
 	</ThingDef>
 
-	<ThingDef ParentName="BuildingBase" Name="ShieldBase" Abstract="True">
-		<category>Building</category>
+	<ThingDef ParentName="BuildingBase">
+		<defName>Building_ShieldStandard</defName>
+		<label>Standard Shield</label>
+		<description>Creates shield field to protect important infrastructure.</description>
 		<thingClass>EnhancedDevelopment.Excalibur.Shields.Building_Shield</thingClass>
+		<researchPrerequisites>
+			<li>Research_ED_ShieldGenerators</li>
+		</researchPrerequisites>
+		<graphicData>
+			<texPath>Things/ShieldBuilding_Blue</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(3,3)</drawSize>
+		</graphicData>
+		<uiIconPath>Things/ShieldBuilding_Blue</uiIconPath>
 		<altitudeLayer>Building</altitudeLayer>
 		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
 		<blockLight>true</blockLight>
@@ -43,21 +54,6 @@
 		<passability>Impassable</passability>
 		<selectable>true</selectable>
 		<tickerType>Normal</tickerType>
-	</ThingDef>
-
-	<ThingDef ParentName="ShieldBase">
-		<defName>Building_ShieldStandard</defName>
-		<label>Standard Shield</label>
-		<description>Creates shield field to protect important infrastructure.</description>
-		<researchPrerequisites>
-			<li>Research_ED_ShieldGenerators</li>
-		</researchPrerequisites>
-		<graphicData>
-			<texPath>Things/ShieldBuilding_Blue</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(3,3)</drawSize>
-		</graphicData>
-		<uiIconPath>Things/ShieldBuilding_Blue</uiIconPath>
 		<comps>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
