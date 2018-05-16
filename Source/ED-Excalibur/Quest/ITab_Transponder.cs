@@ -97,8 +97,9 @@ namespace EnhancedDevelopment.Excalibur.Quest
 
 
                 Building_QuantumPowerRelay _PowerBuilding = (Building_QuantumPowerRelay)ThingMaker.MakeThing(ThingDef.Named("QuantumPowerRelay"), null);
+                MinifiedThing _MiniThing =  _PowerBuilding.MakeMinified();
                 List<Thing> _Things = new List<Thing>();
-                _Things.Add(_PowerBuilding);
+                _Things.Add(_MiniThing);
 
                 DropPodUtility.DropThingsNear(this.SelectedCompTransponder.parent.Position, this.SelectedCompTransponder.parent.Map, _Things);
             }
