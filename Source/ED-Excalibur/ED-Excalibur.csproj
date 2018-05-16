@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\GameComponent_BaseClass.cs" />
+    <Compile Include="Core\GameComponent_Excalibur_Fabrication.cs" />
     <Compile Include="Core\GameComponent_Excalibur_NanoShields.cs" />
     <Compile Include="Core\GameComponent_Excalibur_Quest.cs" />
     <Compile Include="LaserDrill\CompProperties_LaserDrill.cs" />

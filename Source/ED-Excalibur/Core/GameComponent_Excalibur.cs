@@ -12,8 +12,9 @@ namespace EnhancedDevelopment.Excalibur.Core
 
         public static GameComponent_Excalibur Instance;
 
-        public GameComponent_Excalibur_NanoShields Shields;
-        public GameComponent_Excalibur_Quest Quest;
+        public GameComponent_Excalibur_NanoShields Comp_Shields;
+        public GameComponent_Excalibur_Quest Comp_Quest;
+        public GameComponent_Excalibur_Fabrication Comp_Fabrication;
 
         private List<GameComponent_BaseClass> m_SubComponents = new List<GameComponent_BaseClass>();
 
@@ -27,11 +28,14 @@ namespace EnhancedDevelopment.Excalibur.Core
             //Record the instance for easy acess.
             GameComponent_Excalibur.Instance = this;
 
-            this.Shields = new GameComponent_Excalibur_NanoShields();
-            this.m_SubComponents.Add(this.Shields);
+            this.Comp_Shields = new GameComponent_Excalibur_NanoShields();
+            this.m_SubComponents.Add(this.Comp_Shields);
 
-            this.Quest = new GameComponent_Excalibur_Quest();
-            this.m_SubComponents.Add(this.Quest);
+            this.Comp_Quest = new GameComponent_Excalibur_Quest();
+            this.m_SubComponents.Add(this.Comp_Quest);
+
+            this.Comp_Fabrication = new GameComponent_Excalibur_Fabrication();
+            this.m_SubComponents.Add(this.Comp_Fabrication);
 
         }
 

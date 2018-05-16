@@ -50,7 +50,7 @@ namespace EnhancedDevelopment.Excalibur.Transporter
                 _FoundThings.ForEach(_x =>
                 {
 
-                    GameComponent_Excalibur.Instance.Quest.AddReserveMaterials(_x.stackCount);
+                    GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(_x.stackCount);
 
                     //Log.Message("Removing: " + x.def.defName);
                     this.DisplayTransportEffect(_x);

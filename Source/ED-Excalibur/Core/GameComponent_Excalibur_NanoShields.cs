@@ -23,7 +23,7 @@ namespace EnhancedDevelopment.Excalibur.Core
 
         public override void TickOnInterval()
         {
-            GameComponent_Excalibur.Instance.Shields.ReturnCharge(1);
+            GameComponent_Excalibur.Instance.Comp_Shields.ReturnCharge(1);
             //Log.Message("GameCompTick");
         }
 
