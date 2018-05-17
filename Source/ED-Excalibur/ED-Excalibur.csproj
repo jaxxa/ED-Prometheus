@@ -68,6 +68,7 @@
     <Compile Include="Quest\Dialog\Dialog_2_FirstContact.cs" />
     <Compile Include="Quest\Dialog\Dialog_1_SignalDetection.cs" />
     <Compile Include="Quest\Dialog\Dialog_Excalibur.cs" />
+    <Compile Include="Quest\ITab_Fabrication.cs" />
     <Compile Include="Quest\ITab_Transponder.cs" />
     <Compile Include="Quest\ResearchHelper.cs" />
     <Compile Include="NanoShields\Building_NanoShieldCharger.cs" />

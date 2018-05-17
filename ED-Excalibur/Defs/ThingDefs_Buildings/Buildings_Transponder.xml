@@ -37,6 +37,7 @@
 		</costList>
 		<inspectorTabs>
 			<li>EnhancedDevelopment.Excalibur.Quest.ITab_Transponder</li>
+			<li>EnhancedDevelopment.Excalibur.Quest.ITab_Fabrication</li>
 		</inspectorTabs>
 		<statBases>
 			<MaxHitPoints>500</MaxHitPoints>
