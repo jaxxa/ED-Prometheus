@@ -27,6 +27,7 @@
 		<uiIconPath>Things/ShieldBuilding_Blue</uiIconPath>
 		<altitudeLayer>Building</altitudeLayer>
 		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+		<minifiedDef>MinifiedThing</minifiedDef>
 		<blockLight>true</blockLight>
 		<drawerType>MapMeshAndRealTime</drawerType>
 		<staticSunShadowHeight>1.0</staticSunShadowHeight>
