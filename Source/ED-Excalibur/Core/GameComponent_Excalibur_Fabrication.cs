@@ -40,7 +40,7 @@ namespace EnhancedDevelopment.Excalibur.Core
         
         //-------------------------------------------
 
-        List<BuildingInProgress> BuildingsUnderConstruction = new List<BuildingInProgress>();
+        public List<BuildingInProgress> BuildingsUnderConstruction = new List<BuildingInProgress>();
         
         public void OrderBuilding(string buildingName, IntVec3 position, Map map)
         {

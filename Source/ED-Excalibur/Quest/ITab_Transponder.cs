@@ -84,11 +84,16 @@ namespace EnhancedDevelopment.Excalibur.Quest
 
             _Listing_Standard.GapLine(12f);
             _Listing_Standard.Label("Power: " + GameComponent_Excalibur.Instance.Comp_Quest.GetReservePower().ToString());
-            _Listing_Standard.Gap(12f);
-
             _Listing_Standard.Label("Materials: " + GameComponent_Excalibur.Instance.Comp_Quest.GetReserveMaterials().ToString());
+            _Listing_Standard.Label("Buildings: " + GameComponent_Excalibur.Instance.Comp_Fabrication.BuildingsUnderConstruction.Count.ToString());
 
             _Listing_Standard.Gap(12f);
+
+            if (_Listing_Standard.ButtonText("Deploy Power Relay", "Hightlight"))
+            {
+                GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(7);
+                GameComponent_Excalibur.Instance.Comp_Fabrication.OrderBuilding("QuantumPowerRelay", this.SelectedCompTransponder.parent.Position, this.SelectedCompTransponder.parent.Map);
+            }
 
             if (_Listing_Standard.ButtonText("Deploy Power Relay", "Hightlight"))
             {
