@@ -93,13 +93,14 @@ namespace EnhancedDevelopment.Excalibur.Quest
             if (_Listing_Standard.ButtonText("Deploy Power Relay","Hightlight"))
             {
                 GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(7);
-                
-                Building_QuantumPowerRelay _PowerBuilding = (Building_QuantumPowerRelay)ThingMaker.MakeThing(ThingDef.Named("QuantumPowerRelay"), null);
-                MinifiedThing _MiniThing =  _PowerBuilding.MakeMinified();
-                List<Thing> _Things = new List<Thing>();
-                _Things.Add(_MiniThing);
+                GameComponent_Excalibur.Instance.Comp_Fabrication.OrderBuilding("QuantumPowerRelay", this.SelectedCompTransponder.parent.Position, this.SelectedCompTransponder.parent.Map);
 
-                DropPodUtility.DropThingsNear(this.SelectedCompTransponder.parent.Position, this.SelectedCompTransponder.parent.Map, _Things);
+                //Building_QuantumPowerRelay _PowerBuilding = (Building_QuantumPowerRelay)ThingMaker.MakeThing(ThingDef.Named("QuantumPowerRelay"), null);
+                //MinifiedThing _MiniThing =  _PowerBuilding.MakeMinified();
+                //List<Thing> _Things = new List<Thing>();
+                //_Things.Add(_MiniThing);
+
+                //DropPodUtility.DropThingsNear(this.SelectedCompTransponder.parent.Position, this.SelectedCompTransponder.parent.Map, _Things);
             }
 
             _Listing_Standard.End();
