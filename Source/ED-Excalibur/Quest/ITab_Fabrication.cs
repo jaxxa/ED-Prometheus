@@ -22,7 +22,13 @@ namespace EnhancedDevelopment.Excalibur.Quest
         //}
 
 
+
+
         private static readonly Vector2 WinSize = new Vector2(500f, 400f);
+
+        private float viewHeight = 1000f;
+
+        private Vector2 scrollPosition = default(Vector2);
 
         private Comp_EDSNTransponder SelectedCompTransponder
         {
@@ -53,62 +59,47 @@ namespace EnhancedDevelopment.Excalibur.Quest
         public ITab_Fabrication()
         {
             base.size = ITab_Fabrication.WinSize;
-            base.labelKey = "TransponderTab";
+            base.labelKey = "Fabrication";
             //base.tutorTag = "ShieldGenenerator";
         }
 
         protected override void FillTab()
         {
 
-            Vector2 winSize = ITab_Fabrication.WinSize;
-            float x = winSize.x;
-            Vector2 winSize2 = ITab_Fabrication.WinSize;
-            Rect rect = new Rect(0f, 0f, x, winSize2.y).ContractedBy(10f);
-            //Rect rect2 = rect;
-            //Text.Font = GameFont.Medium;
-            //Widgets.Label(rect2, "Shield Generator Label Rec2");
-            //if (ITab_Art.cachedImageSource != this.SelectedCompArt || ITab_Art.cachedTaleRef != this.SelectedCompArt.TaleRef)
-            //{
-            //    ITab_Art.cachedImageDescription = this.SelectedCompArt.GenerateImageDescription();
-            //    ITab_Art.cachedImageSource = this.SelectedCompArt;
-            //    ITab_Art.cachedTaleRef = this.SelectedCompArt.TaleRef;
-            //}
-            //Rect rect3 = rect;
-            //rect3.yMin += 35f;
-            //Text.Font = GameFont.Small;
-            //Widgets.Label(rect3, "ShieldGenerator Rec3");
+            Vector2 _WindowSize = ITab_Fabrication.WinSize;
+            Rect _DrawingSpace = new Rect(0f, 0f, _WindowSize.x, _WindowSize.y).ContractedBy(10f);
 
-            Listing_Standard _Listing_Standard = new Listing_Standard();
-            _Listing_Standard.ColumnWidth = 250f;
-            _Listing_Standard.Begin(rect);
 
-            _Listing_Standard.GapLine(12f);
-            _Listing_Standard.Label("Power: " + GameComponent_Excalibur.Instance.Comp_Quest.GetReservePower().ToString());
-            _Listing_Standard.Label("Materials: " + GameComponent_Excalibur.Instance.Comp_Quest.GetReserveMaterials().ToString());
-            _Listing_Standard.Label("Buildings: " + GameComponent_Excalibur.Instance.Comp_Fabrication.BuildingsUnderConstruction.Count.ToString());
-
-            _Listing_Standard.Gap(12f);
-
-            if (_Listing_Standard.ButtonText("Deploy Power Relay", "Hightlight"))
+            Func<List<FloatMenuOption>> recipeOptionsMaker = delegate
             {
-                GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(7);
-                GameComponent_Excalibur.Instance.Comp_Fabrication.OrderBuilding("QuantumPowerRelay", this.SelectedCompTransponder.parent.Position, this.SelectedCompTransponder.parent.Map);
-            }
 
-            if (_Listing_Standard.ButtonText("Deploy Shield Charger", "Hightlight"))
-            {
-                GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(7);
-                GameComponent_Excalibur.Instance.Comp_Fabrication.OrderBuilding("Building_Shield_Charger", this.SelectedCompTransponder.parent.Position, this.SelectedCompTransponder.parent.Map);
-            }
+                List<FloatMenuOption> list = new List<FloatMenuOption>();
 
-            if (_Listing_Standard.ButtonText("Deploy Shield Generator", "Hightlight"))
-            {
-                GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(7);
-                GameComponent_Excalibur.Instance.Comp_Fabrication.OrderBuilding("Building_ShieldStandard", this.SelectedCompTransponder.parent.Position, this.SelectedCompTransponder.parent.Map);
-            }
+                list.Add(new FloatMenuOption("Add Relay", delegate
+                {
+                    GameComponent_Excalibur.Instance.Comp_Fabrication.OrderBuilding("QuantumPowerRelay", this.SelectedCompTransponder.parent.Position, this.SelectedCompTransponder.parent.Map);
+                }));
+                list.Add(new FloatMenuOption("Add Building_Shield_Charger", delegate
+                {
+                    GameComponent_Excalibur.Instance.Comp_Fabrication.OrderBuilding("Building_Shield_Charger", this.SelectedCompTransponder.parent.Position, this.SelectedCompTransponder.parent.Map);
+                }));
+                list.Add(new FloatMenuOption("Add Building_ShieldStandard", delegate
+                {
+                    GameComponent_Excalibur.Instance.Comp_Fabrication.OrderBuilding("Building_ShieldStandard", this.SelectedCompTransponder.parent.Position, this.SelectedCompTransponder.parent.Map);
+                }));
 
-            _Listing_Standard.End();
+                return list;
+            };
+
+            GameComponent_Excalibur.Instance.Comp_Fabrication.DoListing(_DrawingSpace, recipeOptionsMaker, ref scrollPosition, ref viewHeight);
+
+
+
         }
+
+
+
+
 
     } //Class
 

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 using Verse;
 
 namespace EnhancedDevelopment.Excalibur.Core
@@ -47,6 +48,61 @@ namespace EnhancedDevelopment.Excalibur.Core
             BuildingInProgress _NewBuilding = new BuildingInProgress(buildingName, map, position);
             BuildingsUnderConstruction.Add(_NewBuilding);
         }
-        
-    }
+
+
+
+
+
+
+
+
+
+        //-------------------------UI --------------------
+
+
+        public void DoListing(Rect rect, Func<List<FloatMenuOption>> recipeOptionsMaker, ref Vector2 scrollPosition, ref float viewHeight)
+        {
+            Bill result = null;
+            GUI.BeginGroup(rect);
+            Text.Font = GameFont.Small;
+            if (BuildingsUnderConstruction.Count < 15)
+            {
+                Rect rect2 = new Rect(0f, 0f, 150f, 29f);
+                if (Widgets.ButtonText(rect2, "AddBuilding".Translate(), true, false, true))
+                {
+                    Find.WindowStack.Add(new FloatMenu(recipeOptionsMaker()));
+                }
+                UIHighlighter.HighlightOpportunity(rect2, "AddBuilding");
+            }
+            Text.Anchor = TextAnchor.UpperLeft;
+            GUI.color = Color.white;
+            Rect outRect = new Rect(0f, 35f, rect.width, rect.height - 35f);
+            Rect viewRect = new Rect(0f, 0f, outRect.width - 16f, viewHeight);
+            Widgets.BeginScrollView(outRect, ref scrollPosition, viewRect, true);
+            float num = 0f;
+            for (int i = 0; i < BuildingsUnderConstruction.Count; i++)
+            {
+                BuildingInProgress _BuildingInProgress = this.BuildingsUnderConstruction[i];
+                Rect rect3 = _BuildingInProgress.DoInterface(0f, num, viewRect.width, i);
+                //if (!bill.DeletedOrDereferenced && Mouse.IsOver(rect3))
+                //{
+                //    result = bill;
+                //}
+                num += rect3.height + 6f;
+            }
+            if (Event.current.type == EventType.Layout)
+            {
+                viewHeight = num + 60f;
+            }
+            Widgets.EndScrollView();
+            GUI.EndGroup();
+        }
+
+
+
+
+
+
+
+    } // Class
 }
