@@ -24,6 +24,10 @@
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(3,3)</drawSize>
 		</graphicData>
+
+		<thingCategories>
+			<li>BuildingsSpecial</li>
+		</thingCategories>
 		<uiIconPath>Things/ShieldBuilding_Blue</uiIconPath>
 		<altitudeLayer>Building</altitudeLayer>
 		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
@@ -43,6 +47,7 @@
 			<WorkToBuild>2000</WorkToBuild>
 			<Flammability>1.0</Flammability>
 			<Beauty>-2</Beauty>
+			<Mass>50</Mass>
 		</statBases>
 		<costList>
 			<Steel>100</Steel>
