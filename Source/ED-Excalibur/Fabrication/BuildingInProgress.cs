@@ -16,29 +16,33 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
 
         public IntVec3 DestinationPosition;
 
-        public Building ContainedBuilding;
-
-        public MinifiedThing ContainedMinifiedThing;
+        //public Building ContainedBuilding;
+        //public MinifiedThing ContainedMinifiedThing;
 
         public int WorkRemaining = 100;
 
         public int ResourcesNeeded = 50;
+
+        public int NumberOfRequestsRemailing = 3;
 
         public BuildingInProgress(string defName, Map DestinationMap, IntVec3 DestinationPosition)
         {
             this.defName = defName;
             this.DestinationMap = DestinationMap;
             this.DestinationPosition = DestinationPosition;
-
-
-
-            this.ContainedBuilding = (Building)ThingMaker.MakeThing(ThingDef.Named(this.defName), null);
-            this.ContainedMinifiedThing = this.ContainedBuilding.MakeMinified();
-            List<Thing> _Things = new List<Thing>();
-            _Things.Add(this.ContainedMinifiedThing);
-
         }
 
+
+        public List<Thing> InitiateDrop()
+        {
+
+
+            Building _ContainedBuilding = (Building)ThingMaker.MakeThing(ThingDef.Named(this.defName), null);
+            MinifiedThing _ContainedMinifiedThing = _ContainedBuilding.MakeMinified();
+            List<Thing> _Things = new List<Thing>();
+            _Things.Add(_ContainedMinifiedThing);
+            return _Things;
+        }
 
         //protected virtual void DoConfigInterface(Rect rect, Color baseColor)
         //{
@@ -55,7 +59,7 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
 
             Rect rect = new Rect(x, y, width, 53f);
 
-            Widgets.ButtonText(rect, this.defName + ": " + this.WorkRemaining.ToString());
+            Widgets.ButtonText(rect, this.defName + ": "  + this.NumberOfRequestsRemailing.ToString() + " : " + this.WorkRemaining.ToString());
 
             return rect;
 

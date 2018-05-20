@@ -31,12 +31,17 @@ namespace EnhancedDevelopment.Excalibur.Core
 
                 if (_BuildingToSpawn.WorkRemaining <= 0)
                 {
+                    _BuildingToSpawn.WorkRemaining = 100;
                     Log.Message("Dropping");
-                    this.BuildingsUnderConstruction.Remove(_BuildingToSpawn);
 
 
-                    List<Thing> _Things = new List<Thing>();
-                    _Things.Add(_BuildingToSpawn.ContainedMinifiedThing);
+                    _BuildingToSpawn.NumberOfRequestsRemailing -= 1;
+                    if (_BuildingToSpawn.NumberOfRequestsRemailing <= 0)
+                    {
+                        this.BuildingsUnderConstruction.Remove(_BuildingToSpawn);
+                    }
+
+                    List<Thing> _Things = _BuildingToSpawn.InitiateDrop();
 
                     DropPodUtility.DropThingsNear(_BuildingToSpawn.DestinationPosition, _BuildingToSpawn.DestinationMap, _Things);
                 }
