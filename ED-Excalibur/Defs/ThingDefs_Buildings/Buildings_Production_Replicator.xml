@@ -1,25 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<!-- <ThingDef Name="BuildingBase" Abstract="True">
-		<category>Building</category>
-		<soundImpactDefault>BulletImpactMetal</soundImpactDefault>
-		<selectable>true</selectable>
-		<drawerType>MapMeshAndRealTime</drawerType>
-		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-		<repairEffect>Repair</repairEffect>
-		<statBases>
-			<WorkToMake>1800</WorkToMake>
-			<MaxHitPoints>350</MaxHitPoints>
-			<Flammability>1.0</Flammability>
-		</statBases>
-		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
-		<filthLeaving>BuildingRubble</filthLeaving>
-	</ThingDef> -->
-
 	<!-- ========================= Work tables ==========================-->
 
-	<ThingDef ParentName="BuildingBase">
+	<ThingDef ParentName="EDSN_BuildingBase">
 		<defName>Table_MK1_Replicator</defName>
 		<label>Mark 1 Matter Replicator</label>
 		<thingClass>Building_WorkTable</thingClass>
@@ -75,7 +59,7 @@
 	</ThingDef>
 
 
-	<ThingDef ParentName="BuildingBase">
+	<ThingDef ParentName="EDSN_BuildingBase">
 		<defName>Table_MK2_Replicator</defName>
 		<label>Mark 2 Matter Replicator</label>
 		<thingClass>Building_WorkTable</thingClass>
@@ -127,7 +111,7 @@
 		</building>
 	</ThingDef>
 
-	<ThingDef ParentName="BuildingBase">
+	<ThingDef ParentName="EDSN_BuildingBase">
 		<defName>Table_MK3_Replicator</defName>
 		<label>Mark 3 Matter Replicator</label>
 		<thingClass>Building_WorkTable</thingClass>

@@ -3,7 +3,7 @@
 
 
 
-	<ThingDef ParentName="BuildingBase">
+	<ThingDef ParentName="EDSN_BuildingBase">
 		<defName>Building_Excalibur_Transponder</defName>
 		<label>Excalibur Transponder</label>
 		<description>Contacts the EDSN Excalibur.</description>
@@ -22,7 +22,6 @@
 		<designationCategory>Security</designationCategory>
 		<uiIconPath>Things/ShieldBuilding_Red</uiIconPath>
 		<specialDisplayRadius>5</specialDisplayRadius>
-		<minifiedDef>MinifiedThing</minifiedDef>
 		<comps>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
@@ -46,9 +45,6 @@
 			<Beauty>-2</Beauty>
 			<Mass>50</Mass>
 		</statBases>
-		<thingCategories>
-			<li>BuildingsSpecial</li>
-		</thingCategories>
 	</ThingDef>
 
 </Defs>

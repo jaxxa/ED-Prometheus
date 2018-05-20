@@ -1,28 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-
-	<!--================================ Abstract bases ======================================-->
-
-	<!--
-	<ThingDef Name="BuildingBase" Abstract="True">
-		<category>Building</category>
-		<thingClass>Building</thingClass>
-		<soundImpactDefault>BulletImpactMetal</soundImpactDefault>
-		<selectable>true</selectable>
-		<drawerType>MapMeshAndRealTime</drawerType>
-		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-		<repairEffect>Repair</repairEffect>
-		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
-		<filthLeaving>BuildingRubble</filthLeaving>
-	</ThingDef>
-	-->
-
-
-
 	<!--================================ Lasers ======================================-->
 
-	<ThingDef ParentName="BuildingBase">
+	<ThingDef ParentName="EDSN_BuildingBase">
 		<defName>LaserDrill</defName>
 		<label>Laser Steam Geyser Drill</label>
 		<thingClass>Building</thingClass>
@@ -36,9 +17,6 @@
 		<castEdgeShadows>true</castEdgeShadows>
 		<fillPercent>1</fillPercent>
 		<tickerType>Rare</tickerType>
-				<thingCategories>
-			<li>BuildingsMisc</li>
-		</thingCategories>
 		<statBases>
 			<WorkToBuild>1800</WorkToBuild>
 			<MaxHitPoints>350</MaxHitPoints>
@@ -74,11 +52,10 @@
 		<researchPrerequisites>
 			<li>Research_ED_LaserSteamGeyser_Drill</li>
 		</researchPrerequisites>
-		<minifiedDef>MinifiedThing</minifiedDef>
 	</ThingDef>
 
 
-	<ThingDef ParentName="BuildingBase">
+	<ThingDef ParentName="EDSN_BuildingBase">
 		<defName>LaserFiller</defName>
 		<label>Laser Steam Geyser Filler</label>
 		<thingClass>Building</thingClass>
@@ -99,9 +76,6 @@
 			<Mass>100</Mass>
 		</statBases>
 		<tickerType>Rare</tickerType>
-				<thingCategories>
-			<li>BuildingsMisc</li>
-		</thingCategories>
 		<description>Removes a nearby SteamGeyser by filling it with rock and melting that rock with a laser to create a buildable surface</description>
 		<size>(3,3)</size>
 		<costList>
@@ -133,7 +107,6 @@
 		<researchPrerequisites>
 			<li>Research_ED_LaserSteamGeyser_Filler</li>
 		</researchPrerequisites>
-		<minifiedDef>MinifiedThing</minifiedDef>
 	</ThingDef>
 
 

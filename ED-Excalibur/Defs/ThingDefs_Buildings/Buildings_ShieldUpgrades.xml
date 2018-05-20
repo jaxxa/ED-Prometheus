@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<ThingDef ParentName="BuildingBase">
+	<ThingDef ParentName="EDSN_BuildingBase">
 		<defName>ShieldUpgrade</defName>
 		<label>ShieldUpgrade</label>
 		<thingClass>Building</thingClass>
@@ -25,12 +25,8 @@
 		<fillPercent>0.5</fillPercent>
 		<designationHotKey>Misc4</designationHotKey>
 		<designationCategory>Security</designationCategory>
-		<minifiedDef>MinifiedThing</minifiedDef>
 		<canOverlapZones>false</canOverlapZones>
 		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
-		<thingCategories>
-			<li>BuildingsMisc</li>
-		</thingCategories>
 		<statBases>
 			<MaxHitPoints>200</MaxHitPoints>
 			<WorkToBuild>10000</WorkToBuild>
@@ -61,7 +57,7 @@
 		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
 	</ThingDef>
 
-	<ThingDef ParentName="BuildingBase">
+	<ThingDef ParentName="EDSN_BuildingBase">
 		<defName>ShieldUpgradeSmall</defName>
 		<label>ShieldUpgradeSmall</label>
 		<thingClass>Building</thingClass>
@@ -85,12 +81,8 @@
 		<fillPercent>0.5</fillPercent>
 		<designationHotKey>Misc4</designationHotKey>
 		<designationCategory>Security</designationCategory>
-		<minifiedDef>MinifiedThing</minifiedDef>
 		<canOverlapZones>false</canOverlapZones>
 		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
-		<thingCategories>
-			<li>BuildingsMisc</li>
-		</thingCategories>
 		<statBases>
 			<MaxHitPoints>200</MaxHitPoints>
 			<WorkToBuild>10000</WorkToBuild>

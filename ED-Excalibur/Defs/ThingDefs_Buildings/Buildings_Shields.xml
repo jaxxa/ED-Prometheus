@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-	<ThingDef Name="BuildingBase" Abstract="True">
-		<category>Building</category>
-		<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
-		<selectable>true</selectable>
-		<drawerType>MapMeshAndRealTime</drawerType>
-		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-		<repairEffect>Repair</repairEffect>
-		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
-	</ThingDef>
-
-	<ThingDef ParentName="BuildingBase">
+	<ThingDef ParentName="EDSN_BuildingBase">
 		<defName>Building_ShieldStandard</defName>
 		<label>Standard Shield</label>
 		<description>Creates shield field to protect important infrastructure.</description>
@@ -25,13 +15,9 @@
 			<drawSize>(3,3)</drawSize>
 		</graphicData>
 
-		<thingCategories>
-			<li>BuildingsSpecial</li>
-		</thingCategories>
 		<uiIconPath>Things/ShieldBuilding_Blue</uiIconPath>
 		<altitudeLayer>Building</altitudeLayer>
 		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
-		<minifiedDef>MinifiedThing</minifiedDef>
 		<blockLight>true</blockLight>
 		<drawerType>MapMeshAndRealTime</drawerType>
 		<staticSunShadowHeight>1.0</staticSunShadowHeight>
