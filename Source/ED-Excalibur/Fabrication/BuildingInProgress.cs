@@ -23,7 +23,7 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
 
         public int ResourcesNeeded = 50;
 
-        public int NumberOfRequestsRemailing = 3;
+        public int NumberOfRequestsRemailing = 1;
 
         public BuildingInProgress(string defName, Map DestinationMap, IntVec3 DestinationPosition)
         {
@@ -57,11 +57,26 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
         public Rect DoInterface(float x, float y, float width, int index)
         {
 
-            Rect rect = new Rect(x, y, width, 53f);
+            Rect _RectTotal = new Rect(x, y, width, 53f);
 
-            Widgets.ButtonText(rect, this.defName + ": "  + this.NumberOfRequestsRemailing.ToString() + " : " + this.WorkRemaining.ToString());
+            Rect _RectTopHalf = _RectTotal.TopHalf();
+            Widgets.TextArea(_RectTopHalf, this.defName + ": " + this.NumberOfRequestsRemailing.ToString() + " : " + this.WorkRemaining.ToString(), true);
 
-            return rect;
+            Rect _RectBottomHalf = _RectTotal.BottomHalf();
+
+            if (Widgets.ButtonText(_RectBottomHalf.LeftHalf(), "-"))
+            {
+                this.NumberOfRequestsRemailing -= 1;
+            };
+
+
+            if (Widgets.ButtonText(_RectBottomHalf.RightHalf(), "+"))
+            {
+                this.NumberOfRequestsRemailing += 1;
+
+            };
+
+            return _RectTotal;
 
 
         }
