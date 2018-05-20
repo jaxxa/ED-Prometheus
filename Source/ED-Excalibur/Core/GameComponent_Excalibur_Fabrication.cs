@@ -18,31 +18,36 @@ namespace EnhancedDevelopment.Excalibur.Core
 
         public override int GetTickInterval()
         {
-            return 120;
+            return 30;
         }
 
         public override void TickOnInterval()
         {
             if (this.BuildingsUnderConstruction.Any())
             {
-                Log.Message("Dropping");
+
                 BuildingInProgress _BuildingToSpawn = this.BuildingsUnderConstruction.FirstOrDefault();
-                this.BuildingsUnderConstruction.Remove(_BuildingToSpawn);
+                _BuildingToSpawn.WorkRemaining -= 1;
+
+                if (_BuildingToSpawn.WorkRemaining <= 0)
+                {
+                    Log.Message("Dropping");
+                    this.BuildingsUnderConstruction.Remove(_BuildingToSpawn);
 
 
-                List<Thing> _Things = new List<Thing>();
-                _Things.Add(_BuildingToSpawn.ContainedMinifiedThing);
+                    List<Thing> _Things = new List<Thing>();
+                    _Things.Add(_BuildingToSpawn.ContainedMinifiedThing);
 
-                DropPodUtility.DropThingsNear(_BuildingToSpawn.DestinationPosition, _BuildingToSpawn.DestinationMap, _Things);
+                    DropPodUtility.DropThingsNear(_BuildingToSpawn.DestinationPosition, _BuildingToSpawn.DestinationMap, _Things);
+                }
             }
 
-
         }
-        
+
         //-------------------------------------------
 
         public List<BuildingInProgress> BuildingsUnderConstruction = new List<BuildingInProgress>();
-        
+
         public void OrderBuilding(string buildingName, IntVec3 position, Map map)
         {
             BuildingInProgress _NewBuilding = new BuildingInProgress(buildingName, map, position);

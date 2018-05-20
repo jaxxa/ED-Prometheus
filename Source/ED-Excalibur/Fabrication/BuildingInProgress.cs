@@ -55,7 +55,7 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
 
             Rect rect = new Rect(x, y, width, 53f);
 
-            Widgets.ButtonText(rect, this.defName);
+            Widgets.ButtonText(rect, this.defName + ": " + this.WorkRemaining.ToString());
 
             return rect;
 
