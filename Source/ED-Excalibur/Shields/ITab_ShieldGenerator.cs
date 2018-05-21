@@ -83,10 +83,11 @@ namespace EnhancedDevelopment.Excalibur.Shields
 
             listing_Standard.GapLine(12f);
             listing_Standard.Label("Charge: " + this.SelectedCompShieldGenerator.FieldIntegrity_Current + " / " + this.SelectedCompShieldGenerator.m_FieldIntegrity_Max);
+            
             listing_Standard.Gap(12f);
 
-            listing_Standard.Label("Radius: " + this.SelectedCompShieldGenerator.m_Field_Radius);
-
+            listing_Standard.Label("Radius: " + this.SelectedCompShieldGenerator.m_Field_Radius_Selected + " / " + this.SelectedCompShieldGenerator.m_Field_Radius_Max);
+            listing_Standard.IntAdjuster(ref this.SelectedCompShieldGenerator.m_Field_Radius_Selected, 1, 1);
 
             listing_Standard.End();
         }

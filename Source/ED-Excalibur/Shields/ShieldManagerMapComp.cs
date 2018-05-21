@@ -45,7 +45,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
                 Log.Message("Shield:" + x.Position.ToVector3());
 
                 Log.Message("Distance: " + _Distance.ToString());
-                float _Radius = x.GetComp<Comp_ShieldGenerator>().m_Field_Radius;
+                float _Radius = x.GetComp<Comp_ShieldGenerator>().m_Field_Radius_Selected;
 
 
                 if (_Distance <= _Radius)

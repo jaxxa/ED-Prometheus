@@ -52,7 +52,8 @@ namespace EnhancedDevelopment.Excalibur.Shields
         //Field Settings
         public int m_FieldIntegrity_Max;
         private int m_FieldIntegrity_Initial;
-        public int m_Field_Radius;
+        public int m_Field_Radius_Max;
+        public int m_Field_Radius_Selected = 999;
 
         //Power Settings
         private int m_PowerRequired_Charging;
@@ -119,7 +120,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
             //Field Settings
             this.m_FieldIntegrity_Max = this.Properties.m_FieldIntegrity_Max_Base;
             this.m_FieldIntegrity_Initial = this.Properties.m_FieldIntegrity_Initial;
-            this.m_Field_Radius = this.Properties.m_Field_Radius_Base;
+            this.m_Field_Radius_Max = this.Properties.m_Field_Radius_Base;
 
             //Power Settings
             this.m_PowerRequired_Charging = this.Properties.m_PowerRequiredCharging_Base;
@@ -160,6 +161,11 @@ namespace EnhancedDevelopment.Excalibur.Shields
 
             });
 
+            if (this.m_Field_Radius_Selected > this.m_Field_Radius_Max)
+            {
+                this.m_Field_Radius_Selected = this.m_Field_Radius_Max;
+            }
+
         }
 
         private void AddStatsFromUpgrade(Comp_ShieldUpgrade comp)
@@ -167,7 +173,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
 
             this.m_FieldIntegrity_Max += comp.Properties.FieldIntegrity_Increase;
             //this.m_Power.powerOutputInt -= comp.Properties.PowerUsage_Increase;
-            this.m_Field_Radius += comp.Properties.Range_Increase;
+            this.m_Field_Radius_Max += comp.Properties.Range_Increase;
 
             if (comp.Properties.DropPodIntercept)
             {
@@ -415,7 +421,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
         //Draw the field on map
         public void DrawField(Vector3 center)
         {
-            DrawSubField(center, this.m_Field_Radius);
+            DrawSubField(center, this.m_Field_Radius_Selected);
         }
 
         public void DrawSubField(Vector3 position, float shieldShieldRadius)
@@ -670,7 +676,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
 
             Scribe_Values.Look(ref m_FieldIntegrity_Max, "m_FieldIntegrity_Max");
             Scribe_Values.Look(ref m_FieldIntegrity_Initial, "m_FieldIntegrity_Initial");
-            Scribe_Values.Look(ref m_Field_Radius, "m_Field_Radius");
+            Scribe_Values.Look(ref m_Field_Radius_Max, "m_Field_Radius");
 
             Scribe_Values.Look(ref m_PowerRequired_Charging, "m_PowerRequired_Charging");
             Scribe_Values.Look(ref m_PowerRequired_Sustaining, "m_PowerRequired_Sustaining");
