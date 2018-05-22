@@ -62,8 +62,8 @@
 				<m_FieldIntegrity_Max_Base>2000</m_FieldIntegrity_Max_Base>
 				<m_Field_Radius_Base>8</m_Field_Radius_Base>
 
-				<m_PowerRequiredCharging_Base>-1500</m_PowerRequiredCharging_Base>
-				<m_PowerRequiredSustaining_Base>-1000</m_PowerRequiredSustaining_Base>
+				<m_PowerRequired_Charging>1500</m_PowerRequired_Charging>
+				<m_PowerRequired_Standby>1000</m_PowerRequired_Standby>
 
 
 				<m_RechargeTickDelayInterval_Base>15</m_RechargeTickDelayInterval_Base>

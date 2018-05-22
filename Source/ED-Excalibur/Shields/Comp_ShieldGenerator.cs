@@ -17,7 +17,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
         Material currentMatrialColour;
 
         public CompProperties_ShieldGenerator Properties;
-
+        
         #region Variables
 
         //UI elements
@@ -57,12 +57,13 @@ namespace EnhancedDevelopment.Excalibur.Shields
 
         //Power Settings
         private int m_PowerRequired_Charging;
-        private int m_PowerRequired_Sustaining;
+        private int m_PowerRequired_Standby;
 
         //Recovery Settings
         private int m_RechargeTickDelayInterval;
         private int m_RecoverWarmupDelayTicks;
         private int m_WarmupTicksRemaining;
+        
 
         //private long m_TickCount = 0;
 
@@ -94,7 +95,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
 
             this.Properties = ((CompProperties_ShieldGenerator)this.props);
             this.m_Power = this.parent.GetComp<CompPowerTrader>();
-
+            
             this.RecalculateStatistics();
         }
 
@@ -123,8 +124,8 @@ namespace EnhancedDevelopment.Excalibur.Shields
             this.m_Field_Radius_Max = this.Properties.m_Field_Radius_Base;
 
             //Power Settings
-            this.m_PowerRequired_Charging = this.Properties.m_PowerRequiredCharging_Base;
-            this.m_PowerRequired_Sustaining = this.Properties.m_PowerRequiredSustaining_Base;
+            this.m_PowerRequired_Charging = this.Properties.m_PowerRequired_Charging;
+            this.m_PowerRequired_Standby = this.Properties.m_PowerRequired_Standby;
 
             //Recovery Settings
             this.m_RechargeTickDelayInterval = this.Properties.m_RechargeTickDelayInterval_Base;
@@ -144,7 +145,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
             Patch.Patcher.LogNULL(_LinkedBuildings, "_LinkedBuildings");
 
             //Log.Message(_LinkedBuildings.Count.ToString());
-
+            
 
             _LinkedBuildings.ForEach(b =>
             {
@@ -166,14 +167,28 @@ namespace EnhancedDevelopment.Excalibur.Shields
                 this.m_Field_Radius_Selected = this.m_Field_Radius_Max;
             }
 
+            //Update power Usage
+            if (this.m_CurrentStatus == EnumShieldStatus.ActiveSustaining)
+            {
+                this.m_Power.powerOutputInt = -this.m_PowerRequired_Standby;
+            }
+            else
+            {
+                this.m_Power.powerOutputInt = -this.m_PowerRequired_Charging;
+            }
+
         }
 
         private void AddStatsFromUpgrade(Comp_ShieldUpgrade comp)
         {
 
             this.m_FieldIntegrity_Max += comp.Properties.FieldIntegrity_Increase;
-            //this.m_Power.powerOutputInt -= comp.Properties.PowerUsage_Increase;
             this.m_Field_Radius_Max += comp.Properties.Range_Increase;
+            
+            //Power
+            this.m_PowerRequired_Charging += comp.Properties.PowerUsage_Increase;
+            this.m_PowerRequired_Standby += comp.Properties.PowerUsage_Increase;
+
 
             if (comp.Properties.DropPodIntercept)
             {
@@ -206,7 +221,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
 
             this.RecalculateStatistics();
         }
-        
+
         public void UpdateShieldStatus()
         {
             Boolean _PowerAvalable = this.CheckPowerOn();
@@ -330,7 +345,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
         #endregion Methods
 
         #region Properties
-        
+
         public EnumShieldStatus CurrentStatus
         {
             get
@@ -343,11 +358,11 @@ namespace EnhancedDevelopment.Excalibur.Shields
 
                 if (this.m_CurrentStatus == EnumShieldStatus.ActiveSustaining)
                 {
-                    this.m_Power.powerOutputInt = this.m_PowerRequired_Sustaining;
+                    this.m_Power.powerOutputInt = -this.m_PowerRequired_Standby;
                 }
                 else
                 {
-                    this.m_Power.powerOutputInt = this.m_PowerRequired_Charging;
+                    this.m_Power.powerOutputInt = -this.m_PowerRequired_Charging;
                 }
             }
         }
@@ -679,7 +694,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
             Scribe_Values.Look(ref m_Field_Radius_Max, "m_Field_Radius");
 
             Scribe_Values.Look(ref m_PowerRequired_Charging, "m_PowerRequired_Charging");
-            Scribe_Values.Look(ref m_PowerRequired_Sustaining, "m_PowerRequired_Sustaining");
+            Scribe_Values.Look(ref m_PowerRequired_Standby, "m_PowerRequired_Standby");
 
             Scribe_Values.Look(ref m_RechargeTickDelayInterval, "m_shieldRechargeTickDelay");
             Scribe_Values.Look(ref m_RecoverWarmupDelayTicks, "m_shieldRecoverWarmup");

@@ -20,8 +20,8 @@ namespace EnhancedDevelopment.Excalibur.Shields
         public int m_Field_Radius_Base = 0;
 
         //Power Settings
-        public int m_PowerRequiredCharging_Base = 0;
-        public int m_PowerRequiredSustaining_Base = 0;
+        public int m_PowerRequired_Charging = 0;
+        public int m_PowerRequired_Standby = 0;
 
         //Recovery Settings
         public int m_RechargeTickDelayInterval_Base = 0; //Global Constant?
