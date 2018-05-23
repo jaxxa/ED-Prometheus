@@ -94,7 +94,7 @@ namespace EnhancedDevelopment.Excalibur.Patch.Patches
         // - returns a boolean that controls if original is executed (true) or not (false)
         public static Boolean ProjectileTickPrefix(ref Projectile __instance)
         {
-            Log.Message("Ticking Projectile");
+            //Log.Message("Ticking Projectile");
             //This is the result that will be used, note that it was passed as a ref.
             //  __result = false;
 

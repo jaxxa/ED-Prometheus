@@ -20,7 +20,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
         
         #region Variables
 
-        //UI elements
+        //UI elements - Unsaved
         private static Texture2D UI_DIRECT_ON;
         private static Texture2D UI_DIRECT_OFF;
 

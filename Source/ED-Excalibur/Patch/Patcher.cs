@@ -21,6 +21,7 @@ namespace EnhancedDevelopment.Excalibur.Patch
             List<Patch> _Patches = new List<Patch>();
             _Patches.Add(new Patches.PatchProjectile());
             _Patches.Add(new Patches.PatchThingWithComps_Nano());
+            _Patches.Add(new Patches.PatchDropPodIncoming());
 
             //Create Harmony Instance
             HarmonyInstance _Harmony = HarmonyInstance.Create("EnhancedDevelopment.Excalibur");
