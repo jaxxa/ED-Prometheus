@@ -34,7 +34,7 @@
     <size>(1,2)</size>
     <costList>
       <Steel>70</Steel>
-      <Component>2</Component>
+      <ComponentSpacer>2</ComponentSpacer>
     </costList>
     <comps>
       <li Class="CompProperties_Battery">

@@ -17,7 +17,7 @@
 			<li>Research_ED_Replicator_MK1</li>
 		</researchPrerequisites>
 		<costList>
-			<Component>2</Component>
+			<ComponentSpacer>2</ComponentSpacer>
 			<Steel>100</Steel>
 			<Silver>50</Silver>
 		</costList>
@@ -73,7 +73,7 @@
 			<li>Research_ED_Replicator_MK2</li>
 		</researchPrerequisites>
 		<costList>
-			<Component>4</Component>
+			<ComponentSpacer>4</ComponentSpacer>
 			<Steel>200</Steel>
 			<Silver>100</Silver>
 		</costList>
@@ -125,7 +125,7 @@
 			<li>Research_ED_Replicator_MK3</li>
 		</researchPrerequisites>
 		<costList>
-			<Component>4</Component>
+			<ComponentSpacer>4</ComponentSpacer>
 			<Steel>200</Steel>
 			<Silver>400</Silver>
 		</costList>

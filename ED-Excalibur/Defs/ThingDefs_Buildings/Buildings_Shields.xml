@@ -38,7 +38,7 @@
 		<costList>
 			<Steel>100</Steel>
 			<Silver>100</Silver>
-			<Component>15</Component>
+			<ComponentSpacer>15</ComponentSpacer>
 		</costList>
 		<inspectorTabs>
 			<li>EnhancedDevelopment.Excalibur.Shields.ITab_ShieldGenerator</li>
