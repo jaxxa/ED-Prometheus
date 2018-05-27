@@ -98,7 +98,7 @@ namespace EnhancedDevelopment.Excalibur.Patch.Patches
             //This is the result that will be used, note that it was passed as a ref.
             //  __result = false;
 
-            if (__instance.Map.GetComponent<ShieldManagerMapComp>().WillBeBlocked(__instance))
+            if (__instance.Map.GetComponent<ShieldManagerMapComp>().WillProjectileBeBlocked(__instance))
             {
                 return false;
             }

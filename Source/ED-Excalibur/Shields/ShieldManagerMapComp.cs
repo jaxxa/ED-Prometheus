@@ -12,7 +12,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
     [StaticConstructorOnStartup]
     class ShieldManagerMapComp : MapComponent
     {
-        
+
         public static readonly SoundDef HitSoundDef = SoundDef.Named("Shields_HitShield");
 
         private List<Projectile> m_Projectiles = new List<Projectile>();
@@ -29,7 +29,34 @@ namespace EnhancedDevelopment.Excalibur.Shields
             // Log.Message("MapCompTick");
         }
 
-        public bool WillBeBlocked(Verse.Projectile projectile)
+        public bool WillDropPodBeIntercepted(DropPodIncoming dropPodToTest)
+        {
+            IEnumerable<Building_Shield> _ShieldBuildings = map.listerBuildings.AllBuildingsColonistOfClass<Building_Shield>();
+            if (_ShieldBuildings.Any(x =>
+                                       {
+
+                                           float _Distance = Vector3.Distance(dropPodToTest.Position.ToVector3(), x.Position.ToVector3());
+
+                                           float _Radius = x.GetComp<Comp_ShieldGenerator>().m_Field_Radius_Selected;
+
+                                           if (_Distance <= _Radius)
+                                           {
+                                               return true;
+                                           }
+                                           return false;
+
+                                       }))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        public bool WillProjectileBeBlocked(Verse.Projectile projectile)
         {
 
             IEnumerable<Building_Shield> _ShieldBuildings = map.listerBuildings.AllBuildingsColonistOfClass<Building_Shield>();
@@ -47,10 +74,9 @@ namespace EnhancedDevelopment.Excalibur.Shields
                 Log.Message("Distance: " + _Distance.ToString());
                 float _Radius = x.GetComp<Comp_ShieldGenerator>().m_Field_Radius_Selected;
 
-
                 if (_Distance <= _Radius)
                 {
-                    return this.CorrectAngleToIntercept(projectile, x);
+                    return ShieldManagerMapComp.CorrectAngleToIntercept(projectile, x);
                 }
                 return false;
             }))
@@ -70,7 +96,9 @@ namespace EnhancedDevelopment.Excalibur.Shields
         }
 
 
-        public Boolean CorrectAngleToIntercept(Projectile pr, Building_Shield shieldBuilding)
+
+
+        public static Boolean CorrectAngleToIntercept(Projectile pr, Building_Shield shieldBuilding)
         {
             //Detect proper collision using angles
             Quaternion targetAngle = pr.ExactRotation;

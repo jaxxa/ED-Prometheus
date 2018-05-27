@@ -32,7 +32,6 @@ namespace EnhancedDevelopment.Excalibur.Patch.Patches
             return true;
             //return Mod_EnhancedOptions.Settings.Plant24HEnabled;
         }
-
         
         private void ApplyImpactPatch(HarmonyInstance harmony)
         {
@@ -55,25 +54,25 @@ namespace EnhancedDevelopment.Excalibur.Patch.Patches
             //Log.Message("Impact");
 
             //This looks to include the Player Faction as Bring Friendly to Itself.
-            if (__instance.Contents.innerContainer.Any(x => x.Faction.HostileTo(Faction.OfPlayer)))
+            if (__instance.Contents.innerContainer.Any(x => x.Faction.HostileTo(Faction.OfPlayer)) && 
+               (__instance.Map.GetComponent<ShieldManagerMapComp>().WillDropPodBeIntercepted(__instance)))
             {
-                
-                for (int i = 0; i < 6; i++)
                 {
-                    Vector3 loc = __instance.Position.ToVector3Shifted() + Gen.RandomHorizontalVector(1f);
-                    MoteMaker.ThrowDustPuff(loc, __instance.Map, 1.2f);
+                    for (int i = 0; i < 6; i++)
+                    {
+                        Vector3 loc = __instance.Position.ToVector3Shifted() + Gen.RandomHorizontalVector(1f);
+                        MoteMaker.ThrowDustPuff(loc, __instance.Map, 1.2f);
+                    }
+                    MoteMaker.ThrowLightningGlow(__instance.Position.ToVector3Shifted(), __instance.Map, 2f);
+
+                    GenExplosion.DoExplosion(__instance.Position, __instance.Map, 2, DamageDefOf.Burn, __instance);
+                    __instance.Destroy();
+
+                    //Retuen False so the origional method is not executed.
+                    return false;
                 }
-                MoteMaker.ThrowLightningGlow(__instance.Position.ToVector3Shifted(), __instance.Map, 2f);
-
-                GenExplosion.DoExplosion(__instance.Position, __instance.Map, 2, DamageDefOf.Burn, __instance);
-                __instance.Destroy();
-
-                //Retuen False so the origional method is not executed.
-                return false;
             }
-                        
             return true;
         }
-
     }
 }
