@@ -39,7 +39,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
 
                                            float _Radius = x.GetComp<Comp_ShieldGenerator>().m_Field_Radius_Selected;
 
-                                           if (_Distance <= _Radius)
+                                           if (_Distance <= _Radius && x.WillInterceptDropPods())
                                            {
                                                return true;
                                            }

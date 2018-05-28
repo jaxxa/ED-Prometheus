@@ -42,7 +42,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
         //Mode Settings - Active
         private bool m_BlockIndirect_Active;
         private bool m_BlockDirect_Active;
-        private bool m_InterceptDropPod_Active;
+        public bool m_InterceptDropPod_Active;
 
         //Mode Settings - Avalable
         private bool m_BlockIndirect_Avalable;
@@ -193,6 +193,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
             if (comp.Properties.DropPodIntercept)
             {
                 this.m_InterceptDropPod_Avalable = true;
+                this.m_InterceptDropPod_Active = true;
             }
 
             if (comp.Properties.SIFMode)

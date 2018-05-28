@@ -49,6 +49,7 @@
 				<FieldIntegrity_Increase>255</FieldIntegrity_Increase>
 				<Range_Increase>5</Range_Increase>
 				<PowerUsage_Increase>500</PowerUsage_Increase>
+				<DropPodIntercept>true</DropPodIntercept>
 			</li>
 		</comps>
 		<placeWorkers>
