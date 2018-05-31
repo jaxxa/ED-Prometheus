@@ -55,6 +55,8 @@
     <Compile Include="Core\GameComponent_Excalibur_NanoShields.cs" />
     <Compile Include="Core\GameComponent_Excalibur_Quest.cs" />
     <Compile Include="Fabrication\BuildingInProgress.cs" />
+    <Compile Include="Fabrication\CompProperties_Fabricated.cs" />
+    <Compile Include="Fabrication\Comp_Fabricated.cs" />
     <Compile Include="LaserDrill\CompProperties_LaserDrill.cs" />
     <Compile Include="LaserDrill\Comp_LaserDrill.cs" />
     <Compile Include="LaserDrill\MapComp_LaserDrill.cs" />

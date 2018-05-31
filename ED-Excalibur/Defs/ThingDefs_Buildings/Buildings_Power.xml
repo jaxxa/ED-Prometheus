@@ -1,59 +1,60 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ThingDef ParentName="EDSN_BuildingBase">
-    <defName>QuantumPowerRelay</defName>
-    <label>Quantum Power Relay</label>
-    <description>Stores electricity for later use. Charged batteries explode when exposed to rain or fire.</description>
-	<thingClass>EnhancedDevelopment.Excalibur.Power.Building_QuantumPowerRelay</thingClass>
-    <graphicData>
-      <texPath>Things/Building/Power/Battery</texPath>
-      <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(2,3)</drawSize>
-      <damageData>
-        <cornerTL>Damage/Corner</cornerTL>
-        <cornerTR>Damage/Corner</cornerTR>
-        <cornerBL>Damage/Corner</cornerBL>
-        <cornerBR>Damage/Corner</cornerBR>
-      </damageData>
-    </graphicData>
-    <altitudeLayer>Building</altitudeLayer>
-    <passability>PassThroughOnly</passability>
-    <pathCost>70</pathCost>
-    <blockWind>true</blockWind>
-    <castEdgeShadows>true</castEdgeShadows>
-    <fillPercent>0.40</fillPercent>
-    <tickerType>Normal</tickerType>
-    <statBases>
-      <MaxHitPoints>100</MaxHitPoints>
-      <WorkToBuild>800</WorkToBuild>
-      <Mass>20</Mass>
-      <Flammability>1.0</Flammability>
-      <Beauty>-15</Beauty>
-    </statBases>
-    <size>(1,2)</size>
-    <costList>
-      <Steel>70</Steel>
-      <ComponentSpacer>2</ComponentSpacer>
-    </costList>
-    <comps>
-      <li Class="CompProperties_Battery">
-        <storedEnergyMax>600</storedEnergyMax>
-        <efficiency>1.0</efficiency>
-        <shortCircuitInRain>false</shortCircuitInRain>
-        <transmitsPower>true</transmitsPower>
-      </li>
-      <li Class="CompProperties_Breakdownable"/>
-    </comps>
-    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
-    <designationCategory>Power</designationCategory>
-    <staticSunShadowHeight>0.5</staticSunShadowHeight>
-    <constructEffect>ConstructMetal</constructEffect>
-    <designationHotKey>Misc4</designationHotKey>
-    <canOverlapZones>false</canOverlapZones>
-    <researchPrerequisites>
-      <li>Batteries</li>
-    </researchPrerequisites>
-  </ThingDef>
- 
+	<ThingDef ParentName="EDSN_BuildingBase">
+		<defName>QuantumPowerRelay</defName>
+		<label>Quantum Power Relay</label>
+		<description>Stores electricity for later use. Charged batteries explode when exposed to rain or fire.</description>
+		<thingClass>EnhancedDevelopment.Excalibur.Power.Building_QuantumPowerRelay</thingClass>
+		<graphicData>
+			<texPath>Things/Building/Power/Battery</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(2,3)</drawSize>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+			</damageData>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<pathCost>70</pathCost>
+		<blockWind>true</blockWind>
+		<castEdgeShadows>true</castEdgeShadows>
+		<fillPercent>0.40</fillPercent>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>800</WorkToBuild>
+			<Mass>20</Mass>
+			<Flammability>1.0</Flammability>
+			<Beauty>-15</Beauty>
+		</statBases>
+		<size>(1,2)</size>
+		<costList>
+			<Steel>70</Steel>
+			<ComponentSpacer>2</ComponentSpacer>
+		</costList>
+		<comps>
+			<li Class="EnhancedDevelopment.Excalibur.Fabrication.CompProperties_Fabricated"/>
+			<li Class="CompProperties_Battery">
+				<storedEnergyMax>600</storedEnergyMax>
+				<efficiency>1.0</efficiency>
+				<shortCircuitInRain>false</shortCircuitInRain>
+				<transmitsPower>true</transmitsPower>
+			</li>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<designationCategory>Power</designationCategory>
+		<staticSunShadowHeight>0.5</staticSunShadowHeight>
+		<constructEffect>ConstructMetal</constructEffect>
+		<designationHotKey>Misc4</designationHotKey>
+		<canOverlapZones>false</canOverlapZones>
+		<researchPrerequisites>
+			<li>Batteries</li>
+		</researchPrerequisites>
+	</ThingDef>
+
 </Defs>

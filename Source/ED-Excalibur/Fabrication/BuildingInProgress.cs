@@ -36,7 +36,6 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
         public List<Thing> InitiateDrop()
         {
 
-
             Building _ContainedBuilding = (Building)ThingMaker.MakeThing(ThingDef.Named(this.defName), null);
             MinifiedThing _ContainedMinifiedThing = _ContainedBuilding.MakeMinified();
             List<Thing> _Things = new List<Thing>();

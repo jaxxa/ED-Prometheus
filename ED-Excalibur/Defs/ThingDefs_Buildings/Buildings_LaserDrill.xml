@@ -28,6 +28,7 @@
 			<wantsHopperAdjacent>false</wantsHopperAdjacent>
 		</building>
 		<comps>
+			<li Class="EnhancedDevelopment.Excalibur.Fabrication.CompProperties_Fabricated"/>
 			<li Class="EnhancedDevelopment.Excalibur.LaserDrill.CompProperties_LaserDrill">
 				<FillMode>False</FillMode>
 			</li>
@@ -86,6 +87,7 @@
 			<li>Stony</li>
 		</stuffCategories>
 		<comps>
+			<li Class="EnhancedDevelopment.Excalibur.Fabrication.CompProperties_Fabricated"/>
 			<li Class="EnhancedDevelopment.Excalibur.LaserDrill.CompProperties_LaserDrill">
 				<FillMode>True</FillMode>
 			</li>
