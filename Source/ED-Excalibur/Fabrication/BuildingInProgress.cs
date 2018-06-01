@@ -24,7 +24,7 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
         public int NeededWork = 0;
         public int NeededResources = 0;
         public int NeededPower = 0;
-        public bool ProvededPowerAndResources = false;
+        public bool SpentPowerAndMaterials = false;
 
 
         public int NumberOfRequestsRemailing = 1;

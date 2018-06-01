@@ -28,32 +28,43 @@ namespace EnhancedDevelopment.Excalibur.Core
             {
 
                 BuildingInProgress _BuildingToSpawn = this.BuildingsUnderConstruction.FirstOrDefault();
+
+                //Check if not Started
+                if (!_BuildingToSpawn.SpentPowerAndMaterials)
+                {
+                    if (GameComponent_Excalibur.Instance.Comp_Quest.GetReservePower() >= _BuildingToSpawn.NeededPower 
+                        && GameComponent_Excalibur.Instance.Comp_Quest.GetReserveMaterials() >= _BuildingToSpawn.NeededResources)
+                    {
+                        _BuildingToSpawn.WorkRemaining = _BuildingToSpawn.NeededWork;
+                        GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(-_BuildingToSpawn.NeededResources);
+                        GameComponent_Excalibur.Instance.Comp_Quest.AddReservePower(-_BuildingToSpawn.NeededPower);
+
+                        _BuildingToSpawn.SpentPowerAndMaterials = true;
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+
+                //Decriment the WorkRemaining
                 _BuildingToSpawn.WorkRemaining -= 1;
 
                 if (_BuildingToSpawn.WorkRemaining <= 0)
                 {
+                    //Initiate Drop
                     Log.Message("Dropping");
+                    List<Thing> _Things = _BuildingToSpawn.InitiateDrop();
+                    DropPodUtility.DropThingsNear(_BuildingToSpawn.DestinationPosition, _BuildingToSpawn.DestinationMap, _Things);
 
+                    _BuildingToSpawn.SpentPowerAndMaterials = false;
+
+                    //Reduce Required
                     _BuildingToSpawn.NumberOfRequestsRemailing -= 1;
                     if (_BuildingToSpawn.NumberOfRequestsRemailing <= 0)
                     {
                         this.BuildingsUnderConstruction.Remove(_BuildingToSpawn);
                     }
-
-                    _BuildingToSpawn.WorkRemaining = _BuildingToSpawn.NeededWork;
-                    GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(-_BuildingToSpawn.NeededResources);
-                    GameComponent_Excalibur.Instance.Comp_Quest.AddReservePower(-_BuildingToSpawn.NeededPower);
-
-                    List<Thing> _Things = _BuildingToSpawn.InitiateDrop();
-                    DropPodUtility.DropThingsNear(_BuildingToSpawn.DestinationPosition, _BuildingToSpawn.DestinationMap, _Things);
-
-                    if (this.BuildingsUnderConstruction.Any())
-                    {
-
-                        BuildingInProgress _NextBuilding = this.BuildingsUnderConstruction.First();
-                        _BuildingToSpawn.WorkRemaining = 100;
-                    }
-                    
                 }
             }
 
