@@ -20,7 +20,7 @@ namespace EnhancedDevelopment.Excalibur.Core
         public override int GetTickInterval()
         {
             return 30;
-        }
+        } //GetTickInterval
 
         public override void TickOnInterval()
         {
@@ -53,13 +53,11 @@ namespace EnhancedDevelopment.Excalibur.Core
                         BuildingInProgress _NextBuilding = this.BuildingsUnderConstruction.First();
                         _BuildingToSpawn.WorkRemaining = 100;
                     }
-
-
-
+                    
                 }
             }
 
-        }
+        } //TickOnInterval
 
         //-------------------------------------------
 
@@ -75,22 +73,14 @@ namespace EnhancedDevelopment.Excalibur.Core
             _NewBuilding.NeededResources = _Properties.RequiredMaterials;
 
             BuildingsUnderConstruction.Add(_NewBuilding);
-        }
-
-
-
-
-
-
-
-
+        } //OrderBuilding
 
         //-------------------------UI --------------------
 
 
         public void DoListing(Rect rect, Func<List<FloatMenuOption>> recipeOptionsMaker, ref Vector2 scrollPosition, ref float viewHeight)
         {
-            Bill result = null;
+            //Bill result = null;
             GUI.BeginGroup(rect);
             Text.Font = GameFont.Small;
             if (BuildingsUnderConstruction.Count < 15)
@@ -124,13 +114,7 @@ namespace EnhancedDevelopment.Excalibur.Core
             }
             Widgets.EndScrollView();
             GUI.EndGroup();
-        }
-
-
-
-
-
-
+        } //DoListing
 
     } // Class
 }
