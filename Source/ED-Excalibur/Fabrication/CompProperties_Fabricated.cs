@@ -14,5 +14,9 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
             this.compClass = typeof(Comp_Fabricated);
         }
 
+
+        public int RequiredPower = 0;
+        public int RequiredMaterials = 0;
+        public int RequiredWork = 0;
     }
 }

@@ -16,5 +16,6 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
 
             this.Properties = ((CompProperties_Fabricated)this.props);
         }
+
     }
 }

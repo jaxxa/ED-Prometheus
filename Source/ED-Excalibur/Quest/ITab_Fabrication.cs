@@ -83,11 +83,11 @@ namespace EnhancedDevelopment.Excalibur.Quest
                         //Log.Message(x.defName);
 
                         _List.Add(new FloatMenuOption(x.defName, delegate {
-                            GameComponent_Excalibur.Instance.Comp_Fabrication.OrderBuilding(x.defName, this.SelectedCompTransponder.parent.Position, this.SelectedCompTransponder.parent.Map);
+                            GameComponent_Excalibur.Instance.Comp_Fabrication.OrderBuilding(x, this.SelectedCompTransponder.parent.Position, this.SelectedCompTransponder.parent.Map);
                         }));
                     }
                 }
-);
+                );
 
                 //_List.Add(new FloatMenuOption("Add Relay", delegate
                 //{

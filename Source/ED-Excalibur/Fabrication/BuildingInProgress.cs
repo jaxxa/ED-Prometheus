@@ -21,7 +21,11 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
 
         public int WorkRemaining = 100;
 
-        public int ResourcesNeeded = 50;
+        public int NeededWork = 0;
+        public int NeededResources = 0;
+        public int NeededPower = 0;
+        public bool ProvededPowerAndResources = false;
+
 
         public int NumberOfRequestsRemailing = 1;
 

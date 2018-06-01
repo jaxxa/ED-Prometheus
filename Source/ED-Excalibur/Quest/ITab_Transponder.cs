@@ -89,23 +89,23 @@ namespace EnhancedDevelopment.Excalibur.Quest
 
             _Listing_Standard.Gap(12f);
 
-            if (_Listing_Standard.ButtonText("Deploy Power Relay", "Hightlight"))
-            {
-                GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(7);
-                GameComponent_Excalibur.Instance.Comp_Fabrication.OrderBuilding("QuantumPowerRelay", this.SelectedCompTransponder.parent.Position, this.SelectedCompTransponder.parent.Map);
-            }
+            //if (_Listing_Standard.ButtonText("Deploy Power Relay", "Hightlight"))
+            //{
+            //    GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(7);
+            //    GameComponent_Excalibur.Instance.Comp_Fabrication.OrderBuilding("QuantumPowerRelay", this.SelectedCompTransponder.parent.Position, this.SelectedCompTransponder.parent.Map);
+            //}
 
-            if (_Listing_Standard.ButtonText("Deploy Shield Charger", "Hightlight"))
-            {
-                GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(7);
-                GameComponent_Excalibur.Instance.Comp_Fabrication.OrderBuilding("Building_Shield_Charger", this.SelectedCompTransponder.parent.Position, this.SelectedCompTransponder.parent.Map);
-            }
+            //if (_Listing_Standard.ButtonText("Deploy Shield Charger", "Hightlight"))
+            //{
+            //    GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(7);
+            //    GameComponent_Excalibur.Instance.Comp_Fabrication.OrderBuilding("Building_Shield_Charger", this.SelectedCompTransponder.parent.Position, this.SelectedCompTransponder.parent.Map);
+            //}
 
-            if (_Listing_Standard.ButtonText("Deploy Shield Generator", "Hightlight"))
-            {
-                GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(7);
-                GameComponent_Excalibur.Instance.Comp_Fabrication.OrderBuilding("Building_ShieldStandard", this.SelectedCompTransponder.parent.Position, this.SelectedCompTransponder.parent.Map);
-            }
+            //if (_Listing_Standard.ButtonText("Deploy Shield Generator", "Hightlight"))
+            //{
+            //    GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(7);
+            //    GameComponent_Excalibur.Instance.Comp_Fabrication.OrderBuilding("Building_ShieldStandard", this.SelectedCompTransponder.parent.Position, this.SelectedCompTransponder.parent.Map);
+            //}
 
             _Listing_Standard.End();
         }

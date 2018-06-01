@@ -1,4 +1,5 @@
 ﻿using EnhancedDevelopment.Excalibur.Fabrication;
+using EnhancedDevelopment.Excalibur.Settings;
 using RimWorld;
 using System;
 using System.Collections.Generic;
@@ -31,9 +32,7 @@ namespace EnhancedDevelopment.Excalibur.Core
 
                 if (_BuildingToSpawn.WorkRemaining <= 0)
                 {
-                    _BuildingToSpawn.WorkRemaining = 100;
                     Log.Message("Dropping");
-
 
                     _BuildingToSpawn.NumberOfRequestsRemailing -= 1;
                     if (_BuildingToSpawn.NumberOfRequestsRemailing <= 0)
@@ -41,9 +40,22 @@ namespace EnhancedDevelopment.Excalibur.Core
                         this.BuildingsUnderConstruction.Remove(_BuildingToSpawn);
                     }
 
-                    List<Thing> _Things = _BuildingToSpawn.InitiateDrop();
+                    _BuildingToSpawn.WorkRemaining = _BuildingToSpawn.NeededWork;
+                    GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(-_BuildingToSpawn.NeededResources);
+                    GameComponent_Excalibur.Instance.Comp_Quest.AddReservePower(-_BuildingToSpawn.NeededPower);
 
+                    List<Thing> _Things = _BuildingToSpawn.InitiateDrop();
                     DropPodUtility.DropThingsNear(_BuildingToSpawn.DestinationPosition, _BuildingToSpawn.DestinationMap, _Things);
+
+                    if (this.BuildingsUnderConstruction.Any())
+                    {
+
+                        BuildingInProgress _NextBuilding = this.BuildingsUnderConstruction.First();
+                        _BuildingToSpawn.WorkRemaining = 100;
+                    }
+
+
+
                 }
             }
 
@@ -53,9 +65,15 @@ namespace EnhancedDevelopment.Excalibur.Core
 
         public List<BuildingInProgress> BuildingsUnderConstruction = new List<BuildingInProgress>();
 
-        public void OrderBuilding(string buildingName, IntVec3 position, Map map)
+        public void OrderBuilding(ThingDef buildingDef, IntVec3 position, Map map)
         {
-            BuildingInProgress _NewBuilding = new BuildingInProgress(buildingName, map, position);
+            CompProperties_Fabricated _Properties = buildingDef.GetCompProperties<CompProperties_Fabricated>();
+            BuildingInProgress _NewBuilding = new BuildingInProgress(buildingDef.defName, map, position);
+            _NewBuilding.WorkRemaining = _Properties.RequiredWork;
+            _NewBuilding.NeededWork = _Properties.RequiredWork;
+            _NewBuilding.NeededPower = _Properties.RequiredPower;
+            _NewBuilding.NeededResources = _Properties.RequiredMaterials;
+
             BuildingsUnderConstruction.Add(_NewBuilding);
         }
 
@@ -116,3 +134,4 @@ namespace EnhancedDevelopment.Excalibur.Core
 
     } // Class
 }
+
