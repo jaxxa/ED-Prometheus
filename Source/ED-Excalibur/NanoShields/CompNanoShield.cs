@@ -51,6 +51,12 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
                 }
             }
 
+
+            if (Find.Selector.SingleSelectedThing != parent)
+            {
+                yield break;
+            }
+
             if (this.QuantumShieldActive)
             {
                 Gizmo_NanoShieldStatus opt1 = new Gizmo_NanoShieldStatus(this);
