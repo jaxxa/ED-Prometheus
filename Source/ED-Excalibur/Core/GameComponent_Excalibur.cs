@@ -15,6 +15,7 @@ namespace EnhancedDevelopment.Excalibur.Core
         public GameComponent_Excalibur_NanoShields Comp_Shields;
         public GameComponent_Excalibur_Quest Comp_Quest;
         public GameComponent_Excalibur_Fabrication Comp_Fabrication;
+        public GameComponent_Excalibur_Transporter Comp_Transporter;
 
         private List<GameComponent_BaseClass> m_SubComponents = new List<GameComponent_BaseClass>();
 
@@ -36,6 +37,9 @@ namespace EnhancedDevelopment.Excalibur.Core
 
             this.Comp_Fabrication = new GameComponent_Excalibur_Fabrication();
             this.m_SubComponents.Add(this.Comp_Fabrication);
+
+            this.Comp_Transporter = new GameComponent_Excalibur_Transporter();
+            this.m_SubComponents.Add(Comp_Transporter);
 
         }
 

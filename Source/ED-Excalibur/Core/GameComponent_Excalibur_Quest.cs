@@ -16,8 +16,8 @@ namespace EnhancedDevelopment.Excalibur.Core
         private float m_ReservesPower = 0;
         private int m_ReservesMaterials = 0;
 
-        private int SolarPannels = 2;
-        private int MAX_SOLAR_PANNELS = 100;
+        //private int SolarPannels = 2;
+        //private int MAX_SOLAR_PANNELS = 100;
 
         public void AddReservePower(float ammount)
         {

@@ -1,4 +1,5 @@
 ﻿using EnhancedDevelopment.Excalibur.Core;
+using EnhancedDevelopment.Excalibur.Settings;
 using RimWorld;
 using System;
 using System.Collections.Generic;
@@ -79,9 +80,7 @@ namespace EnhancedDevelopment.Excalibur.Transporter
             }
 
         }
-
-        List<Thing> m_TransportBuffer = new List<Thing>();
-
+        
         private void ProvideMatrials()
         {
             List<Thing> _FoundThings = GenRadial.RadialDistinctThingsAround(this.parent.Position, this.parent.Map, 5, true).Where(x => x.def.category == ThingCategory.Item).Where(x => x.Spawned).Where(x => x.def.defName == "Steel").ToList();
@@ -117,7 +116,7 @@ namespace EnhancedDevelopment.Excalibur.Transporter
                 _Pawns.ForEach(_x =>
                 {
 
-                    this.m_TransportBuffer.Add(_x);
+                    GameComponent_Excalibur.Instance.Comp_Transporter.TransportBuffer.Add(_x);
                     //GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(_x.stackCount);
                     this.DisplayTransportEffect(_x);
 
@@ -140,9 +139,8 @@ namespace EnhancedDevelopment.Excalibur.Transporter
             {
                 _FoundThings.ForEach(_x =>
                 {
-
-
-                    this.m_TransportBuffer.Add(_x);
+                    
+                    GameComponent_Excalibur.Instance.Comp_Transporter.TransportBuffer.Add(_x);
 
                     //GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(_x.stackCount);
                     this.DisplayTransportEffect(_x);
@@ -160,14 +158,14 @@ namespace EnhancedDevelopment.Excalibur.Transporter
         private void TransportRecall()
         {
 
-            this.m_TransportBuffer.ForEach(_X =>
+            GameComponent_Excalibur.Instance.Comp_Transporter.TransportBuffer.ForEach(_X =>
             {
                 GenPlace.TryPlaceThing(_X, this.parent.Position, this.parent.Map, ThingPlaceMode.Near);
                 this.DisplayTransportEffect(_X);
             }
             );
 
-            this.m_TransportBuffer.Clear();
+            GameComponent_Excalibur.Instance.Comp_Transporter.TransportBuffer.Clear();
         }
 
         private void DisplayTransportEffect(Thing thingToTransport)
