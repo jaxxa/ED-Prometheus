@@ -15,9 +15,7 @@ namespace EnhancedDevelopment.Excalibur.Core
 
         private float m_ReservesPower = 0;
         private int m_ReservesMaterials = 0;
-
-        //private int SolarPannels = 2;
-        //private int MAX_SOLAR_PANNELS = 100;
+        
 
         public void AddReservePower(float ammount)
         {
@@ -51,10 +49,13 @@ namespace EnhancedDevelopment.Excalibur.Core
             switch (m_QuestStatus)
             {
                 case 0:
-                    //TODO: Check Prerequisites - Comms Console with Power.
-                    EnhancedDevelopment.Excalibur.Quest.ResearchHelper.QuestUnlock("Research_ED_Excalibur_AnalyseStrangeSignal");
-                    m_QuestStatus++;
-                    this.ContactExcalibur();
+
+                    if (CommsConsoleUtility.PlayerHasPoweredCommsConsole())
+                    {
+                        EnhancedDevelopment.Excalibur.Quest.ResearchHelper.QuestUnlock("Research_ED_Excalibur_AnalyseStrangeSignal");
+                        m_QuestStatus++;
+                        this.ContactExcalibur();
+                    }
                     break;
 
                 default:
@@ -62,7 +63,7 @@ namespace EnhancedDevelopment.Excalibur.Core
                     break;
             }
         }
-        
+
         public void ContactExcalibur(Building contactSource = null)
         {
 
@@ -77,16 +78,16 @@ namespace EnhancedDevelopment.Excalibur.Core
                 case 2:
                     m_QuestStatus++;
                     Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_2_FirstContact", "EDE_Dialog_2_FirstContact".Translate()));
-                    
+
                     Building_QuantumPowerRelay _PowerBuilding = (Building_QuantumPowerRelay)ThingMaker.MakeThing(ThingDef.Named("QuantumPowerRelay"), null);
                     List<Thing> _Things = new List<Thing>();
                     _Things.Add(_PowerBuilding);
-                    
+
                     DropPodUtility.DropThingsNear(contactSource.Position, contactSource.Map, _Things);
 
                     break;
                 case 3:
-                    
+
                     Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_3_InitialCharge", "EDE_Dialog_3_InitialCharge".Translate() + " " + this.m_ReservesPower.ToString() + " / " + "10,000"));
 
                     if (this.m_ReservesPower > 10000.0f)
@@ -96,8 +97,8 @@ namespace EnhancedDevelopment.Excalibur.Core
                     break;
                 case 4:
                     Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_4_NeedResources", "EDE_Dialog_4_NeedResources".Translate() + " Resources " + this.m_ReservesMaterials.ToString() + " / 20"));
-                    
-                    if (this.m_ReservesMaterials > 20 )
+
+                    if (this.m_ReservesMaterials > 20)
                     {
                         m_QuestStatus++;
                     }
@@ -124,5 +125,6 @@ namespace EnhancedDevelopment.Excalibur.Core
         {
             return 2000;
         }
+
     }
 }
