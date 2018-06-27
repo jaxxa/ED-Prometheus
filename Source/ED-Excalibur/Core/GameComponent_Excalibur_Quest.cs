@@ -22,6 +22,22 @@ namespace EnhancedDevelopment.Excalibur.Core
             this.m_ReservesPower += ammount;
         }
 
+        public float RequestReservePower(float ammount)
+        {
+            if (this.m_ReservesPower >= ammount)
+            {
+                this.m_ReservesPower -= ammount;
+                return ammount;
+            }
+            else
+            {
+                float _Temp = this.m_ReservesPower;
+                this.m_ReservesPower -= _Temp;
+                return _Temp;
+            }
+        }
+
+            
         public int GetReservePower()
         {
             return (int)this.m_ReservesPower;

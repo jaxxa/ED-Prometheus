@@ -18,19 +18,19 @@ namespace EnhancedDevelopment.Excalibur.Power
 
         private static readonly Material BatteryBarUnfilledMat = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0.3f, 0.3f, 0.3f), false);
         
-        private CompPowerBattery Comp
+        private CompPowerBattery CompPowerBattery
         {
             get
             {
-                if (this.m_Comp == null)
+                if (this.m_CompPowerBattery == null)
                 {
                     //Log.Message("GettingComp");
-                    this.m_Comp = base.GetComp<CompPowerBattery>();
+                    this.m_CompPowerBattery = base.GetComp<CompPowerBattery>();
                 }
-                return m_Comp;
+                return m_CompPowerBattery;
             }
         }
-        private CompPowerBattery m_Comp;
+        private CompPowerBattery m_CompPowerBattery;
 
         //public Building_QuantumPowerRelay() : base()
         //{
@@ -44,7 +44,7 @@ namespace EnhancedDevelopment.Excalibur.Power
             GenDraw.FillableBarRequest r = default(GenDraw.FillableBarRequest);
             r.center = this.DrawPos + Vector3.up * 0.1f;
             r.size = Building_QuantumPowerRelay.BarSize;
-            r.fillPercent = this.Comp.StoredEnergy / this.Comp.Props.storedEnergyMax;
+            r.fillPercent = this.CompPowerBattery.StoredEnergy / this.CompPowerBattery.Props.storedEnergyMax;
             r.filledMat = Building_QuantumPowerRelay.BatteryBarFilledMat;
             r.unfilledMat = Building_QuantumPowerRelay.BatteryBarUnfilledMat;
             r.margin = 0.15f;
@@ -61,17 +61,26 @@ namespace EnhancedDevelopment.Excalibur.Power
         public override void Tick()
         {
             base.Tick();
+            float _HalfEnergy = this.CompPowerBattery.Props.storedEnergyMax / 2;
+
 
             //this.Comp.AddEnergy(1.0f);
 
-            float _PowerBlock = 100.0f;
+            float _PowerBlock = this.CompPowerBattery.Props.storedEnergyMax / 4.0f;
 
-            if (this.Comp.StoredEnergy >= _PowerBlock)
+            //Check if need to upload power.
+            if (this.CompPowerBattery.StoredEnergy - _PowerBlock >= _HalfEnergy)
             {
-                this.Comp.DrawPower(_PowerBlock);
+                this.CompPowerBattery.DrawPower(_PowerBlock);
                 GameComponent_Excalibur.Instance.Comp_Quest.AddReservePower(_PowerBlock);
             }
-            //Equilise Power
+            
+            //Check if need to download power.
+            if (this.CompPowerBattery.StoredEnergy + _PowerBlock <= _HalfEnergy)
+            {
+                float _ReturnedPower = GameComponent_Excalibur.Instance.Comp_Quest.RequestReservePower(_PowerBlock);
+                this.CompPowerBattery.AddEnergy(_ReturnedPower);
+            }
 
         }
 
