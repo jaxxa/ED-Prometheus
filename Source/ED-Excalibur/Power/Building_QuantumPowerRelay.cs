@@ -58,14 +58,19 @@ namespace EnhancedDevelopment.Excalibur.Power
             //}
         }
 
+        public override string GetInspectString()
+        {
+            string _Base = base.GetInspectString();
+            _Base = _Base + Environment.NewLine + "Ship Power: " + GameComponent_Excalibur.Instance.Comp_Quest.GetReservePower();
+
+
+            return _Base;
+        }
+
         public override void Tick()
         {
             base.Tick();
-            float _HalfEnergy = this.CompPowerBattery.Props.storedEnergyMax / 2;
-
-
-            //this.Comp.AddEnergy(1.0f);
-
+            float _HalfEnergy = this.CompPowerBattery.Props.storedEnergyMax / 2;           
             float _PowerBlock = this.CompPowerBattery.Props.storedEnergyMax / 4.0f;
 
             //Check if need to upload power.
