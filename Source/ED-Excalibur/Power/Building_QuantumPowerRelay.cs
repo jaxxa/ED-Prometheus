@@ -62,13 +62,14 @@ namespace EnhancedDevelopment.Excalibur.Power
         {
             base.Tick();
 
-            this.Comp.AddEnergy(1.0f);
-            
+            //this.Comp.AddEnergy(1.0f);
 
-            if (this.Comp.StoredEnergy >= 100.0f)
+            float _PowerBlock = 100.0f;
+
+            if (this.Comp.StoredEnergy >= _PowerBlock)
             {
-                this.Comp.DrawPower(100.0f);
-                GameComponent_Excalibur.Instance.Comp_Quest.AddReservePower(100.0f);
+                this.Comp.DrawPower(_PowerBlock);
+                GameComponent_Excalibur.Instance.Comp_Quest.AddReservePower(_PowerBlock);
             }
             //Equilise Power
 
