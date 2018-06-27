@@ -4,8 +4,8 @@
 	<ResearchProjectDef>
 		<defName>Research_ED_Excalibur_Quest_Unlock</defName>
 		<label>Excalibur Quest Unlock</label>
-		<description>Research Projects that require themselves are unlocked by Quest Progression.</description>
-		<baseCost>1000</baseCost>
+		<description>NOTE: Research Projects that require themselves are unlocked through Quest Progression.</description>
+		<baseCost>999</baseCost>
 		<techLevel>Spacer</techLevel>
 		<tab>EDSN-Excalibur</tab>
 		<researchViewX>0</researchViewX>
@@ -21,7 +21,7 @@
 	<ResearchProjectDef>
 		<defName>Research_ED_Excalibur_AnalyseStrangeSignal</defName>
 		<label>Analyse Strange Signal</label>
-		<description>Analyse Strange Signal.</description>
+		<description>Analyse the Strange Signal and figure out how to build the EDSN Transponder described in the message.</description>
 		<baseCost>1000</baseCost>
 		<techLevel>Spacer</techLevel>
 		<tab>EDSN-Excalibur</tab>
@@ -49,9 +49,6 @@
 			<li>Research_ED_Excalibur_AnalyseStrangeSignal</li>
 		</prerequisites>
 	</ResearchProjectDef>
-
-	
-	
 	
 </Defs>
 

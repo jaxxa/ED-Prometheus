@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-
-
 	<ThingDef ParentName="EDSN_BuildingBase">
-		<defName>Building_Excalibur_Transponder</defName>
-		<label>Excalibur Transponder</label>
-		<description>Contacts the EDSN Excalibur.</description>
+		<defName>Building_EDSN_Transponder</defName>
+		<label>EDSN Transponder</label>
+		<description>Provides the ability to communicate with the E.D.S.N. Excalibur.</description>
 		<thingClass>Building</thingClass>
 		<researchPrerequisites>
 			<li>Research_ED_Excalibur_AnalyseStrangeSignal</li>
@@ -15,9 +13,7 @@
 			<texPath>Things/ShieldBuilding_Red</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>(1,1)</drawSize>
-		</graphicData>
-
-		
+		</graphicData>		
 		<drawerType>MapMeshAndRealTime</drawerType>
 		<designationCategory>Security</designationCategory>
 		<uiIconPath>Things/ShieldBuilding_Red</uiIconPath>
