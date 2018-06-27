@@ -106,15 +106,9 @@ namespace EnhancedDevelopment.Excalibur.Quest
             };
 
             GameComponent_Excalibur.Instance.Comp_Fabrication.DoListing(_DrawingSpace, recipeOptionsMaker, ref scrollPosition, ref viewHeight);
-
-
-
+            
         }
-
-
-
-
-
+        
     } //Class
 
 }

@@ -116,6 +116,7 @@ namespace EnhancedDevelopment.Excalibur.Core
                     //Find.WindowStack.Add(new Dialog_Excalibur());
 
                     Find.WindowStack.Add(new Dialog_0_Generic("EDETestString", "EDETestString".Translate()));
+                    m_QuestStatus = 1;
                     break;
             }
 
