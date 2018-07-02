@@ -78,10 +78,10 @@ namespace EnhancedDevelopment.Excalibur.Quest
                 DefDatabase<ThingDef>.AllDefs.ToList().ForEach(x =>
                 {
                     Fabrication.CompProperties_Fabricated _FabricationCompPropeties = x.GetCompProperties<Fabrication.CompProperties_Fabricated>();
-                    if (_FabricationCompPropeties != null)
+                    if (_FabricationCompPropeties != null && x.IsResearchFinished)
                     {
                         //Log.Message(x.defName);
-
+                                                                        
                         _List.Add(new FloatMenuOption(x.defName, delegate {
                             GameComponent_Excalibur.Instance.Comp_Fabrication.OrderBuilding(x, this.SelectedCompTransponder.parent.Position, this.SelectedCompTransponder.parent.Map);
                         }));
