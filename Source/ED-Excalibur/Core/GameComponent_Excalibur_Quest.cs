@@ -61,14 +61,13 @@ namespace EnhancedDevelopment.Excalibur.Core
 
         public override void TickOnInterval()
         {
-            Log.Message("QuestTick:" + this.m_ReservesPower.ToString());
+            //Log.Message("QuestTick:" + this.m_ReservesPower.ToString());
             switch (m_QuestStatus)
             {
                 case 0:
 
                     if (CommsConsoleUtility.PlayerHasPoweredCommsConsole())
                     {
-                        EnhancedDevelopment.Excalibur.Quest.ResearchHelper.QuestUnlock("Research_ED_Excalibur_AnalyseStrangeSignal");
                         m_QuestStatus++;
                         this.ContactExcalibur();
                     }
@@ -82,16 +81,27 @@ namespace EnhancedDevelopment.Excalibur.Core
 
         public void ContactExcalibur(Building contactSource = null)
         {
-
+           
             Log.Message("Contacting Excalibur");
 
+            //Updating Quest Status
+
+
+            //Dsiplaying Message
             switch (m_QuestStatus)
             {
-                case 1:
+                case 0: //Debug starting quest
                     m_QuestStatus++;
+
+                    break;
+                case 1: //Signal Detection
+                    m_QuestStatus++;
+
+                    EnhancedDevelopment.Excalibur.Quest.ResearchHelper.QuestUnlock("Research_ED_Excalibur_AnalyseStrangeSignal");
                     Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_1_SignalDetection", "EDE_Dialog_1_SignalDetection".Translate()));
                     break;
-                case 2:
+
+                case 2: //Decoded 
                     m_QuestStatus++;
                     Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_2_FirstContact", "EDE_Dialog_2_FirstContact".Translate()));
 
@@ -102,29 +112,39 @@ namespace EnhancedDevelopment.Excalibur.Core
                     DropPodUtility.DropThingsNear(contactSource.Position, contactSource.Map, _Things);
 
                     break;
-                case 3:
-
-                    Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_3_InitialCharge", "EDE_Dialog_3_InitialCharge".Translate() + " " + this.m_ReservesPower.ToString() + " / " + "10,000"));
-
+                case 3: //Charging
+                                      
                     if (this.m_ReservesPower > 10000.0f)
                     {
+                        Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_4_NeedResources", "EDE_Dialog_4_NeedResources".Translate() + " Resources " + this.m_ReservesMaterials.ToString() + " / 500"));
                         m_QuestStatus++;
                     }
+                    else
+                    {
+                        Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_3_InitialCharge", "EDE_Dialog_3_InitialCharge".Translate() + " " + this.m_ReservesPower.ToString() + " / " + "10,000"));
+                    }
+
                     break;
                 case 4:
-                    Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_4_NeedResources", "EDE_Dialog_4_NeedResources".Translate() + " Resources " + this.m_ReservesMaterials.ToString() + " / 20"));
 
-                    if (this.m_ReservesMaterials > 20)
+                    if (this.m_ReservesMaterials > 500)
                     {
+                        Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_5_ExecutingBurn", "EDE_Dialog_5_ExecutingBurn".Translate()));
                         m_QuestStatus++;
                     }
+                    else
+                    {
+                        Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_4_NeedResources", "EDE_Dialog_4_NeedResources".Translate() + " Resources " + this.m_ReservesMaterials.ToString() + " / 500"));
+
+                    }
+
                     break;
                 case 5:
                     m_QuestStatus++;
                     Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_5_ExecutingBurn", "EDE_Dialog_5_ExecutingBurn".Translate()));
                     break;
                 case 6:
-                    m_QuestStatus++;
+                    //m_QuestStatus++;
                     Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_6_ShipStabilised", "EDE_Dialog_6_ShipStabilised".Translate()));
                     break;
 
