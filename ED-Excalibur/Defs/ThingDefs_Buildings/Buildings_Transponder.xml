@@ -5,7 +5,7 @@
 		<defName>Building_EDSN_Transponder</defName>
 		<label>EDSN Transponder</label>
 		<description>Provides the ability to communicate with the E.D.S.N. Excalibur.</description>
-		<thingClass>Building</thingClass>
+		<thingClass>Building_WorkTable</thingClass>
 		<researchPrerequisites>
 			<li>Research_ED_Excalibur_AnalyseStrangeSignal</li>
 		</researchPrerequisites>
@@ -18,6 +18,8 @@
 		<designationCategory>Security</designationCategory>
 		<uiIconPath>Things/ShieldBuilding_Red</uiIconPath>
 		<specialDisplayRadius>5</specialDisplayRadius>
+		<hasInteractionCell>True</hasInteractionCell>
+		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
 		<comps>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
@@ -34,7 +36,11 @@
 		<inspectorTabs>
 			<li>EnhancedDevelopment.Excalibur.Quest.ITab_Transponder</li>
 			<li>EnhancedDevelopment.Excalibur.Quest.ITab_Fabrication</li>
+			<li>ITab_Bills</li>
 		</inspectorTabs>
+		<recipes>
+			<li>TransportResourceUnit_Steel</li>
+		</recipes>
 		<statBases>
 			<MaxHitPoints>500</MaxHitPoints>
 			<WorkToMake>0</WorkToMake>

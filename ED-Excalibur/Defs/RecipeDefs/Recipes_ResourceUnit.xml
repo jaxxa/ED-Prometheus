@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Replicate Slag -->
+	<RecipeDef>
+		<defName>TransportResourceUnit_Steel</defName>
+		<label>Packages Steel for Transport to the Excalibur</label>
+		<description>RU.</description>
+		<jobString>Creating slag from Omni-Gel.</jobString>
+		<workAmount>20</workAmount>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<effectWorking>Smelt</effectWorking>
+		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Steel</li>
+					</thingDefs>
+				</filter>
+				<count>10</count>
+			</li>
+		</ingredients>
+		<products>
+			<ResourceUnit>1</ResourceUnit>
+		</products>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>ResourceUnit</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workSkill>Crafting</workSkill>
+	</RecipeDef>
+
+</Defs>

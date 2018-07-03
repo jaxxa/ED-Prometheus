@@ -17,5 +17,20 @@
 		<li>Manipulation</li>
 	</requiredCapacities>
   </WorkGiverDef>
+  
+  <WorkGiverDef>
+    <defName>DoBillsPackageRU</defName>
+    <giverClass>WorkGiver_DoBill</giverClass>
+    <workType>Crafting</workType>
+    <priorityInType>104</priorityInType>
+	<fixedBillGiverDefs>
+	<li>Building_EDSN_Transponder</li>
+	</fixedBillGiverDefs>
+    <verb>replicate</verb>
+    <gerund>replicating</gerund>
+	<requiredCapacities>
+		<li>Manipulation</li>
+	</requiredCapacities>
+  </WorkGiverDef>
     
 </Defs>

@@ -91,7 +91,7 @@ namespace EnhancedDevelopment.Excalibur.Transporter
                 {
 
                     GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(_x.stackCount);
-                    this.DisplayTransportEffect(_x);
+                    Comp_Transporter.DisplayTransportEffect(_x);
 
                     _x.DeSpawn();
 
@@ -118,7 +118,7 @@ namespace EnhancedDevelopment.Excalibur.Transporter
 
                     GameComponent_Excalibur.Instance.Comp_Transporter.TransportBuffer.Add(_x);
                     //GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(_x.stackCount);
-                    this.DisplayTransportEffect(_x);
+                    Comp_Transporter.DisplayTransportEffect(_x);
 
                     _x.DeSpawn();
 
@@ -143,7 +143,7 @@ namespace EnhancedDevelopment.Excalibur.Transporter
                     GameComponent_Excalibur.Instance.Comp_Transporter.TransportBuffer.Add(_x);
 
                     //GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(_x.stackCount);
-                    this.DisplayTransportEffect(_x);
+                    Comp_Transporter.DisplayTransportEffect(_x);
 
                     _x.DeSpawn();
 
@@ -161,14 +161,14 @@ namespace EnhancedDevelopment.Excalibur.Transporter
             GameComponent_Excalibur.Instance.Comp_Transporter.TransportBuffer.ForEach(_X =>
             {
                 GenPlace.TryPlaceThing(_X, this.parent.Position, this.parent.Map, ThingPlaceMode.Near);
-                this.DisplayTransportEffect(_X);
+                Comp_Transporter.DisplayTransportEffect(_X);
             }
             );
 
             GameComponent_Excalibur.Instance.Comp_Transporter.TransportBuffer.Clear();
         }
 
-        private void DisplayTransportEffect(Thing thingToTransport)
+        public static void DisplayTransportEffect(Thing thingToTransport)
         {
             MoteMaker.MakeStaticMote(thingToTransport.Position, thingToTransport.Map, ThingDefOf.Mote_ExplosionFlash, 10);
         }

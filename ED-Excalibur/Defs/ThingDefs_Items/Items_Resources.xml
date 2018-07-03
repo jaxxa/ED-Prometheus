@@ -46,4 +46,28 @@
 		</thingCategories>
 	</ThingDef>
 
+	<ThingDef ParentName="ResourceBase">
+		<defName>ResourceUnit</defName>
+		<label>Resource Unit</label>
+		<description>Materials packaged for imediate Transport to on EDSN Starships and Facilities, used in Fabrication.</description>
+		<graphicData>
+			<texPath>Things/Items/PurpleBucket</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>60</MaxHitPoints>
+			<MarketValue>50</MarketValue>
+			<Mass>0.5</Mass>
+			<Flammability>0.7</Flammability>
+			<DeteriorationRate>2.0</DeteriorationRate>
+		</statBases>
+		<soundInteract>Metal_Drop</soundInteract>
+		<soundDrop>Metal_Drop</soundDrop>
+		<stackLimit>500</stackLimit>
+		<thingCategories>
+			<li>ResourcesRaw</li>
+		</thingCategories>
+	</ThingDef>
+	
+
 </Defs>
