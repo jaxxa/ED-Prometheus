@@ -144,8 +144,13 @@ namespace EnhancedDevelopment.Excalibur.Core
                     Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_5_ExecutingBurn", "EDE_Dialog_5_ExecutingBurn".Translate()));
                     break;
                 case 6:
-                    //m_QuestStatus++;
+                    m_QuestStatus++;
+                    EnhancedDevelopment.Excalibur.Quest.ResearchHelper.QuestUnlock("Research_ED_Excalibur_Fabrication");
                     Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_6_ShipStabilised", "EDE_Dialog_6_ShipStabilised".Translate()));
+                    break;
+
+                case 7:
+
                     break;
 
                 default:
