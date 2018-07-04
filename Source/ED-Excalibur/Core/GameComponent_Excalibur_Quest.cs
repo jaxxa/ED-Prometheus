@@ -1,6 +1,7 @@
 ﻿using EnhancedDevelopment.Excalibur.Fabrication;
 using EnhancedDevelopment.Excalibur.Power;
 using EnhancedDevelopment.Excalibur.Quest.Dialog;
+using EnhancedDevelopment.Excalibur.Settings;
 using RimWorld;
 using System;
 using System.Collections.Generic;
@@ -145,27 +146,27 @@ namespace EnhancedDevelopment.Excalibur.Core
                     break;
                 case 3: //Charging
 
-                    if (this.m_ReservesPower > 10000.0f)
+                    if (this.m_ReservesPower > Mod_EDExcalibur.Settings.Quest.InitialShipSetup_PowerRequired)
                     {
-                        Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_4_NeedResources", "EDE_Dialog_4_NeedResources".Translate() + " Resources " + this.m_ReservesMaterials.ToString() + " / 500"));
+                        Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_4_NeedResources", "EDE_Dialog_4_NeedResources".Translate() + " Resources " + this.m_ReservesMaterials.ToString() + " / " + Mod_EDExcalibur.Settings.Quest.InitialShipSetup_ResourcesRequired.ToString()));
                         m_QuestStatus++;
                     }
                     else
                     {
-                        Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_3_InitialCharge", "EDE_Dialog_3_InitialCharge".Translate() + " " + this.m_ReservesPower.ToString() + " / " + "10,000"));
+                        Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_3_InitialCharge", "EDE_Dialog_3_InitialCharge".Translate() + " " + this.m_ReservesPower.ToString() + " / " + Mod_EDExcalibur.Settings.Quest.InitialShipSetup_PowerRequired.ToString()));
                     }
 
                     break;
                 case 4:
 
-                    if (this.m_ReservesMaterials > 500)
+                    if (this.m_ReservesMaterials > Mod_EDExcalibur.Settings.Quest.InitialShipSetup_ResourcesRequired)
                     {
                         Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_5_ExecutingBurn", "EDE_Dialog_5_ExecutingBurn".Translate()));
                         m_QuestStatus++;
                     }
                     else
                     {
-                        Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_4_NeedResources", "EDE_Dialog_4_NeedResources".Translate() + " Resources " + this.m_ReservesMaterials.ToString() + " / 500"));
+                        Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_4_NeedResources", "EDE_Dialog_4_NeedResources".Translate() + " Resources " + this.m_ReservesMaterials.ToString() + " / " + Mod_EDExcalibur.Settings.Quest.InitialShipSetup_ResourcesRequired.ToString()));
 
                     }
 

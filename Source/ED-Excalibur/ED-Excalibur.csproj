@@ -91,6 +91,7 @@
     <Compile Include="Settings\Mod_EDExcalibur.cs" />
     <Compile Include="Settings\SettingSection_LaserDrill.cs" />
     <Compile Include="Settings\SettingSection_NanoShields.cs" />
+    <Compile Include="Settings\SettingSection_Quest.cs" />
     <Compile Include="Settings\SettingSection_Shields.cs" />
     <Compile Include="Settings\SettingSection.cs" />
     <Compile Include="Shields\Building_Shield.cs" />

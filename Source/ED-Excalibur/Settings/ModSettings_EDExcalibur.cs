@@ -9,25 +9,24 @@ namespace EnhancedDevelopment.Excalibur.Settings
 {
     class ModSettings_EDExcalibur : ModSettings
     {
+        public List<SettingSection> m_Settings;
+
         public SettingSection_Shields Shields = new SettingSection_Shields();
         public SettingSection_NanoShields NanoShields = new SettingSection_NanoShields();
         public SettingSection_LaserDrill LaserDrill = new SettingSection_LaserDrill();
-
-        public List<SettingSection> m_Settings;
-
+        public SettingSection_Quest Quest = new SettingSection_Quest();
+        
         public ModSettings_EDExcalibur()
         {
-            this.m_Settings = new List<SettingSection>() { Shields, NanoShields, LaserDrill };
+            this.m_Settings = new List<SettingSection>() { Shields, NanoShields, LaserDrill, Quest};
         }
 
         public override void ExposeData()
         {
             base.ExposeData();
 
-            this.Shields.ExposeData();
-            this.NanoShields.ExposeData();
-            this.LaserDrill.ExposeData();
-
+            this.m_Settings.ForEach(s => s.ExposeData());
+            
             //            Scribe_Values.Look<bool>(ref ShowLettersThreatBig, "ShowLettersThreatBig", true, true);
         }
 
@@ -54,8 +53,7 @@ namespace EnhancedDevelopment.Excalibur.Settings
                 }
 
             }
-
-
+            
             if (this.m_CurrentSetting != null)
             {
                 Text.Font = GameFont.Medium;
