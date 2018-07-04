@@ -148,8 +148,8 @@ namespace EnhancedDevelopment.Excalibur.Core
 
                     if (this.m_ReservesPower >= Mod_EDExcalibur.Settings.Quest.InitialShipSetup_PowerRequired)
                     {
-                        Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_4_NeedResources", "EDE_Dialog_4_NeedResources".Translate() + " Resources " + this.m_ReservesMaterials.ToString() + " / " + Mod_EDExcalibur.Settings.Quest.InitialShipSetup_ResourcesRequired.ToString()));
                         m_QuestStatus++;
+                        this.ContactExcalibur();
                     }
                     else
                     {
@@ -161,13 +161,12 @@ namespace EnhancedDevelopment.Excalibur.Core
 
                     if (this.m_ReservesMaterials >= Mod_EDExcalibur.Settings.Quest.InitialShipSetup_ResourcesRequired)
                     {
-                        Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_5_ExecutingBurn", "EDE_Dialog_5_ExecutingBurn".Translate()));
                         m_QuestStatus++;
+                        this.ContactExcalibur();
                     }
                     else
                     {
                         Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_4_NeedResources", "EDE_Dialog_4_NeedResources".Translate() + " Resources " + this.m_ReservesMaterials.ToString() + " / " + Mod_EDExcalibur.Settings.Quest.InitialShipSetup_ResourcesRequired.ToString()));
-
                     }
 
                     break;
