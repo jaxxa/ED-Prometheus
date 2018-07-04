@@ -21,22 +21,7 @@ namespace EnhancedDevelopment.Excalibur.Transporter
             {
                 yield return g;
             }
-
-            if (true)
-            {
-                Command_Action act = new Command_Action();
-                //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
-                act.action = () => this.ProvideMatrials();
-                //    act.icon = UI_ADD_RESOURCES;
-                act.defaultLabel = "ProvideMatrials";
-                act.defaultDesc = "ProvideMatrials";
-                act.activateSound = SoundDef.Named("Click");
-                //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
-                //act.groupKey = 689736;
-                yield return act;
-            }
-
-
+            
             if (true)
             {
                 Command_Action act = new Command_Action();
@@ -79,30 +64,7 @@ namespace EnhancedDevelopment.Excalibur.Transporter
                 yield return act;
             }
 
-        }
-        
-        private void ProvideMatrials()
-        {
-            List<Thing> _FoundThings = GenRadial.RadialDistinctThingsAround(this.parent.Position, this.parent.Map, 5, true).Where(x => x.def.category == ThingCategory.Item).Where(x => x.Spawned).Where(x => x.def.defName == "Steel").ToList();
-
-            if (_FoundThings.Any())
-            {
-                _FoundThings.ForEach(_x =>
-                {
-
-                    GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(_x.stackCount);
-                    Comp_Transporter.DisplayTransportEffect(_x);
-
-                    _x.DeSpawn();
-
-                    // Tell the MapDrawer that here is something thats changed
-                    this.parent.Map.mapDrawer.MapMeshDirty(_x.Position, MapMeshFlag.Things, true, false);
-                });
-
-
-            }
-
-        }
+        }     
 
         private void TransportColonists()
         {
