@@ -146,7 +146,7 @@ namespace EnhancedDevelopment.Excalibur.Core
                     break;
                 case 3: //Charging
 
-                    if (this.m_ReservesPower > Mod_EDExcalibur.Settings.Quest.InitialShipSetup_PowerRequired)
+                    if (this.m_ReservesPower >= Mod_EDExcalibur.Settings.Quest.InitialShipSetup_PowerRequired)
                     {
                         Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_4_NeedResources", "EDE_Dialog_4_NeedResources".Translate() + " Resources " + this.m_ReservesMaterials.ToString() + " / " + Mod_EDExcalibur.Settings.Quest.InitialShipSetup_ResourcesRequired.ToString()));
                         m_QuestStatus++;
@@ -159,7 +159,7 @@ namespace EnhancedDevelopment.Excalibur.Core
                     break;
                 case 4:
 
-                    if (this.m_ReservesMaterials > Mod_EDExcalibur.Settings.Quest.InitialShipSetup_ResourcesRequired)
+                    if (this.m_ReservesMaterials >= Mod_EDExcalibur.Settings.Quest.InitialShipSetup_ResourcesRequired)
                     {
                         Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_5_ExecutingBurn", "EDE_Dialog_5_ExecutingBurn".Translate()));
                         m_QuestStatus++;
