@@ -18,11 +18,11 @@
 						<li>Steel</li>
 					</thingDefs>
 				</filter>
-				<count>10</count>
+				<count>50</count>
 			</li>
 		</ingredients>
 		<products>
-			<ResourceUnit>1</ResourceUnit>
+			<ResourceUnit>50</ResourceUnit>
 		</products>
 		<fixedIngredientFilter>
 			<thingDefs>
