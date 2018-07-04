@@ -1,4 +1,5 @@
-﻿using EnhancedDevelopment.Excalibur.Power;
+﻿using EnhancedDevelopment.Excalibur.Fabrication;
+using EnhancedDevelopment.Excalibur.Power;
 using EnhancedDevelopment.Excalibur.Quest.Dialog;
 using RimWorld;
 using System;
@@ -15,7 +16,6 @@ namespace EnhancedDevelopment.Excalibur.Core
 
         private float m_ReservesPower = 0;
         private int m_ReservesMaterials = 0;
-        
 
         public void AddReservePower(float ammount)
         {
@@ -37,7 +37,7 @@ namespace EnhancedDevelopment.Excalibur.Core
             }
         }
 
-            
+
         public int GetReservePower()
         {
             return (int)this.m_ReservesPower;
@@ -77,11 +77,42 @@ namespace EnhancedDevelopment.Excalibur.Core
 
                     break;
             }
+
+
+            if (this._Resources.Any())
+            {
+                int _ResourceStackSizeAdded = 0;
+
+                this._Resources.ForEach(r =>
+                {
+                    if (!r.Destroyed)
+                    {
+                        _ResourceStackSizeAdded += r.stackCount;
+                        GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(r.stackCount);
+
+                        Transporter.Comp_Transporter.DisplayTransportEffect(r);
+
+                        IntVec3 _Position = r.Position;
+                        Map _Map = r.Map;
+
+                        r.Destroy(DestroyMode.Vanish);
+
+                        // Tell the MapDrawer that here is something thats changed
+                        _Map.mapDrawer.MapMeshDirty(_Position, MapMeshFlag.Things, true, false);
+                    }
+                }
+                );
+
+                Messages.Message("Transported " + _ResourceStackSizeAdded.ToString() + " resources.", MessageTypeDefOf.TaskCompletion);
+
+            }
+
+            this._Resources.Clear();
         }
 
         public void ContactExcalibur(Building contactSource = null)
         {
-           
+
             Log.Message("Contacting Excalibur");
 
             //Updating Quest Status
@@ -113,7 +144,7 @@ namespace EnhancedDevelopment.Excalibur.Core
 
                     break;
                 case 3: //Charging
-                                      
+
                     if (this.m_ReservesPower > 10000.0f)
                     {
                         Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_4_NeedResources", "EDE_Dialog_4_NeedResources".Translate() + " Resources " + this.m_ReservesMaterials.ToString() + " / 500"));
@@ -166,6 +197,17 @@ namespace EnhancedDevelopment.Excalibur.Core
         public override int GetTickInterval()
         {
             return 2000;
+        }
+
+
+        private List<ResourceUnit> _Resources = new List<ResourceUnit>();
+
+        public void TagMaterialsForTransport(ResourceUnit resource)
+        {
+            if (!_Resources.Contains(resource))
+            {
+                _Resources.Add(resource);
+            }
         }
 
     }

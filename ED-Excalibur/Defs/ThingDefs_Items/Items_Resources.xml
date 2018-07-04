@@ -47,6 +47,7 @@
 	</ThingDef>
 
 	<ThingDef ParentName="ResourceBase">
+		<thingClass>EnhancedDevelopment.Excalibur.Fabrication.ResourceUnit</thingClass>
 		<defName>ResourceUnit</defName>
 		<label>Resource Unit</label>
 		<description>Materials packaged for imediate Transport to on EDSN Starships and Facilities, used in Fabrication.</description>
@@ -54,6 +55,7 @@
 			<texPath>Things/Items/PurpleBucket</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
+		<tickerType>Long</tickerType>
 		<statBases>
 			<MaxHitPoints>60</MaxHitPoints>
 			<MarketValue>50</MarketValue>
@@ -68,6 +70,6 @@
 			<li>ResourcesRaw</li>
 		</thingCategories>
 	</ThingDef>
-	
+
 
 </Defs>

@@ -14,13 +14,19 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
         {
             base.SpawnSetup(map, respawningAfterLoad);
 
-            GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(this.stackCount);
-            Comp_Transporter.DisplayTransportEffect(this);
-
-            this.DeSpawn(DestroyMode.Vanish);
-
-            // Tell the MapDrawer that here is something thats changed
-            this.Map.mapDrawer.MapMeshDirty(this.Position, MapMeshFlag.Things, true, false);
+            //Tag this as a candidate for Transport.
+            GameComponent_Excalibur.Instance.Comp_Quest.TagMaterialsForTransport(this);
         }
+
+        public override void TickLong()
+        {
+            //Tick ling has not been implimented in base Class
+            // base.TickLong();
+
+            //Tag this as a candidate for Transport.
+            GameComponent_Excalibur.Instance.Comp_Quest.TagMaterialsForTransport(this);
+
+        }
+
     }
 }
