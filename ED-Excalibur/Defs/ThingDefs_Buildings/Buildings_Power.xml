@@ -37,9 +37,13 @@
 			<ComponentSpacer>2</ComponentSpacer>
 		</costList>
 		<comps>
-			<li Class="EnhancedDevelopment.Excalibur.Fabrication.CompProperties_Fabricated"/>
+			<li Class="EnhancedDevelopment.Excalibur.Fabrication.CompProperties_Fabricated">
+				<RequiredPower>500</RequiredPower>
+				<RequiredMaterials>200</RequiredMaterials>
+				<RequiredWork>90</RequiredWork>
+			</li>
 			<li Class="CompProperties_Battery">
-				<storedEnergyMax>600</storedEnergyMax>
+				<storedEnergyMax>400</storedEnergyMax>
 				<efficiency>1.0</efficiency>
 				<shortCircuitInRain>false</shortCircuitInRain>
 				<transmitsPower>true</transmitsPower>
@@ -52,9 +56,7 @@
 		<constructEffect>ConstructMetal</constructEffect>
 		<designationHotKey>Misc4</designationHotKey>
 		<canOverlapZones>false</canOverlapZones>
-		<researchPrerequisites>
-			<li>Batteries</li>
-		</researchPrerequisites>
+		<researchPrerequisites/>
 	</ThingDef>
 
 </Defs>
