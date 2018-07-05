@@ -20,10 +20,7 @@ namespace EnhancedDevelopment.Excalibur.Quest
         //    _CachedComp = 
 
         //}
-
-
-
-
+        
         private static readonly Vector2 WinSize = new Vector2(500f, 400f);
 
         private float viewHeight = 1000f;
@@ -84,7 +81,7 @@ namespace EnhancedDevelopment.Excalibur.Quest
                                                                         
                         _List.Add(new FloatMenuOption(x.defName, delegate {
                             GameComponent_Excalibur.Instance.Comp_Fabrication.OrderBuilding(x, this.SelectedCompTransponder.parent.Position, this.SelectedCompTransponder.parent.Map);
-                        }));
+                        },MenuOptionPriority.Default,null,null,29f, (Rect rect) => Widgets.InfoCardButton(rect.x + 5f, rect.y + (rect.height - 24f) / 2f, x)));
                     }
                 }
                 );
