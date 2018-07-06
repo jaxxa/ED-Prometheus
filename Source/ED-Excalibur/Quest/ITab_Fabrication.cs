@@ -79,25 +79,12 @@ namespace EnhancedDevelopment.Excalibur.Quest
                     {
                         //Log.Message(x.defName);
                                                                         
-                        _List.Add(new FloatMenuOption(x.defName, delegate {
+                        _List.Add(new FloatMenuOption(x.label + " - RU: " + _FabricationCompPropeties.RequiredMaterials + " P: " + _FabricationCompPropeties.RequiredPower , delegate {
                             GameComponent_Excalibur.Instance.Comp_Fabrication.OrderBuilding(x, this.SelectedCompTransponder.parent.Position, this.SelectedCompTransponder.parent.Map);
                         },MenuOptionPriority.Default,null,null,29f, (Rect rect) => Widgets.InfoCardButton(rect.x + 5f, rect.y + (rect.height - 24f) / 2f, x)));
                     }
                 }
                 );
-
-                //_List.Add(new FloatMenuOption("Add Relay", delegate
-                //{
-                //    GameComponent_Excalibur.Instance.Comp_Fabrication.OrderBuilding("QuantumPowerRelay", this.SelectedCompTransponder.parent.Position, this.SelectedCompTransponder.parent.Map);
-                //}));
-                //_List.Add(new FloatMenuOption("Add Building_Shield_Charger", delegate
-                //{
-                //    GameComponent_Excalibur.Instance.Comp_Fabrication.OrderBuilding("Building_Shield_Charger", this.SelectedCompTransponder.parent.Position, this.SelectedCompTransponder.parent.Map);
-                //}));
-                //_List.Add(new FloatMenuOption("Add Building_ShieldStandard", delegate
-                //{
-                //    GameComponent_Excalibur.Instance.Comp_Fabrication.OrderBuilding("Building_ShieldStandard", this.SelectedCompTransponder.parent.Position, this.SelectedCompTransponder.parent.Map);
-                //}));
 
                 return _List;
             };
