@@ -77,7 +77,7 @@ namespace EnhancedDevelopment.Excalibur.Core
         public void OrderBuilding(ThingDef buildingDef, IntVec3 position, Map map)
         {
             CompProperties_Fabricated _Properties = buildingDef.GetCompProperties<CompProperties_Fabricated>();
-            BuildingInProgress _NewBuilding = new BuildingInProgress(buildingDef.defName, map, position);
+            BuildingInProgress _NewBuilding = new BuildingInProgress(buildingDef.defName, map, position, buildingDef.label);
             _NewBuilding.WorkRemaining = _Properties.RequiredWork;
             _NewBuilding.NeededWork = _Properties.RequiredWork;
             _NewBuilding.NeededPower = _Properties.RequiredPower;
@@ -118,6 +118,7 @@ namespace EnhancedDevelopment.Excalibur.Core
                 //    result = bill;
                 //}
                 num += rect3.height + 6f;
+                Widgets.DrawLineHorizontal(viewRect.x, num, viewRect.width);
             }
             if (Event.current.type == EventType.Layout)
             {

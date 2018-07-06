@@ -16,6 +16,8 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
 
         public IntVec3 DestinationPosition;
 
+        public string label;
+
         //public Building ContainedBuilding;
         //public MinifiedThing ContainedMinifiedThing;
 
@@ -29,11 +31,12 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
 
         public int NumberOfRequestsRemailing = 1;
 
-        public BuildingInProgress(string defName, Map DestinationMap, IntVec3 DestinationPosition)
+        public BuildingInProgress(string defName, Map DestinationMap, IntVec3 DestinationPosition, string label)
         {
             this.defName = defName;
             this.DestinationMap = DestinationMap;
             this.DestinationPosition = DestinationPosition;
+            this.label = label;
         }
 
 
@@ -60,23 +63,33 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
         public Rect DoInterface(float x, float y, float width, int index)
         {
 
-            Rect _RectTotal = new Rect(x, y, width, 53f);
-
+            Rect _RectTotal = new Rect(x, y, width, 100f);
+            
             Rect _RectTopHalf = _RectTotal.TopHalf();
-            Widgets.TextArea(_RectTopHalf, this.defName + ": " + this.NumberOfRequestsRemailing.ToString() + " : " + this.WorkRemaining.ToString(), true);
-
             Rect _RectBottomHalf = _RectTotal.BottomHalf();
 
-            if (Widgets.ButtonText(_RectBottomHalf.LeftHalf(), "-"))
+            Rect _RectQuarter1 = _RectTopHalf.TopHalf();
+            Widgets.TextArea(_RectQuarter1, this.label, true);
+
+            Rect _RectQuarter2 = _RectTopHalf.BottomHalf();
+            Widgets.TextArea(_RectQuarter2, "Work Remaining: " + this.WorkRemaining.ToString(), true);
+            
+            Rect _RectQuarter3 = _RectBottomHalf.TopHalf();
+            Widgets.TextArea(_RectQuarter3, "RU:" + this.NeededResources + " Power: " + this.NeededPower, true);
+            
+            Rect _RectQuarter4 = _RectBottomHalf.BottomHalf();
+            Widgets.TextArea(_RectQuarter4.LeftHalf(), "Number To Build:" + this.NumberOfRequestsRemailing.ToString(), true);
+
+
+            if (Widgets.ButtonText(_RectQuarter4.RightHalf().LeftHalf(), "-"))
             {
                 this.NumberOfRequestsRemailing -= 1;
             };
 
 
-            if (Widgets.ButtonText(_RectBottomHalf.RightHalf(), "+"))
+            if (Widgets.ButtonText(_RectQuarter4.RightHalf().RightHalf(), "+"))
             {
                 this.NumberOfRequestsRemailing += 1;
-
             };
 
             return _RectTotal;

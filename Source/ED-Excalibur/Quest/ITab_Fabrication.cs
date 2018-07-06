@@ -20,8 +20,8 @@ namespace EnhancedDevelopment.Excalibur.Quest
         //    _CachedComp = 
 
         //}
-        
-        private static readonly Vector2 WinSize = new Vector2(500f, 400f);
+
+        private static readonly Vector2 WinSize = new Vector2(420f, 480f);
 
         private float viewHeight = 1000f;
 
@@ -66,8 +66,10 @@ namespace EnhancedDevelopment.Excalibur.Quest
             Vector2 _WindowSize = ITab_Fabrication.WinSize;
             Rect _DrawingSpace = new Rect(0f, 0f, _WindowSize.x, _WindowSize.y).ContractedBy(10f);
 
-
-            Func<List<FloatMenuOption>> recipeOptionsMaker = delegate
+            Rect _MainWindow = _DrawingSpace.TopPartPixels(_DrawingSpace.height - 25);
+            Rect _InfoBar = _DrawingSpace.BottomPartPixels(25);
+            
+            Func<List<FloatMenuOption>> _RecipeOptionsMaker = delegate
             {
 
                 List<FloatMenuOption> _List = new List<FloatMenuOption>();
@@ -89,8 +91,12 @@ namespace EnhancedDevelopment.Excalibur.Quest
                 return _List;
             };
 
-            GameComponent_Excalibur.Instance.Comp_Fabrication.DoListing(_DrawingSpace, recipeOptionsMaker, ref scrollPosition, ref viewHeight);
+            GameComponent_Excalibur.Instance.Comp_Fabrication.DoListing(_MainWindow, _RecipeOptionsMaker, ref scrollPosition, ref viewHeight);
+
+
+            Widgets.TextArea(_InfoBar, "RU:" + GameComponent_Excalibur.Instance.Comp_Quest.GetReserveMaterials() + " Power: " + GameComponent_Excalibur.Instance.Comp_Quest.GetReservePower().ToString(), true);
             
+
         }
         
     } //Class
