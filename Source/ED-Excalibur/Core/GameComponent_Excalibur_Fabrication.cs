@@ -24,9 +24,12 @@ namespace EnhancedDevelopment.Excalibur.Core
 
         public override void TickOnInterval()
         {
+
+            this.BuildingsUnderConstruction.Where(b => b.NumberOfRequestsRemailing <= 0).ToList().ForEach(b => this.BuildingsUnderConstruction.Remove(b));
+
             if (this.BuildingsUnderConstruction.Any())
             {
-
+                
                 BuildingInProgress _BuildingToSpawn = this.BuildingsUnderConstruction.FirstOrDefault();
 
                 //Check if not Started
