@@ -25,7 +25,15 @@ namespace EnhancedDevelopment.Excalibur.Core
         public override void TickOnInterval()
         {
 
-            this.BuildingsUnderConstruction.Where(b => b.NumberOfRequestsRemailing <= 0).ToList().ForEach(b => this.BuildingsUnderConstruction.Remove(b));
+            this.BuildingsUnderConstruction.Where(b => b.NumberOfRequestsRemailing <= 0).ToList().ForEach(b =>
+            {
+                this.BuildingsUnderConstruction.Remove(b);
+                if (b.SpentPowerAndMaterials)
+                {
+                    //TODO, Refund
+                    sdgsd
+                }
+            });
 
             if (this.BuildingsUnderConstruction.Any())
             {

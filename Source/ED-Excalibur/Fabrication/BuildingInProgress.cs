@@ -64,7 +64,7 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
         {
 
             Rect _RectTotal = new Rect(x, y, width, 100f);
-            
+
             Rect _RectTopHalf = _RectTotal.TopHalf();
             Rect _RectBottomHalf = _RectTotal.BottomHalf();
 
@@ -73,10 +73,10 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
 
             Rect _RectQuarter2 = _RectTopHalf.BottomHalf();
             Widgets.TextArea(_RectQuarter2, "Work Remaining: " + this.WorkRemaining.ToString(), true);
-            
+
             Rect _RectQuarter3 = _RectBottomHalf.TopHalf();
             Widgets.TextArea(_RectQuarter3, "RU:" + this.NeededResources + " Power: " + this.NeededPower, true);
-            
+
             Rect _RectQuarter4 = _RectBottomHalf.BottomHalf();
             Widgets.TextArea(_RectQuarter4.LeftHalf(), "Number To Build:" + this.NumberOfRequestsRemailing.ToString(), true);
 
