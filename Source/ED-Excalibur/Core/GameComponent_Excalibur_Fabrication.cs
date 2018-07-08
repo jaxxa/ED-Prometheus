@@ -30,8 +30,8 @@ namespace EnhancedDevelopment.Excalibur.Core
                 this.BuildingsUnderConstruction.Remove(b);
                 if (b.SpentPowerAndMaterials)
                 {
-                    //TODO, Refund
-                    sdgsd
+                    GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(b.NeededResources);
+                    GameComponent_Excalibur.Instance.Comp_Quest.AddReservePower(b.NeededPower);
                 }
             });
 
