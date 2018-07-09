@@ -16,6 +16,11 @@ namespace EnhancedDevelopment.Excalibur.Core
             }
         }
 
+        public virtual void FinalizeInit()
+        {
+
+        }
+
         public abstract int GetTickInterval();
 
         public abstract void TickOnInterval();

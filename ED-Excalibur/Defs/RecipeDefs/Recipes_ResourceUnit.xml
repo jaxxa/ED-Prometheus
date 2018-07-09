@@ -30,6 +30,7 @@
 			</thingDefs>
 		</fixedIngredientFilter>
 		<workSkill>Crafting</workSkill>
+		<researchPrerequisite>Research_ED_Excalibur_Fabrication</researchPrerequisite>
 	</RecipeDef>
 
 </Defs>

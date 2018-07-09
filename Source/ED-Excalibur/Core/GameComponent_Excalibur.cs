@@ -71,6 +71,13 @@ namespace EnhancedDevelopment.Excalibur.Core
             //this.Shields.ExposeData();
         }
 
+        public override void FinalizeInit()
+        {
+            base.FinalizeInit();
+            this.m_SubComponents.ForEach(x => x.FinalizeInit());
+
+        }
+
     }
 }
 

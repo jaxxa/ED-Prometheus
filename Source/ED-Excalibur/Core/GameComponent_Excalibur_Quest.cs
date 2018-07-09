@@ -1,5 +1,6 @@
 ﻿using EnhancedDevelopment.Excalibur.Fabrication;
 using EnhancedDevelopment.Excalibur.Power;
+using EnhancedDevelopment.Excalibur.Quest;
 using EnhancedDevelopment.Excalibur.Quest.Dialog;
 using EnhancedDevelopment.Excalibur.Settings;
 using RimWorld;
@@ -13,7 +14,14 @@ namespace EnhancedDevelopment.Excalibur.Core
 {
     class GameComponent_Excalibur_Quest : GameComponent_BaseClass
     {
-        private int m_QuestStatus = 0;
+
+        public GameComponent_Excalibur_Quest() : base()
+        {
+           // ResearchHelper.UpdateResearch();
+        }
+
+
+        public int m_QuestStatus = 0;
 
         private float m_ReservesPower = 0;
         private int m_ReservesMaterials = 0;
@@ -129,7 +137,6 @@ namespace EnhancedDevelopment.Excalibur.Core
                 case 1: //Signal Detection
                     m_QuestStatus++;
 
-                    EnhancedDevelopment.Excalibur.Quest.ResearchHelper.QuestUnlock("Research_ED_Excalibur_AnalyseStrangeSignal");
                     Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_1_SignalDetection", "EDE_Dialog_1_SignalDetection".Translate()));
                     break;
 
@@ -192,6 +199,7 @@ namespace EnhancedDevelopment.Excalibur.Core
                     break;
             }
 
+            ResearchHelper.UpdateResearch();
         }
 
         public override int GetTickInterval()
@@ -208,6 +216,13 @@ namespace EnhancedDevelopment.Excalibur.Core
             {
                 _Resources.Add(resource);
             }
+        }
+
+        public override void FinalizeInit()
+        {
+            base.FinalizeInit();
+
+            ResearchHelper.UpdateResearch();
         }
 
     }
