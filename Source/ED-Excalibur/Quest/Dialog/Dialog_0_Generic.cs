@@ -11,9 +11,11 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
     class Dialog_0_Generic : Window
     {
         private string m_Text;
+        private Vector2 m_Position;
 
         public Dialog_0_Generic(string title, string text)
         {
+            this.m_Position = Vector2.zero;
             this.m_Text = text;
 
             this.resizeable = false;
@@ -54,9 +56,15 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
             //    this.Close(true);
             //}
 
+            Text.Font = GameFont.Small;
+
             Rect _TextArea = canvas.TopPartPixels(canvas.height - this.CloseButSize.y);
 
-            Widgets.TextArea(_TextArea, this.m_Text, true);
+            Widgets.TextAreaScrollable(_TextArea, this.m_Text, ref this.m_Position, true);
+
+
+            Text.Font = GameFont.Medium;
+
         }
     }
 }
