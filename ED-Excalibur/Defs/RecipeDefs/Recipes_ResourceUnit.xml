@@ -32,5 +32,36 @@
 		<workSkill>Crafting</workSkill>
 		<researchPrerequisite>Research_ED_Excalibur_Fabrication</researchPrerequisite>
 	</RecipeDef>
+	
+	<RecipeDef>
+		<defName>TransportResourceUnit_OmniGel</defName>
+		<label>Packages OmniGel for Transport to the Excalibur</label>
+		<description>RU - OmniGel</description>
+		<jobString>Creating slag from Omni-Gel.</jobString>
+		<workAmount>20</workAmount>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<effectWorking>Smelt</effectWorking>
+		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>OmniGel</li>
+					</thingDefs>
+				</filter>
+				<count>50</count>
+			</li>
+		</ingredients>
+		<products>
+			<ResourceUnit>50</ResourceUnit>
+		</products>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>ResourceUnit</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workSkill>Crafting</workSkill>
+		<researchPrerequisite>Research_ED_OmniGel</researchPrerequisite>
+	</RecipeDef>
 
 </Defs>
