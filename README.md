@@ -1,1 +1,4 @@
 # ED-Excalibur
+
+1.0.0.0
+ * Initia Release
