@@ -55,6 +55,7 @@
 		<designationCategory>Power</designationCategory>
 		<staticSunShadowHeight>0.75</staticSunShadowHeight>
 		<researchPrerequisites>
+			<li>Research_ED_Excalibur_Quest_Unlock</li>
 			<li>Research_ED_LaserSteamGeyser_Drill</li>
 		</researchPrerequisites>
 	</ThingDef>
@@ -115,6 +116,7 @@
 			<soundAmbient>GeothermalPlant_Ambience</soundAmbient>
 		</building>
 		<researchPrerequisites>
+			<li>Research_ED_Excalibur_Quest_Unlock</li>
 			<li>Research_ED_LaserSteamGeyser_Filler</li>
 		</researchPrerequisites>
 	</ThingDef>

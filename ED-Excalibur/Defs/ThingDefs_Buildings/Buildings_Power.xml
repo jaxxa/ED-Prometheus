@@ -24,6 +24,10 @@
 		<castEdgeShadows>true</castEdgeShadows>
 		<fillPercent>0.40</fillPercent>
 		<tickerType>Normal</tickerType>
+		<researchPrerequisites>
+			<li>Research_ED_Excalibur_Quest_Unlock</li>
+			<li>Research_ED_Excalibur_AnalyseStrangeSignal</li>
+		</researchPrerequisites>
 		<statBases>
 			<MaxHitPoints>100</MaxHitPoints>
 			<WorkToBuild>800</WorkToBuild>
@@ -56,7 +60,6 @@
 		<constructEffect>ConstructMetal</constructEffect>
 		<designationHotKey>Misc4</designationHotKey>
 		<canOverlapZones>false</canOverlapZones>
-		<researchPrerequisites/>
 	</ThingDef>
 
 </Defs>

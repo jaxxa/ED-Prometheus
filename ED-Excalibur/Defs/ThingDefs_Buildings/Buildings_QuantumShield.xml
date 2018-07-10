@@ -7,6 +7,7 @@
 		<description>Adds and Recharges Quantum Shields on Colonists and Pets. Pulls from a Global Quantum Charge.</description>
 		<thingClass>EnhancedDevelopment.Excalibur.NanoShields.Building_NanoShieldCharger</thingClass>
 		<researchPrerequisites>
+			<li>Research_ED_Excalibur_Quest_Unlock</li>
 			<li>Research_ED_Personal_Quantum_Shield</li>
 		</researchPrerequisites>
 		<graphicData>

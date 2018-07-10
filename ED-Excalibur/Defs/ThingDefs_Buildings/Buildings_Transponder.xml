@@ -7,6 +7,7 @@
 		<description>Provides the ability to communicate with the E.D.S.N. Excalibur.</description>
 		<thingClass>Building_WorkTable</thingClass>
 		<researchPrerequisites>
+			<li>Research_ED_Excalibur_Quest_Unlock</li>
 			<li>Research_ED_Excalibur_AnalyseStrangeSignal</li>
 		</researchPrerequisites>
 		<graphicData>

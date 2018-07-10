@@ -77,9 +77,8 @@ namespace EnhancedDevelopment.Excalibur.Quest
                 DefDatabase<ThingDef>.AllDefs.ToList().ForEach(x =>
                 {
                     Fabrication.CompProperties_Fabricated _FabricationCompPropeties = x.GetCompProperties<Fabrication.CompProperties_Fabricated>();
-                    if (_FabricationCompPropeties != null && x.IsResearchFinished)
+                    if (_FabricationCompPropeties != null && x.researchPrerequisites.All(r => r.IsFinished || string.Equals(r.defName, "Research_ED_Excalibur_Quest_Unlock")))
                     {
-                        //Log.Message(x.defName);
                                                                         
                         _List.Add(new FloatMenuOption(x.label + " - RU: " + _FabricationCompPropeties.RequiredMaterials + " P: " + _FabricationCompPropeties.RequiredPower , delegate {
                             GameComponent_Excalibur.Instance.Comp_Fabrication.OrderBuilding(x, this.SelectedCompTransponder.parent.Position, this.SelectedCompTransponder.parent.Map);
