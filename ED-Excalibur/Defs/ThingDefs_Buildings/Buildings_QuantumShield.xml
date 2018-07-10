@@ -43,7 +43,11 @@
 		<selectable>true</selectable>
 		<tickerType>Normal</tickerType>
 		<comps>
-			<li Class="EnhancedDevelopment.Excalibur.Fabrication.CompProperties_Fabricated"/>
+			<li Class="EnhancedDevelopment.Excalibur.Fabrication.CompProperties_Fabricated">
+				<RequiredPower>500</RequiredPower>
+				<RequiredMaterials>200</RequiredMaterials>
+				<RequiredWork>90</RequiredWork>
+			</li>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
 				<basePowerConsumption>1000</basePowerConsumption>

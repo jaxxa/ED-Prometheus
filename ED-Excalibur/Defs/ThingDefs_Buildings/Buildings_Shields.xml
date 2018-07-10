@@ -56,7 +56,11 @@
 			<li Class="CompProperties_Facility">
 				<maxSimultaneous>1</maxSimultaneous>
 			</li>
-			<li Class="EnhancedDevelopment.Excalibur.Fabrication.CompProperties_Fabricated"/>
+			<li Class="EnhancedDevelopment.Excalibur.Fabrication.CompProperties_Fabricated">
+				<RequiredPower>500</RequiredPower>
+				<RequiredMaterials>200</RequiredMaterials>
+				<RequiredWork>90</RequiredWork>
+			</li>
 			<li Class="EnhancedDevelopment.Excalibur.Shields.CompProperties_ShieldGenerator">
 
 				<m_FieldIntegrity_Initial>100</m_FieldIntegrity_Initial>
