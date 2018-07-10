@@ -17,7 +17,7 @@ namespace EnhancedDevelopment.Excalibur.Power
         private static readonly Material BatteryBarFilledMat = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0.9f, 0.85f, 0.2f), false);
 
         private static readonly Material BatteryBarUnfilledMat = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0.3f, 0.3f, 0.3f), false);
-        
+
         private CompPowerBattery CompPowerBattery
         {
             get
@@ -70,7 +70,7 @@ namespace EnhancedDevelopment.Excalibur.Power
         public override void Tick()
         {
             base.Tick();
-            float _HalfEnergy = this.CompPowerBattery.Props.storedEnergyMax / 2;           
+            float _HalfEnergy = this.CompPowerBattery.Props.storedEnergyMax / 2;
             float _PowerBlock = this.CompPowerBattery.Props.storedEnergyMax / 4.0f;
 
             //Check if need to upload power.
@@ -79,14 +79,20 @@ namespace EnhancedDevelopment.Excalibur.Power
                 this.CompPowerBattery.DrawPower(_PowerBlock);
                 GameComponent_Excalibur.Instance.Comp_Quest.AddReservePower(_PowerBlock);
             }
-            
-            //Check if need to download power.
-            if (this.CompPowerBattery.StoredEnergy + _PowerBlock <= _HalfEnergy)
-            {
-                float _ReturnedPower = GameComponent_Excalibur.Instance.Comp_Quest.RequestReservePower(_PowerBlock);
-                this.CompPowerBattery.AddEnergy(_ReturnedPower);
-            }
 
+
+            ResearchProjectDef _Quest = DefDatabase<ResearchProjectDef>.GetNamed("Research_ED_Power_SpaceToGround");
+            //Log.Message("Status:" + _Quest.IsFinished.ToString());
+
+            if (_Quest.IsFinished)
+            {
+                //Check if need to download power.
+                if (this.CompPowerBattery.StoredEnergy + _PowerBlock <= _HalfEnergy)
+                {
+                    float _ReturnedPower = GameComponent_Excalibur.Instance.Comp_Quest.RequestReservePower(_PowerBlock);
+                    this.CompPowerBattery.AddEnergy(_ReturnedPower);
+                }
+            }
         }
 
     }
