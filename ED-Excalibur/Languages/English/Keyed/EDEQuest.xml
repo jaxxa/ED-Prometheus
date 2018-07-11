@@ -28,13 +28,13 @@ In exchange for helping save the E.D.S.N Excalibur, Alex offers to help your Col
 
 	<EDE_Dialog_3_InitialCharge>Power transfer to E.D.S.N Excalibur in Progress.
 
-	Current Progress xxx/yyyy</EDE_Dialog_3_InitialCharge>
+	Current Progress: {0} / {1}</EDE_Dialog_3_InitialCharge>
 
 	<EDE_Dialog_4_NeedResources>You contact Alex to check on the results of the diagnostic. She has discovered that while the main engines are extremely damaged with some materials is should be possible to bring the secondary manoeuvring system online. While the ship will not be going anywhere in a hurry, this should be enough to bring it out of danger.
 To this end she has modified the ground building fabrication system so that it can now construct replacement parts for the ship, but it will require the raw resources in order to do so, specifically metal at this stage.
 Fortunately there were enough materials could be scavenged to repair the Transporter Beaming System. She provides you with instructions on modifying your existing Transponder so it can be used for targeting the Transport Beams. You can then use this system to provide Metal to the E.D.S.N Excalibur to continue repairs by using the Bills option to tag Metal for Transport.
 
-	Current Progress xxxx/yyyy 
+	Current Progress: {0} / {1} 
 	</EDE_Dialog_4_NeedResources>
 
 	<EDE_Dialog_5_ExecutingBurn>After providing the required materials and enough power the ship executes a long burn with the manoeuvring engines in order to enter a stable orbit and out of any immediate danger.</EDE_Dialog_5_ExecutingBurn>

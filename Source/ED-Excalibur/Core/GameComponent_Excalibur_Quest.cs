@@ -160,7 +160,7 @@ namespace EnhancedDevelopment.Excalibur.Core
                     }
                     else
                     {
-                        Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_3_InitialCharge", "EDE_Dialog_3_InitialCharge".Translate() + " " + this.m_ReservesPower.ToString() + " / " + Mod_EDExcalibur.Settings.Quest.InitialShipSetup_PowerRequired.ToString()));
+                        Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_3_InitialCharge", String.Format("EDE_Dialog_3_InitialCharge".Translate(), this.m_ReservesPower.ToString(), Mod_EDExcalibur.Settings.Quest.InitialShipSetup_PowerRequired.ToString())));
                     }
 
                     break;
@@ -173,7 +173,7 @@ namespace EnhancedDevelopment.Excalibur.Core
                     }
                     else
                     {
-                        Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_4_NeedResources", "EDE_Dialog_4_NeedResources".Translate() + " Resources " + this.m_ReservesMaterials.ToString() + " / " + Mod_EDExcalibur.Settings.Quest.InitialShipSetup_ResourcesRequired.ToString()));
+                        Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_4_NeedResources", String.Format("EDE_Dialog_4_NeedResources".Translate(), this.m_ReservesMaterials.ToString(),Mod_EDExcalibur.Settings.Quest.InitialShipSetup_ResourcesRequired.ToString())));
                     }
 
                     break;
