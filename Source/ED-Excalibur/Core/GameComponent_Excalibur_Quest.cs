@@ -137,12 +137,12 @@ namespace EnhancedDevelopment.Excalibur.Core
                 case 1: //Signal Detection
                     m_QuestStatus++;
 
-                    Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_1_SignalDetection", "EDE_Dialog_1_SignalDetection".Translate()));
+                    Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_Title_1_SignalDetection".Translate(), "EDE_Dialog_1_SignalDetection".Translate()));
                     break;
 
                 case 2: //Decoded 
                     m_QuestStatus++;
-                    Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_2_FirstContact", "EDE_Dialog_2_FirstContact".Translate()));
+                    Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_Title_2_FirstContact".Translate(), "EDE_Dialog_2_FirstContact".Translate()));
 
                     Building_QuantumPowerRelay _PowerBuilding = (Building_QuantumPowerRelay)ThingMaker.MakeThing(ThingDef.Named("QuantumPowerRelay"), null);
                     List<Thing> _Things = new List<Thing>();
@@ -160,7 +160,7 @@ namespace EnhancedDevelopment.Excalibur.Core
                     }
                     else
                     {
-                        Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_3_InitialCharge", String.Format("EDE_Dialog_3_InitialCharge".Translate(), this.m_ReservesPower.ToString(), Mod_EDExcalibur.Settings.Quest.InitialShipSetup_PowerRequired.ToString())));
+                        Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_Title_3_InitialCharge".Translate(), String.Format("EDE_Dialog_3_InitialCharge".Translate(), this.m_ReservesPower.ToString(), Mod_EDExcalibur.Settings.Quest.InitialShipSetup_PowerRequired.ToString())));
                     }
 
                     break;
@@ -173,18 +173,18 @@ namespace EnhancedDevelopment.Excalibur.Core
                     }
                     else
                     {
-                        Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_4_NeedResources", String.Format("EDE_Dialog_4_NeedResources".Translate(), this.m_ReservesMaterials.ToString(),Mod_EDExcalibur.Settings.Quest.InitialShipSetup_ResourcesRequired.ToString())));
+                        Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_Title_4_NeedResources".Translate(), String.Format("EDE_Dialog_4_NeedResources".Translate(), this.m_ReservesMaterials.ToString(),Mod_EDExcalibur.Settings.Quest.InitialShipSetup_ResourcesRequired.ToString())));
                     }
 
                     break;
                 case 5:
                     m_QuestStatus++;
-                    Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_5_ExecutingBurn", "EDE_Dialog_5_ExecutingBurn".Translate()));
+                    Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_Title_5_ExecutingBurn".Translate(), "EDE_Dialog_5_ExecutingBurn".Translate()));
                     break;
                 case 6:
                     m_QuestStatus++;
                     EnhancedDevelopment.Excalibur.Quest.ResearchHelper.QuestUnlock("Research_ED_Excalibur_Fabrication");
-                    Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_6_ShipStabilised", "EDE_Dialog_6_ShipStabilised".Translate()));
+                    Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_Title_6_ShipStabilised".Translate(), "EDE_Dialog_6_ShipStabilised".Translate()));
                     break;
 
                 case 7:
