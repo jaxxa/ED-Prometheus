@@ -35,8 +35,8 @@ namespace EnhancedDevelopment.Excalibur.Quest
                 //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
                 act2.action = () =>
                 {
-                    Core.GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(100);
-                    Core.GameComponent_Excalibur.Instance.Comp_Quest.AddReservePower(500);
+                    Core.GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(50);
+                    //Core.GameComponent_Excalibur.Instance.Comp_Quest.AddReservePower(500);
                 };
                 //act.icon = UI_DIRECT_ON;
                 act2.defaultLabel = "Debug Resources";
