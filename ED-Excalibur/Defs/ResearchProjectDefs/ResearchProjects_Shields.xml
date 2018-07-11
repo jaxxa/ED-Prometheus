@@ -16,7 +16,7 @@
 			<li>MultiAnalyzer</li>
 		</requiredResearchFacilities>
 		<prerequisites>
-			<li>Research_ED_Excalibur_Fabrication</li>
+			<li>Research_ED_Excalibur_ShipStabilised</li>
 		</prerequisites>
 	</ResearchProjectDef>
 

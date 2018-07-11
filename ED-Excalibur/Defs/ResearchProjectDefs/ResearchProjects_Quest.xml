@@ -32,7 +32,7 @@
 			<li>Research_ED_Excalibur_AnalyseStrangeSignal</li>
 		</prerequisites>
 	</ResearchProjectDef>
-	
+
 	<ResearchProjectDef>
 		<defName>Research_ED_Excalibur_Fabrication</defName>
 		<label>Fabrication Systems</label>
@@ -41,7 +41,7 @@
 		<techLevel>Spacer</techLevel>
 		<tab>EDSN-Excalibur</tab>
 		<researchViewX>1</researchViewX>
-		<researchViewY>1</researchViewY>
+		<researchViewY>0</researchViewY>
 		<requiredResearchFacilities>
 		</requiredResearchFacilities>
 		<prerequisites>
@@ -49,6 +49,23 @@
 			<li>Research_ED_Excalibur_AnalyseStrangeSignal</li>
 		</prerequisites>
 	</ResearchProjectDef>
+	
+	<ResearchProjectDef>
+		<defName>Research_ED_Excalibur_ShipStabilised</defName>
+		<label>Ship Stabilised</label>
+		<description>Now that the ship is out of immediate danger non critical systems can be brought online.</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Spacer</techLevel>
+		<tab>EDSN-Excalibur</tab>
+		<researchViewX>1</researchViewX>
+		<researchViewY>1</researchViewY>
+		<requiredResearchFacilities/>
+		<prerequisites>
+			<li>Research_ED_Excalibur_ShipStabilised</li>
+			<li>Research_ED_Excalibur_AnalyseStrangeSignal</li>
+		</prerequisites>
+	</ResearchProjectDef>
+	
 	
 </Defs>
 

@@ -10,7 +10,7 @@
 		<prerequisites>
 			<li>DeepDrilling</li>
 			<li>GeothermalPower</li>
-			<li>Research_ED_Excalibur_Fabrication</li>
+			<li>Research_ED_Excalibur_ShipStabilised</li>
 		</prerequisites>
 		<tab>EDSN-Excalibur</tab>
 		<researchViewX>2</researchViewX>
