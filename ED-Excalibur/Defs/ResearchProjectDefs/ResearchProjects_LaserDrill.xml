@@ -17,18 +17,4 @@
 		<researchViewY>2</researchViewY>
 	</ResearchProjectDef>
 
-	<ResearchProjectDef>
-		<defName>Research_ED_LaserSteamGeyser_Filler</defName>
-		<label>Laser Steam Geyser Filler</label>
-		<description>Using a laser, fill in a steam vent with stone that you melt using a laser to create a buildable surface.</description>
-		<baseCost>2000</baseCost>
-		<techLevel>Industrial</techLevel>
-		<prerequisites>
-			<li>Research_ED_LaserSteamGeyser_Drill</li>
-		</prerequisites>
-		<tab>EDSN-Excalibur</tab>
-		<researchViewX>3</researchViewX>
-		<researchViewY>2</researchViewY>
-	</ResearchProjectDef>
-
 </Defs>

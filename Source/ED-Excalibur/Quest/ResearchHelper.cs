@@ -12,19 +12,17 @@ namespace EnhancedDevelopment.Excalibur.Quest
         public static void UpdateResearch()
         {
 
-           if (GameComponent_Excalibur.Instance.Comp_Quest.m_QuestStatus >= 1)
+            if (GameComponent_Excalibur.Instance.Comp_Quest.m_QuestStatus >= 1)
             {
                 ResearchHelper.QuestUnlock("Research_ED_Excalibur_AnalyseStrangeSignal");
             }
-
-
+            
             if (GameComponent_Excalibur.Instance.Comp_Quest.m_QuestStatus >= 6)
             {
                 ResearchHelper.QuestUnlock("Research_ED_Excalibur_Fabrication");
                 ResearchHelper.QuestComplete("Research_ED_Excalibur_Fabrication");
             }
-
-
+            
         }
 
         public static void QuestUnlock(string researchName)

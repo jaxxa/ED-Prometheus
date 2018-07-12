@@ -117,7 +117,7 @@
 		</building>
 		<researchPrerequisites>
 			<li>Research_ED_Excalibur_Quest_Unlock</li>
-			<li>Research_ED_LaserSteamGeyser_Filler</li>
+			<li>Research_ED_LaserSteamGeyser_Drill</li>
 		</researchPrerequisites>
 	</ThingDef>
 
