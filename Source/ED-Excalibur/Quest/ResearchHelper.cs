@@ -18,7 +18,7 @@ namespace EnhancedDevelopment.Excalibur.Quest
             }
 
 
-            if (GameComponent_Excalibur.Instance.Comp_Quest.m_QuestStatus >= 4)
+            if (GameComponent_Excalibur.Instance.Comp_Quest.m_QuestStatus >= 6)
             {
                 ResearchHelper.QuestUnlock("Research_ED_Excalibur_Fabrication");
                 ResearchHelper.QuestComplete("Research_ED_Excalibur_Fabrication");

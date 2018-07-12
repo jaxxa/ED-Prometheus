@@ -183,7 +183,6 @@ namespace EnhancedDevelopment.Excalibur.Core
                     break;
                 case 6:
                     m_QuestStatus++;
-                    EnhancedDevelopment.Excalibur.Quest.ResearchHelper.QuestUnlock("Research_ED_Excalibur_Fabrication");
                     Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_Title_6_ShipStabilised".Translate(), "EDE_Dialog_6_ShipStabilised".Translate()));
                     break;
 
