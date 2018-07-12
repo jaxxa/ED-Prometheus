@@ -15,56 +15,32 @@ namespace EnhancedDevelopment.Excalibur.Core
     class GameComponent_Excalibur_Quest : GameComponent_BaseClass
     {
 
+        #region Constructor
+        
         public GameComponent_Excalibur_Quest() : base()
         {
            // ResearchHelper.UpdateResearch();
         }
 
+        #endregion //Constructor
+
+        #region Fields
 
         public int m_QuestStatus = 0;
-
         private float m_ReservesPower = 0;
         private int m_ReservesMaterials = 0;
+        
+        private List<ResourceUnit> m_ResourcesToTransport = new List<ResourceUnit>();
 
-        public void AddReservePower(float ammount)
-        {
-            this.m_ReservesPower += ammount;
-        }
+        #endregion //Fields
 
-        public float RequestReservePower(float ammount)
-        {
-            if (this.m_ReservesPower >= ammount)
-            {
-                this.m_ReservesPower -= ammount;
-                return ammount;
-            }
-            else
-            {
-                float _Temp = this.m_ReservesPower;
-                this.m_ReservesPower -= _Temp;
-                return _Temp;
-            }
-        }
-
-
-        public int GetReservePower()
-        {
-            return (int)this.m_ReservesPower;
-        }
-
-        public void AddReserveMaterials(int ammount)
-        {
-            this.m_ReservesMaterials += ammount;
-        }
-
-        public int GetReserveMaterials()
-        {
-            return this.m_ReservesMaterials;
-        }
+        #region Overrides
 
         public override void ExposeData()
         {
             Scribe_Values.Look<int>(ref this.m_QuestStatus, "m_QuestStatus");
+            Scribe_Values.Look<float>(ref this.m_ReservesPower, "m_ReservesPower");
+            Scribe_Values.Look<int>(ref this.m_ReservesMaterials, "m_ReservesMaterials");
             //throw new NotImplementedException();
         }
 
@@ -88,11 +64,11 @@ namespace EnhancedDevelopment.Excalibur.Core
             }
 
 
-            if (this._Resources.Any())
+            if (this.m_ResourcesToTransport.Any())
             {
                 int _ResourceStackSizeAdded = 0;
 
-                this._Resources.ForEach(r =>
+                this.m_ResourcesToTransport.ForEach(r =>
                 {
                     if (!r.Destroyed)
                     {
@@ -116,8 +92,81 @@ namespace EnhancedDevelopment.Excalibur.Core
 
             }
 
-            this._Resources.Clear();
+            this.m_ResourcesToTransport.Clear();
         }
+
+        public override void FinalizeInit()
+        {
+            base.FinalizeInit();
+
+            ResearchHelper.UpdateResearch();
+        }
+
+
+        public override int GetTickInterval()
+        {
+            return 2000;
+        }
+
+        #endregion //Overrides
+
+        #region Resourcing
+
+        //Power
+        public int GetReservePowerAsInt()
+        {
+            return (int)this.m_ReservesPower;
+        }
+
+        public void AddReservePower(float ammount)
+        {
+            this.m_ReservesPower += ammount;
+        }
+
+        public float RequestReservePower(float ammount)
+        {
+            if (this.m_ReservesPower >= ammount)
+            {
+                this.m_ReservesPower -= ammount;
+                return ammount;
+            }
+            else
+            {
+                float _Temp = this.m_ReservesPower;
+                this.m_ReservesPower -= _Temp;
+                return _Temp;
+            }
+        }
+
+        //RU
+
+        public int GetReserveMaterials()
+        {
+            return this.m_ReservesMaterials;
+        }
+
+        public void AddReserveMaterials(int ammount)
+        {
+            this.m_ReservesMaterials += ammount;
+        }
+
+
+
+        #endregion //Resourcing
+
+        #region Tagging RU
+        
+        public void TagMaterialsForTransport(ResourceUnit resource)
+        {
+            if (!this.m_ResourcesToTransport.Contains(resource))
+            {
+                this.m_ResourcesToTransport.Add(resource);
+            }
+        }
+
+        #endregion
+
+        #region QuestCommunication
 
         public void ContactExcalibur(Building contactSource = null)
         {
@@ -173,7 +222,7 @@ namespace EnhancedDevelopment.Excalibur.Core
                     }
                     else
                     {
-                        Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_Title_4_NeedResources".Translate(), String.Format("EDE_Dialog_4_NeedResources".Translate(), this.m_ReservesMaterials.ToString(),Mod_EDExcalibur.Settings.Quest.InitialShipSetup_ResourcesRequired.ToString())));
+                        Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_Title_4_NeedResources".Translate(), String.Format("EDE_Dialog_4_NeedResources".Translate(), this.m_ReservesMaterials.ToString(), Mod_EDExcalibur.Settings.Quest.InitialShipSetup_ResourcesRequired.ToString())));
                     }
 
                     break;
@@ -187,7 +236,9 @@ namespace EnhancedDevelopment.Excalibur.Core
                     break;
 
                 case 7:
+                    //Long Term Contact
 
+                    Find.WindowStack.Add(new Dialog_Excalibur());
                     break;
 
                 default:
@@ -201,28 +252,10 @@ namespace EnhancedDevelopment.Excalibur.Core
             ResearchHelper.UpdateResearch();
         }
 
-        public override int GetTickInterval()
-        {
-            return 2000;
-        }
+        #endregion
 
 
-        private List<ResourceUnit> _Resources = new List<ResourceUnit>();
 
-        public void TagMaterialsForTransport(ResourceUnit resource)
-        {
-            if (!_Resources.Contains(resource))
-            {
-                _Resources.Add(resource);
-            }
-        }
-
-        public override void FinalizeInit()
-        {
-            base.FinalizeInit();
-
-            ResearchHelper.UpdateResearch();
-        }
 
     }
 }

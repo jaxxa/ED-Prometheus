@@ -61,7 +61,7 @@ namespace EnhancedDevelopment.Excalibur.Power
         public override string GetInspectString()
         {
             string _Base = base.GetInspectString();
-            _Base = _Base + Environment.NewLine + "Ship Power: " + GameComponent_Excalibur.Instance.Comp_Quest.GetReservePower();
+            _Base = _Base + Environment.NewLine + "Ship Power: " + GameComponent_Excalibur.Instance.Comp_Quest.GetReservePowerAsInt();
 
 
             return _Base;

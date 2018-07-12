@@ -13,16 +13,19 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
         public Dialog_Excalibur()
         {
             this.resizeable = false;
-            this.optionalTitle = "Signal Detected";
+            this.optionalTitle = "E.D.S.N Exclibur";
             //this.CloseButSize = new Vector2(50, 50);
 
-            this.doCloseButton = true;
+            this.doCloseButton = false;
             this.doCloseX = false;
             this.closeOnClickedOutside = false;
+            this.doCloseX = true;
+            
 
             //this.SetInitialSizeAndPosition();
         }
 
+     
 
         public override void DoWindowContents(Rect inRect)
         {
@@ -41,11 +44,11 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
             }
         }
 
-        private string introText = "EDETestString".Translate();
+        //private string introText = "EDETestString".Translate();
 
         private void InitialWindowContents(Rect Canvas)
         {
-            Widgets.TextArea(Canvas, introText, true);
+            Widgets.TextArea(Canvas, "Ship Status", true);
         }
     }
 }

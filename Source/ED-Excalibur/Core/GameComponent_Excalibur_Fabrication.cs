@@ -43,7 +43,7 @@ namespace EnhancedDevelopment.Excalibur.Core
                 //Check if not Started
                 if (!_BuildingToSpawn.SpentPowerAndMaterials)
                 {
-                    if (GameComponent_Excalibur.Instance.Comp_Quest.GetReservePower() >= _BuildingToSpawn.NeededPower 
+                    if (GameComponent_Excalibur.Instance.Comp_Quest.GetReservePowerAsInt() >= _BuildingToSpawn.NeededPower 
                         && GameComponent_Excalibur.Instance.Comp_Quest.GetReserveMaterials() >= _BuildingToSpawn.NeededResources)
                     {
                         _BuildingToSpawn.WorkRemaining = _BuildingToSpawn.NeededWork;
