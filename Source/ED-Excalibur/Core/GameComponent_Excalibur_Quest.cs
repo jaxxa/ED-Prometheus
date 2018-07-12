@@ -2,6 +2,7 @@
 using EnhancedDevelopment.Excalibur.Power;
 using EnhancedDevelopment.Excalibur.Quest;
 using EnhancedDevelopment.Excalibur.Quest.Dialog;
+using EnhancedDevelopment.Excalibur.Quest.ShipSystems;
 using EnhancedDevelopment.Excalibur.Settings;
 using RimWorld;
 using System;
@@ -19,7 +20,11 @@ namespace EnhancedDevelopment.Excalibur.Core
         
         public GameComponent_Excalibur_Quest() : base()
         {
-           // ResearchHelper.UpdateResearch();
+            // ResearchHelper.UpdateResearch();
+
+            this.m_ShipSystems.Add(new ShipSystem_Hull());
+            this.m_ShipSystems.Add(new ShipSystem_Computer());
+            this.m_ShipSystems.Add(new ShipSystem_LifeSupport());
         }
 
         #endregion //Constructor
@@ -101,8 +106,7 @@ namespace EnhancedDevelopment.Excalibur.Core
 
             ResearchHelper.UpdateResearch();
         }
-
-
+        
         public override int GetTickInterval()
         {
             return 2000;
@@ -254,7 +258,12 @@ namespace EnhancedDevelopment.Excalibur.Core
 
         #endregion
 
+        #region Ship Status
 
+        public IList<ShipSystem> m_ShipSystems = new List<ShipSystem>();
+
+
+        #endregion
 
 
     }

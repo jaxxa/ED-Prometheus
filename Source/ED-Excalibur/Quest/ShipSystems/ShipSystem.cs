@@ -7,5 +7,7 @@ namespace EnhancedDevelopment.Excalibur.Quest
 {
     class ShipSystem
     {
+
+
     }
 }
