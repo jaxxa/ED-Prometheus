@@ -7,5 +7,9 @@ namespace EnhancedDevelopment.Excalibur.Quest.ShipSystems
 {
     class ShipSystem_Hull : ShipSystem
     {
+        public override string Name()
+        {
+            return "Hull";
+        }
     }
 }

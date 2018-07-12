@@ -25,6 +25,16 @@ namespace EnhancedDevelopment.Excalibur.Core
             this.m_ShipSystems.Add(new ShipSystem_Hull());
             this.m_ShipSystems.Add(new ShipSystem_Computer());
             this.m_ShipSystems.Add(new ShipSystem_LifeSupport());
+            this.m_ShipSystems.Add(new ShipSystem_LifeSupport());
+            this.m_ShipSystems.Add(new ShipSystem_LifeSupport());
+            this.m_ShipSystems.Add(new ShipSystem_LifeSupport());
+            this.m_ShipSystems.Add(new ShipSystem_LifeSupport());
+            this.m_ShipSystems.Add(new ShipSystem_LifeSupport());
+            this.m_ShipSystems.Add(new ShipSystem_LifeSupport());
+            this.m_ShipSystems.Add(new ShipSystem_LifeSupport());
+            this.m_ShipSystems.Add(new ShipSystem_LifeSupport());
+            this.m_ShipSystems.Add(new ShipSystem_LifeSupport());
+            this.m_ShipSystems.Add(new ShipSystem_LifeSupport());
         }
 
         #endregion //Constructor
@@ -261,6 +271,7 @@ namespace EnhancedDevelopment.Excalibur.Core
         #region Ship Status
 
         public IList<ShipSystem> m_ShipSystems = new List<ShipSystem>();
+
 
 
         #endregion

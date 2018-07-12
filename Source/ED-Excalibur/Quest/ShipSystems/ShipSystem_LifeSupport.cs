@@ -7,5 +7,9 @@ namespace EnhancedDevelopment.Excalibur.Quest.ShipSystems
 {
     class ShipSystem_LifeSupport : ShipSystem
     {
+        public override string Name()
+        {
+            return "Life Support";
+        }
     }
 }

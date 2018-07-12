@@ -7,5 +7,9 @@ namespace EnhancedDevelopment.Excalibur.Quest.ShipSystems
 {
     class ShipSystem_Computer : ShipSystem
     {
+        public override string Name()
+        {
+            return "Computer";
+        }
     }
 }
