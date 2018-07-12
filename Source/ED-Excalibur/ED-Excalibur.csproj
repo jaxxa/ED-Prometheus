@@ -87,6 +87,10 @@
     <Compile Include="Patch\Patches\PatchThingWithComps_Nano.cs" />
     <Compile Include="Power\Building_QuantumPowerRelay.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Quest\ShipSystems\ShipSystem.cs" />
+    <Compile Include="Quest\ShipSystems\ShipSystem_Computer.cs" />
+    <Compile Include="Quest\ShipSystems\ShipSystem_Hull.cs" />
+    <Compile Include="Quest\ShipSystems\ShipSystem_LifeSupport.cs" />
     <Compile Include="Settings\ModSettings_EDExcalibur.cs" />
     <Compile Include="Settings\Mod_EDExcalibur.cs" />
     <Compile Include="Settings\SettingSection_LaserDrill.cs" />
