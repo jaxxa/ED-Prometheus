@@ -54,8 +54,8 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
         {
             float m_ViewHeight = Core.GameComponent_Excalibur.Instance.Comp_Quest.m_ShipSystems.Count() * 106f;
 
-            Widgets.TextArea(Canvas, "Ship Status", true);
-
+            Widgets.TextArea(Canvas.TopPartPixels(20), "Ship Status", true);
+            Widgets.DrawLineHorizontal(0, 20, Canvas.width);
 
             GUI.color = Color.white;
             Rect outRect = new Rect(0f, 35f, Canvas.width, Canvas.height - 35f);

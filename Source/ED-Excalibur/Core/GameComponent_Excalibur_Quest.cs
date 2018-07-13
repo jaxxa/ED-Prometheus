@@ -56,6 +56,9 @@ namespace EnhancedDevelopment.Excalibur.Core
             Scribe_Values.Look<int>(ref this.m_QuestStatus, "m_QuestStatus");
             Scribe_Values.Look<float>(ref this.m_ReservesPower, "m_ReservesPower");
             Scribe_Values.Look<int>(ref this.m_ReservesMaterials, "m_ReservesMaterials");
+
+            this.m_ShipSystems.ForEach(s => s.ExposeData());
+
             //throw new NotImplementedException();
         }
 
@@ -270,10 +273,8 @@ namespace EnhancedDevelopment.Excalibur.Core
 
         #region Ship Status
 
-        public IList<ShipSystem> m_ShipSystems = new List<ShipSystem>();
-
-
-
+        public List<ShipSystem> m_ShipSystems = new List<ShipSystem>();
+        
         #endregion
 
 
