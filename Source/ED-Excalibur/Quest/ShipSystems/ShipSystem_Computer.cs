@@ -11,5 +11,16 @@ namespace EnhancedDevelopment.Excalibur.Quest.ShipSystems
         {
             return "Computer";
         }
+        
+        public override int PowerForRepair()
+        {
+            return 1000;
+        }
+
+        public override int ResourceUnitsForRepair()
+        {
+            return 10;
+        }
+
     }
 }

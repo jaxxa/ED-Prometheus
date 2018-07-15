@@ -23,9 +23,7 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
             
 
             //this.SetInitialSizeAndPosition();
-        }
-
-     
+        } 
 
         public override void DoWindowContents(Rect inRect)
         {

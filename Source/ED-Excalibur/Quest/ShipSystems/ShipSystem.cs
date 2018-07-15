@@ -11,11 +11,21 @@ namespace EnhancedDevelopment.Excalibur.Quest
     {
         public abstract String Name();
 
+        public abstract int PowerForRepair();
+        public abstract int ResourceUnitsForRepair();
+        //public abstract int TimeForRepair();
+
+
+        public int m_MaxSystemStatus = 100;
+
+        //Persisted
         public int m_SystemStatus = 0;
-        
+        public bool m_PriorityRepair = false;
+
         public void ExposeData()
         {
-            Scribe_Values.Look<int>(ref this.m_SystemStatus, "ShipStatus_" + this.Name());
+            Scribe_Values.Look<int>(ref this.m_SystemStatus, "ShipSystem_" + this.Name() + "_SystemStatus");
+            Scribe_Values.Look<bool>(ref this.m_PriorityRepair, "ShipSystem_" + this.Name() + "_PriorityRepair");
         }
 
         public Rect DoInterface(float x, float y, float width, int index)
@@ -31,28 +41,45 @@ namespace EnhancedDevelopment.Excalibur.Quest
             Widgets.TextArea(_RectQuarter1, this.Name() + " Status", true);
 
             Rect _RectQuarter2 = _RectTopHalf.BottomHalf();
-            Widgets.TextArea(_RectQuarter2, "System Status: " + this.m_SystemStatus.ToString(), true);
+            Widgets.TextArea(_RectQuarter2, "System Status: " + this.m_SystemStatus.ToString() + " / " + this.m_MaxSystemStatus.ToString(), true);
 
             Rect _RectQuarter3 = _RectBottomHalf.TopHalf();
-            Widgets.TextArea(_RectQuarter3, "RU:" + "TEST" + " Power: " + "TEST", true);
+            Widgets.TextArea(_RectQuarter3, "RU:" + this.ResourceUnitsForRepair() + " Power: " + this.PowerForRepair(), true);
 
             Rect _RectQuarter4 = _RectBottomHalf.BottomHalf();
-            Widgets.TextArea(_RectQuarter4.LeftHalf(), "Number To Build:" + "TEST", true);
-            
-            if (Widgets.ButtonText(_RectQuarter4.RightHalf().LeftHalf(), "-",true,false,true))
+            //Widgets.TextArea(_RectQuarter4.LeftHalf(), ":" + "TEST", true);
+
+            if (this.m_PriorityRepair)
             {
-                Log.Message("-");
-                this.m_SystemStatus -= 1;
-            };
-            
-            if (Widgets.ButtonText(_RectQuarter4.RightHalf().RightHalf(), "+", true, false, true))
+
+                if (Widgets.ButtonText(_RectQuarter4.RightHalf().LeftHalf(), "Priority Repair: ENABLED"))
+                {
+                    this.m_PriorityRepair = false;
+                };
+            }
+            else
             {
-                Log.Message("-");
-                this.m_SystemStatus += 1;
-            };
+
+                if (Widgets.ButtonText(_RectQuarter4.RightHalf().LeftHalf(), "Priority Repair: DISABLED"))
+                {
+                    this.m_PriorityRepair = true;
+                };
+            }
+
+            //if (Widgets.ButtonText(_RectQuarter4.RightHalf().LeftHalf(), "-",true,false,true))
+            //{
+            //    Log.Message("-");
+            //    this.m_SystemStatus -= 1;
+            //};
+
+            //if (Widgets.ButtonText(_RectQuarter4.RightHalf().RightHalf(), "+", true, false, true))
+            //{
+            //    Log.Message("-");
+            //    this.m_SystemStatus += 1;
+            //};
 
             return _RectTotal;
-            
+
         }
 
     }
