@@ -76,7 +76,11 @@ namespace EnhancedDevelopment.Excalibur.Core
                     }
                     break;
                 case 7:
-                    this.m_ShipSystems.First(s => s.m_PriorityRepair).TryRepair();
+                    List<ShipSystem> _AvalableToRepair = this.m_ShipSystems.Where(s => s.CanPriorityRepair()).ToList();
+                    if (_AvalableToRepair.Any())
+                    {
+                        _AvalableToRepair.First().ProgressRepair();
+                    }
 
                     break;
                 default:
@@ -170,12 +174,27 @@ namespace EnhancedDevelopment.Excalibur.Core
             this.m_ReservesMaterials += ammount;
         }
 
+        public float RequestReserveMaterials(int ammount)
+        {
+            if (this.m_ReservesMaterials >= ammount)
+            {
+                this.m_ReservesMaterials -= ammount;
+                return ammount;
+            }
+            else
+            {
+                int _Temp = this.m_ReservesMaterials;
+                this.m_ReservesMaterials -= _Temp;
+                return _Temp;
+            }
+        }
+
 
 
         #endregion //Resourcing
 
         #region Tagging RU
-        
+
         public void TagMaterialsForTransport(ResourceUnit resource)
         {
             if (!this.m_ResourcesToTransport.Contains(resource))
