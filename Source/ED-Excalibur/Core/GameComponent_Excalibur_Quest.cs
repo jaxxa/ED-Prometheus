@@ -75,7 +75,10 @@ namespace EnhancedDevelopment.Excalibur.Core
                         this.ContactExcalibur();
                     }
                     break;
+                case 7:
+                    this.m_ShipSystems.First(s => s.m_PriorityRepair).TryRepair();
 
+                    break;
                 default:
 
                     break;

@@ -82,5 +82,11 @@ namespace EnhancedDevelopment.Excalibur.Quest
 
         }
 
+
+        public void TryRepair()
+        {
+            this.m_SystemStatus += 1;
+        }
+
     }
 }
