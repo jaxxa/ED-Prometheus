@@ -9,6 +9,7 @@ using Verse;
 
 namespace EnhancedDevelopment.Excalibur.Power
 {
+    [StaticConstructorOnStartup]
     class Building_QuantumPowerRelay : Building
     {
 
