@@ -21,7 +21,15 @@ namespace EnhancedDevelopment.Excalibur.Quest
             return 10;
         }
 
-        public virtual void ApplyResearchUnlocks()
+        public virtual void ApplyResearchUnlocksIfRequired()
+        {
+            if (this.m_SystemStatus >= this.m_MaxSystemStatus)
+            {
+                this.ApplyResearchUnlocks();
+            }
+        }
+
+        protected virtual void ApplyResearchUnlocks()
         {
 
         }

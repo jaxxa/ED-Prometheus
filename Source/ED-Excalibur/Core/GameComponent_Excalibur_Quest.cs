@@ -20,8 +20,6 @@ namespace EnhancedDevelopment.Excalibur.Core
         
         public GameComponent_Excalibur_Quest() : base()
         {
-            // ResearchHelper.UpdateResearch();
-
             this.m_ShipSystems.Add(new ShipSystem_Hull());
             this.m_ShipSystems.Add(new ShipSystem_Computer());
             this.m_ShipSystems.Add(new ShipSystem_LifeSupport());
@@ -124,7 +122,7 @@ namespace EnhancedDevelopment.Excalibur.Core
         {
             base.FinalizeInit();
 
-            ResearchHelper.UpdateResearch();
+            this.UpdateAllResearch();
         }
         
         public override int GetTickInterval()
@@ -287,8 +285,7 @@ namespace EnhancedDevelopment.Excalibur.Core
                     m_QuestStatus = 1;
                     break;
             }
-
-            ResearchHelper.UpdateResearch();
+            this.UpdateAllResearch();
         }
 
         #endregion
@@ -299,6 +296,10 @@ namespace EnhancedDevelopment.Excalibur.Core
         
         #endregion
 
-
+        private void UpdateAllResearch()
+        {
+            ResearchHelper.UpdateQuestStatusResearch();
+            Core.GameComponent_Excalibur.Instance.Comp_Quest.m_ShipSystems.ForEach(s => s.ApplyResearchUnlocksIfRequired());
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace EnhancedDevelopment.Excalibur.Quest
 {
     static class ResearchHelper
     {
-        public static void UpdateResearch()
+        public static void UpdateQuestStatusResearch()
         {
 
             if (GameComponent_Excalibur.Instance.Comp_Quest.m_QuestStatus >= 1)
@@ -21,8 +21,8 @@ namespace EnhancedDevelopment.Excalibur.Quest
             {
                 ResearchHelper.QuestUnlock("Research_ED_Excalibur_Fabrication");
                 ResearchHelper.QuestComplete("Research_ED_Excalibur_Fabrication");
-            }
-            
+            }        
+
         }
 
         public static void QuestUnlock(string researchName)
