@@ -4,4 +4,4 @@
  * Initia Release
  
 1.0.0.1
- * Updates to Dialog and Building Deployment systems.
+ * Updates to Dialog, Research and Building Deployment systems.

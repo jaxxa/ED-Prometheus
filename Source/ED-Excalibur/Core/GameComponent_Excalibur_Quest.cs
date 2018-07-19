@@ -296,7 +296,7 @@ namespace EnhancedDevelopment.Excalibur.Core
         
         #endregion
 
-        private void UpdateAllResearch()
+        public void UpdateAllResearch()
         {
             ResearchHelper.UpdateQuestStatusResearch();
             Core.GameComponent_Excalibur.Instance.Comp_Quest.m_ShipSystems.ForEach(s => s.ApplyResearchUnlocksIfRequired());

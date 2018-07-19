@@ -23,21 +23,22 @@ namespace EnhancedDevelopment.Excalibur.Quest
 
         public virtual void ApplyResearchUnlocksIfRequired()
         {
-            if (this.m_SystemStatus >= this.m_MaxSystemStatus)
+            if (this.m_SystemStatus >= this.GetMaxSystemStatus())
             {
                 this.ApplyResearchUnlocks();
             }
+        }
+
+        public virtual int GetMaxSystemStatus()
+        {
+            return 100;
         }
 
         protected virtual void ApplyResearchUnlocks()
         {
 
         }
-
-        //public abstract int TimeForRepair();
-
-
-        public int m_MaxSystemStatus = 100;
+                    
 
         //Persisted
         public int m_SystemStatus = 0;
@@ -62,7 +63,7 @@ namespace EnhancedDevelopment.Excalibur.Quest
             Widgets.TextArea(_RectQuarter1, this.Name() + " Status", true);
 
             Rect _RectQuarter2 = _RectTopHalf.BottomHalf();
-            Widgets.TextArea(_RectQuarter2, "System Status: " + this.m_SystemStatus.ToString() + " / " + this.m_MaxSystemStatus.ToString(), true);
+            Widgets.TextArea(_RectQuarter2, "System Status: " + this.m_SystemStatus.ToString() + " / " + this.GetMaxSystemStatus().ToString(), true);
 
             Rect _RectQuarter3 = _RectBottomHalf.TopHalf();
             Widgets.TextArea(_RectQuarter3, "RU:" + this.ResourceUnitsForRepair() + " Power: " + this.PowerForRepair(), true);
@@ -105,7 +106,7 @@ namespace EnhancedDevelopment.Excalibur.Quest
 
         public bool CanPriorityRepair()
         {
-            if (this.m_SystemStatus >= this.m_MaxSystemStatus) { return false; }
+            if (this.m_SystemStatus >= this.GetMaxSystemStatus()) { return false; }
             if (!this.m_PriorityRepair) { return false; }
             if (this.PowerForRepair() > Core.GameComponent_Excalibur.Instance.Comp_Quest.GetReservePowerAsInt()) { return false; }
             if (this.ResourceUnitsForRepair() > Core.GameComponent_Excalibur.Instance.Comp_Quest.GetReserveMaterials()) { return false; }
@@ -117,7 +118,7 @@ namespace EnhancedDevelopment.Excalibur.Quest
         {
             Core.GameComponent_Excalibur.Instance.Comp_Quest.RequestReservePower(this.PowerForRepair());
             Core.GameComponent_Excalibur.Instance.Comp_Quest.RequestReserveMaterials(this.ResourceUnitsForRepair());
-
+            Core.GameComponent_Excalibur.Instance.Comp_Quest.UpdateAllResearch();
             this.m_SystemStatus += 1;
         }
 
