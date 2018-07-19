@@ -11,8 +11,21 @@ namespace EnhancedDevelopment.Excalibur.Quest
     {
         public abstract String Name();
 
-        public abstract int PowerForRepair();
-        public abstract int ResourceUnitsForRepair();
+        public virtual int PowerForRepair()
+        {
+            return 1000;
+        }
+
+        public virtual int ResourceUnitsForRepair()
+        {
+            return 10;
+        }
+
+        public virtual void ApplyResearchUnlocks()
+        {
+
+        }
+
         //public abstract int TimeForRepair();
 
 
