@@ -13,7 +13,7 @@
 		</graphicData>
 		<statBases>
 			<MaxHitPoints>60</MaxHitPoints>
-			<MarketValue>50</MarketValue>
+			<MarketValue>0</MarketValue>
 			<Mass>0.5</Mass>
 			<Flammability>0.7</Flammability>
 			<DeteriorationRate>2.0</DeteriorationRate>
@@ -21,6 +21,7 @@
 		<soundInteract>Metal_Drop</soundInteract>
 		<soundDrop>Metal_Drop</soundDrop>
 		<stackLimit>500</stackLimit>
+		<tradeability>None</tradeability>
 		<thingCategories>
 			<li>ResourcesRaw</li>
 		</thingCategories>
@@ -38,7 +39,7 @@
 		<tickerType>Long</tickerType>
 		<statBases>
 			<MaxHitPoints>60</MaxHitPoints>
-			<MarketValue>50</MarketValue>
+			<MarketValue>0</MarketValue>
 			<Mass>0.5</Mass>
 			<Flammability>0.7</Flammability>
 			<DeteriorationRate>2.0</DeteriorationRate>
@@ -46,6 +47,7 @@
 		<soundInteract>Metal_Drop</soundInteract>
 		<soundDrop>Metal_Drop</soundDrop>
 		<stackLimit>500</stackLimit>
+		<tradeability>None</tradeability>
 		<thingCategories>
 			<li>ResourcesRaw</li>
 		</thingCategories>
