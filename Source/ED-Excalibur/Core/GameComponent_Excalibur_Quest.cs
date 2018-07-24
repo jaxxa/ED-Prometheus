@@ -78,6 +78,8 @@ namespace EnhancedDevelopment.Excalibur.Core
                     if (_AvalableToRepair.Any())
                     {
                         _AvalableToRepair.First().ProgressRepair();
+
+                        this.UpdateAllResearch();
                     }
 
                     break;
