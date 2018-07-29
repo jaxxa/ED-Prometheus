@@ -28,12 +28,15 @@ namespace EnhancedDevelopment.Excalibur.Quest
         public static void QuestUnlock(string researchName)
         {
             ResearchProjectDef _Quest = DefDatabase<ResearchProjectDef>.GetNamed(researchName);
-            _Quest.prerequisites.Remove(_Quest);
+            _Quest.requiredResearchFacilities.RemoveAll(x => true);
+            //_Quest.prerequisites.Remove(_Quest);
         }
 
         public static void QuestComplete(string researchName)
         {
             ResearchProjectDef _Quest = DefDatabase<ResearchProjectDef>.GetNamed(researchName);
+            _Quest.requiredResearchFacilities.RemoveAll(x => true);
+            //_Quest.requiredResearchFacilities.Clear();
             Find.ResearchManager.InstantFinish(_Quest, false);
         }
 

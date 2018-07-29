@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-	
+
 	<ResearchProjectDef>
 		<defName>Research_ED_Excalibur_Quest_Unlock</defName>
 		<label>Excalibur Quest Unlock</label>
@@ -11,13 +11,13 @@
 		<researchViewX>0</researchViewX>
 		<researchViewY>0</researchViewY>
 		<requiredResearchFacilities>
-			<li>MultiAnalyzer</li>
+			<li>ExcaliburQuestLock</li>
 		</requiredResearchFacilities>
 		<prerequisites>
 			<li>Research_ED_Excalibur_Quest_Unlock</li>
 		</prerequisites>
 	</ResearchProjectDef>
-	
+
 	<ResearchProjectDef>
 		<defName>Research_ED_Excalibur_AnalyseStrangeSignal</defName>
 		<label>Analyse Strange Signal</label>
@@ -26,13 +26,12 @@
 		<techLevel>Spacer</techLevel>
 		<tab>EDSN-Excalibur</tab>
 		<researchViewX>0</researchViewX>
-		<researchViewY>1</researchViewY>
-		<requiredResearchFacilities/>
-		<prerequisites>
-			<li>Research_ED_Excalibur_AnalyseStrangeSignal</li>
-		</prerequisites>
+		<researchViewY>1</researchViewY>	
+		<requiredResearchFacilities>
+			<li>ExcaliburQuestLock</li>
+		</requiredResearchFacilities>
 	</ResearchProjectDef>
-	
+
 	<ResearchProjectDef>
 		<defName>Research_ED_Excalibur_Fabrication</defName>
 		<label>Fabrication Systems</label>
@@ -43,13 +42,13 @@
 		<researchViewX>1</researchViewX>
 		<researchViewY>1</researchViewY>
 		<requiredResearchFacilities>
+			<li>ExcaliburQuestLock</li>
 		</requiredResearchFacilities>
 		<prerequisites>
-			<li>Research_ED_Excalibur_Fabrication</li>
 			<li>Research_ED_Excalibur_AnalyseStrangeSignal</li>
 		</prerequisites>
 	</ResearchProjectDef>
-	
+
 </Defs>
 
 <!--
