@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModSyncNinjaData>
+  <ID>fc1ee61b-7257-403c-9225-80191d254cf8</ID>
+  <ModName>ED-Excalibur</ModName>
+  <Version>1.0.0.1</Version>
+  <SaveBreaking>False</SaveBreaking>
+  <Host name="Github">
+    <Owner>jaxxa</Owner>
+    <Project>ED-Excalibur</Project>
+    <AboutDir>ED-Excalibur\About</AboutDir>
+    <DownloadFrom>ModSyncMainPage</DownloadFrom>
+    <Branch>master</Branch>
+  </Host>
+</ModSyncNinjaData>
