@@ -5,7 +5,7 @@
 		<defName>ExcaliburQuestLock</defName>
 		<label>Excalibur Quest Lock</label>
 		<description>A dummy Building for Locking research to Quest Progression.</description>
-		<thingClass>EnhancedDevelopment.Excalibur.Power.Building_QuantumPowerRelay</thingClass>
+		<thingClass>Building</thingClass>
 		<graphicData>
 			<texPath>Things/Building/Power/Battery</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
