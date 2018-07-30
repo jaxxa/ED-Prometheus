@@ -3,12 +3,23 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 using Verse;
 
 namespace EnhancedDevelopment.Excalibur.Quest
 {
     class Comp_EDSNTransponder : ThingComp
     {
+
+        private static Texture2D UI_Contact;
+
+        static Comp_EDSNTransponder()
+        {
+
+            UI_Contact = ContentFinder<Texture2D>.Get("UI/Quest/UI_Contact", true);
+        }
+
+
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
             //   return base.CompGetGizmosExtra();
@@ -21,7 +32,7 @@ namespace EnhancedDevelopment.Excalibur.Quest
             Command_Action act = new Command_Action();
             //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
             act.action = () => GameComponent_Excalibur.Instance.Comp_Quest.ContactExcalibur(this.parent as Building);
-            //act.icon = UI_DIRECT_ON;
+            act.icon = UI_Contact;
             act.defaultLabel = "Contact Excalibur";
             act.defaultDesc = "Contact Excalibur";
             act.activateSound = SoundDef.Named("Click");
