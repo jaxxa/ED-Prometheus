@@ -40,6 +40,11 @@ namespace EnhancedDevelopment.Excalibur.Quest
             Find.ResearchManager.InstantFinish(_Quest, false);
         }
 
+        public static Boolean IsResearched(string researchName)
+        {
+            ResearchProjectDef _Quest = DefDatabase<ResearchProjectDef>.GetNamed(researchName);
+            return _Quest.IsFinished;
+        }
 
     }
 }

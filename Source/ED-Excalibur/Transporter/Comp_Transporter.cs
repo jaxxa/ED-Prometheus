@@ -1,4 +1,5 @@
 ﻿using EnhancedDevelopment.Excalibur.Core;
+using EnhancedDevelopment.Excalibur.Quest;
 using EnhancedDevelopment.Excalibur.Settings;
 using RimWorld;
 using System;
@@ -21,49 +22,52 @@ namespace EnhancedDevelopment.Excalibur.Transporter
             {
                 yield return g;
             }
-            
-            if (true)
-            {
-                Command_Action act = new Command_Action();
-                //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
-                act.action = () => this.TransportColonists();
-                //    act.icon = UI_ADD_RESOURCES;
-                act.defaultLabel = "TransportColonists";
-                act.defaultDesc = "TransportColonists";
-                act.activateSound = SoundDef.Named("Click");
-                //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
-                //act.groupKey = 689736;
-                yield return act;
-            }
 
-            if (true)
-            {
-                Command_Action act = new Command_Action();
-                //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
-                act.action = () => this.TransportThings();
-                //    act.icon = UI_ADD_RESOURCES;
-                act.defaultLabel = "TransportThings";
-                act.defaultDesc = "TransportThings";
-                act.activateSound = SoundDef.Named("Click");
-                //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
-                //act.groupKey = 689736;
-                yield return act;
-            }
 
-            if (true)
+            if (ResearchHelper.IsResearched("Research_ED_Transporter"))
             {
-                Command_Action act = new Command_Action();
-                //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
-                act.action = () => this.TransportRecall();
-                //    act.icon = UI_ADD_RESOURCES;
-                act.defaultLabel = "TransportRecall";
-                act.defaultDesc = "TransportRecall";
-                act.activateSound = SoundDef.Named("Click");
-                //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
-                //act.groupKey = 689736;
-                yield return act;
-            }
+                if (true)
+                {
+                    Command_Action act = new Command_Action();
+                    //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                    act.action = () => this.TransportColonists();
+                    //    act.icon = UI_ADD_RESOURCES;
+                    act.defaultLabel = "TransportColonists";
+                    act.defaultDesc = "TransportColonists";
+                    act.activateSound = SoundDef.Named("Click");
+                    //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                    //act.groupKey = 689736;
+                    yield return act;
+                }
 
+                if (true)
+                {
+                    Command_Action act = new Command_Action();
+                    //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                    act.action = () => this.TransportThings();
+                    //    act.icon = UI_ADD_RESOURCES;
+                    act.defaultLabel = "TransportThings";
+                    act.defaultDesc = "TransportThings";
+                    act.activateSound = SoundDef.Named("Click");
+                    //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                    //act.groupKey = 689736;
+                    yield return act;
+                }
+
+                if (true)
+                {
+                    Command_Action act = new Command_Action();
+                    //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
+                    act.action = () => this.TransportRecall();
+                    //    act.icon = UI_ADD_RESOURCES;
+                    act.defaultLabel = "TransportRecall";
+                    act.defaultDesc = "TransportRecall";
+                    act.activateSound = SoundDef.Named("Click");
+                    //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                    //act.groupKey = 689736;
+                    yield return act;
+                }
+            }
         }     
 
         private void TransportColonists()
