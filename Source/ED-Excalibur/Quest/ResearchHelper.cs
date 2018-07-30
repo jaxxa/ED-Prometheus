@@ -17,7 +17,7 @@ namespace EnhancedDevelopment.Excalibur.Quest
                 ResearchHelper.QuestUnlock("Research_ED_Excalibur_AnalyseStrangeSignal");
             }
             
-            if (GameComponent_Excalibur.Instance.Comp_Quest.m_QuestStatus >= 6)
+            if (GameComponent_Excalibur.Instance.Comp_Quest.m_QuestStatus >= 4)
             {
                 ResearchHelper.QuestUnlock("Research_ED_Excalibur_Fabrication");
                 ResearchHelper.QuestComplete("Research_ED_Excalibur_Fabrication");
@@ -37,7 +37,7 @@ namespace EnhancedDevelopment.Excalibur.Quest
             ResearchProjectDef _Quest = DefDatabase<ResearchProjectDef>.GetNamed(researchName);
             _Quest.requiredResearchFacilities.RemoveAll(x => true);
             //_Quest.requiredResearchFacilities.Clear();
-            Find.ResearchManager.InstantFinish(_Quest, false);
+            Find.ResearchManager.FinishProject(_Quest, false);
         }
 
         public static Boolean IsResearched(string researchName)
