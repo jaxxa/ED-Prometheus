@@ -38,7 +38,7 @@ namespace EnhancedDevelopment.Excalibur.Patch.Patches
 
         private void ApplyLaunchPatch(HarmonyInstance harmony)
         {
-
+            
             //Get the Launch Method
             Type[] _TypeArray = new Type[] { typeof(Verse.Thing), typeof(Vector3), typeof(LocalTargetInfo), typeof(LocalTargetInfo), typeof(ProjectileHitFlags), typeof(Thing), typeof(ThingDef) };
             MethodInfo _ProjectileLaunch = typeof(Verse.Projectile).GetMethod("Launch", _TypeArray);
@@ -49,7 +49,9 @@ namespace EnhancedDevelopment.Excalibur.Patch.Patches
             Patcher.LogNULL(_ProjectileLaunchPrefix, "_ProjectileLaunchPrefix");
 
             //Apply the Prefix Patches
-            harmony.Patch(_ProjectileLaunch, new HarmonyMethod(_ProjectileLaunchPrefix), null);
+            
+            //Not needed in current iteration.
+            //harmony.Patch(_ProjectileLaunch, new HarmonyMethod(_ProjectileLaunchPrefix), null);
         }
 
 
@@ -59,7 +61,7 @@ namespace EnhancedDevelopment.Excalibur.Patch.Patches
         // - returns a boolean that controls if original is executed (true) or not (false)
         public static Boolean ProjectileLaunchPrefix()
         {
-            Log.Message("Created Projectile");
+            //Log.Message("Created Projectile");
             //This is the result that will be used, note that it was passed as a ref.
             //  __result = false;
 

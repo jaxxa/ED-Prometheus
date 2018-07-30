@@ -60,7 +60,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
         {
 
             IEnumerable<Building_Shield> _ShieldBuildings = map.listerBuildings.AllBuildingsColonistOfClass<Building_Shield>();
-            Log.Message("Buildings: " + _ShieldBuildings.Count().ToString());
+            //Log.Message("Buildings: " + _ShieldBuildings.Count().ToString());
 
             //if (_ShieldBuildings.Any(x => (Vector3.Distance(projectile.ExactPosition, x.Position.ToVector3()) <= 5.0f)))
             if (_ShieldBuildings.Any(x =>
@@ -68,10 +68,10 @@ namespace EnhancedDevelopment.Excalibur.Shields
                 Vector3 _Projetile2DPosition = new Vector3(projectile.ExactPosition.x, 0, projectile.ExactPosition.z);
                 float _Distance = Vector3.Distance(_Projetile2DPosition, x.Position.ToVector3());
 
-                Log.Message("Projectile:" + _Projetile2DPosition.ToString());
-                Log.Message("Shield:" + x.Position.ToVector3());
+                //Log.Message("Projectile:" + _Projetile2DPosition.ToString());
+                //Log.Message("Shield:" + x.Position.ToVector3());
 
-                Log.Message("Distance: " + _Distance.ToString());
+                //Log.Message("Distance: " + _Distance.ToString());
                 float _Radius = x.GetComp<Comp_ShieldGenerator>().m_Field_Radius_Selected;
 
                 if (_Distance <= _Radius)
@@ -81,7 +81,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
                 return false;
             }))
             {
-                Log.Message("Blocked");
+                //Log.Message("Blocked");
 
                 //On hit effects
                 MoteMaker.ThrowLightningGlow(projectile.ExactPosition, this.map, 0.5f);
