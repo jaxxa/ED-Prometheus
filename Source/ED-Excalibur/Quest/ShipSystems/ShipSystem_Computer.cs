@@ -20,7 +20,7 @@ namespace EnhancedDevelopment.Excalibur.Quest.ShipSystems
 
         protected override void ApplyResearchUnlocks()
         {
-            Log.Message("Unlocking Computer");
+            //Log.Message("Unlocking Computer");
             ResearchHelper.QuestComplete("Research_ED_OmniGel");
 
 

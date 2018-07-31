@@ -19,7 +19,6 @@ namespace EnhancedDevelopment.Excalibur.Quest
             
             if (GameComponent_Excalibur.Instance.Comp_Quest.m_QuestStatus >= 4)
             {
-                ResearchHelper.QuestUnlock("Research_ED_Excalibur_Fabrication");
                 ResearchHelper.QuestComplete("Research_ED_Excalibur_Fabrication");
             }        
 
@@ -27,17 +26,19 @@ namespace EnhancedDevelopment.Excalibur.Quest
 
         public static void QuestUnlock(string researchName)
         {
-            ResearchProjectDef _Quest = DefDatabase<ResearchProjectDef>.GetNamed(researchName);
-            _Quest.requiredResearchFacilities.RemoveAll(x => true);
-            //_Quest.prerequisites.Remove(_Quest);
+            ResearchProjectDef _QuestResearch = DefDatabase<ResearchProjectDef>.GetNamed(researchName);
+
+            if (_QuestResearch.requiredResearchFacilities != null)
+            {
+                _QuestResearch.requiredResearchFacilities.Clear();
+            }
         }
 
         public static void QuestComplete(string researchName)
         {
-            ResearchProjectDef _Quest = DefDatabase<ResearchProjectDef>.GetNamed(researchName);
-            _Quest.requiredResearchFacilities.RemoveAll(x => true);
-            //_Quest.requiredResearchFacilities.Clear();
-            Find.ResearchManager.FinishProject(_Quest, false);
+            ResearchHelper.QuestUnlock(researchName);
+            ResearchProjectDef _QuestResearch = DefDatabase<ResearchProjectDef>.GetNamed(researchName);
+            Find.ResearchManager.FinishProject(_QuestResearch, false);
         }
 
         public static Boolean IsResearched(string researchName)
