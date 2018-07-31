@@ -8,6 +8,7 @@ using Verse;
 
 namespace EnhancedDevelopment.Excalibur.Quest
 {
+    [StaticConstructorOnStartup]
     class Comp_EDSNTransponder : ThingComp
     {
 
