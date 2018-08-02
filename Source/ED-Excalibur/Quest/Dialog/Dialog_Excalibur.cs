@@ -56,7 +56,7 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
             Widgets.DrawLineHorizontal(0, 20, Canvas.width);
 
             GUI.color = Color.white;
-            Rect outRect = new Rect(0f, 35f, Canvas.width, Canvas.height - 35f);
+            Rect outRect = new Rect(0f, 35f, Canvas.width, Canvas.height - 35f - 35f);
             Rect viewRect = new Rect(0f, 0f, outRect.width - 16f, m_ViewHeight);
 
             Widgets.BeginScrollView(outRect, ref m_ScrollPosition, viewRect, true);
@@ -77,6 +77,11 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
 
             Widgets.EndScrollView();
 
+            Rect _Footer = Canvas.BottomPartPixels(35f);
+            Widgets.TextArea(_Footer, "Materials: " + Core.GameComponent_Excalibur.Instance.Comp_Quest.NanoMaterials.ToString(), true);
+
+
+            Widgets.DrawLineHorizontal(0, Canvas.height - 35f, Canvas.width);
 
         }
     }

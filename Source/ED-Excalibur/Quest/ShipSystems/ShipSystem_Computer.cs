@@ -8,22 +8,19 @@ namespace EnhancedDevelopment.Excalibur.Quest.ShipSystems
 {
     class ShipSystem_Computer : ShipSystem
     {
+        public override int GetMaxLevel()
+        {
+            return 5;
+        }
+
         public override string Name()
         {
-            return "Computer";
+            return "Computer Systems";
         }
 
-        public override int GetMaxSystemStatus()
+        public override void ApplyRequiredResearchUnlocks()
         {
-            return 10;
-        }
-
-        protected override void ApplyResearchUnlocks()
-        {
-            //Log.Message("Unlocking Computer");
-            ResearchHelper.QuestComplete("Research_ED_OmniGel");
-
-
+           // ResearchHelper.QuestComplete("Research_ED_OmniGel");
         }
     }
 }

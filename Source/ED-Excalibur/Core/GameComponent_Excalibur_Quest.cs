@@ -20,19 +20,19 @@ namespace EnhancedDevelopment.Excalibur.Core
         
         public GameComponent_Excalibur_Quest() : base()
         {
-            this.m_ShipSystems.Add(new ShipSystem_Hull());
             this.m_ShipSystems.Add(new ShipSystem_Computer());
-            this.m_ShipSystems.Add(new ShipSystem_LifeSupport());
-            this.m_ShipSystems.Add(new ShipSystem_LifeSupport());
-            this.m_ShipSystems.Add(new ShipSystem_LifeSupport());
-            this.m_ShipSystems.Add(new ShipSystem_LifeSupport());
-            this.m_ShipSystems.Add(new ShipSystem_LifeSupport());
-            this.m_ShipSystems.Add(new ShipSystem_LifeSupport());
-            this.m_ShipSystems.Add(new ShipSystem_LifeSupport());
-            this.m_ShipSystems.Add(new ShipSystem_LifeSupport());
-            this.m_ShipSystems.Add(new ShipSystem_LifeSupport());
-            this.m_ShipSystems.Add(new ShipSystem_LifeSupport());
-            this.m_ShipSystems.Add(new ShipSystem_LifeSupport());
+            this.m_ShipSystems.Add(new ShipSystem_Computer());
+            this.m_ShipSystems.Add(new ShipSystem_Computer());
+            this.m_ShipSystems.Add(new ShipSystem_Computer());
+            this.m_ShipSystems.Add(new ShipSystem_Computer());
+            this.m_ShipSystems.Add(new ShipSystem_Computer());
+            this.m_ShipSystems.Add(new ShipSystem_Computer());
+            this.m_ShipSystems.Add(new ShipSystem_Computer());
+            this.m_ShipSystems.Add(new ShipSystem_Computer());
+            this.m_ShipSystems.Add(new ShipSystem_Computer());
+            this.m_ShipSystems.Add(new ShipSystem_Computer());
+            this.m_ShipSystems.Add(new ShipSystem_Computer());
+            this.m_ShipSystems.Add(new ShipSystem_Computer());
         }
 
         #endregion //Constructor
@@ -74,13 +74,13 @@ namespace EnhancedDevelopment.Excalibur.Core
                     }
                     break;
                 case 7:
-                    List<ShipSystem> _AvalableToRepair = this.m_ShipSystems.Where(s => s.CanPriorityRepair()).ToList();
-                    if (_AvalableToRepair.Any())
-                    {
-                        _AvalableToRepair.First().ProgressRepair();
+                    //List<ShipSystem> _AvalableToRepair = this.m_ShipSystems.Where(s => s.CanPriorityRepair()).ToList();
+                    //if (_AvalableToRepair.Any())
+                    //{
+                    //    _AvalableToRepair.First().ProgressRepair();
 
-                        this.UpdateAllResearch();
-                    }
+                    //    this.UpdateAllResearch();
+                    //}
 
                     break;
                 default:
@@ -189,6 +189,9 @@ namespace EnhancedDevelopment.Excalibur.Core
             }
         }
 
+        //Nano Materials
+
+        public float NanoMaterials = 10000;
 
 
         #endregion //Resourcing
@@ -301,7 +304,7 @@ namespace EnhancedDevelopment.Excalibur.Core
         public void UpdateAllResearch()
         {
             ResearchHelper.UpdateQuestStatusResearch();
-            Core.GameComponent_Excalibur.Instance.Comp_Quest.m_ShipSystems.ForEach(s => s.ApplyResearchUnlocksIfRequired());
+            Core.GameComponent_Excalibur.Instance.Comp_Quest.m_ShipSystems.ForEach(s => s.ApplyRequiredResearchUnlocks());
         }
     }
 }
