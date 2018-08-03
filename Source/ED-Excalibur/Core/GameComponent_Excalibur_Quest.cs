@@ -82,6 +82,16 @@ namespace EnhancedDevelopment.Excalibur.Core
                     //    this.UpdateAllResearch();
                     //}
 
+                    int _NanoMaterialPowerRequiredToBuild = 100;
+                    int _NanoMaterialResourceUnitsRequiredToBuild = 10;
+
+                    if (this.NanoMaterials < this.NanoMaterialsTarget && this.m_ReservesPower >= _NanoMaterialPowerRequiredToBuild && this.m_ReservesMaterials >= _NanoMaterialResourceUnitsRequiredToBuild)
+                    {
+                        this.NanoMaterials += 1;
+                        this.RequestReservePower(_NanoMaterialPowerRequiredToBuild);
+                        this.RequestReserveMaterials(_NanoMaterialResourceUnitsRequiredToBuild);
+                    }
+
                     break;
                 default:
 
@@ -191,8 +201,8 @@ namespace EnhancedDevelopment.Excalibur.Core
 
         //Nano Materials
 
-        public int NanoMaterials = 10;
-        public int NanoMaterialsTarget = 10;
+        public int NanoMaterials = 100;
+        public int NanoMaterialsTarget = 100;
 
 
         #endregion //Resourcing

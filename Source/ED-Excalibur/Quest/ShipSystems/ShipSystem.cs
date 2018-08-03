@@ -13,7 +13,7 @@ namespace EnhancedDevelopment.Excalibur.Quest
 
         public virtual int NanoMaterialNeededForUpgrade()
         {
-            return 1000;
+            return 100;
         }
 
         public abstract int GetMaxLevel();
