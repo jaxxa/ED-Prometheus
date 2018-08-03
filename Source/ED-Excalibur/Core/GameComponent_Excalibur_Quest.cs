@@ -191,7 +191,8 @@ namespace EnhancedDevelopment.Excalibur.Core
 
         //Nano Materials
 
-        public float NanoMaterials = 10000;
+        public int NanoMaterials = 10;
+        public int NanoMaterialsTarget = 10;
 
 
         #endregion //Resourcing

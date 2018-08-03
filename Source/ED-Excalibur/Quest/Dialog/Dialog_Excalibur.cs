@@ -78,8 +78,18 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
             Widgets.EndScrollView();
 
             Rect _Footer = Canvas.BottomPartPixels(35f);
-            Widgets.TextArea(_Footer, "Materials: " + Core.GameComponent_Excalibur.Instance.Comp_Quest.NanoMaterials.ToString(), true);
+            Widgets.TextArea(_Footer.LeftHalf().LeftHalf(), "Nano Materials: " + Core.GameComponent_Excalibur.Instance.Comp_Quest.NanoMaterials.ToString() + " / " + Core.GameComponent_Excalibur.Instance.Comp_Quest.NanoMaterialsTarget.ToString(), true);
 
+
+            Listing_Standard _listing_Standard_ShieldChargeLevelMax = new Listing_Standard();
+            _listing_Standard_ShieldChargeLevelMax.Begin(_Footer.LeftHalf().RightHalf());
+            _listing_Standard_ShieldChargeLevelMax.ColumnWidth = 70;
+            _listing_Standard_ShieldChargeLevelMax.IntAdjuster(ref Core.GameComponent_Excalibur.Instance.Comp_Quest.NanoMaterialsTarget, 1, 1);
+            _listing_Standard_ShieldChargeLevelMax.NewColumn();
+            _listing_Standard_ShieldChargeLevelMax.IntAdjuster(ref Core.GameComponent_Excalibur.Instance.Comp_Quest.NanoMaterialsTarget, 10, 1);
+            _listing_Standard_ShieldChargeLevelMax.NewColumn();
+            _listing_Standard_ShieldChargeLevelMax.IntSetter(ref Core.GameComponent_Excalibur.Instance.Comp_Quest.NanoMaterialsTarget, 10, "Default");
+            _listing_Standard_ShieldChargeLevelMax.End();
 
             Widgets.DrawLineHorizontal(0, Canvas.height - 35f, Canvas.width);
 
