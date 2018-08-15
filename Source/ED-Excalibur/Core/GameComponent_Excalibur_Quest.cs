@@ -20,19 +20,14 @@ namespace EnhancedDevelopment.Excalibur.Core
         
         public GameComponent_Excalibur_Quest() : base()
         {
-            this.m_ShipSystems.Add(new ShipSystem_Computer());
-            this.m_ShipSystems.Add(new ShipSystem_Computer());
-            this.m_ShipSystems.Add(new ShipSystem_Computer());
-            this.m_ShipSystems.Add(new ShipSystem_Computer());
-            this.m_ShipSystems.Add(new ShipSystem_Computer());
-            this.m_ShipSystems.Add(new ShipSystem_Computer());
-            this.m_ShipSystems.Add(new ShipSystem_Computer());
-            this.m_ShipSystems.Add(new ShipSystem_Computer());
-            this.m_ShipSystems.Add(new ShipSystem_Computer());
-            this.m_ShipSystems.Add(new ShipSystem_Computer());
-            this.m_ShipSystems.Add(new ShipSystem_Computer());
-            this.m_ShipSystems.Add(new ShipSystem_Computer());
-            this.m_ShipSystems.Add(new ShipSystem_Computer());
+            this.m_ShipSystems.Add(new ShipSystem_Fabrication());
+            this.m_ShipSystems.Add(new ShipSystem_PowerDistribution());
+            this.m_ShipSystems.Add(new ShipSystem_PowerGeneration());
+            this.m_ShipSystems.Add(new ShipSystem_Regeneration());
+            this.m_ShipSystems.Add(new ShipSystem_Resourcing());
+            this.m_ShipSystems.Add(new ShipSystem_Shield());
+            this.m_ShipSystems.Add(new ShipSystem_Tactical());
+            this.m_ShipSystems.Add(new ShipSystem_Transport());
         }
 
         #endregion //Constructor

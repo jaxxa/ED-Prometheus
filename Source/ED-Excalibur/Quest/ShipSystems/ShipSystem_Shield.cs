@@ -6,16 +6,16 @@ using Verse;
 
 namespace EnhancedDevelopment.Excalibur.Quest.ShipSystems
 {
-    class ShipSystem_Computer : ShipSystem
+    class ShipSystem_Shield : ShipSystem
     {
         public override int GetMaxLevel()
         {
-            return 5;
+            return 3;
         }
 
         public override string Name()
         {
-            return "Computer Systems";
+            return "Shield Systems";
         }
 
         public override void ApplyRequiredResearchUnlocks()
