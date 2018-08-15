@@ -121,6 +121,8 @@ namespace EnhancedDevelopment.Excalibur.Quest
             Core.GameComponent_Excalibur.Instance.Comp_Quest.NanoMaterials -= this.NanoMaterialNeededForUpgrade();
             this.CurrentLevel += 1;
 
+            Core.GameComponent_Excalibur.Instance.Comp_Quest.UpdateAllResearch();
+
         }
 
         //public bool CanPriorityRepair()
