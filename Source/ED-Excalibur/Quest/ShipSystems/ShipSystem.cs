@@ -22,20 +22,30 @@ namespace EnhancedDevelopment.Excalibur.Quest
         {
 
         }
-                    
+
         public bool CanUpgradeLevel()
         {
-            if (this.CurrentLevel >= this.GetMaxLevel())
+            if (this.IsAtMaxLevel())
             {
                 return false;
             }
 
-            if (Core.GameComponent_Excalibur.Instance.Comp_Quest.NanoMaterials < this.NanoMaterialNeededForUpgrade())
+            if (!this.IsEnoughNanoMaterialsToUpgrade())
             {
                 return false;
             }
 
             return true;
+        }
+
+        public bool IsAtMaxLevel()
+        {
+            return this.CurrentLevel >= this.GetMaxLevel();
+        }
+
+        private bool IsEnoughNanoMaterialsToUpgrade()
+        {
+            return Core.GameComponent_Excalibur.Instance.Comp_Quest.NanoMaterials >= this.NanoMaterialNeededForUpgrade();
         }
 
         //Persisted
@@ -77,10 +87,16 @@ namespace EnhancedDevelopment.Excalibur.Quest
             }
             else
             {
-
-                if (Widgets.ButtonText(_RectQuarter4.RightHalf().LeftHalf(), "Upgrade DISABLED"))
+                if (this.IsAtMaxLevel())
                 {
-                    //this.m_PriorityRepair = true;
+                    Widgets.ButtonText(_RectQuarter4.RightHalf().LeftHalf(), "MAX Level");
+                }
+                else if(!this.IsEnoughNanoMaterialsToUpgrade())
+                {
+                    Widgets.ButtonText(_RectQuarter4.RightHalf().LeftHalf(), "Low Nano Materials");
+                }
+                else if (Widgets.ButtonText(_RectQuarter4.RightHalf().LeftHalf(), "Upgrade DISABLED"))
+                {
                 };
             }
 

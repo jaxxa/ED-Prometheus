@@ -69,13 +69,6 @@ namespace EnhancedDevelopment.Excalibur.Core
                     }
                     break;
                 case 7:
-                    //List<ShipSystem> _AvalableToRepair = this.m_ShipSystems.Where(s => s.CanPriorityRepair()).ToList();
-                    //if (_AvalableToRepair.Any())
-                    //{
-                    //    _AvalableToRepair.First().ProgressRepair();
-
-                    //    this.UpdateAllResearch();
-                    //}
 
                     int _NanoMaterialPowerRequiredToBuild = 100;
                     int _NanoMaterialResourceUnitsRequiredToBuild = 10;
