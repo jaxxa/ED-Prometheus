@@ -20,7 +20,18 @@ namespace EnhancedDevelopment.Excalibur.Quest.ShipSystems
 
         public override void ApplyRequiredResearchUnlocks()
         {
-           // ResearchHelper.QuestComplete("Research_ED_OmniGel");
+            if (this.CurrentLevel >= 1)
+            {
+                ResearchHelper.QuestComplete("Research_ED_ShieldGenerators");
+            }
+            if (this.CurrentLevel >= 2)
+            {
+                ResearchHelper.QuestComplete("Research_ED_ShieldUpgrades");
+            }
+            if (this.CurrentLevel >= 3)
+            {
+                ResearchHelper.QuestComplete("Research_ED_Personal_Quantum_Shield");
+            }
         }
     }
 }
