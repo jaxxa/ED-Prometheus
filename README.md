@@ -1,5 +1,8 @@
 # ED-Excalibur
 
+1.0.0.5
+
+
 1.0.0.4
  * Updating Build Target
  
