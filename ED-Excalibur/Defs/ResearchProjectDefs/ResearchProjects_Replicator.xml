@@ -13,7 +13,10 @@
 		</prerequisites>
 		<tab>EDSN-Excalibur</tab>
 		<researchViewX>2</researchViewX>
-		<researchViewY>1</researchViewY>
+		<researchViewY>1</researchViewY>	
+		<requiredResearchFacilities>
+			<li>ExcaliburQuestLock</li>
+		</requiredResearchFacilities>
 	</ResearchProjectDef>
 
 
@@ -28,7 +31,10 @@
 		</prerequisites>
 		<tab>EDSN-Excalibur</tab>
 		<researchViewX>3</researchViewX>
-		<researchViewY>1</researchViewY>
+		<researchViewY>1</researchViewY>	
+		<requiredResearchFacilities>
+			<li>ExcaliburQuestLock</li>
+		</requiredResearchFacilities>
 	</ResearchProjectDef>
 
 	<ResearchProjectDef>
@@ -42,7 +48,10 @@
 		<researchViewY>1</researchViewY>
 		<prerequisites>
 			<li>Research_ED_Replicator_MK1</li>
-		</prerequisites>
+		</prerequisites>	
+		<requiredResearchFacilities>
+			<li>ExcaliburQuestLock</li>
+		</requiredResearchFacilities>
 	</ResearchProjectDef>
 
 	<ResearchProjectDef>
@@ -56,7 +65,10 @@
 		<researchViewY>1</researchViewY>
 		<prerequisites>
 			<li>Research_ED_Replicator_MK2</li>
-		</prerequisites>
+		</prerequisites>	
+		<requiredResearchFacilities>
+			<li>ExcaliburQuestLock</li>
+		</requiredResearchFacilities>
 	</ResearchProjectDef>
 
 </Defs>

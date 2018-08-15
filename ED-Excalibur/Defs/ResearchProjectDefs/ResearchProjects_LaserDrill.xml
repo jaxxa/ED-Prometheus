@@ -14,7 +14,10 @@
 		</prerequisites>
 		<tab>EDSN-Excalibur</tab>
 		<researchViewX>2</researchViewX>
-		<researchViewY>2</researchViewY>
+		<researchViewY>2</researchViewY>	
+		<requiredResearchFacilities>
+			<li>ExcaliburQuestLock</li>
+		</requiredResearchFacilities>
 	</ResearchProjectDef>
 
 </Defs>

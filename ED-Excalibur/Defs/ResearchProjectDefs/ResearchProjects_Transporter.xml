@@ -10,12 +10,12 @@
 		<tab>EDSN-Excalibur</tab>
 		<researchViewX>3</researchViewX>
 		<researchViewY>2</researchViewY>
-		<requiredResearchFacilities>
-			<li>MultiAnalyzer</li>
-		</requiredResearchFacilities>
 		<prerequisites>
 			<li>Research_ED_Excalibur_Fabrication</li>
-		</prerequisites>
+		</prerequisites>	
+		<requiredResearchFacilities>
+			<li>ExcaliburQuestLock</li>
+		</requiredResearchFacilities>
 	</ResearchProjectDef>
 
 

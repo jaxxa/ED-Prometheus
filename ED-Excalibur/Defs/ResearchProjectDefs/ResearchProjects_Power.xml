@@ -9,9 +9,9 @@
 		<techLevel>Spacer</techLevel>
 		<tab>EDSN-Excalibur</tab>
 		<researchViewX>4</researchViewX>
-		<researchViewY>2</researchViewY>
+		<researchViewY>2</researchViewY>	
 		<requiredResearchFacilities>
-			<li>MultiAnalyzer</li>
+			<li>ExcaliburQuestLock</li>
 		</requiredResearchFacilities>
 		<prerequisites>
 			<li>Research_ED_Excalibur_Fabrication</li>
@@ -29,7 +29,10 @@
 		<researchViewY>2</researchViewY>
 		<prerequisites>
 			<li>Research_ED_Power_SpaceToGround</li>
-		</prerequisites>
+		</prerequisites>	
+		<requiredResearchFacilities>
+			<li>ExcaliburQuestLock</li>
+		</requiredResearchFacilities>
 	</ResearchProjectDef>
 
 	<!--

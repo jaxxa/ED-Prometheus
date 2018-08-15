@@ -11,7 +11,10 @@
 		<tab>EDSN-Excalibur</tab>
 		<prerequisites>
 			<li>Research_ED_ShieldUpgrades</li>
-		</prerequisites>
+		</prerequisites>	
+		<requiredResearchFacilities>
+			<li>ExcaliburQuestLock</li>
+		</requiredResearchFacilities>
 		<researchViewX>4</researchViewX>
 		<researchViewY>0</researchViewY>
 	</ResearchProjectDef>
