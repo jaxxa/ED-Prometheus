@@ -82,7 +82,7 @@ namespace EnhancedDevelopment.Excalibur.Core
 
                     if (this.NanoMaterials < this.NanoMaterialsTarget && this.m_ReservesPower >= _NanoMaterialPowerRequiredToBuild && this.m_ReservesMaterials >= _NanoMaterialResourceUnitsRequiredToBuild)
                     {
-                        this.NanoMaterials += 1;
+                        this.NanoMaterials += 100;
                         this.RequestReservePower(_NanoMaterialPowerRequiredToBuild);
                         this.RequestReserveMaterials(_NanoMaterialResourceUnitsRequiredToBuild);
                     }
