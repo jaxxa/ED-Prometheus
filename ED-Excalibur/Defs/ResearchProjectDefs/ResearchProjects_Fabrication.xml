@@ -71,4 +71,21 @@
 		</requiredResearchFacilities>
 	</ResearchProjectDef>
 
+	<ResearchProjectDef>
+		<defName>Research_ED_MolecularReinforcementCompressor</defName>
+		<label>Molecular Reinforcement Compressor</label>
+		<description>Adds a Reinforced version of some Stuff. This allows for stronger constructions. Reinforced stuff has 10x the hitpoints but at 10x build time. Reinforced Stuff is made from 10 Normal Stuff in a Molecular Reinforcement Compressor. Currently Reinforced Stuff can be made from Steel, Plasteel, Wood, Stone, Silver, Gold, Uranium and Jade.</description>
+		<baseCost>3000</baseCost>
+		<techLevel>Spacer</techLevel>
+		<tab>EDSN-Excalibur</tab>
+		<researchViewX>6</researchViewX>
+		<researchViewY>1</researchViewY>
+		<prerequisites>
+			<li>Research_ED_Replicator_MK3</li>
+		</prerequisites>	
+		<requiredResearchFacilities>
+			<li>ExcaliburQuestLock</li>
+		</requiredResearchFacilities>
+	</ResearchProjectDef>
+
 </Defs>
