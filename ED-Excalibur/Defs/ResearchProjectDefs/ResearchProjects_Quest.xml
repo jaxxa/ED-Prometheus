@@ -4,7 +4,7 @@
 	<ResearchProjectDef>
 		<defName>Research_ED_Excalibur_Quest_Unlock</defName>
 		<label>Excalibur Quest Unlock</label>
-		<description>NOTE: Research Projects that require themselves are unlocked through Quest Progression.</description>
+		<description>NOTE: Research Projects that require Excalibur Quest Lock are unlocked through Quest Progression.</description>
 		<baseCost>999</baseCost>
 		<techLevel>Spacer</techLevel>
 		<tab>EDSN-Excalibur</tab>
@@ -13,9 +13,6 @@
 		<requiredResearchFacilities>
 			<li>ExcaliburQuestLock</li>
 		</requiredResearchFacilities>
-		<prerequisites>
-			<li>Research_ED_Excalibur_Quest_Unlock</li>
-		</prerequisites>
 	</ResearchProjectDef>
 
 	<ResearchProjectDef>

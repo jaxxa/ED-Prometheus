@@ -4,7 +4,8 @@
 	<ResearchProjectDef>
 		<defName>Research_ED_ShieldGenerators</defName>
 		<label>Shield Generator</label>
-		<description>Magnetic shield field slows and heats any projectiles to the point of evaporating.
+		<description>Requires Shield 1
+Magnetic shield field slows and heats any projectiles to the point of evaporating.
 
     The basics of the principle is the eddy current brake, however the complex system allows the barier to ignore projectiles that leave the shield.</description>
 		<baseCost>1000</baseCost>
@@ -23,7 +24,8 @@
 		<ResearchProjectDef>
 		<defName>Research_ED_ShieldUpgrades</defName>
 		<label>Shield Upgrades</label>
-		<description>Allows Shields to be enhanced by upgrade modules.</description>
+		<description>Requires Shield 2
+Allows Shields to be enhanced by upgrade modules.</description>
 		<baseCost>1500</baseCost>
 		<techLevel>Spacer</techLevel>
 		<tab>EDSN-Excalibur</tab>
@@ -41,7 +43,8 @@
 	<ResearchProjectDef>
 		<defName>Research_ED_Personal_Quantum_Shield</defName>
 		<label>Personal Quantum Shield Research</label>
-		<description>Allows the use of Quantum Virtual Particles to protect Colonists and Pets from damage.
+		<description>Requires Shield 3
+Allows the use of Quantum Virtual Particles to protect Colonists and Pets from damage.
 		This Quantum Charge must be recovered from the Quantum Shield Charging Station and pulls from a global charge level.</description>
 		<baseCost>2000</baseCost>
 		<techLevel>Spacer</techLevel>

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
+	
 	<ResearchProjectDef>
 		<defName>Research_ED_LaserSteamGeyser_Drill</defName>
 		<label>Laser Steam Geyser Drill</label>
-		<description>Using a laser, drill into the steam and magma network deep within the planet.</description>
+		<description>Requires Power Distribution 2
+Using a laser, drill into the steam and magma network deep within the planet.</description>
 		<baseCost>4000</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
@@ -21,7 +22,8 @@
 	<ResearchProjectDef>
 		<defName>Research_ED_Power_SpaceToSpace</defName>
 		<label>Space To Space Power Transfer</label>
-		<description>Allows using a standard power transfer beam to supply other ships, wither for profit or to enhance trade.</description>
+		<description>Requires Power Distribution 3
+Allows using a standard power transfer beam to supply other ships, wither for profit or to enhance trade.</description>
 		<baseCost>1500</baseCost>
 		<techLevel>Spacer</techLevel>
 		<tab>EDSN-Excalibur</tab>
@@ -38,7 +40,8 @@
 	<ResearchProjectDef>
 		<defName>Research_ED_Power_SpaceToGround</defName>
 		<label>Space To Ground Power Transfer</label>
-		<description>Allows power to be sent from the ship to supply ground instalations.</description>
+		<description>Requires Power Distribution 4
+Allows power to be sent from the ship to supply ground instalations.</description>
 		<baseCost>1000</baseCost>
 		<techLevel>Spacer</techLevel>
 		<tab>EDSN-Excalibur</tab>

@@ -4,8 +4,9 @@
 	
 	<ResearchProjectDef>
 		<defName>Research_ED_Transporter</defName>
-		<label>Transorter Systems</label>
-		<description>Allows Transort.</description>
+		<label>Transporter Systems</label>
+		<description>Requires Transporter 1
+Allows Transort.</description>
 		<baseCost>1000</baseCost>
 		<techLevel>Spacer</techLevel>
 		<tab>EDSN-Excalibur</tab>
