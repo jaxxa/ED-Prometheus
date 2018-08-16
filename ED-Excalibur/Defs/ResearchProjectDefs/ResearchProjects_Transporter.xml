@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+	
 	<ResearchProjectDef>
 		<defName>Research_ED_Transporter</defName>
 		<label>Transorter Systems</label>
@@ -9,7 +10,7 @@
 		<techLevel>Spacer</techLevel>
 		<tab>EDSN-Excalibur</tab>
 		<researchViewX>3</researchViewX>
-		<researchViewY>2</researchViewY>
+		<researchViewY>3</researchViewY>
 		<prerequisites>
 			<li>Research_ED_Excalibur_Fabrication</li>
 		</prerequisites>	

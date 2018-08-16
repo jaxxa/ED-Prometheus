@@ -20,7 +20,10 @@ namespace EnhancedDevelopment.Excalibur.Quest.ShipSystems
 
         public override void ApplyRequiredResearchUnlocks()
         {
-           // ResearchHelper.QuestComplete("Research_ED_OmniGel");
+            if (this.CurrentLevel >= 1)
+            {
+                ResearchHelper.QuestComplete("Research_ED_Transporter");
+            }
         }
     }
 }

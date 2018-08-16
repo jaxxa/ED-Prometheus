@@ -20,7 +20,18 @@ namespace EnhancedDevelopment.Excalibur.Quest.ShipSystems
 
         public override void ApplyRequiredResearchUnlocks()
         {
-           // ResearchHelper.QuestComplete("Research_ED_OmniGel");
+            if (this.CurrentLevel >= 2)
+            {
+                ResearchHelper.QuestComplete("Research_ED_LaserSteamGeyser_Drill");
+            }
+            if (this.CurrentLevel >= 3)
+            {
+                ResearchHelper.QuestComplete("Research_ED_Power_SpaceToSpace");
+            }
+            if (this.CurrentLevel >= 4)
+            {
+                ResearchHelper.QuestComplete("Research_ED_Power_SpaceToGround");
+            }
         }
     }
 }
