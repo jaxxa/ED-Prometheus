@@ -30,6 +30,14 @@ namespace EnhancedDevelopment.Excalibur.Core
 
         public GameComponent_Excalibur_Quest() : base()
         {
+
+            this.m_ResourcesStored.Add(EnumResourceType.Power, 0);
+            this.m_ResourcesStored.Add(EnumResourceType.ResourceUnits, 0);
+            this.m_ResourcesStored.Add(EnumResourceType.NanoMaterials, 0);
+            this.m_ResourcesStored.Add(EnumResourceType.DropPods, 0);
+            this.m_ResourcesStored.Add(EnumResourceType.UtilityDrones, 0);
+            this.m_ResourcesStored.Add(EnumResourceType.SolarCells, 0);
+
             this.m_ShipSystems.Add(new ShipSystem_Fabrication());
             this.m_ShipSystems.Add(new ShipSystem_PowerDistribution());
             this.m_ShipSystems.Add(new ShipSystem_PowerGeneration());
@@ -38,6 +46,8 @@ namespace EnhancedDevelopment.Excalibur.Core
             this.m_ShipSystems.Add(new ShipSystem_Shield());
             this.m_ShipSystems.Add(new ShipSystem_Tactical());
             this.m_ShipSystems.Add(new ShipSystem_Transport());
+
+
         }
 
         #endregion //Constructor
@@ -59,6 +69,8 @@ namespace EnhancedDevelopment.Excalibur.Core
 
             this.m_ResourcesStored.ToList().ForEach(x =>
             {
+                //Log.Message("Scribe Resources " + x.ToString());
+
                 int _Temp = x.Value;
                 Scribe_Values.Look<int>(ref _Temp, "m_ResourcesStored_" + x.Key.ToString());
                 this.m_ResourcesStored[x.Key] = _Temp;
@@ -135,12 +147,6 @@ namespace EnhancedDevelopment.Excalibur.Core
         public override void FinalizeInit()
         {
             base.FinalizeInit();
-            this.m_ResourcesStored.Add(EnumResourceType.Power, 0);
-            this.m_ResourcesStored.Add(EnumResourceType.ResourceUnits, 0);
-            this.m_ResourcesStored.Add(EnumResourceType.NanoMaterials, 0);
-            this.m_ResourcesStored.Add(EnumResourceType.DropPods, 0);
-            this.m_ResourcesStored.Add(EnumResourceType.UtilityDrones, 0);
-            this.m_ResourcesStored.Add(EnumResourceType.SolarCells, 0);
 
 
             this.UpdateAllResearch();
