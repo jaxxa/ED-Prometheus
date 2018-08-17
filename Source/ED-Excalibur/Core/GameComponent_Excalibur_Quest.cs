@@ -16,8 +16,18 @@ namespace EnhancedDevelopment.Excalibur.Core
     class GameComponent_Excalibur_Quest : GameComponent_BaseClass
     {
 
+        public enum EnumResourceType
+        {
+            Power,
+            ResourceUnits,
+            NanoMaterials,
+            DropPods,
+            UtilityDrones,
+            SolarCells
+        }
+
         #region Constructor
-        
+
         public GameComponent_Excalibur_Quest() : base()
         {
             this.m_ShipSystems.Add(new ShipSystem_Fabrication());
@@ -35,9 +45,8 @@ namespace EnhancedDevelopment.Excalibur.Core
         #region Fields
 
         public int m_QuestStatus = 0;
-        private float m_ReservesPower = 0;
         private int m_ReservesMaterials = 0;
-        
+
         private List<ResourceUnit> m_ResourcesToTransport = new List<ResourceUnit>();
 
         #endregion //Fields
@@ -47,8 +56,14 @@ namespace EnhancedDevelopment.Excalibur.Core
         public override void ExposeData()
         {
             Scribe_Values.Look<int>(ref this.m_QuestStatus, "m_QuestStatus");
-            Scribe_Values.Look<float>(ref this.m_ReservesPower, "m_ReservesPower");
-            Scribe_Values.Look<int>(ref this.m_ReservesMaterials, "m_ReservesMaterials");
+
+            this.m_ResourcesStored.ToList().ForEach(x =>
+            {
+                int _Temp = x.Value;
+                Scribe_Values.Look<int>(ref _Temp, "m_ResourcesStored_" + x.Key.ToString());
+                this.m_ResourcesStored[x.Key] = _Temp;
+            }
+             );
 
             this.m_ShipSystems.ForEach(s => s.ExposeData());
 
@@ -57,7 +72,6 @@ namespace EnhancedDevelopment.Excalibur.Core
 
         public override void TickOnInterval()
         {
-            //Log.Message("QuestTick:" + this.m_ReservesPower.ToString());
             switch (m_QuestStatus)
             {
                 case 0:
@@ -73,10 +87,10 @@ namespace EnhancedDevelopment.Excalibur.Core
                     int _NanoMaterialPowerRequiredToBuild = 100;
                     int _NanoMaterialResourceUnitsRequiredToBuild = 10;
 
-                    if (this.NanoMaterials < this.NanoMaterialsTarget && this.m_ReservesPower >= _NanoMaterialPowerRequiredToBuild && this.m_ReservesMaterials >= _NanoMaterialResourceUnitsRequiredToBuild)
+                    if (this.NanoMaterials < this.NanoMaterialsTarget && this.m_ResourcesStored[EnumResourceType.Power] >= _NanoMaterialPowerRequiredToBuild && this.m_ReservesMaterials >= _NanoMaterialResourceUnitsRequiredToBuild)
                     {
                         this.NanoMaterials += 100;
-                        this.RequestReservePower(_NanoMaterialPowerRequiredToBuild);
+                        this.ResourceRequestReserve(EnumResourceType.Power, _NanoMaterialPowerRequiredToBuild);
                         this.RequestReserveMaterials(_NanoMaterialResourceUnitsRequiredToBuild);
                     }
 
@@ -121,10 +135,17 @@ namespace EnhancedDevelopment.Excalibur.Core
         public override void FinalizeInit()
         {
             base.FinalizeInit();
+            this.m_ResourcesStored.Add(EnumResourceType.Power, 0);
+            this.m_ResourcesStored.Add(EnumResourceType.ResourceUnits, 0);
+            this.m_ResourcesStored.Add(EnumResourceType.NanoMaterials, 0);
+            this.m_ResourcesStored.Add(EnumResourceType.DropPods, 0);
+            this.m_ResourcesStored.Add(EnumResourceType.UtilityDrones, 0);
+            this.m_ResourcesStored.Add(EnumResourceType.SolarCells, 0);
+
 
             this.UpdateAllResearch();
         }
-        
+
         public override int GetTickInterval()
         {
             return 2000;
@@ -134,31 +155,34 @@ namespace EnhancedDevelopment.Excalibur.Core
 
         #region Resourcing
 
-        //Power
-        public int GetReservePowerAsInt()
+        private Dictionary<EnumResourceType, int> m_ResourcesStored = new Dictionary<EnumResourceType, int>();
+
+
+        public int ResourceGetReserveStatus(EnumResourceType resourceType)
         {
-            return (int)this.m_ReservesPower;
+            return this.m_ResourcesStored[resourceType];
         }
 
-        public void AddReservePower(float ammount)
+        public void ResourceAddToReserves(EnumResourceType resourceType, int ammount)
         {
-            this.m_ReservesPower += ammount;
+            this.m_ResourcesStored[resourceType] = this.m_ResourcesStored[resourceType] + ammount;
         }
 
-        public float RequestReservePower(float ammount)
+        public int ResourceRequestReserve(EnumResourceType resourceType, int ammount)
         {
-            if (this.m_ReservesPower >= ammount)
+            if (this.m_ResourcesStored[resourceType] >= ammount)
             {
-                this.m_ReservesPower -= ammount;
+                this.m_ResourcesStored[resourceType] -= ammount;
                 return ammount;
             }
             else
             {
-                float _Temp = this.m_ReservesPower;
-                this.m_ReservesPower -= _Temp;
+                int _Temp = this.m_ResourcesStored[resourceType];
+                this.m_ResourcesStored[resourceType] -= _Temp;
                 return _Temp;
             }
         }
+   
 
         //RU
 
@@ -243,14 +267,14 @@ namespace EnhancedDevelopment.Excalibur.Core
                     break;
                 case 3: //Charging
 
-                    if (this.m_ReservesPower >= Mod_EDExcalibur.Settings.Quest.InitialShipSetup_PowerRequired)
+                    if (this.m_ResourcesStored[EnumResourceType.Power] >= Mod_EDExcalibur.Settings.Quest.InitialShipSetup_PowerRequired)
                     {
                         m_QuestStatus++;
                         this.ContactExcalibur();
                     }
                     else
                     {
-                        Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_Title_3_InitialCharge".Translate(), String.Format("EDE_Dialog_3_InitialCharge".Translate(), this.m_ReservesPower.ToString(), Mod_EDExcalibur.Settings.Quest.InitialShipSetup_PowerRequired.ToString())));
+                        Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_Title_3_InitialCharge".Translate(), String.Format("EDE_Dialog_3_InitialCharge".Translate(), this.m_ResourcesStored[EnumResourceType.Power].ToString(), Mod_EDExcalibur.Settings.Quest.InitialShipSetup_PowerRequired.ToString())));
                     }
 
                     break;
@@ -297,7 +321,7 @@ namespace EnhancedDevelopment.Excalibur.Core
         #region Ship Status
 
         public List<ShipSystem> m_ShipSystems = new List<ShipSystem>();
-        
+
         #endregion
 
         public void UpdateAllResearch()

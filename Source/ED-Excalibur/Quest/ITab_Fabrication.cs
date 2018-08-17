@@ -93,7 +93,7 @@ namespace EnhancedDevelopment.Excalibur.Quest
             GameComponent_Excalibur.Instance.Comp_Fabrication.DoListing(_MainWindow, _RecipeOptionsMaker, ref scrollPosition, ref viewHeight);
 
 
-            Widgets.TextArea(_InfoBar, "RU:" + GameComponent_Excalibur.Instance.Comp_Quest.GetReserveMaterials() + " Power: " + GameComponent_Excalibur.Instance.Comp_Quest.GetReservePowerAsInt().ToString(), true);
+            Widgets.TextArea(_InfoBar, "RU:" + GameComponent_Excalibur.Instance.Comp_Quest.GetReserveMaterials() + " Power: " + GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.Power).ToString(), true);
             
 
         }

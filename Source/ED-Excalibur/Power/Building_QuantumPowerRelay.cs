@@ -62,7 +62,7 @@ namespace EnhancedDevelopment.Excalibur.Power
         public override string GetInspectString()
         {
             string _Base = base.GetInspectString();
-            _Base = _Base + Environment.NewLine + "Ship Power: " + GameComponent_Excalibur.Instance.Comp_Quest.GetReservePowerAsInt();
+            _Base = _Base + Environment.NewLine + "Ship Power: " + GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.Power);
 
 
             return _Base;
@@ -72,13 +72,13 @@ namespace EnhancedDevelopment.Excalibur.Power
         {
             base.Tick();
             float _HalfEnergy = this.CompPowerBattery.Props.storedEnergyMax / 2;
-            float _PowerBlock = this.CompPowerBattery.Props.storedEnergyMax / 4.0f;
+            int _PowerBlock = (int)(this.CompPowerBattery.Props.storedEnergyMax / 4);
 
             //Check if need to upload power.
             if (this.CompPowerBattery.StoredEnergy - _PowerBlock >= _HalfEnergy)
             {
                 this.CompPowerBattery.DrawPower(_PowerBlock);
-                GameComponent_Excalibur.Instance.Comp_Quest.AddReservePower(_PowerBlock);
+                GameComponent_Excalibur.Instance.Comp_Quest.ResourceAddToReserves(GameComponent_Excalibur_Quest.EnumResourceType.Power, _PowerBlock);
             }
 
 
@@ -90,7 +90,7 @@ namespace EnhancedDevelopment.Excalibur.Power
                 //Check if need to download power.
                 if (this.CompPowerBattery.StoredEnergy + _PowerBlock <= _HalfEnergy)
                 {
-                    float _ReturnedPower = GameComponent_Excalibur.Instance.Comp_Quest.RequestReservePower(_PowerBlock);
+                    float _ReturnedPower = GameComponent_Excalibur.Instance.Comp_Quest.ResourceRequestReserve(GameComponent_Excalibur_Quest.EnumResourceType.Power, _PowerBlock);
                     this.CompPowerBattery.AddEnergy(_ReturnedPower);
                 }
             }

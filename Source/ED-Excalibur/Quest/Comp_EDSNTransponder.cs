@@ -48,7 +48,7 @@ namespace EnhancedDevelopment.Excalibur.Quest
                 act2.action = () =>
                 {
                     Core.GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(50);
-                    Core.GameComponent_Excalibur.Instance.Comp_Quest.AddReservePower(500);
+                    Core.GameComponent_Excalibur.Instance.Comp_Quest.ResourceAddToReserves(GameComponent_Excalibur_Quest.EnumResourceType.Power ,500);
                 };
                 //act.icon = UI_DIRECT_ON;
                 act2.defaultLabel = "Debug Resources";

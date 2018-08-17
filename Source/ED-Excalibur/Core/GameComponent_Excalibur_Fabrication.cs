@@ -31,7 +31,7 @@ namespace EnhancedDevelopment.Excalibur.Core
                 if (b.SpentPowerAndMaterials)
                 {
                     GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(b.NeededResources);
-                    GameComponent_Excalibur.Instance.Comp_Quest.AddReservePower(b.NeededPower);
+                    GameComponent_Excalibur.Instance.Comp_Quest.ResourceAddToReserves(GameComponent_Excalibur_Quest.EnumResourceType.Power, b.NeededPower);
                 }
             });
 
@@ -43,12 +43,12 @@ namespace EnhancedDevelopment.Excalibur.Core
                 //Check if not Started
                 if (!_BuildingToSpawn.SpentPowerAndMaterials)
                 {
-                    if (GameComponent_Excalibur.Instance.Comp_Quest.GetReservePowerAsInt() >= _BuildingToSpawn.NeededPower 
+                    if (GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.Power) >= _BuildingToSpawn.NeededPower 
                         && GameComponent_Excalibur.Instance.Comp_Quest.GetReserveMaterials() >= _BuildingToSpawn.NeededResources)
                     {
                         _BuildingToSpawn.WorkRemaining = _BuildingToSpawn.NeededWork;
                         GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(-_BuildingToSpawn.NeededResources);
-                        GameComponent_Excalibur.Instance.Comp_Quest.AddReservePower(-_BuildingToSpawn.NeededPower);
+                        GameComponent_Excalibur.Instance.Comp_Quest.ResourceAddToReserves(GameComponent_Excalibur_Quest.EnumResourceType.Power, -_BuildingToSpawn.NeededPower);
 
                         _BuildingToSpawn.SpentPowerAndMaterials = true;
                     }
