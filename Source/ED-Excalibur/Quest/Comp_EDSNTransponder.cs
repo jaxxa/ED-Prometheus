@@ -47,7 +47,7 @@ namespace EnhancedDevelopment.Excalibur.Quest
                 //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
                 act2.action = () =>
                 {
-                    Core.GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(50);
+                    Core.GameComponent_Excalibur.Instance.Comp_Quest.ResourceAddToReserves(GameComponent_Excalibur_Quest.EnumResourceType.ResourceUnits, 50);
                     Core.GameComponent_Excalibur.Instance.Comp_Quest.ResourceAddToReserves(GameComponent_Excalibur_Quest.EnumResourceType.Power ,500);
                 };
                 //act.icon = UI_DIRECT_ON;

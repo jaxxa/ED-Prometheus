@@ -55,7 +55,6 @@ namespace EnhancedDevelopment.Excalibur.Core
         #region Fields
 
         public int m_QuestStatus = 0;
-        private int m_ReservesMaterials = 0;
 
         private List<ResourceUnit> m_ResourcesToTransport = new List<ResourceUnit>();
 
@@ -99,11 +98,11 @@ namespace EnhancedDevelopment.Excalibur.Core
                     int _NanoMaterialPowerRequiredToBuild = 100;
                     int _NanoMaterialResourceUnitsRequiredToBuild = 10;
 
-                    if (this.NanoMaterials < this.NanoMaterialsTarget && this.m_ResourcesStored[EnumResourceType.Power] >= _NanoMaterialPowerRequiredToBuild && this.m_ReservesMaterials >= _NanoMaterialResourceUnitsRequiredToBuild)
+                    if (this.NanoMaterials < this.NanoMaterialsTarget && this.ResourceGetReserveStatus(EnumResourceType.Power) >= _NanoMaterialPowerRequiredToBuild && this.ResourceGetReserveStatus(EnumResourceType.ResourceUnits) >= _NanoMaterialResourceUnitsRequiredToBuild)
                     {
                         this.NanoMaterials += 100;
                         this.ResourceRequestReserve(EnumResourceType.Power, _NanoMaterialPowerRequiredToBuild);
-                        this.RequestReserveMaterials(_NanoMaterialResourceUnitsRequiredToBuild);
+                        this.ResourceRequestReserve(EnumResourceType.ResourceUnits, _NanoMaterialResourceUnitsRequiredToBuild);
                     }
 
                     break;
@@ -122,7 +121,7 @@ namespace EnhancedDevelopment.Excalibur.Core
                     if (!r.Destroyed)
                     {
                         _ResourceStackSizeAdded += r.stackCount;
-                        GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(r.stackCount);
+                        GameComponent_Excalibur.Instance.Comp_Quest.ResourceAddToReserves(EnumResourceType.ResourceUnits, r.stackCount);
 
                         Transporter.Comp_Transporter.DisplayTransportEffect(r);
 
@@ -188,34 +187,7 @@ namespace EnhancedDevelopment.Excalibur.Core
                 return _Temp;
             }
         }
-   
-
-        //RU
-
-        public int GetReserveMaterials()
-        {
-            return this.m_ReservesMaterials;
-        }
-
-        public void AddReserveMaterials(int ammount)
-        {
-            this.m_ReservesMaterials += ammount;
-        }
-
-        public float RequestReserveMaterials(int ammount)
-        {
-            if (this.m_ReservesMaterials >= ammount)
-            {
-                this.m_ReservesMaterials -= ammount;
-                return ammount;
-            }
-            else
-            {
-                int _Temp = this.m_ReservesMaterials;
-                this.m_ReservesMaterials -= _Temp;
-                return _Temp;
-            }
-        }
+  
 
         //Nano Materials
 
@@ -286,14 +258,14 @@ namespace EnhancedDevelopment.Excalibur.Core
                     break;
                 case 4:
 
-                    if (this.m_ReservesMaterials >= Mod_EDExcalibur.Settings.Quest.InitialShipSetup_ResourcesRequired)
+                    if (this.ResourceGetReserveStatus(EnumResourceType.ResourceUnits) >= Mod_EDExcalibur.Settings.Quest.InitialShipSetup_ResourcesRequired)
                     {
                         m_QuestStatus++;
                         this.ContactExcalibur();
                     }
                     else
                     {
-                        Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_Title_4_NeedResources".Translate(), String.Format("EDE_Dialog_4_NeedResources".Translate(), this.m_ReservesMaterials.ToString(), Mod_EDExcalibur.Settings.Quest.InitialShipSetup_ResourcesRequired.ToString())));
+                        Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_Title_4_NeedResources".Translate(), String.Format("EDE_Dialog_4_NeedResources".Translate(), this.ResourceGetReserveStatus(EnumResourceType.ResourceUnits).ToString(), Mod_EDExcalibur.Settings.Quest.InitialShipSetup_ResourcesRequired.ToString())));
                     }
 
                     break;

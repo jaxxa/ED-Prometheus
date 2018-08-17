@@ -84,7 +84,7 @@ namespace EnhancedDevelopment.Excalibur.Quest
 
             _Listing_Standard.GapLine(12f);
             _Listing_Standard.Label("Power: " + GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.Power).ToString());
-            _Listing_Standard.Label("Materials: " + GameComponent_Excalibur.Instance.Comp_Quest.GetReserveMaterials().ToString());
+            _Listing_Standard.Label("Materials: " + GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.ResourceUnits).ToString());
             _Listing_Standard.Label("Buildings: " + GameComponent_Excalibur.Instance.Comp_Fabrication.BuildingsUnderConstruction.Count.ToString());
 
             _Listing_Standard.Gap(12f);
