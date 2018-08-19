@@ -98,9 +98,9 @@ namespace EnhancedDevelopment.Excalibur.Core
                     int _NanoMaterialPowerRequiredToBuild = 100;
                     int _NanoMaterialResourceUnitsRequiredToBuild = 10;
 
-                    if (this.NanoMaterials < this.NanoMaterialsTarget && this.ResourceGetReserveStatus(EnumResourceType.Power) >= _NanoMaterialPowerRequiredToBuild && this.ResourceGetReserveStatus(EnumResourceType.ResourceUnits) >= _NanoMaterialResourceUnitsRequiredToBuild)
+                    if (this.ResourceGetReserveStatus(EnumResourceType.NanoMaterials) < this.NanoMaterialsTarget && this.ResourceGetReserveStatus(EnumResourceType.Power) >= _NanoMaterialPowerRequiredToBuild && this.ResourceGetReserveStatus(EnumResourceType.ResourceUnits) >= _NanoMaterialResourceUnitsRequiredToBuild)
                     {
-                        this.NanoMaterials += 100;
+                        this.ResourceAddToReserves(EnumResourceType.NanoMaterials, 100);
                         this.ResourceRequestReserve(EnumResourceType.Power, _NanoMaterialPowerRequiredToBuild);
                         this.ResourceRequestReserve(EnumResourceType.ResourceUnits, _NanoMaterialResourceUnitsRequiredToBuild);
                     }
@@ -190,8 +190,7 @@ namespace EnhancedDevelopment.Excalibur.Core
   
 
         //Nano Materials
-
-        public int NanoMaterials = 100;
+        
         public int NanoMaterialsTarget = 100;
 
 
