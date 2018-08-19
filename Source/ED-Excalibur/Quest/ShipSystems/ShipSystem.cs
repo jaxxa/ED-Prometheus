@@ -9,6 +9,9 @@ namespace EnhancedDevelopment.Excalibur.Quest
 {
     abstract class ShipSystem
     {
+
+        public static float m_Height = 100f;
+
         public abstract String Name();
 
         public virtual int NanoMaterialNeededForUpgrade()
@@ -45,8 +48,10 @@ namespace EnhancedDevelopment.Excalibur.Quest
 
         private bool IsEnoughNanoMaterialsToUpgrade()
         {
-            return Core.GameComponent_Excalibur.Instance.Comp_Quest.NanoMaterials >= this.NanoMaterialNeededForUpgrade();
+            return Core.GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(Core.GameComponent_Excalibur_Quest.EnumResourceType.NanoMaterials) >= this.NanoMaterialNeededForUpgrade();
         }
+
+        public string DescriptionText = "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
 
         //Persisted
         public int CurrentLevel = 0;
@@ -56,31 +61,31 @@ namespace EnhancedDevelopment.Excalibur.Quest
             Scribe_Values.Look<int>(ref this.CurrentLevel, "ShipSystem_" + this.Name() + "_CurrentLevel");
         }
 
+
         public Rect DoInterface(float x, float y, float width, int index)
         {
             //Log.Message("Interface");
 
-            Rect _RectTotal = new Rect(x, y, width, 100f);
+            Rect _RectTotal = new Rect(x, y, width, ShipSystem.m_Height);
+            Rect _Total_LeftHalf_Control = _RectTotal.LeftHalf();
 
-            Rect _RectTopHalf = _RectTotal.TopHalf();
-            Rect _RectBottomHalf = _RectTotal.BottomHalf();
+            Rect _left_Row1 = _Total_LeftHalf_Control.TopHalf().TopHalf();
+            Widgets.TextArea(_left_Row1, this.Name() + " Status", true);
+                       
+            Rect _left_Row2 = _Total_LeftHalf_Control.TopHalf().BottomHalf();
+            Widgets.TextArea(_left_Row2, "System Status Level: " + this.CurrentLevel.ToString() + " / " + this.GetMaxLevel().ToString(), true);
 
-            Rect _RectQuarter1 = _RectTopHalf.TopHalf();
-            Widgets.TextArea(_RectQuarter1, this.Name() + " Status", true);
+            Rect _left_Row3 = _Total_LeftHalf_Control.BottomHalf().TopHalf();
+            Widgets.TextArea(_left_Row3, "Nano Materials Needed for Next Level:" + this.NanoMaterialNeededForUpgrade().ToString(), true);
 
-            Rect _RectQuarter2 = _RectTopHalf.BottomHalf();
-            Widgets.TextArea(_RectQuarter2, "System Status Level: " + this.CurrentLevel.ToString() + " / " + this.GetMaxLevel().ToString(), true);
-
-            Rect _RectQuarter3 = _RectBottomHalf.TopHalf();
-            Widgets.TextArea(_RectQuarter3, "Nano Materials Needed for Next Level:" + this.NanoMaterialNeededForUpgrade().ToString(), true);
-
-            Rect _RectQuarter4 = _RectBottomHalf.BottomHalf();
+            Rect _left_Row4 = _Total_LeftHalf_Control.BottomHalf().BottomHalf();
             //Widgets.TextArea(_RectQuarter4.LeftHalf(), ":" + "TEST", true);
 
+            Rect _left_Row4_left = _left_Row4.LeftHalf();
             if (this.CanUpgradeLevel())
             {
 
-                if (Widgets.ButtonText(_RectQuarter4.RightHalf().LeftHalf(), "Upgrade Level"))
+                if (Widgets.ButtonText(_left_Row4_left, "Upgrade Level"))
                 {
                     this.TryUpgradeLevel();
                 };
@@ -89,36 +94,40 @@ namespace EnhancedDevelopment.Excalibur.Quest
             {
                 if (this.IsAtMaxLevel())
                 {
-                    Widgets.ButtonText(_RectQuarter4.RightHalf().LeftHalf(), "MAX Level");
+                    Widgets.ButtonText(_left_Row4_left, "MAX Level");
                 }
                 else if(!this.IsEnoughNanoMaterialsToUpgrade())
                 {
-                    Widgets.ButtonText(_RectQuarter4.RightHalf().LeftHalf(), "Low Nano Materials");
+                    Widgets.ButtonText(_left_Row4_left, "Low Nano Materials");
                 }
-                else if (Widgets.ButtonText(_RectQuarter4.RightHalf().LeftHalf(), "Upgrade DISABLED"))
+                else if (Widgets.ButtonText(_left_Row4_left, "Upgrade DISABLED"))
                 {
                 };
             }
+            
+            Rect _Total_RightHalf_Description = _RectTotal.RightHalf();
 
-            //if (Widgets.ButtonText(_RectQuarter4.RightHalf().LeftHalf(), "-",true,false,true))
-            //{
-            //    Log.Message("-");
-            //    this.m_SystemStatus -= 1;
-            //};
 
-            //if (Widgets.ButtonText(_RectQuarter4.RightHalf().RightHalf(), "+", true, false, true))
-            //{
-            //    Log.Message("-");
-            //    this.m_SystemStatus += 1;
-            //};
+
+            //Text.Font = GameFont.Small;
+
+           // Rect _TextArea = canvas.TopPartPixels(canvas.height - this.CloseButSize.y);
+
+            Widgets.TextAreaScrollable(_Total_RightHalf_Description, this.DescriptionText, ref this.m_Position, true);
+
+
+            //Text.Font = GameFont.Medium;
+
 
             return _RectTotal;
 
         }
 
+        Vector2 m_Position = Vector2.zero;
+
         public void TryUpgradeLevel()
         {
-            Core.GameComponent_Excalibur.Instance.Comp_Quest.NanoMaterials -= this.NanoMaterialNeededForUpgrade();
+            Core.GameComponent_Excalibur.Instance.Comp_Quest.ResourceRequestReserve(Core.GameComponent_Excalibur_Quest.EnumResourceType.NanoMaterials,  this.NanoMaterialNeededForUpgrade());
             this.CurrentLevel += 1;
 
             Core.GameComponent_Excalibur.Instance.Comp_Quest.UpdateAllResearch();

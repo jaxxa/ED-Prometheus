@@ -50,7 +50,7 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
 
         private void InitialWindowContents(Rect Canvas)
         {
-            float m_ViewHeight = Core.GameComponent_Excalibur.Instance.Comp_Quest.m_ShipSystems.Count() * 106f;
+            float m_ViewHeight = Core.GameComponent_Excalibur.Instance.Comp_Quest.m_ShipSystems.Count() * ShipSystem.m_Height + 6f;
 
             Widgets.TextArea(Canvas.TopPartPixels(20), "Ship Status", true);
             Widgets.DrawLineHorizontal(0, 20, Canvas.width);
@@ -78,7 +78,7 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
             Widgets.EndScrollView();
 
             Rect _Footer = Canvas.BottomPartPixels(35f);
-            Widgets.TextArea(_Footer.LeftHalf().LeftHalf(), "Nano Materials: " + Core.GameComponent_Excalibur.Instance.Comp_Quest.NanoMaterials.ToString() + " / " + Core.GameComponent_Excalibur.Instance.Comp_Quest.NanoMaterialsTarget.ToString(), true);
+            Widgets.TextArea(_Footer.LeftHalf().LeftHalf(), "Nano Materials: " + Core.GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(Core.GameComponent_Excalibur_Quest.EnumResourceType.NanoMaterials).ToString() + " / " + Core.GameComponent_Excalibur.Instance.Comp_Quest.NanoMaterialsTarget.ToString(), true);
 
 
             Listing_Standard _listing_Standard_ShieldChargeLevelMax = new Listing_Standard();
