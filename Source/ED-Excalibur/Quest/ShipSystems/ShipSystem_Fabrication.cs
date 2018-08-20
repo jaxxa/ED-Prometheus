@@ -15,7 +15,7 @@ namespace EnhancedDevelopment.Excalibur.Quest.ShipSystems
 
         public override string Name()
         {
-            return "Fabrication Systems";
+            return "Fabrication System";
         }
 
         public override void ApplyRequiredResearchUnlocks()
@@ -45,5 +45,6 @@ namespace EnhancedDevelopment.Excalibur.Quest.ShipSystems
                 ResearchHelper.QuestComplete("Research_ED_MolecularReinforcementCompressor");
             }
         }
+        
     }
 }

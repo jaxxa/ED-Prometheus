@@ -15,7 +15,7 @@ namespace EnhancedDevelopment.Excalibur.Quest.ShipSystems
 
         public override string Name()
         {
-            return "Regeneration Systems";
+            return "Regeneration";
         }
 
         public override void ApplyRequiredResearchUnlocks()

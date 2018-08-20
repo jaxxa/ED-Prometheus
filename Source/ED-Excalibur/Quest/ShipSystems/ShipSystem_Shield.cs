@@ -15,7 +15,7 @@ namespace EnhancedDevelopment.Excalibur.Quest.ShipSystems
 
         public override string Name()
         {
-            return "Shield Systems";
+            return "Shield";
         }
 
         public override void ApplyRequiredResearchUnlocks()

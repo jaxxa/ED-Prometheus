@@ -10,9 +10,14 @@ namespace EnhancedDevelopment.Excalibur.Quest
     abstract class ShipSystem
     {
 
-        public static float m_Height = 100f;
+        public static float m_Height = 150f;
 
         public abstract String Name();
+
+        public virtual String TechnicalName()
+        {
+            return this.Name().Replace(" ","");
+        }
 
         public virtual int NanoMaterialNeededForUpgrade()
         {
@@ -51,14 +56,17 @@ namespace EnhancedDevelopment.Excalibur.Quest
             return Core.GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(Core.GameComponent_Excalibur_Quest.EnumResourceType.NanoMaterials) >= this.NanoMaterialNeededForUpgrade();
         }
 
-        public string DescriptionText = "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
-
+        public virtual string GetDescriptionText()
+        {
+            return ("SystemDescription_" + this.TechnicalName()).Translate();
+        }
+           
         //Persisted
         public int CurrentLevel = 0;
 
         public void ExposeData()
         {
-            Scribe_Values.Look<int>(ref this.CurrentLevel, "ShipSystem_" + this.Name() + "_CurrentLevel");
+            Scribe_Values.Look<int>(ref this.CurrentLevel, "ShipSystem_" + this.TechnicalName() + "_CurrentLevel");
         }
 
 
@@ -66,7 +74,7 @@ namespace EnhancedDevelopment.Excalibur.Quest
         {
             //Log.Message("Interface");
 
-            Rect _RectTotal = new Rect(x, y, width, ShipSystem.m_Height);
+            Rect _RectTotal = new Rect(x, y, width - 20, ShipSystem.m_Height);
             Rect _Total_LeftHalf_Control = _RectTotal.LeftHalf();
 
             Rect _left_Row1 = _Total_LeftHalf_Control.TopHalf().TopHalf();
@@ -113,7 +121,7 @@ namespace EnhancedDevelopment.Excalibur.Quest
 
            // Rect _TextArea = canvas.TopPartPixels(canvas.height - this.CloseButSize.y);
 
-            Widgets.TextAreaScrollable(_Total_RightHalf_Description, this.DescriptionText, ref this.m_Position, true);
+            Widgets.TextAreaScrollable(_Total_RightHalf_Description, this.GetDescriptionText(), ref this.m_Position, true);
 
 
             //Text.Font = GameFont.Medium;

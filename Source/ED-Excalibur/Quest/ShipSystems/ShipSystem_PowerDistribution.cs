@@ -15,7 +15,7 @@ namespace EnhancedDevelopment.Excalibur.Quest.ShipSystems
 
         public override string Name()
         {
-            return "Power Distribution Systems";
+            return "Power Distribution";
         }
 
         public override void ApplyRequiredResearchUnlocks()

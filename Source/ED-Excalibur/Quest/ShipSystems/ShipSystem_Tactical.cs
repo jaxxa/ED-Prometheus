@@ -15,7 +15,7 @@ namespace EnhancedDevelopment.Excalibur.Quest.ShipSystems
 
         public override string Name()
         {
-            return "Tactical Systems";
+            return "Tactical";
         }
 
         public override void ApplyRequiredResearchUnlocks()

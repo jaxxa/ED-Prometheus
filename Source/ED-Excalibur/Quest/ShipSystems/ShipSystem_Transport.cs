@@ -15,7 +15,7 @@ namespace EnhancedDevelopment.Excalibur.Quest.ShipSystems
 
         public override string Name()
         {
-            return "Transport Systems";
+            return "Transport";
         }
 
         public override void ApplyRequiredResearchUnlocks()
