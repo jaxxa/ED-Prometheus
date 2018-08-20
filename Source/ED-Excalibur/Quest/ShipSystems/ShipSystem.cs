@@ -10,7 +10,7 @@ namespace EnhancedDevelopment.Excalibur.Quest
     abstract class ShipSystem
     {
 
-        public static float m_Height = 150f;
+        public static float m_Height = 200f;
 
         public abstract String Name();
 
@@ -117,7 +117,7 @@ namespace EnhancedDevelopment.Excalibur.Quest
 
 
 
-            //Text.Font = GameFont.Small;
+            Text.Font = GameFont.Small;
 
            // Rect _TextArea = canvas.TopPartPixels(canvas.height - this.CloseButSize.y);
 

@@ -50,7 +50,7 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
 
         private void InitialWindowContents(Rect Canvas)
         {
-            float m_ViewHeight = Core.GameComponent_Excalibur.Instance.Comp_Quest.m_ShipSystems.Count() * ShipSystem.m_Height + 6f;
+            float m_ViewHeight = (Core.GameComponent_Excalibur.Instance.Comp_Quest.m_ShipSystems.Count() + 1) * ShipSystem.m_Height + 6f;
 
             Widgets.TextArea(Canvas.TopPartPixels(20), "Ship Status", true);
             Widgets.DrawLineHorizontal(0, 20, Canvas.width);
