@@ -12,7 +12,8 @@ Level 4:
 Level 5:
  * Replicator MK3
 Level 6:
- * Molecular Reinforcement</SystemDescription_FabricationSystem>
+ * Molecular Reinforcement
+	</SystemDescription_FabricationSystem>
 
 	<SystemDescription_PowerDistribution>Level 1:
  * Surface to Ship Systems
@@ -28,7 +29,8 @@ Level 4:#NotImplimented#
 Level 5:#NotImplimented#
  * Zero Point Modules
    * Can be charged from Ship Power supply and used to power ground installations
-   * Massive power storage potential</SystemDescription_PowerDistribution>
+   * Massive power storage potential
+	</SystemDescription_PowerDistribution>
 
 	<SystemDescription_PowerGeneration>Level 1:#NotImplimented#
  * Chemfuel Generators and brought online, allowing you to provide chemfuel to the ship where it will be transformed into power
@@ -45,7 +47,8 @@ Level 4:#NotImplimented#
  * Fusion Reactors
  * Requires a supply of H2O
    * New Building to extract from the map?
-   * Drones that mine Ice asteroids / comets</SystemDescription_PowerGeneration>
+   * Drones that mine Ice asteroids / comets
+	</SystemDescription_PowerGeneration>
 
 	<SystemDescription_Regeneration>Level 1:#NotImplimented#
  * New building that uses NanoMaterials to Repair Structures.
@@ -56,7 +59,8 @@ Level 3:#NotImplimented#
  * New Building?
  * Similar to Stasis Pod
 Level 4:#NotImplimented#
- * Heal Shot off parts of Pawns</SystemDescription_Regeneration>
+ * Heal Shot off parts of Pawns
+	</SystemDescription_Regeneration>
 
 	<SystemDescription_Resourcing>Level 1:#NotImplimented#
  * Unlocked in Quest
@@ -75,7 +79,8 @@ Level 4:#NotImplimented#
 Level 2:
  * Shield Upgrades
 Level 3:
- * Personal Shields</SystemDescription_Shield>
+ * Personal Shields
+	</SystemDescription_Shield>
 
 	<SystemDescription_Tactical>Level 1:#NotImplimented#
  * Beam Weapon Unlock
@@ -91,7 +96,8 @@ Level 5:#NotImplimented#
  * Classified additional Tornadoes?
 Level 6:#NotImplimented#
  * Failsafe System
- * Destruction of a base as preferable to it falling into hostile hands.</SystemDescription_Tactical>
+ * Destruction of a base as preferable to it falling into hostile hands.
+	</SystemDescription_Tactical>
 
 	<SystemDescription_Transport>Level 1:#NotImplimented#
  * Transporter Module Unlocked
@@ -100,7 +106,8 @@ Level 2:#NotImplimented#
 Level 3:#NotImplimented#
  * Shuttles?
 Level 4:#NotImplimented#
- * More transport buffers?</SystemDescription_Transport>
+ * More transport buffers?
+	</SystemDescription_Transport>
 
 </LanguageData>
 
