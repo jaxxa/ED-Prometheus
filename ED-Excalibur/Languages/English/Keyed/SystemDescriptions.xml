@@ -14,92 +14,92 @@ Level 5:
 Level 6:
 	Molecular Reinforcement</SystemDescription_FabricationSystem>
 
-	<SystemDescription_PowerDistribution>Level 1
+	<SystemDescription_PowerDistribution>Level 1:
 	Surface to Ship Systems
 	Unlocked in Quest
-Level 2
+Level 2:
 	Laser Drill
-Level 3
+Level 3:
 	Ship to Ship
 		Call Trade ships
 		Sell energy to them?
-Level 4
+Level 4:
 	Ship to Surface
-Level 5
+Level 5:
 	Zero Point Modules
 		Can be charged from Ship Power supply and used to power ground installations
 		Massive power storage potential</SystemDescription_PowerDistribution>
 
-	<SystemDescription_PowerGeneration>Level 1
+	<SystemDescription_PowerGeneration>Level 1:
 	Chemfuel Generators and brought online, allowing you to provide chemfuel to the ship where it will be transformed into power
 	Individual Reactors can be brought online to increase power at the cost of increased speed of fuel usage
 	Oxygen is included in the package when the fuel is tagged for transport
-Level 2
+Level 2:
 	Solar Generators
 	Individual generators can be constructed to add a passive power generation
 		Upto a point
-Level 3
+Level 3:
 	Fission Reactors
 	Requires a supply of Uranium
-Level 4
+Level 4:
 	Fusion Reactors
 	Requires a supply of H2O
 		New Building to extract from the map?
 		Drones that mine Ice asteroids / comets</SystemDescription_PowerGeneration>
 
-	<SystemDescription_Regeneration>Level 1
+	<SystemDescription_Regeneration>Level 1:
 	New building that uses NanoMaterials to Repair Structures.
-Level 2
+Level 2:
 	Building can now fix component breakdowns.
-Level 3
+Level 3:
 	Ability to use NanoMaterials to Slightly Heal Pawns
 	New Building?
 	Similar to Stasis Pod
-Level 4?
+Level 4:
 	Heal Shot off parts of Pawns</SystemDescription_Regeneration>
 
-	<SystemDescription_Resourcing>Level 1
+	<SystemDescription_Resourcing>Level 1:
 	Unlocked in Quest
 	NanoMaterials can use Asteroids to provide additional unrefined resources for enhancing the hull integrity.
-Level 2
+Level 2:
 	Mining systems are brought online, allowing Asteroids to be mined to provide an income of RU
 	Costs power to Run?
 	Can build individual utility drones to increase the speed?
-Level 3
+Level 3:
 	Utility Drones can use Tractor beams to bring asteroids to land in the area
-Level 4
+Level 4:
 	Utility Drones Sensors have been enhanced to determine the content of asteroids so they can be chosen.</SystemDescription_Resourcing>
 
-	<SystemDescription_Shield>Level 1
+	<SystemDescription_Shield>Level 1:
 	Unlocks Shield Generator
-Level 2
+Level 2:
 	Shield Upgrades
-Level 3 
+Level 3:
 	Personal Shields</SystemDescription_Shield>
 
-	<SystemDescription_Tactical>Level 1
+	<SystemDescription_Tactical>Level 1:
 	Beam Weapon Unlock
 		Needs Power 4?
-Level 2
+Level 2:
 	Bombardment
-Level 3
+Level 3:
 	Asteroid Redirect in a precise location.
 		Requires Resourcing Level 3
-Level 4
+Level 4:
 	Tornado?
-Level 5
+Level 5:
 	Classified additional Tornadoes?
-Level 6
+Level 6:
 	Failsafe System
 	Destruction of a base as preferable to it falling into hostile hands.</SystemDescription_Tactical>
 
-	<SystemDescription_Transport>Level 1
+	<SystemDescription_Transport>Level 1:
 	Transporter Module Unlocked
-Level 2?
+Level 2:
 	DropPods?
-Level 3
+Level 3:
 	Shuttles?
-Level 4
+Level 4:
 	More transport buffers?</SystemDescription_Transport>
 
 </LanguageData>
