@@ -50,13 +50,16 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
 
         private void InitialWindowContents(Rect totalCanvas)
         {
-            int _TabSelectionHeight = 60;
+            int _TabSelectionHeight = 30;
+            int _FooterSectionHeight = 35;
             Rect _TabSelectionRect = totalCanvas.TopPartPixels(_TabSelectionHeight);
 
 
-            Widgets.ButtonText(_TabSelectionRect, "TestButton", true, false, true);
+            // Headder to Select Tabs -----------------------------------------
 
-            WidgetRow _ButtonWidgetRow = new WidgetRow(_TabSelectionRect.x, _TabSelectionRect.y - 5, UIDirection.RightThenDown, 99999f, 4f);
+            //Widgets.ButtonText(_TabSelectionRect, "_TabSelectionRect", true, false, true);
+
+            WidgetRow _ButtonWidgetRow = new WidgetRow(_TabSelectionRect.x, _TabSelectionRect.y, UIDirection.RightThenDown, 99999f, 4f);
             if (_ButtonWidgetRow.ButtonText("Buildings", null, true, true))
             {
                 //Find.WindowStack.Add(new Dialog_BillConfig(this, ((Thing)base.billStack.billGiver).Position));
@@ -66,22 +69,21 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
             {
                 //Find.WindowStack.Add(new Dialog_BillConfig(this, ((Thing)base.billStack.billGiver).Position));
             }
-
             Widgets.DrawLineHorizontal(_TabSelectionRect.xMin, _TabSelectionRect.yMax, _TabSelectionRect.width);
 
+            // Main Content ---------------------------------------------------
+            
+            Rect _WindowContent = new Rect(totalCanvas.xMin, _TabSelectionRect.yMax, totalCanvas.width, totalCanvas.height - _TabSelectionHeight - _FooterSectionHeight);
+            //Widgets.ButtonText(_WindowContent, "_WindowContent", true, false, true);
 
 
-            Rect _WindowContent = totalCanvas.BottomPartPixels(totalCanvas.height - _TabSelectionHeight);
-
-
-
-            float m_ViewHeight = (Core.GameComponent_Excalibur.Instance.Comp_Quest.m_ShipSystems.Count() + 1) * ShipSystem.m_Height + 6f;
+            float _ViewContentHeight = (Core.GameComponent_Excalibur.Instance.Comp_Quest.m_ShipSystems.Count() + 1) * ShipSystem.m_Height + 6f;
 
             Widgets.TextArea(_WindowContent.TopPartPixels(20), "Ship Status", true);
 
             GUI.color = Color.white;
-            Rect outRect = new Rect(_WindowContent.x, _WindowContent.y + 35f, _WindowContent.width, _WindowContent.height - 35f - 35f);
-            Rect viewRect = new Rect(0f, 0f, outRect.width - 16f, m_ViewHeight);
+            Rect outRect = new Rect(_WindowContent.x, _WindowContent.y + 20, _WindowContent.width, _WindowContent.height - _FooterSectionHeight);
+            Rect viewRect = new Rect(0f, 0f, outRect.width - 16f, _ViewContentHeight);
 
             //Above scroll view
             Widgets.DrawLineHorizontal(outRect.xMin, outRect.yMin , outRect.width);
@@ -104,7 +106,11 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
 
             Widgets.EndScrollView();
 
-            Rect _Footer = _WindowContent.BottomPartPixels(35f);
+
+            // Footer (System Status) -----------------------------------------
+
+            Rect _Footer = totalCanvas.BottomPartPixels(_FooterSectionHeight);
+            //Widgets.ButtonText(_Footer, "_Footer", true, false, true);
 
             Widgets.DrawLineHorizontal(_Footer.xMin, _Footer.yMin, _Footer.width);
 
