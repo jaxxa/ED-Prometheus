@@ -48,16 +48,43 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
 
        // private float m_ViewHeight = 99999f;
 
-        private void InitialWindowContents(Rect Canvas)
+        private void InitialWindowContents(Rect totalCanvas)
         {
+            int _TabSelectionHeight = 60;
+            Rect _TabSelectionRect = totalCanvas.TopPartPixels(_TabSelectionHeight);
+
+
+            Widgets.ButtonText(_TabSelectionRect, "TestButton", true, false, true);
+
+            WidgetRow _ButtonWidgetRow = new WidgetRow(_TabSelectionRect.x, _TabSelectionRect.y - 5, UIDirection.RightThenDown, 99999f, 4f);
+            if (_ButtonWidgetRow.ButtonText("Buildings", null, true, true))
+            {
+                //Find.WindowStack.Add(new Dialog_BillConfig(this, ((Thing)base.billStack.billGiver).Position));
+            }
+
+            if (_ButtonWidgetRow.ButtonText("System Status", null, true, true))
+            {
+                //Find.WindowStack.Add(new Dialog_BillConfig(this, ((Thing)base.billStack.billGiver).Position));
+            }
+
+            Widgets.DrawLineHorizontal(_TabSelectionRect.xMin, _TabSelectionRect.yMax, _TabSelectionRect.width);
+
+
+
+            Rect _WindowContent = totalCanvas.BottomPartPixels(totalCanvas.height - _TabSelectionHeight);
+
+
+
             float m_ViewHeight = (Core.GameComponent_Excalibur.Instance.Comp_Quest.m_ShipSystems.Count() + 1) * ShipSystem.m_Height + 6f;
 
-            Widgets.TextArea(Canvas.TopPartPixels(20), "Ship Status", true);
-            Widgets.DrawLineHorizontal(0, 20, Canvas.width);
+            Widgets.TextArea(_WindowContent.TopPartPixels(20), "Ship Status", true);
 
             GUI.color = Color.white;
-            Rect outRect = new Rect(0f, 35f, Canvas.width, Canvas.height - 35f - 35f);
+            Rect outRect = new Rect(_WindowContent.x, _WindowContent.y + 35f, _WindowContent.width, _WindowContent.height - 35f - 35f);
             Rect viewRect = new Rect(0f, 0f, outRect.width - 16f, m_ViewHeight);
+
+            //Above scroll view
+            Widgets.DrawLineHorizontal(outRect.xMin, outRect.yMin , outRect.width);
 
             Widgets.BeginScrollView(outRect, ref m_ScrollPosition, viewRect, true);
 
@@ -77,7 +104,10 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
 
             Widgets.EndScrollView();
 
-            Rect _Footer = Canvas.BottomPartPixels(35f);
+            Rect _Footer = _WindowContent.BottomPartPixels(35f);
+
+            Widgets.DrawLineHorizontal(_Footer.xMin, _Footer.yMin, _Footer.width);
+
             Widgets.TextArea(_Footer.LeftHalf().LeftHalf(), "Nano Materials: " + Core.GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(Core.GameComponent_Excalibur_Quest.EnumResourceType.NanoMaterials).ToString() + " / " + Core.GameComponent_Excalibur.Instance.Comp_Quest.NanoMaterialsTarget.ToString(), true);
 
 
@@ -91,7 +121,6 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
             _listing_Standard_ShieldChargeLevelMax.IntSetter(ref Core.GameComponent_Excalibur.Instance.Comp_Quest.NanoMaterialsTarget, 10, "Default");
             _listing_Standard_ShieldChargeLevelMax.End();
 
-            Widgets.DrawLineHorizontal(0, Canvas.height - 35f, Canvas.width);
 
         }
     }
