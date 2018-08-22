@@ -1,10 +1,10 @@
 # ED-Excalibur
 
 1.0.0.5
-
+ * Rework of Ship Systems Unlocking Research.
 
 1.0.0.4
- * Updating Build Target
+ * Updating Build Target.
  
 1.0.0.3
  * Disabling Shield Related Debug information.
