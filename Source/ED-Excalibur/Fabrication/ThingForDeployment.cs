@@ -23,9 +23,9 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
 
         public int WorkRemaining = 100;
 
-        public int NeededWork = 100;
-        public int NeededResources = 100;
-        public int NeededPower = 100;
+        public int TotalNeededWork = 100;
+        public int TotalNeededResources = 100;
+        public int TotalNeededPower = 100;
         public bool ConstructionInProgress = false;
 
         public int UnitsAvalable = 0;
@@ -69,23 +69,31 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
             Rect _RectBottomHalf = _RectTotal.BottomHalf();
 
             Rect _RectQuarter1 = _RectTopHalf.TopHalf();
-            Widgets.TextArea(_RectQuarter1, this.label, true);
+            if (this.ConstructionInProgress)
+            {
+                Widgets.TextArea(_RectQuarter1, this.label + " - In Progress", true);
+            }
+            else
+            {
+                Widgets.TextArea(_RectQuarter1, this.label, true);
+            }
 
             Rect _RectQuarter2 = _RectTopHalf.BottomHalf();
-            Widgets.TextArea(_RectQuarter2, "Work Remaining: " + this.WorkRemaining.ToString(), true);
+            Widgets.TextArea(_RectQuarter2, "Work: " + this.WorkRemaining.ToString() + " / " + this.TotalNeededWork.ToString(), true);
 
             Rect _RectQuarter3 = _RectBottomHalf.TopHalf();
-            Widgets.TextArea(_RectQuarter3, "RU:" + this.NeededResources + " Power: " + this.NeededPower, true);
+            Widgets.TextArea(_RectQuarter3, "RU:" + this.TotalNeededResources + " Power: " + this.TotalNeededPower, true);
 
             Rect _RectQuarter4 = _RectBottomHalf.BottomHalf();
-            Widgets.TextArea(_RectQuarter4.LeftHalf(), "Number To Build:" + this.UnitsRequestedAditional.ToString(), true);
-
+            Widgets.TextArea(_RectQuarter4.LeftHalf(), "Avalable: " + this.UnitsAvalable.ToString() +  " Requested: " + this.UnitsRequestedAditional.ToString(), true);
 
             if (Widgets.ButtonText(_RectQuarter4.RightHalf().LeftHalf(), "-"))
             {
-                this.UnitsRequestedAditional -= 1;
+                if (this.UnitsRequestedAditional > 0)
+                {
+                    this.UnitsRequestedAditional -= 1;
+                }
             };
-
 
             if (Widgets.ButtonText(_RectQuarter4.RightHalf().RightHalf(), "+"))
             {
