@@ -25,7 +25,7 @@ namespace EnhancedDevelopment.Excalibur.Core
         public override void TickOnInterval()
         {
 
-            this.BuildingsUnderConstruction.Where(b => b.UnitsRequestedAditional >= 0).ToList().ForEach(b =>
+            this.ThingForDeployment.Where(b => b.UnitsRequestedAditional >= 0).ToList().ForEach(b =>
             {
                 //this.BuildingsUnderConstruction.Remove(b);
                 if (!b.ConstructionInProgress)
@@ -36,7 +36,7 @@ namespace EnhancedDevelopment.Excalibur.Core
             });
 
             //Gets the Currently under construction Thing
-            ThingForDeployment _CurrentlyUnderConstruction = this.BuildingsUnderConstruction.FirstOrFallback(t => t.ConstructionInProgress, null);
+            ThingForDeployment _CurrentlyUnderConstruction = this.ThingForDeployment.FirstOrFallback(t => t.ConstructionInProgress, null);
 
             if (_CurrentlyUnderConstruction != null)
             {
@@ -55,7 +55,7 @@ namespace EnhancedDevelopment.Excalibur.Core
             }
             else
             {
-                ThingForDeployment _ThingToStart = this.BuildingsUnderConstruction.Where(b => b.UnitsRequestedAditional >= 1).RandomElement();
+                ThingForDeployment _ThingToStart = this.ThingForDeployment.Where(b => b.UnitsRequestedAditional >= 1).RandomElement();
 
                 if (_ThingToStart != null &&
                     GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.Power) >= _ThingToStart.NeededPower &&
@@ -77,21 +77,8 @@ namespace EnhancedDevelopment.Excalibur.Core
 
         //-------------------------------------------
 
-        public List<ThingForDeployment> BuildingsUnderConstruction = new List<ThingForDeployment>();
+        public List<ThingForDeployment> ThingForDeployment = new List<ThingForDeployment>();
 
-        /*
-        public void OrderBuilding(ThingDef buildingDef)
-        {
-            CompProperties_Fabricated _Properties = buildingDef.GetCompProperties<CompProperties_Fabricated>();
-            ThingForDeployment _NewBuilding = new ThingForDeployment(buildingDef.defName, buildingDef.label);
-            _NewBuilding.WorkRemaining = _Properties.RequiredWork;
-            _NewBuilding.NeededWork = _Properties.RequiredWork;
-            _NewBuilding.NeededPower = _Properties.RequiredPower;
-            _NewBuilding.NeededResources = _Properties.RequiredMaterials;
-
-            BuildingsUnderConstruction.Add(_NewBuilding);
-        } //OrderBuilding
-        */
 
         //-------------------------UI --------------------
 
@@ -117,9 +104,9 @@ namespace EnhancedDevelopment.Excalibur.Core
             Rect viewRect = new Rect(0f, 0f, outRect.width - 16f, viewHeight);
             Widgets.BeginScrollView(outRect, ref scrollPosition, viewRect, true);
             float num = 0f;
-            for (int i = 0; i < BuildingsUnderConstruction.Count; i++)
+            for (int i = 0; i < ThingForDeployment.Count; i++)
             {
-                ThingForDeployment _BuildingInProgress = this.BuildingsUnderConstruction[i];
+                ThingForDeployment _BuildingInProgress = this.ThingForDeployment[i];
                 Rect rect3 = _BuildingInProgress.DoInterface(0f, num, viewRect.width, i);
                 //if (!bill.DeletedOrDereferenced && Mouse.IsOver(rect3))
                 //{
@@ -138,15 +125,13 @@ namespace EnhancedDevelopment.Excalibur.Core
 
         public void AddNewBuildingsUnderConstruction()
         {
-            //List<FloatMenuOption> _List = new List<FloatMenuOption>();
 
             DefDatabase<ThingDef>.AllDefs.ToList().ForEach(x =>
             {
                 Fabrication.CompProperties_Fabricated _FabricationCompPropeties = x.GetCompProperties<Fabrication.CompProperties_Fabricated>();
                 if (_FabricationCompPropeties != null && x.researchPrerequisites.All(r => r.IsFinished || string.Equals(r.defName, "Research_ED_Excalibur_Quest_Unlock")))
                 {
-                    //BuildingInProgress _Temp = new BuildingInProgress(x, x.label);
-                    if (!this.BuildingsUnderConstruction.Any(b => string.Equals(b.defName, x.defName)))
+                    if (!this.ThingForDeployment.Any(b => string.Equals(b.defName, x.defName)))
                     {
                         ThingForDeployment _NewThing = new ThingForDeployment(x.defName, x.label);
                         _NewThing.WorkRemaining = _FabricationCompPropeties.RequiredWork;
@@ -154,19 +139,13 @@ namespace EnhancedDevelopment.Excalibur.Core
                         _NewThing.NeededPower = _FabricationCompPropeties.RequiredPower;
                         _NewThing.NeededResources = _FabricationCompPropeties.RequiredMaterials;
 
-                        this.BuildingsUnderConstruction.Add(_NewThing);
+                        this.ThingForDeployment.Add(_NewThing);
                     }
-                    /*
-                _List.Add(new FloatMenuOption(x.label + " - RU: " + _FabricationCompPropeties.RequiredMaterials + " P: " + _FabricationCompPropeties.RequiredPower, delegate
-                {
-                        // GameComponent_Excalibur.Instance.Comp_Fabrication.OrderBuilding(x, this.SelectedCompTransponder.parent.Position, this.SelectedCompTransponder.parent.Map);
-                        GameComponent_Excalibur.Instance.Comp_Fabrication.OrderBuilding(x);
-                }, MenuOptionPriority.Default, null, null, 29f, (Rect rect) => Widgets.InfoCardButton(rect.x + 5f, rect.y + (rect.height - 24f) / 2f, x)));
-    */
+
                 }
             });
 
-            this.BuildingsUnderConstruction.OrderBy(x => x.label);
+            this.ThingForDeployment.OrderBy(x => x.label);
         }
     }
 

@@ -181,7 +181,7 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
 
             Core.GameComponent_Excalibur.Instance.Comp_Fabrication.AddNewBuildingsUnderConstruction();
 
-            Widgets.TextArea(rectContentWindow.TopPartPixels(20), "Building" + Core.GameComponent_Excalibur.Instance.Comp_Fabrication.BuildingsUnderConstruction.Count.ToString(), true);
+            Widgets.TextArea(rectContentWindow.TopPartPixels(20), "Building" + Core.GameComponent_Excalibur.Instance.Comp_Fabrication.ThingForDeployment.Count.ToString(), true);
 
             // Widgets.ButtonText(windowContent, "_WindowContent", true, false, true);
 
