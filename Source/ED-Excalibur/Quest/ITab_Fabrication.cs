@@ -81,7 +81,8 @@ namespace EnhancedDevelopment.Excalibur.Quest
                     {
                                                                         
                         _List.Add(new FloatMenuOption(x.label + " - RU: " + _FabricationCompPropeties.RequiredMaterials + " P: " + _FabricationCompPropeties.RequiredPower , delegate {
-                            GameComponent_Excalibur.Instance.Comp_Fabrication.OrderBuilding(x, this.SelectedCompTransponder.parent.Position, this.SelectedCompTransponder.parent.Map);
+                            //GameComponent_Excalibur.Instance.Comp_Fabrication.OrderBuilding(x, this.SelectedCompTransponder.parent.Position, this.SelectedCompTransponder.parent.Map);
+                           // GameComponent_Excalibur.Instance.Comp_Fabrication.OrderBuilding(x);
                         },MenuOptionPriority.Default,null,null,29f, (Rect rect) => Widgets.InfoCardButton(rect.x + 5f, rect.y + (rect.height - 24f) / 2f, x)));
                     }
                 }
@@ -90,7 +91,8 @@ namespace EnhancedDevelopment.Excalibur.Quest
                 return _List;
             };
 
-            GameComponent_Excalibur.Instance.Comp_Fabrication.DoListing(_MainWindow, _RecipeOptionsMaker, ref scrollPosition, ref viewHeight);
+            //GameComponent_Excalibur.Instance.Comp_Fabrication.DoListing(_MainWindow, _RecipeOptionsMaker, ref scrollPosition, ref viewHeight);
+            GameComponent_Excalibur.Instance.Comp_Fabrication.DoListing(_MainWindow, ref scrollPosition, ref viewHeight);
 
 
             Widgets.TextArea(_InfoBar, "RU:" + GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.ResourceUnits) + " Power: " + GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.Power).ToString(), true);

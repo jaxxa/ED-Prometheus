@@ -25,70 +25,65 @@ namespace EnhancedDevelopment.Excalibur.Core
         public override void TickOnInterval()
         {
 
-            this.BuildingsUnderConstruction.Where(b => b.NumberOfRequestsRemailing <= 0).ToList().ForEach(b =>
+            this.BuildingsUnderConstruction.Where(b => b.UnitsRequestedAditional >= 0).ToList().ForEach(b =>
             {
-                this.BuildingsUnderConstruction.Remove(b);
-                if (b.SpentPowerAndMaterials)
+                //this.BuildingsUnderConstruction.Remove(b);
+                if (!b.ConstructionInProgress)
                 {
                     GameComponent_Excalibur.Instance.Comp_Quest.ResourceAddToReserves(GameComponent_Excalibur_Quest.EnumResourceType.ResourceUnits, b.NeededResources);
                     GameComponent_Excalibur.Instance.Comp_Quest.ResourceAddToReserves(GameComponent_Excalibur_Quest.EnumResourceType.Power, b.NeededPower);
                 }
             });
 
-            if (this.BuildingsUnderConstruction.Any())
+            //Gets the Currently under construction Thing
+            ThingForDeployment _CurrentlyUnderConstruction = this.BuildingsUnderConstruction.FirstOrFallback(t => t.ConstructionInProgress, null);
+
+            if (_CurrentlyUnderConstruction != null)
             {
-                
-                BuildingInProgress _BuildingToSpawn = this.BuildingsUnderConstruction.FirstOrDefault();
+                //Continue currently under construction
+                _CurrentlyUnderConstruction.WorkRemaining--;
 
-                //Check if not Started
-                if (!_BuildingToSpawn.SpentPowerAndMaterials)
+                //Check if Finished
+                if (_CurrentlyUnderConstruction.WorkRemaining <= 0)
                 {
-                    if (GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.Power) >= _BuildingToSpawn.NeededPower 
-                        && GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.ResourceUnits) >= _BuildingToSpawn.NeededResources)
-                    {
-                        _BuildingToSpawn.WorkRemaining = _BuildingToSpawn.NeededWork;
-                        GameComponent_Excalibur.Instance.Comp_Quest.ResourceAddToReserves(GameComponent_Excalibur_Quest.EnumResourceType.ResourceUnits, -_BuildingToSpawn.NeededResources);
-                        GameComponent_Excalibur.Instance.Comp_Quest.ResourceAddToReserves(GameComponent_Excalibur_Quest.EnumResourceType.Power, -_BuildingToSpawn.NeededPower);
-
-                        _BuildingToSpawn.SpentPowerAndMaterials = true;
-                    }
-                    else
-                    {
-                        return;
-                    }
+                    //Finish one Unit
+                    _CurrentlyUnderConstruction.ConstructionInProgress = false;
+                    _CurrentlyUnderConstruction.UnitsAvalable++;
+                    _CurrentlyUnderConstruction.WorkRemaining = _CurrentlyUnderConstruction.NeededWork;
                 }
 
-                //Decriment the WorkRemaining
-                _BuildingToSpawn.WorkRemaining -= 1;
-
-                if (_BuildingToSpawn.WorkRemaining <= 0)
-                {
-                    //Initiate Drop
-                    Log.Message("Dropping");
-                    List<Thing> _Things = _BuildingToSpawn.InitiateDrop();
-                    DropPodUtility.DropThingsNear(_BuildingToSpawn.DestinationPosition, _BuildingToSpawn.DestinationMap, _Things);
-
-                    _BuildingToSpawn.SpentPowerAndMaterials = false;
-
-                    //Reduce Required
-                    _BuildingToSpawn.NumberOfRequestsRemailing -= 1;
-                    if (_BuildingToSpawn.NumberOfRequestsRemailing <= 0)
-                    {
-                        this.BuildingsUnderConstruction.Remove(_BuildingToSpawn);
-                    }
-                }
             }
+            else
+            {
+                ThingForDeployment _ThingToStart = this.BuildingsUnderConstruction.Where(b => b.UnitsRequestedAditional >= 1).RandomElement();
+
+                if (_ThingToStart != null &&
+                    GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.Power) >= _ThingToStart.NeededPower &&
+                    GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.ResourceUnits) >= _ThingToStart.NeededResources)
+                {
+
+                    _ThingToStart.ConstructionInProgress = true;
+                    _ThingToStart.UnitsRequestedAditional--;
+                    _ThingToStart.WorkRemaining = _ThingToStart.NeededWork;
+
+                    GameComponent_Excalibur.Instance.Comp_Quest.ResourceAddToReserves(GameComponent_Excalibur_Quest.EnumResourceType.ResourceUnits, -_ThingToStart.NeededResources);
+                    GameComponent_Excalibur.Instance.Comp_Quest.ResourceAddToReserves(GameComponent_Excalibur_Quest.EnumResourceType.Power, -_ThingToStart.NeededPower);
+                }
+
+            }
+
 
         } //TickOnInterval
 
         //-------------------------------------------
 
-        public List<BuildingInProgress> BuildingsUnderConstruction = new List<BuildingInProgress>();
+        public List<ThingForDeployment> BuildingsUnderConstruction = new List<ThingForDeployment>();
 
-        public void OrderBuilding(ThingDef buildingDef, IntVec3 position, Map map)
+        /*
+        public void OrderBuilding(ThingDef buildingDef)
         {
             CompProperties_Fabricated _Properties = buildingDef.GetCompProperties<CompProperties_Fabricated>();
-            BuildingInProgress _NewBuilding = new BuildingInProgress(buildingDef.defName, map, position, buildingDef.label);
+            ThingForDeployment _NewBuilding = new ThingForDeployment(buildingDef.defName, buildingDef.label);
             _NewBuilding.WorkRemaining = _Properties.RequiredWork;
             _NewBuilding.NeededWork = _Properties.RequiredWork;
             _NewBuilding.NeededPower = _Properties.RequiredPower;
@@ -96,33 +91,35 @@ namespace EnhancedDevelopment.Excalibur.Core
 
             BuildingsUnderConstruction.Add(_NewBuilding);
         } //OrderBuilding
+        */
 
         //-------------------------UI --------------------
 
 
-        public void DoListing(Rect rect, Func<List<FloatMenuOption>> recipeOptionsMaker, ref Vector2 scrollPosition, ref float viewHeight)
+        public void DoListing(Rect rect, ref Vector2 scrollPosition, ref float viewHeight)
         {
             //Bill result = null;
-            GUI.BeginGroup(rect);
-            Text.Font = GameFont.Small;
-            if (BuildingsUnderConstruction.Count < 15)
-            {
-                Rect rect2 = new Rect(0f, 0f, 150f, 29f);
-                if (Widgets.ButtonText(rect2, "AddBuilding".Translate(), true, false, true))
-                {
-                    Find.WindowStack.Add(new FloatMenu(recipeOptionsMaker()));
-                }
-                UIHighlighter.HighlightOpportunity(rect2, "AddBuilding");
-            }
-            Text.Anchor = TextAnchor.UpperLeft;
-            GUI.color = Color.white;
+            //GUI.BeginGroup(rect);
+            //Text.Font = GameFont.Small;
+            //if (BuildingsUnderConstruction.Count < 15)
+            //{
+            //    Rect rect2 = new Rect(0f, 0f, 150f, 29f);
+            //    if (Widgets.ButtonText(rect2, "AddBuilding".Translate(), true, false, true))
+            //    {
+            //        Log.Message("Click");
+            //        Find.WindowStack.Add(new FloatMenu(recipeOptionsMaker()));
+            //    }
+            //    UIHighlighter.HighlightOpportunity(rect2, "AddBuilding");
+            //}
+            //Text.Anchor = TextAnchor.UpperLeft;
+            //GUI.color = Color.white;
             Rect outRect = new Rect(0f, 35f, rect.width, rect.height - 35f);
             Rect viewRect = new Rect(0f, 0f, outRect.width - 16f, viewHeight);
             Widgets.BeginScrollView(outRect, ref scrollPosition, viewRect, true);
             float num = 0f;
             for (int i = 0; i < BuildingsUnderConstruction.Count; i++)
             {
-                BuildingInProgress _BuildingInProgress = this.BuildingsUnderConstruction[i];
+                ThingForDeployment _BuildingInProgress = this.BuildingsUnderConstruction[i];
                 Rect rect3 = _BuildingInProgress.DoInterface(0f, num, viewRect.width, i);
                 //if (!bill.DeletedOrDereferenced && Mouse.IsOver(rect3))
                 //{
@@ -136,9 +133,43 @@ namespace EnhancedDevelopment.Excalibur.Core
                 viewHeight = num + 60f;
             }
             Widgets.EndScrollView();
-            GUI.EndGroup();
+            //GUI.EndGroup();
         } //DoListing
 
-    } // Class
-}
+        public void AddNewBuildingsUnderConstruction()
+        {
+            //List<FloatMenuOption> _List = new List<FloatMenuOption>();
+
+            DefDatabase<ThingDef>.AllDefs.ToList().ForEach(x =>
+            {
+                Fabrication.CompProperties_Fabricated _FabricationCompPropeties = x.GetCompProperties<Fabrication.CompProperties_Fabricated>();
+                if (_FabricationCompPropeties != null && x.researchPrerequisites.All(r => r.IsFinished || string.Equals(r.defName, "Research_ED_Excalibur_Quest_Unlock")))
+                {
+                    //BuildingInProgress _Temp = new BuildingInProgress(x, x.label);
+                    if (!this.BuildingsUnderConstruction.Any(b => string.Equals(b.defName, x.defName)))
+                    {
+                        ThingForDeployment _NewThing = new ThingForDeployment(x.defName, x.label);
+                        _NewThing.WorkRemaining = _FabricationCompPropeties.RequiredWork;
+                        _NewThing.NeededWork = _FabricationCompPropeties.RequiredWork;
+                        _NewThing.NeededPower = _FabricationCompPropeties.RequiredPower;
+                        _NewThing.NeededResources = _FabricationCompPropeties.RequiredMaterials;
+
+                        this.BuildingsUnderConstruction.Add(_NewThing);
+                    }
+                    /*
+                _List.Add(new FloatMenuOption(x.label + " - RU: " + _FabricationCompPropeties.RequiredMaterials + " P: " + _FabricationCompPropeties.RequiredPower, delegate
+                {
+                        // GameComponent_Excalibur.Instance.Comp_Fabrication.OrderBuilding(x, this.SelectedCompTransponder.parent.Position, this.SelectedCompTransponder.parent.Map);
+                        GameComponent_Excalibur.Instance.Comp_Fabrication.OrderBuilding(x);
+                }, MenuOptionPriority.Default, null, null, 29f, (Rect rect) => Widgets.InfoCardButton(rect.x + 5f, rect.y + (rect.height - 24f) / 2f, x)));
+    */
+                }
+            });
+
+            this.BuildingsUnderConstruction.OrderBy(x => x.label);
+        }
+    }
+
+} // Class
+
 

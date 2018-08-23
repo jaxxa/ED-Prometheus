@@ -56,7 +56,7 @@
     <Compile Include="Core\GameComponent_Excalibur_NanoShields.cs" />
     <Compile Include="Core\GameComponent_Excalibur_Quest.cs" />
     <Compile Include="Core\GameComponent_Excalibur_Transporter.cs" />
-    <Compile Include="Fabrication\BuildingInProgress.cs" />
+    <Compile Include="Fabrication\ThingForDeployment.cs" />
     <Compile Include="Fabrication\CompProperties_Fabricated.cs" />
     <Compile Include="Fabrication\Comp_Fabricated.cs" />
     <Compile Include="Fabrication\ResourceUnit.cs" />

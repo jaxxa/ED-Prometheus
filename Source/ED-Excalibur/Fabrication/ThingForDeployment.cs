@@ -8,13 +8,13 @@ using Verse;
 
 namespace EnhancedDevelopment.Excalibur.Fabrication
 {
-    class BuildingInProgress
+    class ThingForDeployment
     {
         public string defName;
 
-        public Map DestinationMap;
+        //public Map DestinationMap;
 
-        public IntVec3 DestinationPosition;
+        //public IntVec3 DestinationPosition;
 
         public string label;
 
@@ -23,19 +23,19 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
 
         public int WorkRemaining = 100;
 
-        public int NeededWork = 0;
-        public int NeededResources = 0;
-        public int NeededPower = 0;
-        public bool SpentPowerAndMaterials = false;
+        public int NeededWork = 100;
+        public int NeededResources = 100;
+        public int NeededPower = 100;
+        public bool ConstructionInProgress = false;
 
+        public int UnitsAvalable = 0;
+        public int UnitsRequestedAditional = 0;
 
-        public int NumberOfRequestsRemailing = 1;
-
-        public BuildingInProgress(string defName, Map DestinationMap, IntVec3 DestinationPosition, string label)
+        public ThingForDeployment(string defName, string label)
         {
             this.defName = defName;
-            this.DestinationMap = DestinationMap;
-            this.DestinationPosition = DestinationPosition;
+            //this.DestinationMap = DestinationMap;
+            //this.DestinationPosition = DestinationPosition;
             this.label = label;
         }
 
@@ -78,18 +78,18 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
             Widgets.TextArea(_RectQuarter3, "RU:" + this.NeededResources + " Power: " + this.NeededPower, true);
 
             Rect _RectQuarter4 = _RectBottomHalf.BottomHalf();
-            Widgets.TextArea(_RectQuarter4.LeftHalf(), "Number To Build:" + this.NumberOfRequestsRemailing.ToString(), true);
+            Widgets.TextArea(_RectQuarter4.LeftHalf(), "Number To Build:" + this.UnitsRequestedAditional.ToString(), true);
 
 
             if (Widgets.ButtonText(_RectQuarter4.RightHalf().LeftHalf(), "-"))
             {
-                this.NumberOfRequestsRemailing -= 1;
+                this.UnitsRequestedAditional -= 1;
             };
 
 
             if (Widgets.ButtonText(_RectQuarter4.RightHalf().RightHalf(), "+"))
             {
-                this.NumberOfRequestsRemailing += 1;
+                this.UnitsRequestedAditional += 1;
             };
 
             return _RectTotal;
