@@ -76,7 +76,7 @@ namespace EnhancedDevelopment.Excalibur.Core
         //-------------------------UI --------------------
 
 
-        public void DoListing(Rect rect, ref Vector2 scrollPosition, ref float viewHeight)
+        public void DoListing(Rect rect, ref Vector2 scrollPosition, ref float viewHeight, IntVec3 dropLocation = new IntVec3(), Map dropMap = null)
         {
             //Bill result = null;
             //GUI.BeginGroup(rect);
@@ -100,7 +100,7 @@ namespace EnhancedDevelopment.Excalibur.Core
             for (int i = 0; i < ThingForDeployment.Count; i++)
             {
                 ThingForDeployment _ThingForDeployment = this.ThingForDeployment[i];
-                Rect rect3 = _ThingForDeployment.DoInterface(0f, num, viewRect.width, i);
+                Rect rect3 = _ThingForDeployment.DoInterface(0f, num, viewRect.width, i, dropLocation, dropMap);
                 //if (!bill.DeletedOrDereferenced && Mouse.IsOver(rect3))
                 //{
                 //    result = bill;

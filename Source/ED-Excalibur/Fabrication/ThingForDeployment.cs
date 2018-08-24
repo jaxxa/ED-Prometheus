@@ -12,14 +12,7 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
     {
         public string defName;
 
-        //public Map DestinationMap;
-
-        //public IntVec3 DestinationPosition;
-
         public string label;
-
-        //public Building ContainedBuilding;
-        //public MinifiedThing ContainedMinifiedThing;
 
         public int WorkRemaining = 100;
 
@@ -34,33 +27,24 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
         public ThingForDeployment(string defName, string label)
         {
             this.defName = defName;
-            //this.DestinationMap = DestinationMap;
-            //this.DestinationPosition = DestinationPosition;
             this.label = label;
         }
-
-
-        public List<Thing> InitiateDrop()
+        
+        public void InitiateDrop(IntVec3 dropLocation, Map dropMap)
         {
+            if (this.UnitsAvalable >= 1)
+            {
+                Building _ContainedBuilding = (Building)ThingMaker.MakeThing(ThingDef.Named(this.defName), null);
+                MinifiedThing _ContainedMinifiedThing = _ContainedBuilding.MakeMinified();
+                List<Thing> _Things = new List<Thing>();
+                _Things.Add(_ContainedMinifiedThing);
+                this.UnitsAvalable -= 1;
 
-            Building _ContainedBuilding = (Building)ThingMaker.MakeThing(ThingDef.Named(this.defName), null);
-            MinifiedThing _ContainedMinifiedThing = _ContainedBuilding.MakeMinified();
-            List<Thing> _Things = new List<Thing>();
-            _Things.Add(_ContainedMinifiedThing);
-            return _Things;
+                DropPodUtility.DropThingsNear(dropLocation, dropMap, _Things);
+            }
         }
 
-        //protected virtual void DoConfigInterface(Rect rect, Color baseColor)
-        //{
-        //    rect.yMin += 29f;
-        //    Vector2 center = rect.center;
-        //    float y = center.y;
-        //    float num = rect.xMax - (rect.yMax - y);
-        //    Widgets.InfoCardButton(num - 12f, y - 12f, this.ContainedBuilding);
-        //}
-
-
-        public Rect DoInterface(float x, float y, float width, int index)
+        public Rect DoInterface(float x, float y, float width, int index, IntVec3 dropLocation = new IntVec3(), Map dropMap = null)
         {
 
             Rect _RectTotal = new Rect(x, y, width, 100f);
@@ -84,8 +68,19 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
             Rect _RectQuarter3 = _RectBottomHalf.TopHalf();
             Widgets.TextArea(_RectQuarter3, "RU:" + this.TotalNeededResources + " Power: " + this.TotalNeededPower, true);
 
-            Rect _RectQuarter4 = _RectBottomHalf.BottomHalf();
-            Widgets.TextArea(_RectQuarter4.LeftHalf(), "Avalable: " + this.UnitsAvalable.ToString() +  " Requested: " + this.UnitsRequestedAditional.ToString(), true);
+            Rect _RectQuarter4 = _RectBottomHalf.BottomHalf().LeftHalf();
+            Widgets.TextArea(_RectQuarter4.LeftHalf(), "Avalable: " + this.UnitsAvalable.ToString() + " Requested: " + this.UnitsRequestedAditional.ToString(), true);
+
+            Rect _RectQuarter4b = _RectBottomHalf.BottomHalf().RightHalf();
+            if (dropMap != null && 
+                this.UnitsAvalable >= 1)
+            {
+                if (Widgets.ButtonText(_RectQuarter4b, "Deploy", true, false, true))
+                {
+                    //Log.Message("Drop");
+                    this.InitiateDrop(dropLocation, dropMap);
+                }
+            }
 
             if (Widgets.ButtonText(_RectQuarter4.RightHalf().LeftHalf(), "-"))
             {

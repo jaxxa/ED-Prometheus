@@ -24,7 +24,7 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
 
         #region Fields
 
-        Vector2 m_ScrollPosition = new Vector2();
+        static Vector2 m_ScrollPosition = new Vector2();
         int _TabSelectionHeight = 30;
         int _FooterSectionHeight = 35;
 
@@ -92,7 +92,7 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
             }
             else if (this.m_CurrentTab == EnumDialogTabSelection.Buildings)
             {
-                this.DoGuiBuilding(_WindowContent);
+                Dialog_Excalibur.DoGuiBuilding(_WindowContent);
             }
 
             // Footer (System Status) -----------------------------------------
@@ -176,7 +176,7 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
             Widgets.EndScrollView();
         }
 
-        public void DoGuiBuilding(Rect rectContentWindow)
+        public static void DoGuiBuilding(Rect rectContentWindow, IntVec3 dropLocation = new IntVec3(), Map dropMap = null)
         {
             int _TitleHeaddingHeight = 20;
 
@@ -188,7 +188,7 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
 
 
             // Vector2 _WindowSize = ITab_Fabrication.WinSize;
-            //Rect _DrawingSpace = new Rect(0f, 0f, _WindowSize.x, _WindowSize.y).ContractedBy(10f);
+            // Rect _DrawingSpace = new Rect(0f, 0f, _WindowSize.x, _WindowSize.y).ContractedBy(10f);
 
             Rect _InfoBar = rectContentWindow.BottomPartPixels(25);
             Rect _MainScrollWindow = new Rect(rectContentWindow.xMin, 
@@ -198,13 +198,13 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
 
            // Widgets.ButtonText(_MainScrollWindow, "_MainScrollWindow", true, false, true);
 
-            GameComponent_Excalibur.Instance.Comp_Fabrication.DoListing(_MainScrollWindow, ref this.m_ScrollPosition, ref viewHeight);
+            GameComponent_Excalibur.Instance.Comp_Fabrication.DoListing(_MainScrollWindow, ref Dialog_Excalibur.m_ScrollPosition, ref viewHeight, dropLocation, dropMap);
 
             Widgets.TextArea(_InfoBar, "RU:" + GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.ResourceUnits) + " Power: " + GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.Power).ToString(), true);
 
         }
 
-        float viewHeight = 1000f;
+        static float viewHeight = 1000f;
 
         #endregion
 
