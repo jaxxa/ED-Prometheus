@@ -76,7 +76,7 @@ namespace EnhancedDevelopment.Excalibur.Core
         //-------------------------UI --------------------
 
 
-        public void DoListing(Rect rect, ref Vector2 scrollPosition, ref float viewHeight, IntVec3 dropLocation = new IntVec3(), Map dropMap = null)
+        public void DoListing(Rect rect, ref Vector2 scrollPosition, ref float viewHeight, bool showOnlyActiveThings, IntVec3 dropLocation = new IntVec3(), Map dropMap = null)
         {
             //Bill result = null;
             //GUI.BeginGroup(rect);
@@ -93,13 +93,20 @@ namespace EnhancedDevelopment.Excalibur.Core
             //}
             //Text.Anchor = TextAnchor.UpperLeft;
             //GUI.color = Color.white;
+
+            List<ThingForDeployment> _DisplayedThingsForDeployment = this.ThingForDeployment.Where(t => !showOnlyActiveThings || 
+                                                                                                   t.ConstructionInProgress || 
+                                                                                                   t.UnitsAvalable >= 1 || 
+                                                                                                   t.UnitsRequestedAditional >= 1).ToList();
+
+
             Rect outRect = new Rect(rect.xMin, rect.yMin, rect.width, rect.height);
             Rect viewRect = new Rect(0f, 0f, outRect.width - 16f, viewHeight);
             Widgets.BeginScrollView(outRect, ref scrollPosition, viewRect, true);
             float num = 0f;
-            for (int i = 0; i < ThingForDeployment.Count; i++)
+            for (int i = 0; i < _DisplayedThingsForDeployment.Count; i++)
             {
-                ThingForDeployment _ThingForDeployment = this.ThingForDeployment[i];
+                ThingForDeployment _ThingForDeployment = _DisplayedThingsForDeployment[i];
                 Rect rect3 = _ThingForDeployment.DoInterface(0f, num, viewRect.width, i, dropLocation, dropMap);
                 //if (!bill.DeletedOrDereferenced && Mouse.IsOver(rect3))
                 //{

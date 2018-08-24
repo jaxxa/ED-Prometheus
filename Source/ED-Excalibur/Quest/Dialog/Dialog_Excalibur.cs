@@ -92,7 +92,7 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
             }
             else if (this.m_CurrentTab == EnumDialogTabSelection.Buildings)
             {
-                Dialog_Excalibur.DoGuiBuilding(_WindowContent);
+                Dialog_Excalibur.DoGuiBuilding(_WindowContent, false);
             }
 
             // Footer (System Status) -----------------------------------------
@@ -176,7 +176,7 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
             Widgets.EndScrollView();
         }
 
-        public static void DoGuiBuilding(Rect rectContentWindow, IntVec3 dropLocation = new IntVec3(), Map dropMap = null)
+        public static void DoGuiBuilding(Rect rectContentWindow,bool showOnlyActiveThings, IntVec3 dropLocation = new IntVec3(), Map dropMap = null)
         {
             int _TitleHeaddingHeight = 20;
 
@@ -198,7 +198,7 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
 
            // Widgets.ButtonText(_MainScrollWindow, "_MainScrollWindow", true, false, true);
 
-            GameComponent_Excalibur.Instance.Comp_Fabrication.DoListing(_MainScrollWindow, ref Dialog_Excalibur.m_ScrollPosition, ref viewHeight, dropLocation, dropMap);
+            GameComponent_Excalibur.Instance.Comp_Fabrication.DoListing(_MainScrollWindow, ref Dialog_Excalibur.m_ScrollPosition, ref viewHeight, showOnlyActiveThings, dropLocation, dropMap);
 
             Widgets.TextArea(_InfoBar, "RU:" + GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.ResourceUnits) + " Power: " + GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.Power).ToString(), true);
 
