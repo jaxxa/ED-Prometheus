@@ -68,21 +68,20 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
             Rect _RectQuarter3 = _RectBottomHalf.TopHalf();
             Widgets.TextArea(_RectQuarter3, "RU:" + this.TotalNeededResources + " Power: " + this.TotalNeededPower, true);
 
-            Rect _RectQuarter4 = _RectBottomHalf.BottomHalf().LeftHalf();
+            Rect _RectQuarter4 = _RectBottomHalf.BottomHalf();
             Widgets.TextArea(_RectQuarter4.LeftHalf(), "Avalable: " + this.UnitsAvalable.ToString() + " Requested: " + this.UnitsRequestedAditional.ToString(), true);
-
-            Rect _RectQuarter4b = _RectBottomHalf.BottomHalf().RightHalf();
+            
             if (dropMap != null && 
                 this.UnitsAvalable >= 1)
             {
-                if (Widgets.ButtonText(_RectQuarter4b, "Deploy", true, false, true))
+                if (Widgets.ButtonText(_RectQuarter4.RightHalf().RightHalf(), "Deploy", true, false, true))
                 {
                     //Log.Message("Drop");
                     this.InitiateDrop(dropLocation, dropMap);
                 }
             }
 
-            if (Widgets.ButtonText(_RectQuarter4.RightHalf().LeftHalf(), "-"))
+            if (Widgets.ButtonText(_RectQuarter4.RightHalf().LeftHalf().LeftHalf(), "-"))
             {
                 if (this.UnitsRequestedAditional > 0)
                 {
@@ -90,7 +89,7 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
                 }
             };
 
-            if (Widgets.ButtonText(_RectQuarter4.RightHalf().RightHalf(), "+"))
+            if (Widgets.ButtonText(_RectQuarter4.RightHalf().LeftHalf().RightHalf(), "+"))
             {
                 this.UnitsRequestedAditional += 1;
             };
