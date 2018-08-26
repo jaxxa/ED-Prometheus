@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using EnhancedDevelopment.Excalibur.Core;
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -105,6 +106,15 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
             return _RectTotal;
 
 
+        }
+
+        public void AfterCompletion()
+        {
+            if (this.defName == "OmniGel")
+            {
+                GameComponent_Excalibur.Instance.Comp_Quest.ResourceAddToReserves(GameComponent_Excalibur_Quest.EnumResourceType.NanoMaterials, this.UnitsAvalable);
+                this.UnitsAvalable = 0;
+            }
         }
     }
 }

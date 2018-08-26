@@ -41,6 +41,7 @@ namespace EnhancedDevelopment.Excalibur.Core
                     _CurrentlyUnderConstruction.ConstructionInProgress = false;
                     _CurrentlyUnderConstruction.UnitsAvalable++;
                     _CurrentlyUnderConstruction.WorkRemaining = _CurrentlyUnderConstruction.TotalNeededWork;
+                    _CurrentlyUnderConstruction.AfterCompletion();
                 }
 
             }
