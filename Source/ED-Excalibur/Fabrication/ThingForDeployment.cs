@@ -110,7 +110,7 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
 
         public void AfterCompletion()
         {
-            if (this.defName == "OmniGel")
+            if (this.defName == "NanoMaterial")
             {
                 GameComponent_Excalibur.Instance.Comp_Quest.ResourceAddToReserves(GameComponent_Excalibur_Quest.EnumResourceType.NanoMaterials, this.UnitsAvalable);
                 this.UnitsAvalable = 0;

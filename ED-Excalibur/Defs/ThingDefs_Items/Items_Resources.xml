@@ -25,14 +25,6 @@
 		<thingCategories>
 			<li>ResourcesRaw</li>
 		</thingCategories>
-		<comps>
-			<li Class="EnhancedDevelopment.Excalibur.Fabrication.CompProperties_Fabricated">
-				<RequiredPower>1</RequiredPower>
-				<RequiredMaterials>1</RequiredMaterials>
-				<RequiredWork>90</RequiredWork>
-			</li>
-
-		</comps>
 	</ThingDef>
 
 	<ThingDef ParentName="ResourceBase">
@@ -61,5 +53,37 @@
 		</thingCategories>
 	</ThingDef>
 
+	<ThingDef ParentName="ResourceBase">
+		<thingClass>EnhancedDevelopment.Excalibur.Fabrication.ResourceUnit</thingClass>
+		<defName>NanoMaterial</defName>
+		<label>Nano Materials</label>
+		<description>Used in bring ship systems online.</description>
+		<graphicData>
+			<texPath>Things/Items/PurpleBucket</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<tickerType>Long</tickerType>
+		<statBases>
+			<MaxHitPoints>60</MaxHitPoints>
+			<MarketValue>0</MarketValue>
+			<Mass>0.5</Mass>
+			<Flammability>0.7</Flammability>
+			<DeteriorationRate>2.0</DeteriorationRate>
+		</statBases>
+		<soundInteract>Metal_Drop</soundInteract>
+		<soundDrop>Metal_Drop</soundDrop>
+		<stackLimit>500</stackLimit>
+		<tradeability>None</tradeability>
+		<thingCategories>
+			<li>ResourcesRaw</li>
+		</thingCategories>
+		<comps>
+			<li Class="EnhancedDevelopment.Excalibur.Fabrication.CompProperties_Fabricated">
+				<RequiredPower>1</RequiredPower>
+				<RequiredMaterials>1</RequiredMaterials>
+				<RequiredWork>90</RequiredWork>
+			</li>
+		</comps>
+	</ThingDef>
 
 </Defs>
