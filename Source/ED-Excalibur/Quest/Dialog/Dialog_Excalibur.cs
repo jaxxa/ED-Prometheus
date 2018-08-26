@@ -26,7 +26,7 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
 
         static Vector2 m_ScrollPosition = new Vector2();
         int _TabSelectionHeight = 30;
-        int _FooterSectionHeight = 35;
+        int _FooterSectionHeight = 60;
 
         private EnumDialogTabSelection m_CurrentTab = EnumDialogTabSelection.Buildings;
 
@@ -128,20 +128,27 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
 
         public void DoGuiFooter(Rect rectContentWindow)
         {
+
+            Rect _TopHalf = rectContentWindow.TopHalf();
+            Rect _BottomHalf = rectContentWindow.BottomHalf();
+
             Widgets.DrawLineHorizontal(rectContentWindow.xMin, rectContentWindow.yMin, rectContentWindow.width);
 
-            Widgets.TextArea(rectContentWindow.LeftHalf().LeftHalf(), "Nano Materials: " + Core.GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(Core.GameComponent_Excalibur_Quest.EnumResourceType.NanoMaterials).ToString() + " / " + Core.GameComponent_Excalibur.Instance.Comp_Quest.NanoMaterialsTarget.ToString(), true);
+            Widgets.TextArea(_TopHalf.LeftHalf().LeftHalf(), "Nano Materials: " + Core.GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(Core.GameComponent_Excalibur_Quest.EnumResourceType.NanoMaterials).ToString() + " / " + Core.GameComponent_Excalibur.Instance.Comp_Quest.NanoMaterialsTarget.ToString(), true);
 
 
             Listing_Standard _listing_Standard_ShieldChargeLevelMax = new Listing_Standard();
-            _listing_Standard_ShieldChargeLevelMax.Begin(rectContentWindow.LeftHalf().RightHalf());
+            _listing_Standard_ShieldChargeLevelMax.Begin(_TopHalf.LeftHalf().RightHalf());
             _listing_Standard_ShieldChargeLevelMax.ColumnWidth = 70;
-            _listing_Standard_ShieldChargeLevelMax.IntAdjuster(ref Core.GameComponent_Excalibur.Instance.Comp_Quest.NanoMaterialsTarget, 1, 1);
+            _listing_Standard_ShieldChargeLevelMax.IntAdjuster(ref Core.GameComponent_Excalibur.Instance.Comp_Quest.NanoMaterialsTarget, 1, 0);
             _listing_Standard_ShieldChargeLevelMax.NewColumn();
-            _listing_Standard_ShieldChargeLevelMax.IntAdjuster(ref Core.GameComponent_Excalibur.Instance.Comp_Quest.NanoMaterialsTarget, 10, 1);
+            _listing_Standard_ShieldChargeLevelMax.IntAdjuster(ref Core.GameComponent_Excalibur.Instance.Comp_Quest.NanoMaterialsTarget, 10, 0);
             _listing_Standard_ShieldChargeLevelMax.NewColumn();
             _listing_Standard_ShieldChargeLevelMax.IntSetter(ref Core.GameComponent_Excalibur.Instance.Comp_Quest.NanoMaterialsTarget, 10, "Default");
             _listing_Standard_ShieldChargeLevelMax.End();
+
+            Widgets.TextArea(_BottomHalf, "RU:" + GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.ResourceUnits) + " Power: " + GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.Power).ToString(), true);
+
         }
 
         public void DoGuiSystemStatus(Rect rectContentWindow)
@@ -182,7 +189,7 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
 
             Core.GameComponent_Excalibur.Instance.Comp_Fabrication.AddNewBuildingsUnderConstruction();
             
-            Widgets.TextArea(rectContentWindow.TopPartPixels(_TitleHeaddingHeight), "Building: " + Core.GameComponent_Excalibur.Instance.Comp_Fabrication.ThingForDeployment.Count.ToString(), true);
+            //Widgets.TextArea(rectContentWindow.TopPartPixels(_TitleHeaddingHeight), "Building: " + Core.GameComponent_Excalibur.Instance.Comp_Fabrication.ThingForDeployment.Count.ToString(), true);
 
             // Widgets.ButtonText(windowContent, "_WindowContent", true, false, true);
 
@@ -200,7 +207,7 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
 
             GameComponent_Excalibur.Instance.Comp_Fabrication.DoListing(_MainScrollWindow, ref Dialog_Excalibur.m_ScrollPosition, ref viewHeight, showOnlyActiveThings, dropLocation, dropMap);
 
-            Widgets.TextArea(_InfoBar, "RU:" + GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.ResourceUnits) + " Power: " + GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.Power).ToString(), true);
+            //Widgets.TextArea(_InfoBar, "RU:" + GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.ResourceUnits) + " Power: " + GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.Power).ToString(), true);
 
         }
 
