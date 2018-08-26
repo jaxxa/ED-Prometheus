@@ -1,7 +1,8 @@
 # ED-Excalibur
 
 1.0.0.5
- * Rework of Ship Systems Unlocking Research.
+ * Rework of Ship Systems / Unlocking Research.
+ * Rework of Building Construction and Deployment.
 
 1.0.0.4
  * Updating Build Target.
@@ -20,3 +21,4 @@
 
 1.0.0.0
  * Initial Release.
+ 
