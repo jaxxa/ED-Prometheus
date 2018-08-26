@@ -34,10 +34,18 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
         {
             if (this.UnitsAvalable >= 1)
             {
-                Building _ContainedBuilding = (Building)ThingMaker.MakeThing(ThingDef.Named(this.defName), null);
-                MinifiedThing _ContainedMinifiedThing = _ContainedBuilding.MakeMinified();
+                Thing _ContainedThing = (Thing)ThingMaker.MakeThing(ThingDef.Named(this.defName), null);
+                MinifiedThing _ContainedMinifiedThing = _ContainedThing.MakeMinified();
                 List<Thing> _Things = new List<Thing>();
-                _Things.Add(_ContainedMinifiedThing);
+
+                if (_ContainedMinifiedThing != null)
+                {
+                    _Things.Add(_ContainedMinifiedThing);
+                }
+                else
+                {
+                    _Things.Add(_ContainedThing);
+                }
                 this.UnitsAvalable -= 1;
 
                 DropPodUtility.DropThingsNear(dropLocation, dropMap, _Things);
