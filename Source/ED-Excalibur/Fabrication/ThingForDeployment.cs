@@ -94,13 +94,17 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
             {
                 if (this.UnitsRequestedAditional > 0)
                 {
-                    this.UnitsRequestedAditional -= 1;
+                    this.UnitsRequestedAditional -= 1 * GenUI.CurrentAdjustmentMultiplier();
+                }
+                if (this.UnitsRequestedAditional < 0)
+                {
+                    this.UnitsRequestedAditional = 0;
                 }
             };
 
             if (Widgets.ButtonText(_RectQuarter4.RightHalf().LeftHalf().RightHalf(), "+"))
             {
-                this.UnitsRequestedAditional += 1;
+                this.UnitsRequestedAditional += 1 * GenUI.CurrentAdjustmentMultiplier();
             };
 
             return _RectTotal;

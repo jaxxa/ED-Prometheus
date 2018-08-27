@@ -142,23 +142,5 @@ namespace EnhancedDevelopment.Excalibur.Quest
 
         }
 
-        //public bool CanPriorityRepair()
-        //{
-        //    if (this.m_SystemStatus >= this.GetMaxSystemStatus()) { return false; }
-        //    if (!this.m_PriorityRepair) { return false; }
-        //    if (this.PowerForRepair() > Core.GameComponent_Excalibur.Instance.Comp_Quest.GetReservePowerAsInt()) { return false; }
-        //    if (this.ResourceUnitsForRepair() > Core.GameComponent_Excalibur.Instance.Comp_Quest.GetReserveMaterials()) { return false; }
-
-        //    return true;
-        //}
-
-        //public void ProgressRepair()
-        //{
-        //    Core.GameComponent_Excalibur.Instance.Comp_Quest.RequestReservePower(this.PowerForRepair());
-        //    Core.GameComponent_Excalibur.Instance.Comp_Quest.RequestReserveMaterials(this.ResourceUnitsForRepair());
-        //    Core.GameComponent_Excalibur.Instance.Comp_Quest.UpdateAllResearch();
-        //    this.m_SystemStatus += 1;
-        //}
-
     }
 }
