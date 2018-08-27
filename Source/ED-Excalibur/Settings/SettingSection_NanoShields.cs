@@ -9,7 +9,7 @@ namespace EnhancedDevelopment.Excalibur.Settings
 {
     class SettingSection_NanoShields : SettingSection
     {
-        public int ShieldChargeLevelMax;
+        public int ShieldChargeLevelMax = 200;
 
         public int BuildingChargeDelay = 30;
         public int BuildingChargeAmount = 1;
