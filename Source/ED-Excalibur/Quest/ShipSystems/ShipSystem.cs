@@ -21,7 +21,7 @@ namespace EnhancedDevelopment.Excalibur.Quest
 
         public virtual int NanoMaterialNeededForUpgrade()
         {
-            return 5 * this.CurrentLevel;
+            return 5 * (this.CurrentLevel + 1);
         }
 
         public abstract int GetMaxLevel();
@@ -68,8 +68,7 @@ namespace EnhancedDevelopment.Excalibur.Quest
         {
             Scribe_Values.Look<int>(ref this.CurrentLevel, "ShipSystem_" + this.TechnicalName() + "_CurrentLevel");
         }
-
-
+        
         public Rect DoInterface(float x, float y, float width, int index)
         {
             //Log.Message("Interface");
