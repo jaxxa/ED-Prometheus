@@ -134,18 +134,7 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
 
             Widgets.DrawLineHorizontal(rectContentWindow.xMin, rectContentWindow.yMin, rectContentWindow.width);
 
-            Widgets.TextArea(_TopHalf.LeftHalf().LeftHalf(), "Nano Materials: " + Core.GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(Core.GameComponent_Excalibur_Quest.EnumResourceType.NanoMaterials).ToString() + " / " + Core.GameComponent_Excalibur.Instance.Comp_Quest.NanoMaterialsTarget.ToString(), true);
-
-
-            Listing_Standard _listing_Standard_ShieldChargeLevelMax = new Listing_Standard();
-            _listing_Standard_ShieldChargeLevelMax.Begin(_TopHalf.LeftHalf().RightHalf());
-            _listing_Standard_ShieldChargeLevelMax.ColumnWidth = 70;
-            _listing_Standard_ShieldChargeLevelMax.IntAdjuster(ref Core.GameComponent_Excalibur.Instance.Comp_Quest.NanoMaterialsTarget, 1, 0);
-            _listing_Standard_ShieldChargeLevelMax.NewColumn();
-            _listing_Standard_ShieldChargeLevelMax.IntAdjuster(ref Core.GameComponent_Excalibur.Instance.Comp_Quest.NanoMaterialsTarget, 10, 0);
-            _listing_Standard_ShieldChargeLevelMax.NewColumn();
-            _listing_Standard_ShieldChargeLevelMax.IntSetter(ref Core.GameComponent_Excalibur.Instance.Comp_Quest.NanoMaterialsTarget, 10, "Default");
-            _listing_Standard_ShieldChargeLevelMax.End();
+            Widgets.TextArea(_TopHalf.LeftHalf().LeftHalf(), "Nano Materials: " + Core.GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(Core.GameComponent_Excalibur_Quest.EnumResourceType.NanoMaterials).ToString(), true);
 
             Widgets.TextArea(_BottomHalf, "RU:" + GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.ResourceUnits) + " Power: " + GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.Power).ToString(), true);
 

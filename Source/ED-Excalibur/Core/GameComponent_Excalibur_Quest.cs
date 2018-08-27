@@ -93,19 +93,6 @@ namespace EnhancedDevelopment.Excalibur.Core
                         this.ContactExcalibur();
                     }
                     break;
-                case 7:
-
-                    int _NanoMaterialPowerRequiredToBuild = 100;
-                    int _NanoMaterialResourceUnitsRequiredToBuild = 10;
-
-                    if (this.ResourceGetReserveStatus(EnumResourceType.NanoMaterials) < this.NanoMaterialsTarget && this.ResourceGetReserveStatus(EnumResourceType.Power) >= _NanoMaterialPowerRequiredToBuild && this.ResourceGetReserveStatus(EnumResourceType.ResourceUnits) >= _NanoMaterialResourceUnitsRequiredToBuild)
-                    {
-                        this.ResourceAddToReserves(EnumResourceType.NanoMaterials, 100);
-                        this.ResourceRequestReserve(EnumResourceType.Power, _NanoMaterialPowerRequiredToBuild);
-                        this.ResourceRequestReserve(EnumResourceType.ResourceUnits, _NanoMaterialResourceUnitsRequiredToBuild);
-                    }
-
-                    break;
                 default:
 
                     break;
@@ -188,12 +175,6 @@ namespace EnhancedDevelopment.Excalibur.Core
             }
         }
   
-
-        //Nano Materials
-        
-        public int NanoMaterialsTarget = 100;
-
-
         #endregion //Resourcing
 
         #region Tagging RU
