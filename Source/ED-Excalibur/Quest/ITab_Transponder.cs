@@ -13,15 +13,6 @@ namespace EnhancedDevelopment.Excalibur.Quest
     class ITab_Transponder : ITab
     {
 
-        //private Comp_ShieldGenerator _CachedComp;
-
-        //public ITab_ShieldGenerator() : base()
-        //{
-        //    _CachedComp = 
-
-        //}
-
-
         private static readonly Vector2 WinSize = new Vector2(500f, 400f);
 
         private Comp_EDSNTransponder SelectedCompTransponder
@@ -64,19 +55,6 @@ namespace EnhancedDevelopment.Excalibur.Quest
             float x = winSize.x;
             Vector2 winSize2 = ITab_Transponder.WinSize;
             Rect rect = new Rect(0f, 0f, x, winSize2.y).ContractedBy(10f);
-            //Rect rect2 = rect;
-            //Text.Font = GameFont.Medium;
-            //Widgets.Label(rect2, "Shield Generator Label Rec2");
-            //if (ITab_Art.cachedImageSource != this.SelectedCompArt || ITab_Art.cachedTaleRef != this.SelectedCompArt.TaleRef)
-            //{
-            //    ITab_Art.cachedImageDescription = this.SelectedCompArt.GenerateImageDescription();
-            //    ITab_Art.cachedImageSource = this.SelectedCompArt;
-            //    ITab_Art.cachedTaleRef = this.SelectedCompArt.TaleRef;
-            //}
-            //Rect rect3 = rect;
-            //rect3.yMin += 35f;
-            //Text.Font = GameFont.Small;
-            //Widgets.Label(rect3, "ShieldGenerator Rec3");
 
             Listing_Standard _Listing_Standard = new Listing_Standard();
             _Listing_Standard.ColumnWidth = 250f;
@@ -88,24 +66,6 @@ namespace EnhancedDevelopment.Excalibur.Quest
             _Listing_Standard.Label("Nano Materials: " + GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.NanoMaterials).ToString());
 
             _Listing_Standard.Gap(12f);
-
-            //if (_Listing_Standard.ButtonText("Deploy Power Relay", "Hightlight"))
-            //{
-            //    GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(7);
-            //    GameComponent_Excalibur.Instance.Comp_Fabrication.OrderBuilding("QuantumPowerRelay", this.SelectedCompTransponder.parent.Position, this.SelectedCompTransponder.parent.Map);
-            //}
-
-            //if (_Listing_Standard.ButtonText("Deploy Shield Charger", "Hightlight"))
-            //{
-            //    GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(7);
-            //    GameComponent_Excalibur.Instance.Comp_Fabrication.OrderBuilding("Building_Shield_Charger", this.SelectedCompTransponder.parent.Position, this.SelectedCompTransponder.parent.Map);
-            //}
-
-            //if (_Listing_Standard.ButtonText("Deploy Shield Generator", "Hightlight"))
-            //{
-            //    GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(7);
-            //    GameComponent_Excalibur.Instance.Comp_Fabrication.OrderBuilding("Building_ShieldStandard", this.SelectedCompTransponder.parent.Position, this.SelectedCompTransponder.parent.Map);
-            //}
 
             _Listing_Standard.End();
         }
