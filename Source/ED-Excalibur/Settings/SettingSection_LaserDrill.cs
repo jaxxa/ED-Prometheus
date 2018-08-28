@@ -10,9 +10,12 @@ namespace EnhancedDevelopment.Excalibur.Settings
     class SettingSection_LaserDrill : SettingSection
     {
 
+        private const int DEFAULT_REQUIRED_DRILL_WORK = 500;
+        private const int DEFAULT_REQUIRED_FILL_WORK = 500;
+
         //Fields
-        public int RequiredDrillWork = 500;
-        public int RequiredFillWork = 500;
+        public int RequiredDrillWork = SettingSection_LaserDrill.DEFAULT_REQUIRED_DRILL_WORK;
+        public int RequiredFillWork = SettingSection_LaserDrill.DEFAULT_REQUIRED_FILL_WORK;
         public bool AllowSimultaneousDrilling = false;
 
 
@@ -33,7 +36,7 @@ namespace EnhancedDevelopment.Excalibur.Settings
             _listing_Standard_RequiredDrillWork.NewColumn();
             _listing_Standard_RequiredDrillWork.IntAdjuster(ref RequiredDrillWork, 100, 100);
             _listing_Standard_RequiredDrillWork.NewColumn();
-            _listing_Standard_RequiredDrillWork.IntSetter(ref RequiredDrillWork, 500, "Default");
+            _listing_Standard_RequiredDrillWork.IntSetter(ref RequiredDrillWork, SettingSection_LaserDrill.DEFAULT_REQUIRED_DRILL_WORK, "Default");
             _listing_Standard_RequiredDrillWork.End();
 
             listing_Standard.GapLine(12f);
@@ -47,7 +50,7 @@ namespace EnhancedDevelopment.Excalibur.Settings
             _listing_Standard_RequiredFillWork.NewColumn();
             _listing_Standard_RequiredFillWork.IntAdjuster(ref RequiredFillWork, 100, 100);
             _listing_Standard_RequiredFillWork.NewColumn();
-            _listing_Standard_RequiredFillWork.IntSetter(ref RequiredFillWork, 500, "Default");
+            _listing_Standard_RequiredFillWork.IntSetter(ref RequiredFillWork, SettingSection_LaserDrill.DEFAULT_REQUIRED_FILL_WORK, "Default");
             _listing_Standard_RequiredFillWork.End();
 
             listing_Standard.GapLine(12f);
@@ -63,8 +66,8 @@ namespace EnhancedDevelopment.Excalibur.Settings
 
         public override void ExposeData()
         {
-            Scribe_Values.Look<int>(ref RequiredDrillWork, "RequiredDrillWork", 500);
-            Scribe_Values.Look<int>(ref RequiredFillWork, "RequiredFillWork", 500);
+            Scribe_Values.Look<int>(ref RequiredDrillWork, "RequiredDrillWork", SettingSection_LaserDrill.DEFAULT_REQUIRED_DRILL_WORK);
+            Scribe_Values.Look<int>(ref RequiredFillWork, "RequiredFillWork", SettingSection_LaserDrill.DEFAULT_REQUIRED_FILL_WORK);
             Scribe_Values.Look<bool>(ref AllowSimultaneousDrilling, "AllowSimultaneousDrilling", false);
         }
 

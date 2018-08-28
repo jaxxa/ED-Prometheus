@@ -16,8 +16,8 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
 
         #region Variables
         //--Saved
-        public bool QuantumShieldActive = false;
-        public int QuantumShieldChargeLevelCurrent = 200;
+        public bool NanoShieldActive = false;
+        public int NanoShieldChargeLevelCurrent = 200;
 
         //--Not Saved
         private int KeepDisplayingTicks = 1000;
@@ -31,9 +31,9 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
 
         public override string GetDescriptionPart()
         {
-            if (this.QuantumShieldActive)
+            if (this.NanoShieldActive)
             {
-                return "Quantum Shield:" + QuantumShieldChargeLevelCurrent + " / " + Mod_EDExcalibur.Settings.NanoShields.ShieldChargeLevelMax +
+                return "Nano Shield:" + NanoShieldChargeLevelCurrent + " / " + Mod_EDExcalibur.Settings.NanoShields.NanoShieldChargeLevelMax +
                         Environment.NewLine + base.GetDescriptionPart();
             }
             return base.GetDescriptionPart();
@@ -57,7 +57,7 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
                 yield break;
             }
 
-            if (this.QuantumShieldActive)
+            if (this.NanoShieldActive)
             {
                 Gizmo_NanoShieldStatus opt1 = new Gizmo_NanoShieldStatus(this);
                 yield return opt1;
@@ -69,14 +69,14 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
             base.PostPreApplyDamage(dinfo, out absorbed);
 
             //If the shield is not Active or it was alreadt absorbed or it is out of charge, return
-            if (!QuantumShieldActive || absorbed || this.QuantumShieldChargeLevelCurrent <= 0)
+            if (!NanoShieldActive || absorbed || this.NanoShieldChargeLevelCurrent <= 0)
             {
                 return;
             }
 
             //TODO Filter on Damage Type
 
-            this.QuantumShieldChargeLevelCurrent -= (int)dinfo.Amount;
+            this.NanoShieldChargeLevelCurrent -= (int)dinfo.Amount;
 
             absorbed = true;
 
@@ -105,7 +105,7 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
         {
             base.PostDraw();
 
-            if (this.QuantumShieldActive && this.ShouldDisplay)
+            if (this.NanoShieldActive && this.ShouldDisplay)
             {
                 float num1 = Mathf.Lerp(1.2f, 1.55f, 100f);
                 Vector3 drawPos = this.parent.DrawPos;
@@ -127,8 +127,8 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
         public override void PostExposeData()
         {
             base.PostExposeData();
-            Scribe_Values.Look(ref QuantumShieldActive, "QuantumShieldActive");
-            Scribe_Values.Look(ref QuantumShieldChargeLevelCurrent, "QuantumShieldChargeLevelCurrent");
+            Scribe_Values.Look(ref NanoShieldActive, "NanoShieldActive");
+            Scribe_Values.Look(ref NanoShieldChargeLevelCurrent, "NanoShieldChargeLevelCurrent");
         }
         #endregion
 
@@ -144,7 +144,7 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
         {
             get
             {
-                if (!QuantumShieldActive)
+                if (!NanoShieldActive)
                 {
                     return false;
                 }
@@ -153,7 +153,7 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
 
                 if (wearer != null && wearer.Spawned && !wearer.Dead && !wearer.Downed)
                 {
-                    if (this.QuantumShieldChargeLevelCurrent <= 0)
+                    if (this.NanoShieldChargeLevelCurrent <= 0)
                     {
                         return false;
                     }
@@ -181,21 +181,21 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
 
         public int RechargeShield(int chargeAvalable)
         {
-            if (!this.QuantumShieldActive || this.QuantumShieldChargeLevelCurrent >= Mod_EDExcalibur.Settings.NanoShields.ShieldChargeLevelMax)
+            if (!this.NanoShieldActive || this.NanoShieldChargeLevelCurrent >= Mod_EDExcalibur.Settings.NanoShields.NanoShieldChargeLevelMax)
             {
                 return 0;
             }
 
-            this.QuantumShieldChargeLevelCurrent += chargeAvalable;
+            this.NanoShieldChargeLevelCurrent += chargeAvalable;
 
-            if (this.QuantumShieldChargeLevelCurrent <= Mod_EDExcalibur.Settings.NanoShields.ShieldChargeLevelMax)
+            if (this.NanoShieldChargeLevelCurrent <= Mod_EDExcalibur.Settings.NanoShields.NanoShieldChargeLevelMax)
             {
                 return chargeAvalable;
             }
             else
             {
-                int _Overcharge = this.QuantumShieldChargeLevelCurrent - Mod_EDExcalibur.Settings.NanoShields.ShieldChargeLevelMax;
-                this.QuantumShieldChargeLevelCurrent -= _Overcharge;
+                int _Overcharge = this.NanoShieldChargeLevelCurrent - Mod_EDExcalibur.Settings.NanoShields.NanoShieldChargeLevelMax;
+                this.NanoShieldChargeLevelCurrent -= _Overcharge;
                 return chargeAvalable - _Overcharge;
             }
         }

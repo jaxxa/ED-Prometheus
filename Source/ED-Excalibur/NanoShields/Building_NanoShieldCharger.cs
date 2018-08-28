@@ -65,7 +65,7 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
 
             int currentTick = Find.TickManager.TicksGame;
             //Only every 10 ticks
-            if (currentTick % Mod_EDExcalibur.Settings.NanoShields.BuildingChargeDelay != 0)
+            if (currentTick % Mod_EDExcalibur.Settings.NanoShields.NanoShieldBuildingChargeDelay != 0)
             {
                 return;
             }
@@ -73,10 +73,10 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
             {
                 if (this.flag_charge)
                 {
-                    this.rechargePawns(Mod_EDExcalibur.Settings.NanoShields.BuildingChargeAmount);
+                    this.rechargePawns(Mod_EDExcalibur.Settings.NanoShields.NanoShieldBuildingChargeAmount);
                 }
 
-                if (this.ReservePowerCurrent < Mod_EDExcalibur.Settings.NanoShields.BuildingReservePowerMax)
+                if (this.ReservePowerCurrent < Mod_EDExcalibur.Settings.NanoShields.NanoShieldBuildingReservePowerMax)
                 {
                     this.ReservePowerCurrent += 1;
                 }
@@ -181,9 +181,9 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
             foreach (CompNanoShield _ShieldComp in this.ShieldCompsInRangeAndOfFaction())
             {
                 Log.Message("Adding");
-                if (!_ShieldComp.QuantumShieldActive)
+                if (!_ShieldComp.NanoShieldActive)
                 {
-                    _ShieldComp.QuantumShieldActive = true;
+                    _ShieldComp.NanoShieldActive = true;
                     _AnyUpgraded = true;
                 }
             }
@@ -202,7 +202,7 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
 
             foreach (CompNanoShield _ShieldComp in this.ShieldCompsInRangeAndOfFaction())
             {
-                if (_ShieldComp.QuantumShieldActive)
+                if (_ShieldComp.NanoShieldActive)
                 {
                     _RemainingCharge -= _ShieldComp.RechargeShield(_RemainingCharge);
                 }
@@ -215,7 +215,7 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
         public override string GetInspectString()
         {
 
-            return "Reserve = " + this.ReservePowerCurrent + " / " + Mod_EDExcalibur.Settings.NanoShields.BuildingReservePowerMax + " - " + GameComponent_Excalibur.Instance.Comp_Shields.GetInspectStringStatus() + Environment.NewLine + base.GetInspectString();
+            return "Reserve = " + this.ReservePowerCurrent + " / " + Mod_EDExcalibur.Settings.NanoShields.NanoShieldBuildingReservePowerMax + " - " + GameComponent_Excalibur.Instance.Comp_Shields.GetInspectStringStatus() + Environment.NewLine + base.GetInspectString();
         }
 
     }
