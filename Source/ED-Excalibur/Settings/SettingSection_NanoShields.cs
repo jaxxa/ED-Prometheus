@@ -29,7 +29,7 @@ namespace EnhancedDevelopment.Excalibur.Settings
 
             //ShieldChargeLevelMax
             listing_Standard.GapLine(12f);
-            listing_Standard.Label("ShieldChargeLevelMax (Default 200):" + this.NanoShieldChargeLevelMax.ToString());
+            listing_Standard.Label("ShieldChargeLevelMax (Default " + SettingSection_NanoShields.DEFAULT_NANO_SHIELD_CHARGE_LEVEL_MAX.ToString() + "):" + this.NanoShieldChargeLevelMax.ToString());
             listing_Standard.Gap(12f);
             Listing_Standard _listing_Standard_ShieldChargeLevelMax = new Listing_Standard();
             _listing_Standard_ShieldChargeLevelMax.Begin(listing_Standard.GetRect(30f));
@@ -43,7 +43,7 @@ namespace EnhancedDevelopment.Excalibur.Settings
 
             //BuildingChargeDelay
             listing_Standard.GapLine(12f);
-            listing_Standard.Label("BuildingChargeDelay (Default 30, measuered in Ticks):" + this.NanoShieldBuildingChargeDelay.ToString());
+            listing_Standard.Label("BuildingChargeDelay (Default " + SettingSection_NanoShields.DEFAULT_NANO_SHIELD_BUILDING_CHARGE_DELAY .ToString() + "measuered in Ticks):" + this.NanoShieldBuildingChargeDelay.ToString());
             listing_Standard.Gap(12f);
             Listing_Standard _listing_Standard_BuildingChargeDelay = new Listing_Standard();
             _listing_Standard_BuildingChargeDelay.Begin(listing_Standard.GetRect(30f));
@@ -57,7 +57,7 @@ namespace EnhancedDevelopment.Excalibur.Settings
 
             //BuildingChargeAmount
             listing_Standard.GapLine(12f);
-            listing_Standard.Label("BuildingChargeAmount (Default 1):" + this.NanoShieldBuildingChargeAmount.ToString());
+            listing_Standard.Label("BuildingChargeAmount (Default " + SettingSection_NanoShields.DEFAULT_NANO_SHIELD_BUILDING_CHARGE_AMOUNT.ToString() + "):" + this.NanoShieldBuildingChargeAmount.ToString());
             listing_Standard.Gap(12f);
             Listing_Standard _listing_Standard_BuildingChargeAmount = new Listing_Standard();
             _listing_Standard_BuildingChargeAmount.Begin(listing_Standard.GetRect(30f));
@@ -70,7 +70,7 @@ namespace EnhancedDevelopment.Excalibur.Settings
             _listing_Standard_BuildingChargeAmount.End();
 
             listing_Standard.GapLine(12f);
-            listing_Standard.Label("BuildingReservePowerMax (Default 400):" + this.NanoShieldBuildingReservePowerMax.ToString());
+            listing_Standard.Label("BuildingReservePowerMax (Default " + SettingSection_NanoShields.DEFAULT_NANO_SHIELD_BUILDING_RESERVE_POWER_MAX.ToString() + "):" + this.NanoShieldBuildingReservePowerMax.ToString());
             listing_Standard.Gap(12f);
             // listing_Standard.IntAdjuster(ref BuildingReservePowerMax, 10, 10);
             Listing_Standard _listing_Standard_BuildingReservePowerMax = new Listing_Standard();
