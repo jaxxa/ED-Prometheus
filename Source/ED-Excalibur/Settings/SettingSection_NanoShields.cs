@@ -87,10 +87,10 @@ namespace EnhancedDevelopment.Excalibur.Settings
 
         public override void ExposeData()
         {
-            Scribe_Values.Look(ref this.NanoShieldChargeLevelMax, "ShieldChargeLevelMax", SettingSection_NanoShields.DEFAULT_NANO_SHIELD_CHARGE_LEVEL_MAX);
-            Scribe_Values.Look(ref this.NanoShieldBuildingChargeDelay, "BuildingChargeDelay", SettingSection_NanoShields.DEFAULT_NANO_SHIELD_BUILDING_CHARGE_DELAY);
-            Scribe_Values.Look(ref this.NanoShieldBuildingChargeAmount, "BuildingChargeAmount", SettingSection_NanoShields.DEFAULT_NANO_SHIELD_BUILDING_CHARGE_AMOUNT);
-            Scribe_Values.Look(ref this.NanoShieldBuildingReservePowerMax, "BuildingReservePowerMax", SettingSection_NanoShields.DEFAULT_NANO_SHIELD_BUILDING_RESERVE_POWER_MAX);
+            Scribe_Values.Look(ref this.NanoShieldChargeLevelMax, "NanoShieldChargeLevelMax", SettingSection_NanoShields.DEFAULT_NANO_SHIELD_CHARGE_LEVEL_MAX);
+            Scribe_Values.Look(ref this.NanoShieldBuildingChargeDelay, "NanoShieldBuildingChargeDelay", SettingSection_NanoShields.DEFAULT_NANO_SHIELD_BUILDING_CHARGE_DELAY);
+            Scribe_Values.Look(ref this.NanoShieldBuildingChargeAmount, "NanoShieldBuildingChargeAmount", SettingSection_NanoShields.DEFAULT_NANO_SHIELD_BUILDING_CHARGE_AMOUNT);
+            Scribe_Values.Look(ref this.NanoShieldBuildingReservePowerMax, "NanoShieldBuildingReservePowerMax", SettingSection_NanoShields.DEFAULT_NANO_SHIELD_BUILDING_RESERVE_POWER_MAX);
         }
 
         public override string Name()
