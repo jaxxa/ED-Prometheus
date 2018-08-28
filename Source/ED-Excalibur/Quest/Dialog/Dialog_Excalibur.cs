@@ -26,7 +26,7 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
 
         static Vector2 m_ScrollPosition = new Vector2();
         int _TabSelectionHeight = 30;
-        int _FooterSectionHeight = 60;
+        int _FooterSectionHeight = 20;
 
         private EnumDialogTabSelection m_CurrentTab = EnumDialogTabSelection.Buildings;
 
@@ -98,7 +98,6 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
             // Footer (System Status) -----------------------------------------
 
             Rect _Footer = totalCanvas.BottomPartPixels(_FooterSectionHeight);
-            //Widgets.ButtonText(_Footer, "_Footer", true, false, true);
             this.DoGuiFooter(_Footer);
 
         }
@@ -129,14 +128,8 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
         public void DoGuiFooter(Rect rectContentWindow)
         {
 
-            Rect _TopHalf = rectContentWindow.TopHalf();
-            Rect _BottomHalf = rectContentWindow.BottomHalf();
-
             Widgets.DrawLineHorizontal(rectContentWindow.xMin, rectContentWindow.yMin, rectContentWindow.width);
-
-            Widgets.TextArea(_TopHalf.LeftHalf().LeftHalf(), "Nano Materials: " + Core.GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(Core.GameComponent_Excalibur_Quest.EnumResourceType.NanoMaterials).ToString(), true);
-
-            Widgets.TextArea(_BottomHalf, "RU:" + GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.ResourceUnits) + " Power: " + GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.Power).ToString(), true);
+            Widgets.TextArea(rectContentWindow, GameComponent_Excalibur_Quest.GetSingleLineResourceStatus(), true);
 
         }
 

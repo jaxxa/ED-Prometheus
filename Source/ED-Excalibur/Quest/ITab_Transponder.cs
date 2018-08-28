@@ -57,13 +57,11 @@ namespace EnhancedDevelopment.Excalibur.Quest
             Rect rect = new Rect(0f, 0f, x, winSize2.y).ContractedBy(10f);
 
             Listing_Standard _Listing_Standard = new Listing_Standard();
-            _Listing_Standard.ColumnWidth = 250f;
+            _Listing_Standard.ColumnWidth = rect.width;
             _Listing_Standard.Begin(rect);
 
             _Listing_Standard.GapLine(12f);
-            _Listing_Standard.Label("Power: " + GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.Power).ToString());
-            _Listing_Standard.Label("Materials: " + GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.ResourceUnits).ToString());
-            _Listing_Standard.Label("Nano Materials: " + GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.NanoMaterials).ToString());
+            _Listing_Standard.Label(GameComponent_Excalibur_Quest.GetSingleLineResourceStatus());
 
             _Listing_Standard.Gap(12f);
 

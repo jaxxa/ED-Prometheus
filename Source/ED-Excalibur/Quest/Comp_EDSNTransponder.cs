@@ -20,6 +20,12 @@ namespace EnhancedDevelopment.Excalibur.Quest
             UI_Contact = ContentFinder<Texture2D>.Get("UI/Quest/UI_Contact", true);
         }
 
+        public override string CompInspectStringExtra()
+        {
+            String _NewString = GameComponent_Excalibur_Quest.GetSingleLineResourceStatus();
+            return _NewString + base.CompInspectStringExtra();
+        }
+
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {

@@ -174,7 +174,16 @@ namespace EnhancedDevelopment.Excalibur.Core
                 return _Temp;
             }
         }
-  
+               
+        public static string GetSingleLineResourceStatus()
+        {
+            return "Nano Materials: " +
+                    Core.GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(Core.GameComponent_Excalibur_Quest.EnumResourceType.NanoMaterials) +
+                    " RU: " +
+                    GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.ResourceUnits) +
+                   " Power: " +
+                   GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.Power);
+        }
         #endregion //Resourcing
 
         #region Tagging RU
