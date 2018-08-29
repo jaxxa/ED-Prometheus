@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using UnityEngine;
 using Verse;
@@ -60,19 +61,26 @@ namespace EnhancedDevelopment.Excalibur.Shields
         {
 
             IEnumerable<Building_Shield> _ShieldBuildings = map.listerBuildings.AllBuildingsColonistOfClass<Building_Shield>();
-            //Log.Message("Buildings: " + _ShieldBuildings.Count().ToString());
-
-            //if (_ShieldBuildings.Any(x => (Vector3.Distance(projectile.ExactPosition, x.Position.ToVector3()) <= 5.0f)))
+            
             if (_ShieldBuildings.Any(x =>
             {
                 Vector3 _Projetile2DPosition = new Vector3(projectile.ExactPosition.x, 0, projectile.ExactPosition.z);
                 float _Distance = Vector3.Distance(_Projetile2DPosition, x.Position.ToVector3());
+                
+                Comp_ShieldGenerator _Comp = x.GetComp<Comp_ShieldGenerator>();
+                //Patch.Patcher.LogNULL(projectile, "projectile", true);
+                FieldInfo _LauncherFieldInfo = typeof(Projectile).GetField("launcher", BindingFlags.NonPublic | BindingFlags.Instance);
+                //Patch.Patcher.LogNULL(_LauncherFieldInfo, "_LauncherFieldInfo", true);
+                Thing _Launcher = (Thing)_LauncherFieldInfo.GetValue(projectile);
+                //Patch.Patcher.LogNULL(_Launcher, "_Launcher",true);
+                //Log.Message(_Launcher.def.defName + " - " + _Launcher.Faction.Name);
 
-                //Log.Message("Projectile:" + _Projetile2DPosition.ToString());
-                //Log.Message("Shield:" + x.Position.ToVector3());
+                if (_Comp.m_IdentifyFriendFoe_Active && _Launcher.Faction.IsPlayer)
+                {
+                    return false;
+                }
 
-                //Log.Message("Distance: " + _Distance.ToString());
-                float _Radius = x.GetComp<Comp_ShieldGenerator>().m_Field_Radius_Selected;
+                float _Radius = _Comp.m_Field_Radius_Selected;
 
                 if (_Distance <= _Radius)
                 {

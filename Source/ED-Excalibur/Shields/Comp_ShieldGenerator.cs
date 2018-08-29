@@ -43,11 +43,13 @@ namespace EnhancedDevelopment.Excalibur.Shields
         private bool m_BlockIndirect_Active;
         private bool m_BlockDirect_Active;
         public bool m_InterceptDropPod_Active;
+        public bool m_IdentifyFriendFoe_Active;
 
         //Mode Settings - Avalable
         private bool m_BlockIndirect_Avalable;
         private bool m_BlockDirect_Avalable;
         private bool m_InterceptDropPod_Avalable;
+        private bool m_IdentifyFriendFoe_Avalable;
 
         //Field Settings
         public int m_FieldIntegrity_Max;
@@ -194,6 +196,13 @@ namespace EnhancedDevelopment.Excalibur.Shields
             {
                 this.m_InterceptDropPod_Avalable = true;
                 this.m_InterceptDropPod_Active = true;
+            }
+
+            if (comp.Properties.IdentifyFriendFoe)
+            {
+                //Log.Message("Setting IFF");
+                this.m_IdentifyFriendFoe_Avalable = true;
+                this.m_IdentifyFriendFoe_Active = true;
             }
 
             if (comp.Properties.SIFMode)
