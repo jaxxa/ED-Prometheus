@@ -149,7 +149,8 @@ namespace EnhancedDevelopment.Excalibur.Shields
 
         public void RecalculateStatistics()
         {
-            Log.Message("RecalculateStatistics");
+            //Log.Message("RecalculateStatistics");
+
             //Visual Settings
             this.m_ShowVisually_Active = true;
             this.m_ColourRed = 0.5f;
@@ -363,6 +364,45 @@ namespace EnhancedDevelopment.Excalibur.Shields
             }
         }
 
+        public Boolean WillInterceptDropPod(DropPodIncoming dropPodToCheck)
+        {
+            //Check if can and wants to intercept
+            if (!this.IntercepDropPod_Active())
+            {
+                return false;
+            }
+
+            //Check if online
+            if (this.CurrentStatus == EnumShieldStatus.Offline || this.CurrentStatus == EnumShieldStatus.Initilising)
+            {
+                return false;
+            }
+
+
+            //Check IFF
+            if (this.IdentifyFriendFoe_Active())
+            {
+                bool _Hostile = dropPodToCheck.Contents.innerContainer.Any(x => x.Faction.HostileTo(Faction.OfPlayer));
+
+                if (!_Hostile)
+                {
+                    return false;
+                }
+            }
+
+            //Check Distance
+            float _Distance = Vector3.Distance(dropPodToCheck.Position.ToVector3(), this.parent.Position.ToVector3());
+            float _Radius = this.FieldRadius_Active();
+            if (_Distance > _Radius)
+            {
+                return false;
+            }
+
+            //All Tests passed so intercept the pod
+            return true;
+                       
+        }
+
         #endregion Methods
 
         #region Properties
@@ -417,8 +457,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
         #endregion Properties
 
         #region Drawing
-
-
+        
         public override void PostDraw()
         {
             //Log.Message("DrawComp");

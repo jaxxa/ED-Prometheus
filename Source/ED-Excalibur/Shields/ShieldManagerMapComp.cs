@@ -30,23 +30,10 @@ namespace EnhancedDevelopment.Excalibur.Shields
             // Log.Message("MapCompTick");
         }
 
-        public bool WillDropPodBeIntercepted(DropPodIncoming dropPodToTest)
+        public bool WillDropPodBeIntercepted(DropPodIncoming dropPodToTest, bool hostile)
         {
             IEnumerable<Building_Shield> _ShieldBuildings = map.listerBuildings.AllBuildingsColonistOfClass<Building_Shield>();
-            if (_ShieldBuildings.Any(x =>
-                                       {
-
-                                           float _Distance = Vector3.Distance(dropPodToTest.Position.ToVector3(), x.Position.ToVector3());
-
-                                           float _Radius = x.GetComp<Comp_ShieldGenerator>().FieldRadius_Active();
-
-                                           if (_Distance <= _Radius && x.WillInterceptDropPods())
-                                           {
-                                               return true;
-                                           }
-                                           return false;
-
-                                       }))
+            if (_ShieldBuildings.Any(x => x.WillInterceptDropPod(dropPodToTest) ))
             {
                 return true;
             }
