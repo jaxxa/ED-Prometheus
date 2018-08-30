@@ -24,7 +24,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
 
         public Boolean WillInterceptDropPods()
         {
-            return this.GetComp<Comp_ShieldGenerator>().m_InterceptDropPod_Active;
+            return this.GetComp<Comp_ShieldGenerator>().IntercepDropPod_Active();
         }
 
         #region Methods

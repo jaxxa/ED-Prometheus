@@ -17,7 +17,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
         Material currentMatrialColour;
 
         public CompProperties_ShieldGenerator Properties;
-        
+
         #region Variables
 
         //UI elements - Unsaved
@@ -39,40 +39,86 @@ namespace EnhancedDevelopment.Excalibur.Shields
         private float m_ColourGreen;
         private float m_ColourBlue;
 
-        //Mode Settings - Active
-        private bool m_BlockIndirect_Active;
-        private bool m_BlockDirect_Active;
-        public bool m_InterceptDropPod_Active;
-        public bool m_IdentifyFriendFoe_Active;
-
-        //Mode Settings - Avalable
-        private bool m_BlockIndirect_Avalable;
-        private bool m_BlockDirect_Avalable;
-        private bool m_InterceptDropPod_Avalable;
-        private bool m_IdentifyFriendFoe_Avalable;
-
         //Field Settings
         public int m_FieldIntegrity_Max;
         private int m_FieldIntegrity_Initial;
-        public int m_Field_Radius_Max;
-        public int m_Field_Radius_Selected = 999;
-
-        //Power Settings
-        private int m_PowerRequired_Charging;
-        private int m_PowerRequired_Standby;
 
         //Recovery Settings
         private int m_RechargeTickDelayInterval;
         private int m_RecoverWarmupDelayTicks;
         private int m_WarmupTicksRemaining;
-        
 
-        //private long m_TickCount = 0;
+
+        #endregion Variables
+
+
+        #region Settings
+
+        // Power Usage --------------------------------------------------------------
 
         //Comp, found each time.
         CompPowerTrader m_Power;
 
-        #endregion Variables
+        private int m_PowerRequired;
+
+
+        // Range --------------------------------------------------------------------
+
+        public int m_FieldRadius_Avalable;
+        public int m_FieldRadius_Requested = 999;
+
+        public int FieldRadius_Active()
+        {
+            return Math.Min(this.m_FieldRadius_Requested, this.m_FieldRadius_Avalable);
+        }
+
+        // Block Direct -------------------------------------------------------------
+
+
+        private bool m_BlockDirect_Avalable;
+
+        private bool m_BlockDirect_Requested = true;
+
+        public bool BlockDirect_Active()
+        {
+            return this.m_BlockDirect_Avalable && this.m_BlockDirect_Requested;
+        }
+
+        // Block Indirect -----------------------------------------------------------
+
+
+        private bool m_BlockIndirect_Avalable;
+
+        private bool m_BlockIndirect_Requested = true;
+
+        public bool BlockIndirect_Active()
+        {
+            return this.m_BlockIndirect_Avalable && this.m_BlockIndirect_Requested;
+        }
+
+        //Block Droppods ------------------------------------------------------------
+
+        private bool m_InterceptDropPod_Avalable;
+
+        private bool m_InterceptDropPod_Requested = true;
+
+        public bool IntercepDropPod_Active()
+        {
+            return m_InterceptDropPod_Avalable && m_InterceptDropPod_Requested;
+        }
+
+        // Identify Friend Foe ------------------------------------------------------
+
+        private bool m_IdentifyFriendFoe_Avalable;
+
+        private bool m_IdentifyFriendFoe_Requested = true;
+
+        public bool IdentifyFriendFoe_Active()
+        {
+            return this.m_IdentifyFriendFoe_Avalable && this.m_IdentifyFriendFoe_Requested;
+        }
+
+        #endregion
 
         #region Initilisation
 
@@ -97,42 +143,35 @@ namespace EnhancedDevelopment.Excalibur.Shields
 
             this.Properties = ((CompProperties_ShieldGenerator)this.props);
             this.m_Power = this.parent.GetComp<CompPowerTrader>();
-            
+
             this.RecalculateStatistics();
         }
 
         public void RecalculateStatistics()
         {
-
+            Log.Message("RecalculateStatistics");
             //Visual Settings
             this.m_ShowVisually_Active = true;
             this.m_ColourRed = 0.5f;
             this.m_ColourGreen = 0.0f;
             this.m_ColourBlue = 0.5f;
 
-            //Mode Settings - Active
-            this.m_BlockIndirect_Active = this.Properties.m_BlockIndirect_Avalable;
-            this.m_BlockDirect_Active = this.Properties.m_BlockIndirect_Avalable;
-            this.m_InterceptDropPod_Active = this.Properties.m_InterceptDropPod_Avalable;
+            //Field Settings
+            this.m_FieldIntegrity_Max = this.Properties.m_FieldIntegrity_Max_Base;
+            this.m_FieldIntegrity_Initial = this.Properties.m_FieldIntegrity_Initial;
+            this.m_FieldRadius_Avalable = this.Properties.m_Field_Radius_Base;
 
             //Mode Settings - Avalable
             this.m_BlockIndirect_Avalable = this.Properties.m_BlockIndirect_Avalable;
             this.m_BlockDirect_Avalable = this.Properties.m_BlockDirect_Avalable;
             this.m_InterceptDropPod_Avalable = this.Properties.m_InterceptDropPod_Avalable;
 
-            //Field Settings
-            this.m_FieldIntegrity_Max = this.Properties.m_FieldIntegrity_Max_Base;
-            this.m_FieldIntegrity_Initial = this.Properties.m_FieldIntegrity_Initial;
-            this.m_Field_Radius_Max = this.Properties.m_Field_Radius_Base;
-
             //Power Settings
-            this.m_PowerRequired_Charging = this.Properties.m_PowerRequired_Charging;
-            this.m_PowerRequired_Standby = this.Properties.m_PowerRequired_Standby;
+            this.m_PowerRequired = this.Properties.m_PowerRequired_Charging;
 
             //Recovery Settings
             this.m_RechargeTickDelayInterval = this.Properties.m_RechargeTickDelayInterval_Base;
             this.m_RecoverWarmupDelayTicks = this.Properties.m_RecoverWarmupDelayTicks_Base;
-            //this.m_WarmupTicksRemaining = this.Properties.m_RecoverWarmupDelayTicks_Base; // Dont do this???
 
 
             //Store the List of Building in initilisation????
@@ -147,7 +186,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
             Patch.Patcher.LogNULL(_LinkedBuildings, "_LinkedBuildings");
 
             //Log.Message(_LinkedBuildings.Count.ToString());
-            
+
 
             _LinkedBuildings.ForEach(b =>
             {
@@ -159,25 +198,9 @@ namespace EnhancedDevelopment.Excalibur.Shields
 
                 this.AddStatsFromUpgrade(_Comp);
 
-                //Patch.Patcher.LogNULL(_Comp, "_Comp");
-                //Log.Message(_Comp.SecretTestoValue);
-
             });
 
-            if (this.m_Field_Radius_Selected > this.m_Field_Radius_Max)
-            {
-                this.m_Field_Radius_Selected = this.m_Field_Radius_Max;
-            }
-
-            //Update power Usage
-            if (this.m_CurrentStatus == EnumShieldStatus.ActiveSustaining)
-            {
-                this.m_Power.powerOutputInt = -this.m_PowerRequired_Standby;
-            }
-            else
-            {
-                this.m_Power.powerOutputInt = -this.m_PowerRequired_Charging;
-            }
+            this.m_Power.powerOutputInt = -this.m_PowerRequired;
 
         }
 
@@ -185,29 +208,21 @@ namespace EnhancedDevelopment.Excalibur.Shields
         {
 
             this.m_FieldIntegrity_Max += comp.Properties.FieldIntegrity_Increase;
-            this.m_Field_Radius_Max += comp.Properties.Range_Increase;
-            
+            this.m_FieldRadius_Avalable += comp.Properties.Range_Increase;
+
             //Power
-            this.m_PowerRequired_Charging += comp.Properties.PowerUsage_Increase;
-            this.m_PowerRequired_Standby += comp.Properties.PowerUsage_Increase;
+            this.m_PowerRequired += comp.Properties.PowerUsage_Increase;
 
 
             if (comp.Properties.DropPodIntercept)
             {
                 this.m_InterceptDropPod_Avalable = true;
-                this.m_InterceptDropPod_Active = true;
             }
 
             if (comp.Properties.IdentifyFriendFoe)
             {
                 //Log.Message("Setting IFF");
                 this.m_IdentifyFriendFoe_Avalable = true;
-                this.m_IdentifyFriendFoe_Active = true;
-            }
-
-            if (comp.Properties.SIFMode)
-            {
-                //this.sif = true;
             }
 
             if (comp.Properties.SlowDischarge)
@@ -241,16 +256,13 @@ namespace EnhancedDevelopment.Excalibur.Shields
 
                 case (EnumShieldStatus.Offline):
 
-                    //If it is offline bit has Power that initialising
+                    //If it is offline bit has Power start initialising
                     if (_PowerAvalable)
                     {
                         this.CurrentStatus = EnumShieldStatus.Initilising;
-                        //this.m_warmupTicksCurrent = GenDate.SecondsToTicks(this.m_shieldRecoverWarmup);
                         this.m_WarmupTicksRemaining = this.m_RecoverWarmupDelayTicks;
-                        //this.CellsToProtect = null;
                     }
                     break;
-
 
                 case (EnumShieldStatus.Initilising):
                     if (_PowerAvalable)
@@ -258,7 +270,6 @@ namespace EnhancedDevelopment.Excalibur.Shields
                         if (this.m_WarmupTicksRemaining > 0)
                         {
                             this.m_WarmupTicksRemaining--;
-                            //  Log.Message(this.m_warmupTicksCurrent.ToString());
                         }
                         else
                         {
@@ -272,7 +283,6 @@ namespace EnhancedDevelopment.Excalibur.Shields
                     }
                     break;
 
-
                 case (EnumShieldStatus.ActiveDischarging):
                     if (_PowerAvalable)
                     {
@@ -283,6 +293,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
                         this.CurrentStatus = EnumShieldStatus.Offline;
                     }
                     break;
+
                 case (EnumShieldStatus.ActiveCharging):
                     if (this.FieldIntegrity_Current < 0)
                     {
@@ -366,14 +377,14 @@ namespace EnhancedDevelopment.Excalibur.Shields
             {
                 this.m_CurrentStatus = value;
 
-                if (this.m_CurrentStatus == EnumShieldStatus.ActiveSustaining)
-                {
-                    this.m_Power.powerOutputInt = -this.m_PowerRequired_Standby;
-                }
-                else
-                {
-                    this.m_Power.powerOutputInt = -this.m_PowerRequired_Charging;
-                }
+                //if (this.m_CurrentStatus == EnumShieldStatus.ActiveSustaining)
+                //{
+                //    this.m_Power.powerOutputInt = -this.m_PowerRequired_Standby;
+                //}
+                //else
+                //{
+                //    this.m_Power.powerOutputInt = -this.m_PowerRequired_Charging;
+                //}
             }
         }
         private EnumShieldStatus m_CurrentStatus = EnumShieldStatus.Offline;
@@ -446,7 +457,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
         //Draw the field on map
         public void DrawField(Vector3 center)
         {
-            DrawSubField(center, this.m_Field_Radius_Selected);
+            DrawSubField(center, this.FieldRadius_Active());
         }
 
         public void DrawSubField(Vector3 position, float shieldShieldRadius)
@@ -526,7 +537,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
 
             if (m_BlockDirect_Avalable)
             {
-                if (m_BlockIndirect_Active)
+                if (this.BlockDirect_Active())
                 {
 
                     Command_Action act = new Command_Action();
@@ -556,9 +567,9 @@ namespace EnhancedDevelopment.Excalibur.Shields
                 }
             }
 
-            if (m_BlockIndirect_Avalable)
+            if (this.m_BlockIndirect_Avalable)
             {
-                if (m_BlockDirect_Active)
+                if (this.BlockIndirect_Active())
                 {
 
                     Command_Action act = new Command_Action();
@@ -590,7 +601,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
 
             if (m_InterceptDropPod_Avalable)
             {
-                if (m_InterceptDropPod_Active)
+                if (this.IntercepDropPod_Active())
                 {
 
                     Command_Action act = new Command_Action();
@@ -664,17 +675,17 @@ namespace EnhancedDevelopment.Excalibur.Shields
 
         private void SwitchDirect()
         {
-            m_BlockIndirect_Active = !m_BlockIndirect_Active;
+            this.m_BlockDirect_Requested = !this.m_BlockDirect_Requested;
         }
 
         private void SwitchIndirect()
         {
-            m_BlockDirect_Active = !m_BlockDirect_Active;
+            this.m_BlockIndirect_Requested = !this.m_BlockIndirect_Requested;
         }
 
         private void SwitchInterceptDropPod()
         {
-            m_InterceptDropPod_Active = !m_InterceptDropPod_Active;
+            this.m_InterceptDropPod_Requested = !this.m_InterceptDropPod_Requested;
         }
 
         private void SwitchVisual()
@@ -690,21 +701,11 @@ namespace EnhancedDevelopment.Excalibur.Shields
         {
             base.PostExposeData();
 
-            Scribe_Values.Look(ref m_BlockIndirect_Active, "m_BlockIndirect_Active");
-            Scribe_Values.Look(ref m_BlockDirect_Active, "m_BlockDirect_Active");
-            Scribe_Values.Look(ref m_ShowVisually_Active, "m_ShowVisually_Active");
-            Scribe_Values.Look(ref m_InterceptDropPod_Active, "m_InterceptDropPod_Active");
-
-            Scribe_Values.Look(ref m_BlockIndirect_Avalable, "m_BlockIndirect_Avalable");
-            Scribe_Values.Look(ref m_BlockDirect_Avalable, "m_BlockDirect_Avalable");
-            Scribe_Values.Look(ref m_InterceptDropPod_Avalable, "m_InterceptDropPod_Avalable");
-
-            Scribe_Values.Look(ref m_FieldIntegrity_Max, "m_FieldIntegrity_Max");
-            Scribe_Values.Look(ref m_FieldIntegrity_Initial, "m_FieldIntegrity_Initial");
-            Scribe_Values.Look(ref m_Field_Radius_Max, "m_Field_Radius");
-
-            Scribe_Values.Look(ref m_PowerRequired_Charging, "m_PowerRequired_Charging");
-            Scribe_Values.Look(ref m_PowerRequired_Standby, "m_PowerRequired_Standby");
+            Scribe_Values.Look(ref m_FieldRadius_Requested, "m_FieldRadius_Requested");
+            Scribe_Values.Look(ref m_BlockDirect_Requested, "m_BlockDirect_Requested");
+            Scribe_Values.Look(ref m_BlockIndirect_Requested, "m_BlockIndirect_Requested");
+            Scribe_Values.Look(ref m_InterceptDropPod_Requested, "m_InterceptDropPod_Requested");
+            Scribe_Values.Look(ref m_IdentifyFriendFoe_Requested, "m_IdentifyFriendFoe_Requested");
 
             Scribe_Values.Look(ref m_RechargeTickDelayInterval, "m_shieldRechargeTickDelay");
             Scribe_Values.Look(ref m_RecoverWarmupDelayTicks, "m_shieldRecoverWarmup");

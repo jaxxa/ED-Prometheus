@@ -38,7 +38,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
 
                                            float _Distance = Vector3.Distance(dropPodToTest.Position.ToVector3(), x.Position.ToVector3());
 
-                                           float _Radius = x.GetComp<Comp_ShieldGenerator>().m_Field_Radius_Selected;
+                                           float _Radius = x.GetComp<Comp_ShieldGenerator>().FieldRadius_Active();
 
                                            if (_Distance <= _Radius && x.WillInterceptDropPods())
                                            {
@@ -75,12 +75,12 @@ namespace EnhancedDevelopment.Excalibur.Shields
                 //Patch.Patcher.LogNULL(_Launcher, "_Launcher",true);
                 //Log.Message(_Launcher.def.defName + " - " + _Launcher.Faction.Name);
 
-                if (_Comp.m_IdentifyFriendFoe_Active && _Launcher.Faction.IsPlayer)
+                if (_Comp.IdentifyFriendFoe_Active() && _Launcher.Faction.IsPlayer)
                 {
                     return false;
                 }
 
-                float _Radius = _Comp.m_Field_Radius_Selected;
+                float _Radius = _Comp.FieldRadius_Active();
 
                 if (_Distance <= _Radius)
                 {
