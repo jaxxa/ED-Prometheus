@@ -364,7 +364,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
             }
         }
 
-        public Boolean WillInterceptDropPod(DropPodIncoming dropPodToCheck)
+        public bool WillInterceptDropPod(DropPodIncoming dropPodToCheck)
         {
             //Check if can and wants to intercept
             if (!this.IntercepDropPod_Active())
@@ -401,6 +401,77 @@ namespace EnhancedDevelopment.Excalibur.Shields
             //All Tests passed so intercept the pod
             return true;
                        
+        }
+
+        public bool WillProjectileBeBlocked(Verse.Projectile projectile)
+        {
+
+            //Check if online
+            if (this.CurrentStatus == EnumShieldStatus.Offline || this.CurrentStatus == EnumShieldStatus.Initilising)
+            {
+                return false;
+            }
+
+            //Check if can and wants to intercept
+            if (projectile.def.projectile.flyOverhead)
+            {
+                if (!this.BlockIndirect_Active()) { return false;}
+            }
+            else
+            {
+                if (!this.BlockDirect_Active()) { return false; }
+            }
+            
+            //Check Distance
+            float _Distance = Vector3.Distance(projectile.ExactPosition, this.parent.Position.ToVector3());
+            if (_Distance > this.FieldRadius_Active())
+            {
+                return false;
+            }
+
+            //Check Angle
+            if (!Comp_ShieldGenerator.CorrectAngleToIntercept(projectile, this.parent))
+            {
+                return false;
+            }
+            
+            //Check IFF
+            if (this.IdentifyFriendFoe_Active())
+            {                
+                FieldInfo _LauncherFieldInfo = typeof(Projectile).GetField("launcher", BindingFlags.NonPublic | BindingFlags.Instance);
+                //Patch.Patcher.LogNULL(_LauncherFieldInfo, "_LauncherFieldInfo", true);
+                Thing _Launcher = (Thing)_LauncherFieldInfo.GetValue(projectile);
+                //Patch.Patcher.LogNULL(_Launcher, "_Launcher",true);
+                
+                if (!_Launcher.Faction.IsPlayer)
+                {
+                    return false;
+                }
+            }
+        
+            return true;
+                        
+        }
+        
+        public static Boolean CorrectAngleToIntercept(Projectile pr, Thing shieldBuilding)
+        {
+            //Detect proper collision using angles
+            Quaternion targetAngle = pr.ExactRotation;
+
+            Vector3 projectilePosition2D = pr.ExactPosition;
+            projectilePosition2D.y = 0;
+
+            Vector3 shieldPosition2D = shieldBuilding.Position.ToVector3();
+            shieldPosition2D.y = 0;
+
+            Quaternion shieldProjAng = Quaternion.LookRotation(projectilePosition2D - shieldPosition2D);
+
+            if ((Quaternion.Angle(targetAngle, shieldProjAng) > 90))
+            {
+                return true;
+            }
+
+            return false;
         }
 
         #endregion Methods

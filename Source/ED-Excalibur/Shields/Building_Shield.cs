@@ -17,19 +17,24 @@ namespace EnhancedDevelopment.Excalibur.Shields
     public class Building_Shield : Building
     {
 
+        #region Methods
+
         public override string GetInspectString()
         {
             return this.GetComp<Comp_ShieldGenerator>().CompInspectStringExtra();
         }
 
-        public Boolean WillInterceptDropPod(DropPodIncoming dropPodToCheck)
+        public bool WillInterceptDropPod(DropPodIncoming dropPodToCheck)
         {
             return this.GetComp<Comp_ShieldGenerator>().WillInterceptDropPod(dropPodToCheck);
         }
 
-        #region Methods
-        
-        #endregion
-        
+        public bool WillProjectileBeBlocked(Projectile projectileToCheck)
+        {
+            return this.GetComp<Comp_ShieldGenerator>().WillProjectileBeBlocked(projectileToCheck);
+        }
+
+        #endregion //Methods
+
     }
 }
