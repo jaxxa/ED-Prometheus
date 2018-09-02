@@ -213,6 +213,7 @@
 				<Range_Increase>0</Range_Increase>
 				<PowerUsage_Increase>500</PowerUsage_Increase>
 				<DropPodIntercept>false</DropPodIntercept>
+				<SlowDischarge>true</SlowDischarge>
 			</li>
 		</comps>
 	</ThingDef>

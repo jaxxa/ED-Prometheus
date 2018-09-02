@@ -118,6 +118,10 @@ namespace EnhancedDevelopment.Excalibur.Shields
             return this.m_IdentifyFriendFoe_Avalable && this.m_IdentifyFriendFoe_Requested;
         }
 
+        // Slow Discharge -----------------------------------------------------------
+
+        public bool SlowDischarge_Active;
+
         #endregion
 
         #region Initilisation
@@ -174,6 +178,8 @@ namespace EnhancedDevelopment.Excalibur.Shields
             this.m_RechargeTickDelayInterval = this.Properties.m_RechargeTickDelayInterval_Base;
             this.m_RecoverWarmupDelayTicks = this.Properties.m_RecoverWarmupDelayTicks_Base;
 
+            //Power converter
+            this.SlowDischarge_Active = false;
 
             //Store the List of Building in initilisation????
 
@@ -228,7 +234,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
 
             if (comp.Properties.SlowDischarge)
             {
-                //this.m_InterceptDropPod_Avalable = true;
+                this.SlowDischarge_Active = true;
             }
 
         }
@@ -241,11 +247,12 @@ namespace EnhancedDevelopment.Excalibur.Shields
         {
             base.CompTick();
 
+            this.RecalculateStatistics();
+
             this.UpdateShieldStatus();
 
             this.TickRecharge();
 
-            this.RecalculateStatistics();
         }
 
         public void UpdateShieldStatus()
@@ -289,9 +296,18 @@ namespace EnhancedDevelopment.Excalibur.Shields
                     {
                         this.CurrentStatus = EnumShieldStatus.ActiveCharging;
                     }
-                    else if (this.FieldIntegrity_Current <= 0)
+                    else
                     {
-                        this.CurrentStatus = EnumShieldStatus.Offline;
+                        if (!this.SlowDischarge_Active)
+                        {
+                            this.m_FieldIntegrity_Current = 0;
+                        }
+
+                        if (this.FieldIntegrity_Current <= 0)
+                        {
+                            this.CurrentStatus = EnumShieldStatus.Offline;
+
+                        }
                     }
                     break;
 
@@ -400,7 +416,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
 
             //All Tests passed so intercept the pod
             return true;
-                       
+
         }
 
         public bool WillProjectileBeBlocked(Verse.Projectile projectile)
@@ -415,13 +431,13 @@ namespace EnhancedDevelopment.Excalibur.Shields
             //Check if can and wants to intercept
             if (projectile.def.projectile.flyOverhead)
             {
-                if (!this.BlockIndirect_Active()) { return false;}
+                if (!this.BlockIndirect_Active()) { return false; }
             }
             else
             {
                 if (!this.BlockDirect_Active()) { return false; }
             }
-            
+
             //Check Distance
             float _Distance = Vector3.Distance(projectile.ExactPosition, this.parent.Position.ToVector3());
             if (_Distance > this.FieldRadius_Active())
@@ -434,25 +450,25 @@ namespace EnhancedDevelopment.Excalibur.Shields
             {
                 return false;
             }
-            
+
             //Check IFF
             if (this.IdentifyFriendFoe_Active())
-            {                
+            {
                 FieldInfo _LauncherFieldInfo = typeof(Projectile).GetField("launcher", BindingFlags.NonPublic | BindingFlags.Instance);
                 //Patch.Patcher.LogNULL(_LauncherFieldInfo, "_LauncherFieldInfo", true);
                 Thing _Launcher = (Thing)_LauncherFieldInfo.GetValue(projectile);
                 //Patch.Patcher.LogNULL(_Launcher, "_Launcher",true);
-                
+
                 if (!_Launcher.Faction.IsPlayer)
                 {
                     return false;
                 }
             }
-        
+
             return true;
-                        
+
         }
-        
+
         public static Boolean CorrectAngleToIntercept(Projectile pr, Thing shieldBuilding)
         {
             //Detect proper collision using angles
@@ -528,7 +544,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
         #endregion Properties
 
         #region Drawing
-        
+
         public override void PostDraw()
         {
             //Log.Message("DrawComp");
