@@ -39,7 +39,7 @@ Features:
 1.0.0.6
  * Rework of how NanoMaterials are generated.
  * Fix for Max NanoShield Charge defaulting to 0.
-
+ * Updating Rimworld Target Version.
 
 
 1.0.0.5
