@@ -48,10 +48,12 @@ namespace EnhancedDevelopment.Excalibur.Shields
         {
 
             IEnumerable<Building_Shield> _ShieldBuildings = map.listerBuildings.AllBuildingsColonistOfClass<Building_Shield>();
-            
-            if (_ShieldBuildings.Any(x =>  x.WillProjectileBeBlocked(projectile)))
+
+            Building_Shield _BlockingShield = _ShieldBuildings.FirstOrFallback(x => x.WillProjectileBeBlocked(projectile));
+
+            if (_BlockingShield != null)
             {
-                //Log.Message("Blocked");
+                _BlockingShield.TakeDamageFromProjectile(projectile);
 
                 //On hit effects
                 MoteMaker.ThrowLightningGlow(projectile.ExactPosition, this.map, 0.5f);

@@ -34,6 +34,11 @@ namespace EnhancedDevelopment.Excalibur.Shields
             return this.GetComp<Comp_ShieldGenerator>().WillProjectileBeBlocked(projectileToCheck);
         }
 
+        public void TakeDamageFromProjectile(Projectile projectile)
+        {
+            this.GetComp<Comp_ShieldGenerator>().FieldIntegrity_Current -= projectile.DamageAmount;
+        }
+
         #endregion //Methods
 
     }
