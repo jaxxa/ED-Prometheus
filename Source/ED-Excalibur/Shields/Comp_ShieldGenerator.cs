@@ -109,7 +109,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
 
         // Identify Friend Foe ------------------------------------------------------
 
-        private bool m_IdentifyFriendFoe_Avalable;
+        private bool m_IdentifyFriendFoe_Avalable = false;
 
         private bool m_IdentifyFriendFoe_Requested = true;
 
@@ -439,7 +439,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
             }
 
             //Check Distance
-            float _Distance = Vector3.Distance(projectile.ExactPosition, this.parent.Position.ToVector3());
+            float _Distance = Vector3.Distance(projectile.Position.ToVector3(), this.parent.Position.ToVector3());
             if (_Distance > this.FieldRadius_Active())
             {
                 return false;
@@ -455,11 +455,11 @@ namespace EnhancedDevelopment.Excalibur.Shields
             if (this.IdentifyFriendFoe_Active())
             {
                 FieldInfo _LauncherFieldInfo = typeof(Projectile).GetField("launcher", BindingFlags.NonPublic | BindingFlags.Instance);
-                //Patch.Patcher.LogNULL(_LauncherFieldInfo, "_LauncherFieldInfo", true);
+                Patch.Patcher.LogNULL(_LauncherFieldInfo, "_LauncherFieldInfo");
                 Thing _Launcher = (Thing)_LauncherFieldInfo.GetValue(projectile);
-                //Patch.Patcher.LogNULL(_Launcher, "_Launcher",true);
+                Patch.Patcher.LogNULL(_Launcher, "_Launcher");
 
-                if (!_Launcher.Faction.IsPlayer)
+                if (_Launcher.Faction.IsPlayer)
                 {
                     return false;
                 }
