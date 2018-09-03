@@ -31,9 +31,9 @@ namespace EnhancedDevelopment.Excalibur.Settings
             Listing_Standard _listing_Standard_InitialShipSetup_PowerRequired = new Listing_Standard();
             _listing_Standard_InitialShipSetup_PowerRequired.Begin(listing_Standard.GetRect(30f));
             _listing_Standard_InitialShipSetup_PowerRequired.ColumnWidth = 70;
-            _listing_Standard_InitialShipSetup_PowerRequired.IntAdjuster(ref InitialShipSetup_PowerRequired, 100, 100);
+            _listing_Standard_InitialShipSetup_PowerRequired.IntAdjuster(ref InitialShipSetup_PowerRequired, 100, 0);
             _listing_Standard_InitialShipSetup_PowerRequired.NewColumn();
-            _listing_Standard_InitialShipSetup_PowerRequired.IntAdjuster(ref InitialShipSetup_PowerRequired, 500, 500);
+            _listing_Standard_InitialShipSetup_PowerRequired.IntAdjuster(ref InitialShipSetup_PowerRequired, 500, 0);
             _listing_Standard_InitialShipSetup_PowerRequired.NewColumn();
             _listing_Standard_InitialShipSetup_PowerRequired.IntSetter(ref InitialShipSetup_PowerRequired, SettingSection_Quest.DEFAULT_INITAL_SHIP_SETUP_POWER_REQUIRED, "Default");
             _listing_Standard_InitialShipSetup_PowerRequired.End();
@@ -44,9 +44,9 @@ namespace EnhancedDevelopment.Excalibur.Settings
             Listing_Standard _listing_Standard_InitialShipSetup_ResourcesRequired = new Listing_Standard();
             _listing_Standard_InitialShipSetup_ResourcesRequired.Begin(listing_Standard.GetRect(30f));
             _listing_Standard_InitialShipSetup_ResourcesRequired.ColumnWidth = 70;
-            _listing_Standard_InitialShipSetup_ResourcesRequired.IntAdjuster(ref InitialShipSetup_ResourcesRequired, 10, 10);
+            _listing_Standard_InitialShipSetup_ResourcesRequired.IntAdjuster(ref InitialShipSetup_ResourcesRequired, 10, 0);
             _listing_Standard_InitialShipSetup_ResourcesRequired.NewColumn();
-            _listing_Standard_InitialShipSetup_ResourcesRequired.IntAdjuster(ref InitialShipSetup_ResourcesRequired, 100, 100);
+            _listing_Standard_InitialShipSetup_ResourcesRequired.IntAdjuster(ref InitialShipSetup_ResourcesRequired, 100, 0);
             _listing_Standard_InitialShipSetup_ResourcesRequired.NewColumn();
             _listing_Standard_InitialShipSetup_ResourcesRequired.IntSetter(ref InitialShipSetup_ResourcesRequired, SettingSection_Quest.DEFAULT_INITAL_SHIP_SETUP_RESOURCES_REQUIRED, "Default");
             _listing_Standard_InitialShipSetup_ResourcesRequired.End();
