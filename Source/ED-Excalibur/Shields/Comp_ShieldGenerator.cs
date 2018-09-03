@@ -181,6 +181,9 @@ namespace EnhancedDevelopment.Excalibur.Shields
             //Power converter
             this.SlowDischarge_Active = false;
 
+            //IFF
+            this.m_IdentifyFriendFoe_Avalable = false;
+
             //Store the List of Building in initilisation????
 
             CompFacility _Facility = this.parent.GetComp<CompFacility>();
