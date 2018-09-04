@@ -16,7 +16,7 @@ namespace EnhancedDevelopment.Excalibur.Settings
         //Fields
         public int RequiredDrillWork = SettingSection_LaserDrill.DEFAULT_REQUIRED_DRILL_WORK;
         public int RequiredFillWork = SettingSection_LaserDrill.DEFAULT_REQUIRED_FILL_WORK;
-        public bool AllowSimultaneousDrilling = false;
+       // public bool AllowSimultaneousDrilling = false;
 
 
         public override void DoSettingsWindowContents(Rect canvas)
@@ -55,10 +55,10 @@ namespace EnhancedDevelopment.Excalibur.Settings
 
             listing_Standard.GapLine(12f);
 
-            listing_Standard.Label("Allow Simultaneous Drilling:");
-            listing_Standard.Gap(12f);
-            listing_Standard.CheckboxLabeled("Allow Simultaneous Drilling", ref AllowSimultaneousDrilling, "True if you want to allow Multiple Drills at once.");
-            listing_Standard.GapLine(12f);
+            //listing_Standard.Label("Allow Simultaneous Drilling:");
+            //listing_Standard.Gap(12f);
+            //listing_Standard.CheckboxLabeled("Allow Simultaneous Drilling", ref AllowSimultaneousDrilling, "True if you want to allow Multiple Drills at once.");
+            //listing_Standard.GapLine(12f);
 
             listing_Standard.End();
 
@@ -68,7 +68,7 @@ namespace EnhancedDevelopment.Excalibur.Settings
         {
             Scribe_Values.Look<int>(ref RequiredDrillWork, "RequiredDrillWork", SettingSection_LaserDrill.DEFAULT_REQUIRED_DRILL_WORK);
             Scribe_Values.Look<int>(ref RequiredFillWork, "RequiredFillWork", SettingSection_LaserDrill.DEFAULT_REQUIRED_FILL_WORK);
-            Scribe_Values.Look<bool>(ref AllowSimultaneousDrilling, "AllowSimultaneousDrilling", false);
+            //Scribe_Values.Look<bool>(ref AllowSimultaneousDrilling, "AllowSimultaneousDrilling", false);
         }
 
         public override string Name()

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Verse;
-
+/*
 namespace EnhancedDevelopment.Excalibur.LaserDrill
 {
     class MapComp_LaserDrill : MapComponent
@@ -57,3 +57,4 @@ namespace EnhancedDevelopment.Excalibur.LaserDrill
 
     }
 }
+*/
