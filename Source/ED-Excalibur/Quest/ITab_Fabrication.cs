@@ -67,7 +67,7 @@ namespace EnhancedDevelopment.Excalibur.Quest
             Rect _InfoBar = _DrawingSpace.BottomPartPixels(25);
 
 
-            Dialog_Excalibur.DoGuiBuilding(_MainWindow, 
+            Dialog_Excalibur.DoGuiFabrication(_MainWindow, 
                                            true,
                                            this.SelectedCompTransponder.parent.Position, 
                                            this.SelectedCompTransponder.parent.Map);

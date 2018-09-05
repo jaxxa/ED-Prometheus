@@ -17,7 +17,7 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
         public enum EnumDialogTabSelection
         {
             SystemStatus,
-            Buildings
+            Fabrication
         }
 
         #endregion
@@ -28,7 +28,7 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
         int m_TabSelectionHeight = 30;
         int m_FooterSectionHeight = 20;
 
-        private EnumDialogTabSelection m_CurrentTab = EnumDialogTabSelection.Buildings;
+        private EnumDialogTabSelection m_CurrentTab;
 
         #endregion
 
@@ -39,7 +39,7 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
             this.resizeable = false;
 
             this.optionalTitle = "E.D.S.N Exclibur - Fabrication";
-            this.m_CurrentTab = EnumDialogTabSelection.Buildings;
+            this.m_CurrentTab = EnumDialogTabSelection.Fabrication;
 
             //this.CloseButSize = new Vector2(50, 50);
 
@@ -91,9 +91,9 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
             {
                 this.DoGuiSystemStatus(_WindowContent);
             }
-            else if (this.m_CurrentTab == EnumDialogTabSelection.Buildings)
+            else if (this.m_CurrentTab == EnumDialogTabSelection.Fabrication)
             {
-                Dialog_Excalibur.DoGuiBuilding(_WindowContent, false);
+                Dialog_Excalibur.DoGuiFabrication(_WindowContent, false);
             }
 
             // Footer (System Status) -----------------------------------------
@@ -110,10 +110,10 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
             
 
             WidgetRow _ButtonWidgetRow = new WidgetRow(rectContentWindow.x, rectContentWindow.y, UIDirection.RightThenDown, 99999f, 4f);
-            if (_ButtonWidgetRow.ButtonText("Buildings", null, true, true))
+            if (_ButtonWidgetRow.ButtonText("Fabrication", null, true, true))
             {
                 this.optionalTitle = "E.D.S.N Exclibur - Fabrication";
-                this.m_CurrentTab = EnumDialogTabSelection.Buildings;
+                this.m_CurrentTab = EnumDialogTabSelection.Fabrication;
             }
 
             if (_ButtonWidgetRow.ButtonText("System Status", null, true, true))
@@ -164,7 +164,7 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
             Widgets.EndScrollView();
         }
 
-        public static void DoGuiBuilding(Rect rectContentWindow, bool showOnlyActiveThings, IntVec3 dropLocation = new IntVec3(), Map dropMap = null)
+        public static void DoGuiFabrication(Rect rectContentWindow, bool showOnlyActiveThings, IntVec3 dropLocation = new IntVec3(), Map dropMap = null)
         {
             Core.GameComponent_Excalibur.Instance.Comp_Fabrication.AddNewBuildingsUnderConstruction();
 
