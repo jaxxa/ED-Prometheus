@@ -17,7 +17,7 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
         public enum EnumDialogTabSelection
         {
             SystemStatus,
-            Buildings
+            Fabrication
         }
 
         #endregion
@@ -25,10 +25,10 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
         #region Fields
 
         static Vector2 m_ScrollPosition = new Vector2();
-        int _TabSelectionHeight = 30;
-        int _FooterSectionHeight = 35;
+        int m_TabSelectionHeight = 30;
+        int m_FooterSectionHeight = 20;
 
-        private EnumDialogTabSelection m_CurrentTab = EnumDialogTabSelection.Buildings;
+        private EnumDialogTabSelection m_CurrentTab;
 
         #endregion
 
@@ -37,7 +37,10 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
         public Dialog_Excalibur()
         {
             this.resizeable = false;
-            this.optionalTitle = "E.D.S.N Exclibur";
+
+            this.optionalTitle = "E.D.S.N Exclibur - Fabrication";
+            this.m_CurrentTab = EnumDialogTabSelection.Fabrication;
+
             //this.CloseButSize = new Vector2(50, 50);
 
             this.doCloseButton = false;
@@ -77,28 +80,25 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
         private void DoGuiWholeWindowContents(Rect totalCanvas)
         {
             // Headder --------------------------------------------------------
-            Rect _TabSelectionRect = totalCanvas.TopPartPixels(_TabSelectionHeight);
+            Rect _TabSelectionRect = totalCanvas.TopPartPixels(m_TabSelectionHeight);
             this.DoGuiHeadder(_TabSelectionRect);
 
             // Main Content ---------------------------------------------------
 
-            Rect _WindowContent = new Rect(totalCanvas.xMin, _TabSelectionRect.yMax, totalCanvas.width, totalCanvas.height - _TabSelectionHeight - _FooterSectionHeight);
-            //Widgets.ButtonText(_WindowContent, "_WindowContent", true, false, true);
-
+            Rect _WindowContent = new Rect(totalCanvas.xMin, _TabSelectionRect.yMax, totalCanvas.width, totalCanvas.height - m_TabSelectionHeight - m_FooterSectionHeight);
 
             if (this.m_CurrentTab == EnumDialogTabSelection.SystemStatus)
             {
                 this.DoGuiSystemStatus(_WindowContent);
             }
-            else if (this.m_CurrentTab == EnumDialogTabSelection.Buildings)
+            else if (this.m_CurrentTab == EnumDialogTabSelection.Fabrication)
             {
-                Dialog_Excalibur.DoGuiBuilding(_WindowContent, false);
+                Dialog_Excalibur.DoGuiFabrication(_WindowContent, false);
             }
 
             // Footer (System Status) -----------------------------------------
 
-            Rect _Footer = totalCanvas.BottomPartPixels(_FooterSectionHeight);
-            //Widgets.ButtonText(_Footer, "_Footer", true, false, true);
+            Rect _Footer = totalCanvas.BottomPartPixels(m_FooterSectionHeight);
             this.DoGuiFooter(_Footer);
 
         }
@@ -107,20 +107,19 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
         {
 
             // Headder to Select Tabs -----------------------------------------
-
-            //Widgets.ButtonText(_TabSelectionRect, "_TabSelectionRect", true, false, true);
+            
 
             WidgetRow _ButtonWidgetRow = new WidgetRow(rectContentWindow.x, rectContentWindow.y, UIDirection.RightThenDown, 99999f, 4f);
-            if (_ButtonWidgetRow.ButtonText("Buildings", null, true, true))
+            if (_ButtonWidgetRow.ButtonText("Fabrication", null, true, true))
             {
-                this.m_CurrentTab = EnumDialogTabSelection.Buildings;
-                //Find.WindowStack.Add(new Dialog_BillConfig(this, ((Thing)base.billStack.billGiver).Position));
+                this.optionalTitle = "E.D.S.N Exclibur - Fabrication";
+                this.m_CurrentTab = EnumDialogTabSelection.Fabrication;
             }
 
             if (_ButtonWidgetRow.ButtonText("System Status", null, true, true))
             {
+                this.optionalTitle = "E.D.S.N Exclibur - System Status";
                 this.m_CurrentTab = EnumDialogTabSelection.SystemStatus;
-                //Find.WindowStack.Add(new Dialog_BillConfig(this, ((Thing)base.billStack.billGiver).Position));
             }
             Widgets.DrawLineHorizontal(rectContentWindow.xMin, rectContentWindow.yMax, rectContentWindow.width);
 
@@ -128,20 +127,10 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
 
         public void DoGuiFooter(Rect rectContentWindow)
         {
+
             Widgets.DrawLineHorizontal(rectContentWindow.xMin, rectContentWindow.yMin, rectContentWindow.width);
+            Widgets.TextArea(rectContentWindow, GameComponent_Excalibur_Quest.GetSingleLineResourceStatus(), true);
 
-            Widgets.TextArea(rectContentWindow.LeftHalf().LeftHalf(), "Nano Materials: " + Core.GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(Core.GameComponent_Excalibur_Quest.EnumResourceType.NanoMaterials).ToString() + " / " + Core.GameComponent_Excalibur.Instance.Comp_Quest.NanoMaterialsTarget.ToString(), true);
-
-
-            Listing_Standard _listing_Standard_ShieldChargeLevelMax = new Listing_Standard();
-            _listing_Standard_ShieldChargeLevelMax.Begin(rectContentWindow.LeftHalf().RightHalf());
-            _listing_Standard_ShieldChargeLevelMax.ColumnWidth = 70;
-            _listing_Standard_ShieldChargeLevelMax.IntAdjuster(ref Core.GameComponent_Excalibur.Instance.Comp_Quest.NanoMaterialsTarget, 1, 1);
-            _listing_Standard_ShieldChargeLevelMax.NewColumn();
-            _listing_Standard_ShieldChargeLevelMax.IntAdjuster(ref Core.GameComponent_Excalibur.Instance.Comp_Quest.NanoMaterialsTarget, 10, 1);
-            _listing_Standard_ShieldChargeLevelMax.NewColumn();
-            _listing_Standard_ShieldChargeLevelMax.IntSetter(ref Core.GameComponent_Excalibur.Instance.Comp_Quest.NanoMaterialsTarget, 10, "Default");
-            _listing_Standard_ShieldChargeLevelMax.End();
         }
 
         public void DoGuiSystemStatus(Rect rectContentWindow)
@@ -149,10 +138,9 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
 
             float _ViewContentHeight = (Core.GameComponent_Excalibur.Instance.Comp_Quest.m_ShipSystems.Count() + 1) * ShipSystem.m_Height + 6f;
 
-            Widgets.TextArea(rectContentWindow.TopPartPixels(20), "Ship Status", true);
 
             GUI.color = Color.white;
-            Rect outRect = new Rect(rectContentWindow.x, rectContentWindow.y + 20, rectContentWindow.width, rectContentWindow.height - _FooterSectionHeight);
+            Rect outRect = new Rect(rectContentWindow.x, rectContentWindow.y, rectContentWindow.width, rectContentWindow.height - m_FooterSectionHeight);
             Rect viewRect = new Rect(0f, 0f, outRect.width - 16f, _ViewContentHeight);
 
             //Above scroll view
@@ -176,31 +164,11 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
             Widgets.EndScrollView();
         }
 
-        public static void DoGuiBuilding(Rect rectContentWindow,bool showOnlyActiveThings, IntVec3 dropLocation = new IntVec3(), Map dropMap = null)
+        public static void DoGuiFabrication(Rect rectContentWindow, bool showOnlyActiveThings, IntVec3 dropLocation = new IntVec3(), Map dropMap = null)
         {
-            int _TitleHeaddingHeight = 20;
-
             Core.GameComponent_Excalibur.Instance.Comp_Fabrication.AddNewBuildingsUnderConstruction();
-            
-            Widgets.TextArea(rectContentWindow.TopPartPixels(_TitleHeaddingHeight), "Building: " + Core.GameComponent_Excalibur.Instance.Comp_Fabrication.ThingForDeployment.Count.ToString(), true);
 
-            // Widgets.ButtonText(windowContent, "_WindowContent", true, false, true);
-
-
-            // Vector2 _WindowSize = ITab_Fabrication.WinSize;
-            // Rect _DrawingSpace = new Rect(0f, 0f, _WindowSize.x, _WindowSize.y).ContractedBy(10f);
-
-            Rect _InfoBar = rectContentWindow.BottomPartPixels(25);
-            Rect _MainScrollWindow = new Rect(rectContentWindow.xMin, 
-                                              rectContentWindow.yMin + _TitleHeaddingHeight, 
-                                              rectContentWindow.width, 
-                                              rectContentWindow.height - _InfoBar.height - _TitleHeaddingHeight);
-
-           // Widgets.ButtonText(_MainScrollWindow, "_MainScrollWindow", true, false, true);
-
-            GameComponent_Excalibur.Instance.Comp_Fabrication.DoListing(_MainScrollWindow, ref Dialog_Excalibur.m_ScrollPosition, ref viewHeight, showOnlyActiveThings, dropLocation, dropMap);
-
-            Widgets.TextArea(_InfoBar, "RU:" + GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.ResourceUnits) + " Power: " + GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.Power).ToString(), true);
+            GameComponent_Excalibur.Instance.Comp_Fabrication.DoListing(rectContentWindow, ref Dialog_Excalibur.m_ScrollPosition, ref viewHeight, showOnlyActiveThings, dropLocation, dropMap);
 
         }
 

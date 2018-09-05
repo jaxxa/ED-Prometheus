@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using EnhancedDevelopment.Excalibur.Core;
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,10 +35,18 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
         {
             if (this.UnitsAvalable >= 1)
             {
-                Building _ContainedBuilding = (Building)ThingMaker.MakeThing(ThingDef.Named(this.defName), null);
-                MinifiedThing _ContainedMinifiedThing = _ContainedBuilding.MakeMinified();
+                Thing _ContainedThing = (Thing)ThingMaker.MakeThing(ThingDef.Named(this.defName), null);
+                MinifiedThing _ContainedMinifiedThing = _ContainedThing.MakeMinified();
                 List<Thing> _Things = new List<Thing>();
-                _Things.Add(_ContainedMinifiedThing);
+
+                if (_ContainedMinifiedThing != null)
+                {
+                    _Things.Add(_ContainedMinifiedThing);
+                }
+                else
+                {
+                    _Things.Add(_ContainedThing);
+                }
                 this.UnitsAvalable -= 1;
 
                 DropPodUtility.DropThingsNear(dropLocation, dropMap, _Things);
@@ -49,6 +58,15 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
 
             Rect _RectTotal = new Rect(x, y, width, 100f);
 
+            this.DoInterface_Column1(_RectTotal.LeftHalf());
+            this.DoInterface_Column2(_RectTotal.RightHalf());
+
+            return _RectTotal;
+            
+        }
+        
+        void DoInterface_Column1(Rect _RectTotal, IntVec3 dropLocation = new IntVec3(), Map dropMap = null)
+        {
             Rect _RectTopHalf = _RectTotal.TopHalf();
             Rect _RectBottomHalf = _RectTotal.BottomHalf();
 
@@ -70,8 +88,8 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
 
             Rect _RectQuarter4 = _RectBottomHalf.BottomHalf();
             Widgets.TextArea(_RectQuarter4.LeftHalf(), "Avalable: " + this.UnitsAvalable.ToString() + " Requested: " + this.UnitsRequestedAditional.ToString(), true);
-            
-            if (dropMap != null && 
+
+            if (dropMap != null &&
                 this.UnitsAvalable >= 1)
             {
                 if (Widgets.ButtonText(_RectQuarter4.RightHalf().RightHalf(), "Deploy", true, false, true))
@@ -85,18 +103,35 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
             {
                 if (this.UnitsRequestedAditional > 0)
                 {
-                    this.UnitsRequestedAditional -= 1;
+                    this.UnitsRequestedAditional -= 1 * GenUI.CurrentAdjustmentMultiplier();
+                }
+                if (this.UnitsRequestedAditional < 0)
+                {
+                    this.UnitsRequestedAditional = 0;
                 }
             };
 
             if (Widgets.ButtonText(_RectQuarter4.RightHalf().LeftHalf().RightHalf(), "+"))
             {
-                this.UnitsRequestedAditional += 1;
+                this.UnitsRequestedAditional += 1 * GenUI.CurrentAdjustmentMultiplier();
             };
 
-            return _RectTotal;
+        }
+        
+        void DoInterface_Column2(Rect _RectTotal, IntVec3 dropLocation = new IntVec3(), Map dropMap = null)
+        {
+            string _Description = ThingDef.Named(this.defName).description;
 
+            Widgets.TextArea(_RectTotal, _Description, true);
+        }
 
+        public void AfterCompletion()
+        {
+            if (this.defName == "NanoMaterial")
+            {
+                GameComponent_Excalibur.Instance.Comp_Quest.ResourceAddToReserves(GameComponent_Excalibur_Quest.EnumResourceType.NanoMaterials, this.UnitsAvalable);
+                this.UnitsAvalable = 0;
+            }
         }
     }
 }

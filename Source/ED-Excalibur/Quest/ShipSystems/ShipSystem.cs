@@ -21,7 +21,7 @@ namespace EnhancedDevelopment.Excalibur.Quest
 
         public virtual int NanoMaterialNeededForUpgrade()
         {
-            return 100;
+            return 5 * (this.CurrentLevel + 1);
         }
 
         public abstract int GetMaxLevel();
@@ -68,8 +68,7 @@ namespace EnhancedDevelopment.Excalibur.Quest
         {
             Scribe_Values.Look<int>(ref this.CurrentLevel, "ShipSystem_" + this.TechnicalName() + "_CurrentLevel");
         }
-
-
+        
         public Rect DoInterface(float x, float y, float width, int index)
         {
             //Log.Message("Interface");
@@ -141,24 +140,6 @@ namespace EnhancedDevelopment.Excalibur.Quest
             Core.GameComponent_Excalibur.Instance.Comp_Quest.UpdateAllResearch();
 
         }
-
-        //public bool CanPriorityRepair()
-        //{
-        //    if (this.m_SystemStatus >= this.GetMaxSystemStatus()) { return false; }
-        //    if (!this.m_PriorityRepair) { return false; }
-        //    if (this.PowerForRepair() > Core.GameComponent_Excalibur.Instance.Comp_Quest.GetReservePowerAsInt()) { return false; }
-        //    if (this.ResourceUnitsForRepair() > Core.GameComponent_Excalibur.Instance.Comp_Quest.GetReserveMaterials()) { return false; }
-
-        //    return true;
-        //}
-
-        //public void ProgressRepair()
-        //{
-        //    Core.GameComponent_Excalibur.Instance.Comp_Quest.RequestReservePower(this.PowerForRepair());
-        //    Core.GameComponent_Excalibur.Instance.Comp_Quest.RequestReserveMaterials(this.ResourceUnitsForRepair());
-        //    Core.GameComponent_Excalibur.Instance.Comp_Quest.UpdateAllResearch();
-        //    this.m_SystemStatus += 1;
-        //}
 
     }
 }

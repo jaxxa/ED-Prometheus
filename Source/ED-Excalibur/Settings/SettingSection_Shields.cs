@@ -12,7 +12,7 @@ namespace EnhancedDevelopment.Excalibur.Settings
 
         public override void DoSettingsWindowContents(Rect canvas)
         {
-            Widgets.ButtonText(canvas, "Button1", true, false, true);
+            Widgets.ButtonText(canvas, "Work in Progress", true, false, true);
         }
 
         public override void ExposeData()

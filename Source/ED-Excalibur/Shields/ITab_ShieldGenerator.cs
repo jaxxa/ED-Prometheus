@@ -86,8 +86,12 @@ namespace EnhancedDevelopment.Excalibur.Shields
             
             listing_Standard.Gap(12f);
 
-            listing_Standard.Label("Radius: " + this.SelectedCompShieldGenerator.m_Field_Radius_Selected + " / " + this.SelectedCompShieldGenerator.m_Field_Radius_Max);
-            listing_Standard.IntAdjuster(ref this.SelectedCompShieldGenerator.m_Field_Radius_Selected, 1, 1);
+            listing_Standard.Label("Radius: " + this.SelectedCompShieldGenerator.m_FieldRadius_Requested + " / " + this.SelectedCompShieldGenerator.m_FieldRadius_Avalable);
+            listing_Standard.IntAdjuster(ref this.SelectedCompShieldGenerator.m_FieldRadius_Requested, 1, 1);
+            if (this.SelectedCompShieldGenerator.m_FieldRadius_Requested > this.SelectedCompShieldGenerator.m_FieldRadius_Avalable)
+            {
+                this.SelectedCompShieldGenerator.m_FieldRadius_Requested = this.SelectedCompShieldGenerator.m_FieldRadius_Avalable;
+            }
 
             listing_Standard.End();
         }

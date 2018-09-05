@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
+	<!-- Shield Building -->
+
 	<ThingDef ParentName="EDSN_BuildingBase">
 		<defName>Building_ShieldStandard</defName>
 		<label>Standard Shield</label>
@@ -81,6 +83,137 @@
 				<m_InterceptDropPod_Avalable>false</m_InterceptDropPod_Avalable>
 				<m_StructuralIntegrityMode>false</m_StructuralIntegrityMode>
 
+			</li>
+		</comps>
+	</ThingDef>
+
+
+	<!-- Shield Upgrades -->
+
+
+	<ThingDef Name="ShieldModuleBase" ParentName="EDSN_BuildingBase" Abstract="True">
+		<defName>ShieldUpgrade</defName>
+		<label>ShieldUpgrade</label>
+		<thingClass>Building</thingClass>
+		<description>Upgrades Shields.</description>
+		<graphicData>
+			<texPath>Things/Building/Misc/MultiAnalyzer</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(2,2)</drawSize>
+			<damageData>
+				<rect>(0.15,0.15,1.7,1.7)</rect>
+			</damageData>
+		</graphicData>
+		<researchPrerequisites>
+			<li>Research_ED_Excalibur_Quest_Unlock</li>
+			<li>Research_ED_ShieldUpgrades</li>
+		</researchPrerequisites>
+		<size>(2,2)</size>
+		<rotatable>false</rotatable>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<castEdgeShadows>true</castEdgeShadows>
+		<fillPercent>0.5</fillPercent>
+		<designationHotKey>Misc4</designationHotKey>
+		<designationCategory>Security</designationCategory>
+		<canOverlapZones>false</canOverlapZones>
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<statBases>
+			<MaxHitPoints>200</MaxHitPoints>
+			<WorkToBuild>10000</WorkToBuild>
+			<Mass>100</Mass>
+			<Flammability>1.0</Flammability>
+		</statBases>
+		<costList>
+			<Steel>100</Steel>
+			<Plasteel>50</Plasteel>
+			<Gold>20</Gold>
+		</costList>
+		<comps>
+			<li Class="EnhancedDevelopment.Excalibur.Fabrication.CompProperties_Fabricated">
+				<RequiredPower>500</RequiredPower>
+				<RequiredMaterials>200</RequiredMaterials>
+				<RequiredWork>90</RequiredWork>
+			</li>
+			<li Class="CompProperties_AffectedByFacilities">
+				<linkableFacilities>
+					<li>Building_ShieldStandard</li>
+				</linkableFacilities>
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_ShowFacilitiesConnections</li>
+		</placeWorkers>
+	</ThingDef>
+
+	<ThingDef ParentName="ShieldModuleBase">
+		<defName>ShieldModuleCapacitor</defName>
+		<label>Shield Module: Capacitor</label>
+		<description>Shield Module: Capacitor</description>
+		<comps>
+			<li Class="EnhancedDevelopment.Excalibur.Shields.CompProperties_ShieldUpgrade">
+				<FieldIntegrity_Increase>500</FieldIntegrity_Increase>
+				<Range_Increase>0</Range_Increase>
+				<PowerUsage_Increase>500</PowerUsage_Increase>
+				<DropPodIntercept>false</DropPodIntercept>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="ShieldModuleBase">
+		<defName>ShieldModuleHorizontalProjector</defName>
+		<label>Shield Module: Horizontal Projector</label>
+		<description>Shield Module: Horizontal Projector</description>
+		<comps>
+			<li Class="EnhancedDevelopment.Excalibur.Shields.CompProperties_ShieldUpgrade">
+				<FieldIntegrity_Increase>0</FieldIntegrity_Increase>
+				<Range_Increase>5</Range_Increase>
+				<PowerUsage_Increase>500</PowerUsage_Increase>
+				<DropPodIntercept>false</DropPodIntercept>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="ShieldModuleBase">
+		<defName>ShieldModuleVerticalProjector</defName>
+		<label>Shield Module: Vertical Projector</label>
+		<description>Shield Module: Vertical Projector</description>
+		<comps>
+			<li Class="EnhancedDevelopment.Excalibur.Shields.CompProperties_ShieldUpgrade">
+				<FieldIntegrity_Increase>0</FieldIntegrity_Increase>
+				<Range_Increase>0</Range_Increase>
+				<PowerUsage_Increase>500</PowerUsage_Increase>
+				<DropPodIntercept>true</DropPodIntercept>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="ShieldModuleBase">
+		<defName>ShieldModuleOrbitalDatalink</defName>
+		<label>Shield Module: Orbital Datalink</label>
+		<description>Shield Module: Orbital Datalink</description>
+		<comps>
+			<li Class="EnhancedDevelopment.Excalibur.Shields.CompProperties_ShieldUpgrade">
+				<FieldIntegrity_Increase>0</FieldIntegrity_Increase>
+				<Range_Increase>0</Range_Increase>
+				<PowerUsage_Increase>500</PowerUsage_Increase>
+				<DropPodIntercept>false</DropPodIntercept>
+				<IdentifyFriendFoe>true</IdentifyFriendFoe>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="ShieldModuleBase">
+		<defName>ShieldModulePowerConverter</defName>
+		<label>Shield Module: Power Converter</label>
+		<description>Shield Module: Power Converter</description>
+		<comps>
+			<li Class="EnhancedDevelopment.Excalibur.Shields.CompProperties_ShieldUpgrade">
+				<FieldIntegrity_Increase>0</FieldIntegrity_Increase>
+				<Range_Increase>0</Range_Increase>
+				<PowerUsage_Increase>500</PowerUsage_Increase>
+				<DropPodIntercept>false</DropPodIntercept>
+				<SlowDischarge>true</SlowDischarge>
 			</li>
 		</comps>
 	</ThingDef>

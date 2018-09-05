@@ -10,8 +10,11 @@ namespace EnhancedDevelopment.Excalibur.Settings
     class SettingSection_Quest : SettingSection
     {
 
-        public int InitialShipSetup_PowerRequired = 10000;
-        public int InitialShipSetup_ResourcesRequired = 500;
+        private const int DEFAULT_INITAL_SHIP_SETUP_POWER_REQUIRED = 10000;
+        private const int DEFAULT_INITAL_SHIP_SETUP_RESOURCES_REQUIRED = 500;
+        
+        public int InitialShipSetup_PowerRequired = SettingSection_Quest.DEFAULT_INITAL_SHIP_SETUP_POWER_REQUIRED;
+        public int InitialShipSetup_ResourcesRequired = SettingSection_Quest.DEFAULT_INITAL_SHIP_SETUP_RESOURCES_REQUIRED;
 
         public override void DoSettingsWindowContents(Rect canvas)
         {
@@ -28,11 +31,11 @@ namespace EnhancedDevelopment.Excalibur.Settings
             Listing_Standard _listing_Standard_InitialShipSetup_PowerRequired = new Listing_Standard();
             _listing_Standard_InitialShipSetup_PowerRequired.Begin(listing_Standard.GetRect(30f));
             _listing_Standard_InitialShipSetup_PowerRequired.ColumnWidth = 70;
-            _listing_Standard_InitialShipSetup_PowerRequired.IntAdjuster(ref InitialShipSetup_PowerRequired, 100, 100);
+            _listing_Standard_InitialShipSetup_PowerRequired.IntAdjuster(ref InitialShipSetup_PowerRequired, 100, 0);
             _listing_Standard_InitialShipSetup_PowerRequired.NewColumn();
-            _listing_Standard_InitialShipSetup_PowerRequired.IntAdjuster(ref InitialShipSetup_PowerRequired, 500, 500);
+            _listing_Standard_InitialShipSetup_PowerRequired.IntAdjuster(ref InitialShipSetup_PowerRequired, 500, 0);
             _listing_Standard_InitialShipSetup_PowerRequired.NewColumn();
-            _listing_Standard_InitialShipSetup_PowerRequired.IntSetter(ref InitialShipSetup_PowerRequired, 10000, "Default");
+            _listing_Standard_InitialShipSetup_PowerRequired.IntSetter(ref InitialShipSetup_PowerRequired, SettingSection_Quest.DEFAULT_INITAL_SHIP_SETUP_POWER_REQUIRED, "Default");
             _listing_Standard_InitialShipSetup_PowerRequired.End();
 
             listing_Standard.GapLine(12f);
@@ -41,11 +44,11 @@ namespace EnhancedDevelopment.Excalibur.Settings
             Listing_Standard _listing_Standard_InitialShipSetup_ResourcesRequired = new Listing_Standard();
             _listing_Standard_InitialShipSetup_ResourcesRequired.Begin(listing_Standard.GetRect(30f));
             _listing_Standard_InitialShipSetup_ResourcesRequired.ColumnWidth = 70;
-            _listing_Standard_InitialShipSetup_ResourcesRequired.IntAdjuster(ref InitialShipSetup_ResourcesRequired, 10, 10);
+            _listing_Standard_InitialShipSetup_ResourcesRequired.IntAdjuster(ref InitialShipSetup_ResourcesRequired, 10, 0);
             _listing_Standard_InitialShipSetup_ResourcesRequired.NewColumn();
-            _listing_Standard_InitialShipSetup_ResourcesRequired.IntAdjuster(ref InitialShipSetup_ResourcesRequired, 100, 100);
+            _listing_Standard_InitialShipSetup_ResourcesRequired.IntAdjuster(ref InitialShipSetup_ResourcesRequired, 100, 0);
             _listing_Standard_InitialShipSetup_ResourcesRequired.NewColumn();
-            _listing_Standard_InitialShipSetup_ResourcesRequired.IntSetter(ref InitialShipSetup_ResourcesRequired, 500, "Default");
+            _listing_Standard_InitialShipSetup_ResourcesRequired.IntSetter(ref InitialShipSetup_ResourcesRequired, SettingSection_Quest.DEFAULT_INITAL_SHIP_SETUP_RESOURCES_REQUIRED, "Default");
             _listing_Standard_InitialShipSetup_ResourcesRequired.End();
 
             listing_Standard.GapLine(12f);
@@ -58,8 +61,8 @@ namespace EnhancedDevelopment.Excalibur.Settings
         public override void ExposeData()
         {
             //throw new NotImplementedException();
-            Scribe_Values.Look<int>(ref InitialShipSetup_PowerRequired, "InitialShipSetup_PowerRequired", 10000);
-            Scribe_Values.Look<int>(ref InitialShipSetup_ResourcesRequired, "InitialShipSetup_ResourcesRequired", 500);
+            Scribe_Values.Look<int>(ref InitialShipSetup_PowerRequired, "InitialShipSetup_PowerRequired", SettingSection_Quest.DEFAULT_INITAL_SHIP_SETUP_POWER_REQUIRED);
+            Scribe_Values.Look<int>(ref InitialShipSetup_ResourcesRequired, "InitialShipSetup_ResourcesRequired", SettingSection_Quest.DEFAULT_INITAL_SHIP_SETUP_RESOURCES_REQUIRED);
         }
 
         public override string Name()

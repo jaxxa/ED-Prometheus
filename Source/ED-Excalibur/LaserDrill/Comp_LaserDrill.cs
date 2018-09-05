@@ -39,10 +39,10 @@ namespace EnhancedDevelopment.Excalibur.LaserDrill
 
         public override void CompTickRare()
         {
-            if (!this.parent.Map.GetComponent<MapComp_LaserDrill>().IsActive(this.parent))
-            {
-                return;
-            }
+            //if (!this.parent.Map.GetComponent<MapComp_LaserDrill>().IsActive(this.parent))
+            //{
+            //    return;
+            //}
 
             if (this._PowerComp.PowerOn)
             {
@@ -93,13 +93,14 @@ namespace EnhancedDevelopment.Excalibur.LaserDrill
 
             StringBuilder _StringBuilder = new StringBuilder();
 
-            if (this.parent.Map != null && this.parent.Map.GetComponent<MapComp_LaserDrill>() != null)
+            //if (this.parent.Map != null && this.parent.Map.GetComponent<MapComp_LaserDrill>() != null)
+
             {
-                if (!this.parent.Map.GetComponent<MapComp_LaserDrill>().IsActive(this.parent))
-                {
-                    _StringBuilder.Append("Drill Status: Offline, Waiting for another drill to finish.");
-                }
-                else
+                //if (!this.parent.Map.GetComponent<MapComp_LaserDrill>().IsActive(this.parent))
+                //{
+                //    _StringBuilder.Append("Drill Status: Offline, Waiting for another drill to finish.");
+                //}
+                //else
                 {
                     if (this._PowerComp.PowerOn)
                     {

@@ -53,9 +53,11 @@ namespace EnhancedDevelopment.Excalibur.Patch.Patches
         {
             //Log.Message("Impact");
 
+
             //This looks to include the Player Faction as Bring Friendly to Itself.
-            if (__instance.Contents.innerContainer.Any(x => x.Faction.HostileTo(Faction.OfPlayer)) && 
-               (__instance.Map.GetComponent<ShieldManagerMapComp>().WillDropPodBeIntercepted(__instance)))
+            bool _Hostile = __instance.Contents.innerContainer.Any(x => x.Faction.HostileTo(Faction.OfPlayer));
+
+            if (__instance.Map.GetComponent<ShieldManagerMapComp>().WillDropPodBeIntercepted(__instance, _Hostile))
             {
                 {
                     for (int i = 0; i < 6; i++)

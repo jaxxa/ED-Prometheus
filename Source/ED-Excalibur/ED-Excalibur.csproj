@@ -36,7 +36,7 @@
       <HintPath>..\..\..\..\RW-DLL\Harmony\1.2.0.1\Release\net35\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\..\..\RW-DLL\B19\2006-x86\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\..\..\..\RW-DLL\B19\2009-x64\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -45,8 +45,9 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="UnityEngine">
-      <HintPath>..\..\..\..\RW-DLL\B19\2006-x86\UnityEngine.dll</HintPath>
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\RW-DLL\B19\2009-x64\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
@@ -67,12 +68,6 @@
     <Compile Include="Quest\CompProperties_EDSNTransponder.cs" />
     <Compile Include="Quest\Comp_EDSNTransponder.cs" />
     <Compile Include="Quest\Dialog\Dialog_0_Generic.cs" />
-    <Compile Include="Quest\Dialog\Dialog_6_ShipStabilised.cs" />
-    <Compile Include="Quest\Dialog\Dialog_5_ExecutingBurn.cs" />
-    <Compile Include="Quest\Dialog\Dialog_4_NeedResources.cs" />
-    <Compile Include="Quest\Dialog\Dialog_3_InitialCharge.cs" />
-    <Compile Include="Quest\Dialog\Dialog_2_FirstContact.cs" />
-    <Compile Include="Quest\Dialog\Dialog_1_SignalDetection.cs" />
     <Compile Include="Quest\Dialog\Dialog_Excalibur.cs" />
     <Compile Include="Quest\ITab_Fabrication.cs" />
     <Compile Include="Quest\ITab_Transponder.cs" />

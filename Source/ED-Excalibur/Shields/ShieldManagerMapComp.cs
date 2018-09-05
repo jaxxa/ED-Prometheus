@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using UnityEngine;
 using Verse;
@@ -29,23 +30,10 @@ namespace EnhancedDevelopment.Excalibur.Shields
             // Log.Message("MapCompTick");
         }
 
-        public bool WillDropPodBeIntercepted(DropPodIncoming dropPodToTest)
+        public bool WillDropPodBeIntercepted(DropPodIncoming dropPodToTest, bool hostile)
         {
             IEnumerable<Building_Shield> _ShieldBuildings = map.listerBuildings.AllBuildingsColonistOfClass<Building_Shield>();
-            if (_ShieldBuildings.Any(x =>
-                                       {
-
-                                           float _Distance = Vector3.Distance(dropPodToTest.Position.ToVector3(), x.Position.ToVector3());
-
-                                           float _Radius = x.GetComp<Comp_ShieldGenerator>().m_Field_Radius_Selected;
-
-                                           if (_Distance <= _Radius && x.WillInterceptDropPods())
-                                           {
-                                               return true;
-                                           }
-                                           return false;
-
-                                       }))
+            if (_ShieldBuildings.Any(x => x.WillInterceptDropPod(dropPodToTest) ))
             {
                 return true;
             }
@@ -60,28 +48,12 @@ namespace EnhancedDevelopment.Excalibur.Shields
         {
 
             IEnumerable<Building_Shield> _ShieldBuildings = map.listerBuildings.AllBuildingsColonistOfClass<Building_Shield>();
-            //Log.Message("Buildings: " + _ShieldBuildings.Count().ToString());
 
-            //if (_ShieldBuildings.Any(x => (Vector3.Distance(projectile.ExactPosition, x.Position.ToVector3()) <= 5.0f)))
-            if (_ShieldBuildings.Any(x =>
+            Building_Shield _BlockingShield = _ShieldBuildings.FirstOrFallback(x => x.WillProjectileBeBlocked(projectile));
+
+            if (_BlockingShield != null)
             {
-                Vector3 _Projetile2DPosition = new Vector3(projectile.ExactPosition.x, 0, projectile.ExactPosition.z);
-                float _Distance = Vector3.Distance(_Projetile2DPosition, x.Position.ToVector3());
-
-                //Log.Message("Projectile:" + _Projetile2DPosition.ToString());
-                //Log.Message("Shield:" + x.Position.ToVector3());
-
-                //Log.Message("Distance: " + _Distance.ToString());
-                float _Radius = x.GetComp<Comp_ShieldGenerator>().m_Field_Radius_Selected;
-
-                if (_Distance <= _Radius)
-                {
-                    return ShieldManagerMapComp.CorrectAngleToIntercept(projectile, x);
-                }
-                return false;
-            }))
-            {
-                //Log.Message("Blocked");
+                _BlockingShield.TakeDamageFromProjectile(projectile);
 
                 //On hit effects
                 MoteMaker.ThrowLightningGlow(projectile.ExactPosition, this.map, 0.5f);
@@ -94,31 +66,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
 
             return false;
         }
-
-
-
-
-        public static Boolean CorrectAngleToIntercept(Projectile pr, Building_Shield shieldBuilding)
-        {
-            //Detect proper collision using angles
-            Quaternion targetAngle = pr.ExactRotation;
-
-            Vector3 projectilePosition2D = pr.ExactPosition;
-            projectilePosition2D.y = 0;
-
-            Vector3 shieldPosition2D = shieldBuilding.Position.ToVector3();
-            shieldPosition2D.y = 0;
-
-            Quaternion shieldProjAng = Quaternion.LookRotation(projectilePosition2D - shieldPosition2D);
-
-            if ((Quaternion.Angle(targetAngle, shieldProjAng) > 90))
-            {
-                return true;
-            }
-
-            return false;
-        }
-
+                   
 
     }
 }

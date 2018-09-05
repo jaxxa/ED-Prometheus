@@ -8,6 +8,13 @@ namespace EnhancedDevelopment.Excalibur.Quest.ShipSystems
 {
     class ShipSystem_Fabrication : ShipSystem
     {
+        public static ShipSystem_Fabrication instance;
+
+        public ShipSystem_Fabrication()
+        {
+            ShipSystem_Fabrication.instance = this;
+        }
+
         public override int GetMaxLevel()
         {
             return 6;

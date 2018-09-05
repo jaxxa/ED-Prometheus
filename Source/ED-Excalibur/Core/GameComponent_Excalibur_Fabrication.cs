@@ -41,6 +41,7 @@ namespace EnhancedDevelopment.Excalibur.Core
                     _CurrentlyUnderConstruction.ConstructionInProgress = false;
                     _CurrentlyUnderConstruction.UnitsAvalable++;
                     _CurrentlyUnderConstruction.WorkRemaining = _CurrentlyUnderConstruction.TotalNeededWork;
+                    _CurrentlyUnderConstruction.AfterCompletion();
                 }
 
             }
@@ -129,7 +130,7 @@ namespace EnhancedDevelopment.Excalibur.Core
             DefDatabase<ThingDef>.AllDefs.ToList().ForEach(x =>
             {
                 Fabrication.CompProperties_Fabricated _FabricationCompPropeties = x.GetCompProperties<Fabrication.CompProperties_Fabricated>();
-                if (_FabricationCompPropeties != null && x.researchPrerequisites.All(r => r.IsFinished || string.Equals(r.defName, "Research_ED_Excalibur_Quest_Unlock")))
+                if (_FabricationCompPropeties != null && (x.researchPrerequisites == null || x.researchPrerequisites.All(r => r.IsFinished || string.Equals(r.defName, "Research_ED_Excalibur_Quest_Unlock"))))
                 {
                     if (!this.ThingForDeployment.Any(b => string.Equals(b.defName, x.defName)))
                     {

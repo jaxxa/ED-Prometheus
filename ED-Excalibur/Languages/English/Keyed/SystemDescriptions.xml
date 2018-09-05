@@ -3,6 +3,7 @@
 
 	<SystemDescription_FabricationSystem>Level 1:
  * Allows building Drop
+ * Unlocked in Quest
 Level 2:
  * Generation of OmniGel
 Level 3:
@@ -17,7 +18,7 @@ Level 6:
 
 	<SystemDescription_PowerDistribution>Level 1:
  * Surface to Ship Systems
- * Unlocked in Quest?
+ * Unlocked in Quest
 Level 2:
  * Laser Drill
 Level 3:#NotImplimented#
