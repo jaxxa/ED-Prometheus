@@ -40,7 +40,7 @@ Features:
  * Rework of how NanoMaterials are generated.
  * Fix for Max NanoShield Charge defaulting to 0.
  * Updating Rimworld Target Version.
-
+ * Shield Rework
 
 0.19.0.5
  * Rework of Ship Systems / Unlocking Research.
