@@ -16,6 +16,16 @@ namespace EnhancedDevelopment.Excalibur.Core
     class GameComponent_Excalibur_Quest : GameComponent_BaseClass
     {
 
+        ShipSystem_Fabrication ShipSystem_Fabrication;
+        ShipSystem_PowerDistribution ShipSystem_PowerDistribution;
+        ShipSystem_PowerGeneration ShipSystem_PowerGeneration;
+        ShipSystem_Regeneration ShipSystem_Regeneration;
+        ShipSystem_Resourcing ShipSystem_Resourcing;
+        ShipSystem_Shield ShipSystem_Shield;
+        ShipSystem_Tactical ShipSystem_Tactical;
+        ShipSystem_Transport ShipSystem_Transport;
+
+
         public enum EnumResourceType
         {
             Power,
@@ -38,14 +48,29 @@ namespace EnhancedDevelopment.Excalibur.Core
             this.m_ResourcesStored.Add(EnumResourceType.UtilityDrones, 0);
             this.m_ResourcesStored.Add(EnumResourceType.SolarCells, 0);
 
-            this.m_ShipSystems.Add(new ShipSystem_Fabrication());
-            this.m_ShipSystems.Add(new ShipSystem_PowerDistribution());
-            this.m_ShipSystems.Add(new ShipSystem_PowerGeneration());
-            this.m_ShipSystems.Add(new ShipSystem_Regeneration());
-            this.m_ShipSystems.Add(new ShipSystem_Resourcing());
-            this.m_ShipSystems.Add(new ShipSystem_Shield());
-            this.m_ShipSystems.Add(new ShipSystem_Tactical());
-            this.m_ShipSystems.Add(new ShipSystem_Transport());
+            this.ShipSystem_Fabrication = new ShipSystem_Fabrication();
+            this.m_ShipSystems.Add(this.ShipSystem_Fabrication);
+
+            this.ShipSystem_PowerDistribution = new ShipSystem_PowerDistribution();
+            this.m_ShipSystems.Add(this.ShipSystem_PowerDistribution);
+
+            this.ShipSystem_PowerGeneration = new ShipSystem_PowerGeneration();
+            this.m_ShipSystems.Add(this.ShipSystem_PowerGeneration);
+
+            this.ShipSystem_Regeneration = new ShipSystem_Regeneration();
+            this.m_ShipSystems.Add(this.ShipSystem_Regeneration);
+
+            this.ShipSystem_Resourcing = new ShipSystem_Resourcing();
+            this.m_ShipSystems.Add(this.ShipSystem_Resourcing);
+
+            this.ShipSystem_Shield = new ShipSystem_Shield();
+            this.m_ShipSystems.Add(this.ShipSystem_Shield);
+
+            this.ShipSystem_Tactical = new ShipSystem_Tactical();
+            this.m_ShipSystems.Add(this.ShipSystem_Tactical);
+
+            this.ShipSystem_Transport = new ShipSystem_Transport();
+            this.m_ShipSystems.Add(this.ShipSystem_Transport);
 
 
         }
@@ -237,6 +262,8 @@ namespace EnhancedDevelopment.Excalibur.Core
                     if (this.m_ResourcesStored[EnumResourceType.Power] >= Mod_EDExcalibur.Settings.Quest.InitialShipSetup_PowerRequired)
                     {
                         m_QuestStatus++;
+                        this.ResourceAddToReserves(EnumResourceType.Power, -Mod_EDExcalibur.Settings.Quest.InitialShipSetup_PowerRequired);
+                        this.ShipSystem_PowerDistribution.CurrentLevel += 1;
                         this.ContactExcalibur();
                     }
                     else
@@ -250,6 +277,10 @@ namespace EnhancedDevelopment.Excalibur.Core
                     if (this.ResourceGetReserveStatus(EnumResourceType.ResourceUnits) >= Mod_EDExcalibur.Settings.Quest.InitialShipSetup_ResourcesRequired)
                     {
                         m_QuestStatus++;
+
+                        this.ResourceAddToReserves(EnumResourceType.ResourceUnits, -Mod_EDExcalibur.Settings.Quest.InitialShipSetup_ResourcesRequired);
+                        this.ShipSystem_Fabrication.CurrentLevel += 1;
+
                         this.ContactExcalibur();
                     }
                     else
