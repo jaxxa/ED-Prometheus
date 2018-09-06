@@ -16,14 +16,14 @@ namespace EnhancedDevelopment.Excalibur.Core
     class GameComponent_Excalibur_Quest : GameComponent_BaseClass
     {
 
-        ShipSystem_Fabrication ShipSystem_Fabrication;
-        ShipSystem_PowerDistribution ShipSystem_PowerDistribution;
-        ShipSystem_PowerGeneration ShipSystem_PowerGeneration;
-        ShipSystem_Regeneration ShipSystem_Regeneration;
-        ShipSystem_Resourcing ShipSystem_Resourcing;
-        ShipSystem_Shield ShipSystem_Shield;
-        ShipSystem_Tactical ShipSystem_Tactical;
-        ShipSystem_Transport ShipSystem_Transport;
+        public ShipSystem_Fabrication ShipSystem_Fabrication;
+        public ShipSystem_PowerDistribution ShipSystem_PowerDistribution;
+        public ShipSystem_PowerGeneration ShipSystem_PowerGeneration;
+        public ShipSystem_Regeneration ShipSystem_Regeneration;
+        public ShipSystem_Resourcing ShipSystem_Resourcing;
+        public ShipSystem_Shield ShipSystem_Shield;
+        public ShipSystem_Tactical ShipSystem_Tactical;
+        public ShipSystem_Transport ShipSystem_Transport;
 
 
         public enum EnumResourceType
