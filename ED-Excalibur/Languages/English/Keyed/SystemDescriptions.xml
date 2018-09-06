@@ -4,7 +4,7 @@
 	<SystemDescription_FabricationSystem>Level 1:
  * Allows building Drop
  * Unlocked in Quest
- 
+
 Level 2:
  * Generation of OmniGel
 
@@ -91,7 +91,8 @@ Level 3:#NotImplimented#
  * Utility Drones can use Tractor beams to bring asteroids to land in the area
 
 Level 4:#NotImplimented#
- * Utility Drones Sensors have been enhanced to determine the content of asteroids so they can be chosen.</SystemDescription_Resourcing>
+ * Utility Drones Sensors have been enhanced to determine the content of asteroids so they can be chosen.
+	</SystemDescription_Resourcing>
 
 	<SystemDescription_Shield>Level 1:
  * Unlocks Shield Generator
