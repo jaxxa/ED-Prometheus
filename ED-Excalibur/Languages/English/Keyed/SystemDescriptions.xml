@@ -4,14 +4,19 @@
 	<SystemDescription_FabricationSystem>Level 1:
  * Allows building Drop
  * Unlocked in Quest
+ 
 Level 2:
  * Generation of OmniGel
+
 Level 3:
  * Replicator MK1
+
 Level 4:
  * Replicator MK2
+
 Level 5:
  * Replicator MK3
+
 Level 6:
  * Molecular Reinforcement
 	</SystemDescription_FabricationSystem>
@@ -19,14 +24,18 @@ Level 6:
 	<SystemDescription_PowerDistribution>Level 1:
  * Surface to Ship Systems
  * Unlocked in Quest
+
 Level 2:
  * Laser Drill
+
 Level 3:#NotImplimented#
  * Ship to Surface
+
 Level 4:#NotImplimented#
  * Ship to Ship
    * Call Trade ships
    * Sell energy to them?
+
 Level 5:#NotImplimented#
  * Zero Point Modules
    * Can be charged from Ship Power supply and used to power ground installations
@@ -37,13 +46,16 @@ Level 5:#NotImplimented#
  * Chemfuel Generators and brought online, allowing you to provide chemfuel to the ship where it will be transformed into power
  * Individual Reactors can be brought online to increase power at the cost of increased speed of fuel usage
  * Oxygen is included in the package when the fuel is tagged for transport
+
 Level 2:#NotImplimented#
  * Solar Generators
  * Individual generators can be constructed to add a passive power generation
    * Upto a point
+
 Level 3:#NotImplimented#
  * Fission Reactors
  * Requires a supply of Uranium
+
 Level 4:#NotImplimented#
  * Fusion Reactors
  * Requires a supply of H2O
@@ -53,12 +65,15 @@ Level 4:#NotImplimented#
 
 	<SystemDescription_Regeneration>Level 1:#NotImplimented#
  * New building that uses NanoMaterials to Repair Structures.
+
 Level 2:#NotImplimented#
  * Building can now fix component breakdowns.
+
 Level 3:#NotImplimented#
  * Ability to use NanoMaterials to Slightly Heal Pawns
  * New Building?
  * Similar to Stasis Pod
+
 Level 4:#NotImplimented#
  * Heal Shot off parts of Pawns
 	</SystemDescription_Regeneration>
@@ -66,12 +81,15 @@ Level 4:#NotImplimented#
 	<SystemDescription_Resourcing>Level 1:#NotImplimented#
  * Unlocked in Quest
  * NanoMaterials can use Asteroids to provide additional unrefined resources for enhancing the hull integrity.
+
 Level 2:#NotImplimented#
  * Mining systems are brought online, allowing Asteroids to be mined to provide an income of RU
  * Costs power to Run?
  * Can build individual utility drones to increase the speed?
+
 Level 3:#NotImplimented#
  * Utility Drones can use Tractor beams to bring asteroids to land in the area
+
 Level 4:#NotImplimented#
  * Utility Drones Sensors have been enhanced to determine the content of asteroids so they can be chosen.</SystemDescription_Resourcing>
 
@@ -86,15 +104,20 @@ Level 3:
 	<SystemDescription_Tactical>Level 1:#NotImplimented#
  * Beam Weapon Unlock
    * Needs Power 4?
+
 Level 2:#NotImplimented#
  * Bombardment
+
 Level 3:#NotImplimented#
  * Asteroid Redirect in a precise location.
    * Requires Resourcing Level 3
+
 Level 4:#NotImplimented#
  * Tornado?
+
 Level 5:#NotImplimented#
  * Classified additional Tornadoes?
+
 Level 6:#NotImplimented#
  * Failsafe System
  * Destruction of a base as preferable to it falling into hostile hands.
@@ -102,10 +125,13 @@ Level 6:#NotImplimented#
 
 	<SystemDescription_Transport>Level 1:
  * Transport Beaming Unlocked
+
 Level 2:#NotImplimented#
  * DropPods?
+
 Level 3:#NotImplimented#
  * Shuttles?
+
 Level 4:#NotImplimented#
  * More transport buffers?
 	</SystemDescription_Transport>
