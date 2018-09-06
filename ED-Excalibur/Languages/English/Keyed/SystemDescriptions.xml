@@ -100,8 +100,8 @@ Level 6:#NotImplimented#
  * Destruction of a base as preferable to it falling into hostile hands.
 	</SystemDescription_Tactical>
 
-	<SystemDescription_Transport>Level 1:#NotImplimented#
- * Transporter Module Unlocked
+	<SystemDescription_Transport>Level 1:
+ * Transport Beaming Unlocked
 Level 2:#NotImplimented#
  * DropPods?
 Level 3:#NotImplimented#
