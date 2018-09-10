@@ -12,35 +12,28 @@ namespace EnhancedDevelopment.Excalibur.Patch.Patches
     {
         protected override void ApplyPatch(HarmonyInstance harmony = null)
         {
-
-
+            
             DefDatabase<ThingDef>.AllDefs.ToList().ForEach(x =>
             {
                 Fabrication.CompProperties_CompressedStuff _CompressedStuffCompPropeties = x.GetCompProperties<Fabrication.CompProperties_CompressedStuff>();
 
                 if (_CompressedStuffCompPropeties != null)
                 {
-                    Log.Message("Compressing " + x.defName);
-                    //x.statBases.ForEach(y => Log.Message(y.stat.defName));
+                    //Log.Message("Compressing " + x.defName);
 
-                    //Log.Message("HP" + x.GetStatValueAbstract(StatDefOf.MaxHitPoints, x));
-                    //x.SetStatBaseValue(StatDefOf.MaxHitPoints, 9954);
-                    //Log.Message("HP" + x.GetStatValueAbstract(StatDefOf.MaxHitPoints, x));
-
-
-                    // x.equippedStatOffsets.ForEach(y => Log.Message(y.stat.defName));
-                    x.stuffProps.statFactors.ForEach(_StatFactor => Log.Message(_StatFactor.stat.defName + " - " + _StatFactor.value.ToString()));
-
-                    StatModifier _MaxHitPoints = x.stuffProps.statFactors.First(_StatFactor => String.Equals(_StatFactor.stat.defName, "MaxHitPoints"));
-
+                    StatModifier _MaxHitPoints = x.stuffProps.statFactors.FirstOrFallback(_StatFactor => String.Equals(_StatFactor.stat.defName, "MaxHitPoints"));
                     if (_MaxHitPoints != null)
                     {
                         _MaxHitPoints.value = _MaxHitPoints.value * 10;
                     }
-                    x.stuffProps.statFactors.ForEach(_StatFactor => Log.Message(_StatFactor.stat.defName + " - " + _StatFactor.value.ToString()));
-
-                    //StatModifier _MaxHP = x.statBases.FirstOrDefault(y => string.Equals(y.stat.defName, "MaxHitPoints"));
-                    //_MaxHP.value = _MaxHP.value * 100;
+                    else
+                    {
+                        StatModifier _NewStat = new StatModifier();
+                        _NewStat.stat = StatDefOf.MaxHitPoints;
+                        _NewStat.value = 1f;
+                        _NewStat.value = _NewStat.value * 10;
+                        x.stuffProps.statFactors.Add(_NewStat);
+                    }
                 }
             });
 
