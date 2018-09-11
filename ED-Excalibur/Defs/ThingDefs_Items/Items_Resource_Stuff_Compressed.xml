@@ -1,12 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+<!-- Compressed, x10 StatFactor - MaxHitPoints -->
+
   <!--=============== Pure stuffs: Basics ====================-->
 
 
   <ThingDef ParentName="ResourceBase">
-    <defName>Steel</defName>
-    <label>steel</label>
+    <defName>CompressedSteel</defName>
+    <label>compressed steel</label>
     <description>An iron-carbon metal alloy used for building a huge variety of structures, weapons, and machines.</description>
     <graphicData>
       <texPath>Things/Item/Resource/Steel</texPath>
@@ -47,7 +49,7 @@
       <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
       <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
       <statFactors>
-        <MaxHitPoints>1</MaxHitPoints>
+        <MaxHitPoints>10</MaxHitPoints>
         <Beauty>1</Beauty>
         <Flammability>0.4</Flammability>
       </statFactors>
@@ -56,8 +58,8 @@
   </ThingDef>
 
   <ThingDef ParentName="ResourceBase">
-    <defName>Plasteel</defName>
-    <label>plasteel</label>
+    <defName>CompressedPlasteel</defName>
+    <label>compressed plasteel</label>
     <description>Advanced spacer tech structural material. Plasteel is extremely strong due to its unique molecular structure.</description>
     <graphicData>
       <texPath>Things/Item/Resource/Plasteel</texPath>
@@ -97,7 +99,7 @@
       <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
       <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
       <statFactors>
-        <MaxHitPoints>2.8</MaxHitPoints>
+        <MaxHitPoints>28</MaxHitPoints>
         <Beauty>1</Beauty>
         <Flammability>0.2</Flammability>
         <WorkToMake>2.2</WorkToMake>
@@ -111,8 +113,8 @@
 
 
   <ThingDef ParentName="ResourceVerbBase">
-    <defName>WoodLog</defName>
-    <label>wood</label>
+    <defName>CompressedWoodLog</defName>
+    <label>compressed wood</label>
     <description>Wood from trees or other fibrous plants. Useful for building structures and weapons. It is a good fuel for campfires and generators, and can be refined into chemfuel. In a pinch, a piece of wood can be used as a weapon or a leg.</description>
     <graphicData>
       <texPath>Things/Item/Resource/WoodLog</texPath>
@@ -136,7 +138,7 @@
       <BluntDamageMultiplier>0.9</BluntDamageMultiplier>
     </statBases>
     <stuffProps>
-      <stuffAdjective>wooden</stuffAdjective>
+      <stuffAdjective>compressed wooden</stuffAdjective>
       <categories>
         <li>Woody</li>
       </categories>
@@ -148,7 +150,7 @@
       <soundMeleeHitSharp>MeleeHit_Wood</soundMeleeHitSharp>
       <soundMeleeHitBlunt>MeleeHit_Wood</soundMeleeHitBlunt>
       <statFactors>
-        <MaxHitPoints>0.65</MaxHitPoints>
+        <MaxHitPoints>6.5</MaxHitPoints>
         <Beauty>1</Beauty>
         <Flammability>1</Flammability>
         <WorkToMake>0.7</WorkToMake>
