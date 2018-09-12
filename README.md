@@ -39,7 +39,8 @@ Features:
 0.19.0.7
  * Ship To Surface Power Distribution
  * Transport Beaming
-
+ * Adding Compression for Steel, Plasteel and Wood.
+ 
 0.19.0.6
  * Rework of how NanoMaterials are generated.
  * Fix for Max NanoShield Charge defaulting to 0.
