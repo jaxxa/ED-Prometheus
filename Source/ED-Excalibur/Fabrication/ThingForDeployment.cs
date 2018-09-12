@@ -58,8 +58,8 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
 
             Rect _RectTotal = new Rect(x, y, width, 100f);
 
-            this.DoInterface_Column1(_RectTotal.LeftHalf());
-            this.DoInterface_Column2(_RectTotal.RightHalf());
+            this.DoInterface_Column1(_RectTotal.LeftHalf(), dropLocation, dropMap);
+            this.DoInterface_Column2(_RectTotal.RightHalf(), dropLocation, dropMap);
 
             return _RectTotal;
             
