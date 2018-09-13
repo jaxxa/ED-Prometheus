@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<!-- Replicate Slag -->
+	<!-- Compress_Steel -->
 	<RecipeDef>
 		<defName>Compress_Steel</defName>
 		<label>Compresses Steel into a stronger Compressed Steel</label>
@@ -31,7 +31,8 @@
 		</fixedIngredientFilter>
 		<workSkill>Crafting</workSkill>
 	</RecipeDef>
-	
+
+	<!-- Compress_Plasteel -->
 	<RecipeDef>
 		<defName>Compress_Plasteel</defName>
 		<label>Compresses Plasteel into a stronger Compressed Plasteel</label>
@@ -61,7 +62,8 @@
 		</fixedIngredientFilter>
 		<workSkill>Crafting</workSkill>
 	</RecipeDef>
-	
+
+	<!-- Compress_WoodLog -->
 	<RecipeDef>
 		<defName>Compress_WoodLog</defName>
 		<label>Compresses Wood into a stronger Compressed Wood</label>
@@ -87,6 +89,161 @@
 		<fixedIngredientFilter>
 			<thingDefs>
 				<li>WoodLog</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workSkill>Crafting</workSkill>
+	</RecipeDef>
+
+	<!-- Compress_Sandstone -->
+	<RecipeDef>
+		<defName>Compress_Sandstone</defName>
+		<label>Compresses Sandstone</label>
+		<description>Compresses Sandstone</description>
+		<jobString>Creating Compressed Sandstone.</jobString>
+		<workAmount>20</workAmount>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<effectWorking>Smelt</effectWorking>
+		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BlocksSandstone</li>
+					</thingDefs>
+				</filter>
+				<count>10</count>
+			</li>
+		</ingredients>
+		<products>
+			<CompressedBlocksSandstone>1</CompressedBlocksSandstone>
+		</products>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>BlocksSandstone</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workSkill>Crafting</workSkill>
+	</RecipeDef>
+
+	<!-- Compress_Granite -->
+	<RecipeDef>
+		<defName>Compress_Granite</defName>
+		<label>Compresses Granite</label>
+		<description>Compresses Granite</description>
+		<jobString>Creating Compressed Granite.</jobString>
+		<workAmount>20</workAmount>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<effectWorking>Smelt</effectWorking>
+		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BlocksGranite</li>
+					</thingDefs>
+				</filter>
+				<count>10</count>
+			</li>
+		</ingredients>
+		<products>
+			<CompressedBlocksGranite>1</CompressedBlocksGranite>
+		</products>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>BlocksGranite</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workSkill>Crafting</workSkill>
+	</RecipeDef>
+
+	<!-- Compress_Limestone -->
+	<RecipeDef>
+		<defName>Compress_Limestone</defName>
+		<label>Compresses Limestone</label>
+		<description>Compresses Limestone</description>
+		<jobString>Creating Compressed Limestone.</jobString>
+		<workAmount>20</workAmount>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<effectWorking>Smelt</effectWorking>
+		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BlocksLimestone</li>
+					</thingDefs>
+				</filter>
+				<count>10</count>
+			</li>
+		</ingredients>
+		<products>
+			<CompressedBlocksLimestone>1</CompressedBlocksLimestone>
+		</products>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>BlocksLimestone</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workSkill>Crafting</workSkill>
+	</RecipeDef>
+
+	<!-- Compress_Slate -->
+	<RecipeDef>
+		<defName>Compress_Slate</defName>
+		<label>Compresses Slate</label>
+		<description>Compresses Slate</description>
+		<jobString>Creating Compressed Slate.</jobString>
+		<workAmount>20</workAmount>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<effectWorking>Smelt</effectWorking>
+		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BlocksSlate</li>
+					</thingDefs>
+				</filter>
+				<count>10</count>
+			</li>
+		</ingredients>
+		<products>
+			<CompressedBlocksSlate>1</CompressedBlocksSlate>
+		</products>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>BlocksSlate</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workSkill>Crafting</workSkill>
+	</RecipeDef>
+
+	<!-- Compress_Marble -->
+	<RecipeDef>
+		<defName>Compress_Marble</defName>
+		<label>Compresses Marble</label>
+		<description>Compresses Marble</description>
+		<jobString>Creating Compressed Marble.</jobString>
+		<workAmount>20</workAmount>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<effectWorking>Smelt</effectWorking>
+		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BlocksMarble</li>
+					</thingDefs>
+				</filter>
+				<count>10</count>
+			</li>
+		</ingredients>
+		<products>
+			<CompressedBlocksMarble>1</CompressedBlocksMarble>
+		</products>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>BlocksMarble</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<workSkill>Crafting</workSkill>

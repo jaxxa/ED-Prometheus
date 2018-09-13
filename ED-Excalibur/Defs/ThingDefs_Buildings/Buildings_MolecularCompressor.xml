@@ -37,6 +37,11 @@
 			<li>Compress_Steel</li>
 			<li>Compress_Plasteel</li>
 			<li>Compress_WoodLog</li>
+			<li>Compress_Sandstone</li>
+			<li>Compress_Granite</li>
+			<li>Compress_Limestone</li>
+			<li>Compress_Slate</li>
+			<li>Compress_Marble</li>
 		</recipes>
 		<comps>
 			<li Class="EnhancedDevelopment.Excalibur.Fabrication.CompProperties_Fabricated">

@@ -39,7 +39,7 @@ Features:
 0.19.0.7
  * Ship To Surface Power Distribution
  * Transport Beaming
- * Adding Compression for Steel, Plasteel and Wood.
+ * Adding Compression for Steel, Plasteel, Wood and Stones.
  * Fix for Fabricated Buildings not Saving in progress stats.
  * Fix for not being able to Deploy Fabricated buildings.
 
