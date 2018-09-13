@@ -67,30 +67,51 @@ namespace EnhancedDevelopment.Excalibur.Quest
 
             Rect _MainWindow = _DrawingSpace.TopPartPixels(_DrawingSpace.height - _TargetingBarHeight);
             Rect _TargetingBar = _DrawingSpace.BottomPartPixels(_TargetingBarHeight);
-            
-            if (Widgets.ButtonText(_TargetingBar.LeftHalf(), "Targeting", true, true, true))
+
+            this.DoGuiForTargetingDrop(_TargetingBar);
+
+            IntVec3 _DropLocation = this.SelectedCompTransponder.parent.Position;
+            if (!IntVec3.Equals(this.SelectedCompTransponder.DropLocation, IntVec3.Invalid))
             {
-                
+                _DropLocation = this.SelectedCompTransponder.DropLocation;
+            }
+
+            Dialog_Excalibur.DoGuiFabrication(_MainWindow,
+                                              true,
+                                              _DropLocation,
+                                              this.SelectedCompTransponder.parent.Map);
+
+        }
+
+
+        private void DoGuiForTargetingDrop(Rect targetingFooter)
+        {
+
+            if (Widgets.ButtonText(targetingFooter.LeftHalf(), "Drop Target", true, true, true))
+            {
+
                 Find.Targeter.BeginTargeting(this.targetingParams, delegate (LocalTargetInfo target)
                 {
                     this.SelectedCompTransponder.DropLocation = target.Cell;
                 }, null, null, null);
             }
 
-            Widgets.Label(_TargetingBar.RightHalf(), this.SelectedCompTransponder.DropLocation.x + " " + this.SelectedCompTransponder.DropLocation.z);
+            Rect _LableLcoation = targetingFooter.RightHalf().LeftHalf().ContractedBy(5f);
 
-            IntVec3 _DropLocation = this.SelectedCompTransponder.parent.Position;
-
-            if (!IntVec3.Equals(this.SelectedCompTransponder.DropLocation, IntVec3.Invalid))
+            if (IntVec3.Equals(this.SelectedCompTransponder.DropLocation, IntVec3.Invalid))
             {
-                _DropLocation = this.SelectedCompTransponder.DropLocation;
+                Widgets.Label(_LableLcoation, "This Location");
+            }
+            else
+            {
+                Widgets.Label(_LableLcoation, "X: " + this.SelectedCompTransponder.DropLocation.x + " Z: " + this.SelectedCompTransponder.DropLocation.z);
+
             }
 
-
-            Dialog_Excalibur.DoGuiFabrication(_MainWindow,
-                                              true,
-                                              _DropLocation,
-                                              this.SelectedCompTransponder.parent.Map);
+            if (Widgets.ButtonText(targetingFooter.RightHalf().RightHalf(), "Reset", true, true, true))
+            {
+                this.SelectedCompTransponder.DropLocation = IntVec3.Invalid;
+            }
 
         }
 

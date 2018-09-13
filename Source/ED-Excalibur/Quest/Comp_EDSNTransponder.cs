@@ -27,8 +27,7 @@ namespace EnhancedDevelopment.Excalibur.Quest
             String _NewString = GameComponent_Excalibur_Quest.GetSingleLineResourceStatus();
             return _NewString + base.CompInspectStringExtra();
         }
-
-
+        
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
             //   return base.CompGetGizmosExtra();
