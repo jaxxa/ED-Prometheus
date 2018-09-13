@@ -14,7 +14,8 @@ namespace EnhancedDevelopment.Excalibur.Core
     {
         public override void ExposeData()
         {
-            //throw new NotImplementedException();
+            this.AddNewBuildingsUnderConstruction();
+            this.ThingForDeployment.ForEach(x => x.ExposeData());
         }
 
         public override int GetTickInterval()
@@ -24,8 +25,7 @@ namespace EnhancedDevelopment.Excalibur.Core
 
         public override void TickOnInterval()
         {
-
-
+            
             //Gets the Currently under construction Thing
             ThingForDeployment _CurrentlyUnderConstruction = this.ThingForDeployment.FirstOrFallback(t => t.ConstructionInProgress, null);
 

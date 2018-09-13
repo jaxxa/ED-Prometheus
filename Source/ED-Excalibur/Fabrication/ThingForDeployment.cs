@@ -12,18 +12,27 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
     class ThingForDeployment
     {
         public string defName;
-
         public string label;
-
-        public int WorkRemaining = 100;
-
+        
         public int TotalNeededWork = 100;
         public int TotalNeededResources = 100;
         public int TotalNeededPower = 100;
-        public bool ConstructionInProgress = false;
 
+        //Persisted
+        public int WorkRemaining = 100;
+        public bool ConstructionInProgress = false;
         public int UnitsAvalable = 0;
         public int UnitsRequestedAditional = 0;
+
+
+        public void ExposeData()
+        {
+            Log.Message("Expose: " + this.defName);
+            Scribe_Values.Look<int>(ref WorkRemaining, this.defName + "_WorkRemaining");
+            Scribe_Values.Look<bool>(ref ConstructionInProgress, this.defName + "_ConstructionInProgress");
+            Scribe_Values.Look<int>(ref UnitsAvalable, this.defName + "_UnitsAvalable");
+            Scribe_Values.Look<int>(ref UnitsRequestedAditional, this.defName + "_UnitsRequestedAditional");
+        }
 
         public ThingForDeployment(string defName, string label)
         {

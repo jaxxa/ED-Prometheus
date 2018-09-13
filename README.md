@@ -40,6 +40,10 @@ Features:
  * Ship To Surface Power Distribution
  * Transport Beaming
  * Adding Compression for Steel, Plasteel and Wood.
+ * Fix for Fabricated Buildings not Saving in progress stats.
+ * Fix for not being able to Deploy Fabricated buildings.
+
+---
  
 0.19.0.6
  * Rework of how NanoMaterials are generated.
