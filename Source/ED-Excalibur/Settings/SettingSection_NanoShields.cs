@@ -18,7 +18,6 @@ namespace EnhancedDevelopment.Excalibur.Settings
         public int NanoShieldChargeLevelMax = SettingSection_NanoShields.DEFAULT_NANO_SHIELD_CHARGE_LEVEL_MAX;
         public int NanoShieldBuildingChargeDelay = SettingSection_NanoShields.DEFAULT_NANO_SHIELD_BUILDING_CHARGE_DELAY;
         public int NanoShieldBuildingChargeAmount = SettingSection_NanoShields.DEFAULT_NANO_SHIELD_BUILDING_CHARGE_AMOUNT;
-        public int NanoShieldBuildingReservePowerMax = SettingSection_NanoShields.DEFAULT_NANO_SHIELD_BUILDING_RESERVE_POWER_MAX;
 
         public override void DoSettingsWindowContents(Rect canvas)
         {
@@ -69,20 +68,6 @@ namespace EnhancedDevelopment.Excalibur.Settings
             _listing_Standard_BuildingChargeAmount.IntSetter(ref this.NanoShieldBuildingChargeAmount, SettingSection_NanoShields.DEFAULT_NANO_SHIELD_BUILDING_CHARGE_AMOUNT, "Default");
             _listing_Standard_BuildingChargeAmount.End();
 
-            listing_Standard.GapLine(12f);
-            listing_Standard.Label("BuildingReservePowerMax (Default " + SettingSection_NanoShields.DEFAULT_NANO_SHIELD_BUILDING_RESERVE_POWER_MAX.ToString() + "):" + this.NanoShieldBuildingReservePowerMax.ToString());
-            listing_Standard.Gap(12f);
-            // listing_Standard.IntAdjuster(ref BuildingReservePowerMax, 10, 10);
-            Listing_Standard _listing_Standard_BuildingReservePowerMax = new Listing_Standard();
-            _listing_Standard_BuildingReservePowerMax.Begin(listing_Standard.GetRect(30f));
-            _listing_Standard_BuildingReservePowerMax.ColumnWidth = 70;
-            _listing_Standard_BuildingReservePowerMax.IntAdjuster(ref this.NanoShieldBuildingReservePowerMax, 10, 1);
-            _listing_Standard_BuildingReservePowerMax.NewColumn();
-            _listing_Standard_BuildingReservePowerMax.IntAdjuster(ref this.NanoShieldBuildingReservePowerMax, 50, 1);
-            _listing_Standard_BuildingReservePowerMax.NewColumn();
-            _listing_Standard_BuildingReservePowerMax.IntSetter(ref this.NanoShieldBuildingReservePowerMax, SettingSection_NanoShields.DEFAULT_NANO_SHIELD_BUILDING_RESERVE_POWER_MAX, "Default");
-            _listing_Standard_BuildingReservePowerMax.End();
-            listing_Standard.End();
         }
 
         public override void ExposeData()
@@ -90,7 +75,6 @@ namespace EnhancedDevelopment.Excalibur.Settings
             Scribe_Values.Look(ref this.NanoShieldChargeLevelMax, "NanoShieldChargeLevelMax", SettingSection_NanoShields.DEFAULT_NANO_SHIELD_CHARGE_LEVEL_MAX);
             Scribe_Values.Look(ref this.NanoShieldBuildingChargeDelay, "NanoShieldBuildingChargeDelay", SettingSection_NanoShields.DEFAULT_NANO_SHIELD_BUILDING_CHARGE_DELAY);
             Scribe_Values.Look(ref this.NanoShieldBuildingChargeAmount, "NanoShieldBuildingChargeAmount", SettingSection_NanoShields.DEFAULT_NANO_SHIELD_BUILDING_CHARGE_AMOUNT);
-            Scribe_Values.Look(ref this.NanoShieldBuildingReservePowerMax, "NanoShieldBuildingReservePowerMax", SettingSection_NanoShields.DEFAULT_NANO_SHIELD_BUILDING_RESERVE_POWER_MAX);
         }
 
         public override string Name()
