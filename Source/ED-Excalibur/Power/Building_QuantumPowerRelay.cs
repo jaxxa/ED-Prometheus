@@ -81,11 +81,7 @@ namespace EnhancedDevelopment.Excalibur.Power
                 GameComponent_Excalibur.Instance.Comp_Quest.ResourceAddToReserves(GameComponent_Excalibur_Quest.EnumResourceType.Power, _PowerBlock);
             }
 
-
-            ResearchProjectDef _Quest = DefDatabase<ResearchProjectDef>.GetNamed("Research_ED_Power_SpaceToGround");
-            //Log.Message("Status:" + _Quest.IsFinished.ToString());
-
-            if (_Quest.IsFinished)
+            if (GameComponent_Excalibur.Instance.Comp_Quest.ShipSystem_PowerDistribution.IsShipToSurfacePowerAvalable())
             {
                 //Check if need to download power.
                 if (this.CompPowerBattery.StoredEnergy + _PowerBlock <= _HalfEnergy)

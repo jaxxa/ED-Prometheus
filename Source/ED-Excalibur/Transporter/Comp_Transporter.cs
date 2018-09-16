@@ -24,7 +24,7 @@ namespace EnhancedDevelopment.Excalibur.Transporter
             }
 
 
-            if (ResearchHelper.IsResearched("Research_ED_Transporter"))
+            if (GameComponent_Excalibur.Instance.Comp_Quest.ShipSystem_Transport.IsTransporterUnlocked())
             {
                 if (true)
                 {

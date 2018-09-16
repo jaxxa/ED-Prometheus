@@ -20,10 +20,12 @@ namespace EnhancedDevelopment.Excalibur.Quest.ShipSystems
 
         public override void ApplyRequiredResearchUnlocks()
         {
-            if (this.CurrentLevel >= 1)
-            {
-                ResearchHelper.QuestComplete("Research_ED_Transporter");
-            }
+
+        }
+
+        public bool IsTransporterUnlocked()
+        {
+            return this.CurrentLevel >= 1;
         }
     }
 }

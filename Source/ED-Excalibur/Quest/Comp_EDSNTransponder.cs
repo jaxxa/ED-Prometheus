@@ -12,6 +12,8 @@ namespace EnhancedDevelopment.Excalibur.Quest
     class Comp_EDSNTransponder : ThingComp
     {
 
+        public IntVec3 DropLocation = IntVec3.Invalid;
+
         private static Texture2D UI_Contact;
 
         static Comp_EDSNTransponder()
@@ -25,8 +27,7 @@ namespace EnhancedDevelopment.Excalibur.Quest
             String _NewString = GameComponent_Excalibur_Quest.GetSingleLineResourceStatus();
             return _NewString + base.CompInspectStringExtra();
         }
-
-
+        
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
             //   return base.CompGetGizmosExtra();
@@ -64,6 +65,13 @@ namespace EnhancedDevelopment.Excalibur.Quest
                 //act.groupKey = 689736;
                 yield return act2;
             }
+        }
+
+        public override void PostExposeData()
+        {
+            base.PostExposeData();
+
+            Scribe_Values.Look<IntVec3>(ref this.DropLocation, "DropLocation");
         }
     }
 }
