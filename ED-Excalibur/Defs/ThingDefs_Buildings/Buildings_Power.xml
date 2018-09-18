@@ -26,7 +26,7 @@
 		<tickerType>Normal</tickerType>
 		<researchPrerequisites>
 			<li>Research_ED_Excalibur_Quest_Unlock</li>
-			<li>Research_ED_Excalibur_AnalyseStrangeSignal</li>
+			<li>Research_ED_Excalibur_PowerDistribution_1</li>
 		</researchPrerequisites>
 		<statBases>
 			<MaxHitPoints>100</MaxHitPoints>
@@ -61,5 +61,126 @@
 		<designationHotKey>Misc4</designationHotKey>
 		<canOverlapZones>false</canOverlapZones>
 	</ThingDef>
+	
+	<!--================================ Lasers ======================================-->
 
+	<ThingDef ParentName="EDSN_BuildingBase">
+		<defName>LaserDrill</defName>
+		<label>Laser Steam Geyser Drill</label>
+		<thingClass>Building</thingClass>
+		<graphicData>
+			<texPath>Things/Buildings/LaserDrill</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(6,6)</drawSize>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<castEdgeShadows>true</castEdgeShadows>
+		<fillPercent>1</fillPercent>
+		<tickerType>Rare</tickerType>
+		<statBases>
+			<WorkToBuild>1800</WorkToBuild>
+			<MaxHitPoints>350</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+			<Mass>100</Mass>
+		</statBases>
+		<description>Mines out rock to create a large hole through to the steam networks below the planets surface.</description>
+		<building>
+			<wantsHopperAdjacent>false</wantsHopperAdjacent>
+		</building>
+		<comps>
+			<li Class="EnhancedDevelopment.Excalibur.Fabrication.CompProperties_Fabricated">
+				<RequiredPower>500</RequiredPower>
+				<RequiredMaterials>200</RequiredMaterials>
+				<RequiredWork>90</RequiredWork>
+			</li>
+			<li Class="EnhancedDevelopment.Excalibur.LaserDrill.CompProperties_LaserDrill">
+				<FillMode>False</FillMode>
+			</li>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>1200</basePowerConsumption>
+				<transmitsPower>true</transmitsPower>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+		<size>(6,6)</size>
+		<costList>
+			<ComponentSpacer>10</ComponentSpacer>
+			<Steel>600</Steel>
+		</costList>
+		<hasInteractionCell>False</hasInteractionCell>
+		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<designationCategory>Power</designationCategory>
+		<staticSunShadowHeight>0.75</staticSunShadowHeight>
+		<researchPrerequisites>
+			<li>Research_ED_Excalibur_Quest_Unlock</li>
+			<li>Research_ED_Excalibur_PowerDistribution_2</li>
+		</researchPrerequisites>
+	</ThingDef>
+
+
+	<ThingDef ParentName="EDSN_BuildingBase">
+		<defName>LaserFiller</defName>
+		<label>Laser Steam Geyser Filler</label>
+		<thingClass>Building</thingClass>
+		<graphicData>
+			<texPath>Things/Buildings/LaserFiller</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(3,3)</drawSize>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<castEdgeShadows>true</castEdgeShadows>
+		<fillPercent>1</fillPercent>
+		<specialDisplayRadius>5</specialDisplayRadius>
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<WorkToBuild>6000</WorkToBuild>
+			<Flammability>1.0</Flammability>
+			<Mass>100</Mass>
+		</statBases>
+		<tickerType>Rare</tickerType>
+		<description>Removes a nearby SteamGeyser by filling it with rock and melting that rock with a laser to create a buildable surface</description>
+		<size>(3,3)</size>
+		<costList>
+			<ComponentSpacer>4</ComponentSpacer>
+		</costList>
+		<costStuffCount>500</costStuffCount>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<comps>
+			<li Class="EnhancedDevelopment.Excalibur.Fabrication.CompProperties_Fabricated">
+				<RequiredPower>500</RequiredPower>
+				<RequiredMaterials>200</RequiredMaterials>
+				<RequiredWork>90</RequiredWork>
+			</li>
+			<li Class="EnhancedDevelopment.Excalibur.LaserDrill.CompProperties_LaserDrill">
+				<FillMode>True</FillMode>
+			</li>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>1200</basePowerConsumption>
+				<transmitsPower>true</transmitsPower>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+		<rotatable>false</rotatable>
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<designationCategory>Power</designationCategory>
+		<staticSunShadowHeight>1.0</staticSunShadowHeight>
+		<building>
+			<soundAmbient>GeothermalPlant_Ambience</soundAmbient>
+		</building>
+		<researchPrerequisites>
+			<li>Research_ED_Excalibur_Quest_Unlock</li>
+			<li>Research_ED_Excalibur_PowerDistribution_2</li>
+		</researchPrerequisites>
+	</ThingDef>
+
+	
 </Defs>
