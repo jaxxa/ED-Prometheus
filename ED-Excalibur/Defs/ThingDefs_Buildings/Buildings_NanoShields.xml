@@ -3,8 +3,8 @@
 
 	<ThingDef ParentName="EDSN_BuildingBase">
 		<defName>Building_Shield_Charger</defName>
-		<label>Quantum Shield Charging Station</label>
-		<description>Adds and Recharges Quantum Shields on Colonists and Pets. Pulls from a Global Quantum Charge.</description>
+		<label>Nano Shield Charging Station</label>
+		<description>Adds and Recharges Nano Shields on Colonists and Pets. Pulls from a Global Stockpile.</description>
 		<thingClass>EnhancedDevelopment.Excalibur.NanoShields.Building_NanoShieldCharger</thingClass>
 		<researchPrerequisites>
 			<li>Research_ED_Excalibur_Quest_Unlock</li>

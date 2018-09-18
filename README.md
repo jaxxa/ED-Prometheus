@@ -36,14 +36,16 @@ Features:
 
 #Change Log
 
+0.19.0.8
+ * Removed NanoShieldCharger Reserve Power
+ * 
+
 0.19.0.7
  * Ship To Surface Power Distribution
  * Transport Beaming
  * Adding Compression for Steel, Plasteel, Wood and Stones.
  * Fix for Fabricated Buildings not Saving in progress stats.
  * Fix for not being able to Deploy Fabricated buildings.
-
----
  
 0.19.0.6
  * Rework of how NanoMaterials are generated.

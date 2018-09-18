@@ -16,8 +16,6 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
     {
         #region Variables
 
-        private int ReservePowerCurrent = 0;
-
         public float MAX_DISTANCE = 5.0f;
         public bool flag_charge = false;
         CompPowerTrader power;
@@ -75,23 +73,6 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
                 {
                     this.rechargePawns(Mod_EDExcalibur.Settings.NanoShields.NanoShieldBuildingChargeAmount);
                 }
-
-                if (this.ReservePowerCurrent < Mod_EDExcalibur.Settings.NanoShields.NanoShieldBuildingReservePowerMax)
-                {
-                    this.ReservePowerCurrent += 1;
-                }
-            }
-            else
-            {
-
-                if (this.flag_charge)
-                {
-                    if (this.ReservePowerCurrent > 0)
-                    {
-                        this.ReservePowerCurrent -= 1;
-                        this.ReservePowerCurrent += this.rechargePawns(1);
-                    }
-                }
             }
         }
 
@@ -106,7 +87,6 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
             base.ExposeData();
 
             Scribe_Values.Look(ref flag_charge, "flag_charge");
-            Scribe_Values.Look(ref ReservePowerCurrent, "ReservePowerCurrent");
 
         }
 
@@ -215,7 +195,7 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
         public override string GetInspectString()
         {
 
-            return "Reserve = " + this.ReservePowerCurrent + " / " + Mod_EDExcalibur.Settings.NanoShields.NanoShieldBuildingReservePowerMax + " - " + GameComponent_Excalibur.Instance.Comp_Shields.GetInspectStringStatus() + Environment.NewLine + base.GetInspectString();
+            return GameComponent_Excalibur.Instance.Comp_Shields.GetInspectStringStatus() + Environment.NewLine + base.GetInspectString();
         }
 
     }
