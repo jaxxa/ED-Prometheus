@@ -10,7 +10,7 @@
 		<thingClass>EnhancedDevelopment.Excalibur.Shields.Building_Shield</thingClass>
 		<researchPrerequisites>
 			<li>Research_ED_Excalibur_Quest_Unlock</li>
-			<li>Research_ED_ShieldGenerators</li>
+			<li>Research_ED_Excalibur_Shields_1</li>
 		</researchPrerequisites>
 		<graphicData>
 			<texPath>Things/ShieldBuilding_Blue</texPath>
@@ -106,7 +106,7 @@
 		</graphicData>
 		<researchPrerequisites>
 			<li>Research_ED_Excalibur_Quest_Unlock</li>
-			<li>Research_ED_ShieldUpgrades</li>
+			<li>Research_ED_Excalibur_Shields_2</li>
 		</researchPrerequisites>
 		<size>(2,2)</size>
 		<rotatable>false</rotatable>

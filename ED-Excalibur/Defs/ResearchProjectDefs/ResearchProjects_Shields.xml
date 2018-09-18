@@ -2,10 +2,9 @@
 <Defs>
 
 	<ResearchProjectDef>
-		<defName>Research_ED_ShieldGenerators</defName>
-		<label>Shield Generator</label>
-		<description>Requires Shield 1
-Magnetic shield field slows and heats any projectiles to the point of evaporating.
+		<defName>Research_ED_Excalibur_Shields_1</defName>
+		<label>Shields Level 1 - Shield Generator</label>
+		<description>Magnetic shield field slows and heats any projectiles to the point of evaporating.
 
     The basics of the principle is the eddy current brake, however the complex system allows the barier to ignore projectiles that leave the shield.</description>
 		<baseCost>1000</baseCost>
@@ -22,17 +21,16 @@ Magnetic shield field slows and heats any projectiles to the point of evaporatin
 	</ResearchProjectDef>
 
 		<ResearchProjectDef>
-		<defName>Research_ED_ShieldUpgrades</defName>
-		<label>Shield Upgrades</label>
-		<description>Requires Shield 2
-Allows Shields to be enhanced by upgrade modules.</description>
+		<defName>Research_ED_Excalibur_Shields_2</defName>
+		<label>Shields Level 2 - Upgrades</label>
+		<description>Allows Shields to be enhanced by upgrade modules.</description>
 		<baseCost>1500</baseCost>
 		<techLevel>Spacer</techLevel>
 		<tab>EDSN-Excalibur</tab>
 		<researchViewX>3</researchViewX>
 		<researchViewY>0</researchViewY>
 		<prerequisites>
-			<li>Research_ED_ShieldGenerators</li>
+			<li>Research_ED_Excalibur_Shields_1</li>
 		</prerequisites>	
 		<requiredResearchFacilities>
 			<li>ExcaliburQuestLock</li>
@@ -41,16 +39,15 @@ Allows Shields to be enhanced by upgrade modules.</description>
 	
 		
 	<ResearchProjectDef>
-		<defName>Research_ED_Personal_Quantum_Shield</defName>
-		<label>Personal Quantum Shield Research</label>
-		<description>Requires Shield 3
-Allows the use of Quantum Virtual Particles to protect Colonists and Pets from damage.
+		<defName>Research_ED_Excalibur_Shields_3</defName>
+		<label>Shields Level 3 - Personal Shield</label>
+		<description>Allows the use of Quantum Virtual Particles to protect Colonists and Pets from damage.
 		This Quantum Charge must be recovered from the Quantum Shield Charging Station and pulls from a global charge level.</description>
 		<baseCost>2000</baseCost>
 		<techLevel>Spacer</techLevel>
 		<tab>EDSN-Excalibur</tab>
 		<prerequisites>
-			<li>Research_ED_ShieldUpgrades</li>
+			<li>Research_ED_Excalibur_Shields_2</li>
 		</prerequisites>	
 		<requiredResearchFacilities>
 			<li>ExcaliburQuestLock</li>
@@ -59,69 +56,4 @@ Allows the use of Quantum Virtual Particles to protect Colonists and Pets from d
 		<researchViewY>0</researchViewY>
 	</ResearchProjectDef>
 	
-	<!--
-	<ResearchProjectDef>
-		<defName>Building_ShieldFortress_research</defName>
-		<label>Fortress Shield</label>
-		<description>By refocusing the primary coil system into a vertical configuration the shields range can be extended, while lacking the flexability of the Fire Supression mode it does cover a large area and gain the ability to disrupt the avionic systems of DropPods, caulsing failure of their decent rockets and therefore a terminal velocity impact.</description>
-		<baseCost>1500</baseCost>
-		<techLevel>Spacer</techLevel>
-		<tab>EDSN-Excalibur</tab>
-		<researchViewX>1</researchViewX>
-		<researchViewY>0</researchViewY>
-	</ResearchProjectDef>
-
-	<ResearchProjectDef>
-		<defName>Building_ShieldSmall_research</defName>
-		<label>Shields Small</label>
-		<description>Parts of the generator have been replaced by smaller components allowing it to be recessed into the floor allowing people to stand on the generator but reducing the size of the field generated.</description>
-		<baseCost>1000</baseCost>
-		<techLevel>Spacer</techLevel>
-		<prerequisites>
-			<li>Building_ShieldStandard_research</li>
-		</prerequisites>
-		<tab>EDSN-Excalibur</tab>
-		<researchViewX>1</researchViewX>
-		<researchViewY>1</researchViewY>
-	</ResearchProjectDef>
-
-	<ResearchProjectDef>
-		<defName>Building_ShieldSIF_research</defName>
-		<label>Shields SIF Generator</label>
-		<description>Rather than creating a large circular shield this generator will create an small individual shield over each wall/door object.</description>
-		<baseCost>2000</baseCost>
-		<techLevel>Spacer</techLevel>
-		<prerequisites>
-			<li>Building_ShieldStandard_research</li>
-		</prerequisites>
-		<tab>EDSN-Excalibur</tab>
-		<researchViewX>1</researchViewX>
-		<researchViewY>2</researchViewY>
-	</ResearchProjectDef>
-	-->
-
-	<!--
-	<ResearchProjectDef>
-		<defName>Building_ShieldStandard_research</defName>
-		<label>Standard Shield Generator</label>
-		<description>Magnetic shield field slows and heats any projectiles to the point of evaporating.
-
-    The basics of the principle is the eddy current brake, however the complex system allows the barier to ignore projectiles that leave the shield. 
-		</description>
-		<baseCost>1000</baseCost>
-		<techLevel>Spacer</techLevel>
-		<prerequisites/>
-		<tab>EnhancedDevelopment</tab>
-		<researchViewX>0</researchViewX>
-		<researchViewY>0</researchViewY>
-	</ResearchProjectDef>
-	-->
-
 </Defs>
-
-<!--
-    <prerequisites>
-      <li>ShipBasics</li>
-    </prerequisites>
-	
--->

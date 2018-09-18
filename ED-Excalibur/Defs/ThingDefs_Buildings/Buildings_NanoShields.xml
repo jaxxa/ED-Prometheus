@@ -8,7 +8,7 @@
 		<thingClass>EnhancedDevelopment.Excalibur.NanoShields.Building_NanoShieldCharger</thingClass>
 		<researchPrerequisites>
 			<li>Research_ED_Excalibur_Quest_Unlock</li>
-			<li>Research_ED_Personal_Quantum_Shield</li>
+			<li>Research_ED_Excalibur_Shields_3</li>
 		</researchPrerequisites>
 		<graphicData>
 			<texPath>Things/ShieldBuilding_Red</texPath>
