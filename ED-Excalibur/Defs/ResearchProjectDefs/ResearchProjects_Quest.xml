@@ -29,22 +29,6 @@
 		</requiredResearchFacilities>
 	</ResearchProjectDef>
 
-	<ResearchProjectDef>
-		<defName>Research_ED_Excalibur_Fabrication</defName>
-		<label>Fabrication Systems</label>
-		<description>Unlocks the Fabrication of Ground Devices.</description>
-		<baseCost>1000</baseCost>
-		<techLevel>Spacer</techLevel>
-		<tab>EDSN-Excalibur</tab>
-		<researchViewX>1</researchViewX>
-		<researchViewY>1</researchViewY>
-		<requiredResearchFacilities>
-			<li>ExcaliburQuestLock</li>
-		</requiredResearchFacilities>
-		<prerequisites>
-			<li>Research_ED_Excalibur_AnalyseStrangeSignal</li>
-		</prerequisites>
-	</ResearchProjectDef>
 
 </Defs>
 
