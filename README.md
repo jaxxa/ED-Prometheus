@@ -38,7 +38,7 @@ Features:
 
 0.19.0.8
  * Removed NanoShieldCharger Reserve Power
- * 
+ * Research Rework
 
 0.19.0.7
  * Ship To Surface Power Distribution
