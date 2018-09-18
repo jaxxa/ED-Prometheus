@@ -17,7 +17,7 @@ Magnetic shield field slows and heats any projectiles to the point of evaporatin
 			<li>ExcaliburQuestLock</li>
 		</requiredResearchFacilities>
 		<prerequisites>
-			<li>Research_ED_Excalibur_Fabrication</li>
+			<li>Research_ED_Excalibur_Fabrication_1</li>
 		</prerequisites>
 	</ResearchProjectDef>
 

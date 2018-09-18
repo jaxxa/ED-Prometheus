@@ -14,7 +14,7 @@
 			<drawSize>(3,1)</drawSize>
 		</graphicData>
 		<researchPrerequisites>
-			<li>Research_ED_Replicator_MK1</li>
+			<li>Research_ED_Excalibur_Fabrication_3</li>
 			<li>Research_ED_Excalibur_Quest_Unlock</li>
 		</researchPrerequisites>
 		<costList>
@@ -77,7 +77,7 @@
 		</graphicData>
 		<researchPrerequisites>
 			<li>Research_ED_Excalibur_Quest_Unlock</li>
-			<li>Research_ED_Replicator_MK2</li>
+			<li>Research_ED_Excalibur_Fabrication_4</li>
 		</researchPrerequisites>
 		<costList>
 			<ComponentSpacer>4</ComponentSpacer>
@@ -135,7 +135,7 @@
 		</graphicData>
 		<researchPrerequisites>
 			<li>Research_ED_Excalibur_Quest_Unlock</li>
-			<li>Research_ED_Replicator_MK3</li>
+			<li>Research_ED_Excalibur_Fabrication_5</li>
 		</researchPrerequisites>
 		<costList>
 			<ComponentSpacer>4</ComponentSpacer>

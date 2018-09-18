@@ -9,7 +9,7 @@ Using a laser, drill into the steam and magma network deep within the planet.</d
 		<baseCost>4000</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
-			<li>Research_ED_Excalibur_Fabrication</li>
+			<li>Research_ED_Excalibur_Fabrication_1</li>
 		</prerequisites>
 		<tab>EDSN-Excalibur</tab>
 		<researchViewX>3</researchViewX>
