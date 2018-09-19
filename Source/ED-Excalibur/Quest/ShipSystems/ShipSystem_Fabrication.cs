@@ -29,7 +29,7 @@ namespace EnhancedDevelopment.Excalibur.Quest.ShipSystems
         {
             if (this.CurrentLevel >= 1)
             {
-                //ResearchHelper.QuestComplete("Research_ED_ShieldGenerators");
+                ResearchHelper.QuestComplete("Research_ED_Excalibur_Fabrication_1");
             }
             if (this.CurrentLevel >= 2)
             {
