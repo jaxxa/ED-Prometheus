@@ -10,7 +10,8 @@ namespace EnhancedDevelopment.Excalibur.Quest.ShipSystems
     {
         public override int GetMaxLevel()
         {
-            return 4;
+            //return 4;
+            return 1;
         }
 
         public override string Name()

@@ -17,7 +17,8 @@
 			<li>ExcaliburQuestLock</li>
 		</requiredResearchFacilities>
 	</ResearchProjectDef>
-	
+
+<!--	
 	<ResearchProjectDef>
 		<defName>Research_ED_Excalibur_Transport_2</defName>
 		<label>Transport Level 2</label>
@@ -68,5 +69,5 @@
 			<li>Research_ED_Excalibur_Transport_3</li>
 		</prerequisites>
 	</ResearchProjectDef>
-
+-->
 </Defs>
