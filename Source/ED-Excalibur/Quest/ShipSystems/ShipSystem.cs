@@ -141,5 +141,12 @@ namespace EnhancedDevelopment.Excalibur.Quest
 
         }
 
+        public void UpgradeTo(int level)
+        {
+            if (this.CurrentLevel < level)
+            {
+                this.CurrentLevel = level;
+            }
+        }
     }
 }
