@@ -125,8 +125,10 @@ Level 6:#NotImplimented#
 	</SystemDescription_Tactical>
 
 	<SystemDescription_Transport>Level 1:
- * Transport Beaming Unlocked
+ * Transporter Unlocked
+	</SystemDescription_Transport>
 
+	<!-- 
 Level 2:#NotImplimented#
  * DropPods?
 
@@ -135,7 +137,6 @@ Level 3:#NotImplimented#
 
 Level 4:#NotImplimented#
  * More transport buffers?
-	</SystemDescription_Transport>
-
+ -->
 </LanguageData>
 
