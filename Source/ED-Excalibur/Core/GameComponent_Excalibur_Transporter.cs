@@ -9,8 +9,11 @@ namespace EnhancedDevelopment.Excalibur.Core
     class GameComponent_Excalibur_Transporter : GameComponent_BaseClass
     {
         public override void ExposeData()
-        {
-           // throw new NotImplementedException();
+        {   
+            //Scribe_Deep.Look<List<Thing>>(ref this.TransportBuffer, "TransportBuffer");
+            Scribe_Collections.Look<Thing>(ref this.TransportBuffer, "TransportBuffer", LookMode.Deep);
+
+ 
         }
 
         public override int GetTickInterval()
