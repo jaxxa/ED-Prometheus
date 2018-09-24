@@ -81,12 +81,17 @@ namespace EnhancedDevelopment.Excalibur.Transporter
             {
                 _Pawns.ForEach(_x =>
                 {
-
-                    GameComponent_Excalibur.Instance.Comp_Transporter.TransportBuffer.Add(_x);
-                    //GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(_x.stackCount);
                     Comp_Transporter.DisplayTransportEffect(_x);
 
                     _x.DeSpawn();
+
+                    Log.Message("Temp: " + GameComponent_Excalibur.Instance.Comp_Transporter.innerContainer.CanAcceptAnyOf(_x).ToString());
+
+                    GameComponent_Excalibur.Instance.Comp_Transporter.innerContainer.TryAdd(_x);
+
+                    //GameComponent_Excalibur.Instance.Comp_Transporter.TransportBuffer.Add(_x);
+                    //GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(_x.stackCount);
+
 
                     // Tell the MapDrawer that here is something thats changed
                     this.parent.Map.mapDrawer.MapMeshDirty(_x.Position, MapMeshFlag.Things, true, false);
@@ -94,6 +99,9 @@ namespace EnhancedDevelopment.Excalibur.Transporter
 
 
             }
+
+
+            Log.Message("Count: " + GameComponent_Excalibur.Instance.Comp_Transporter.innerContainer.Count);
         }
 
         private void TransportThings()
@@ -106,7 +114,7 @@ namespace EnhancedDevelopment.Excalibur.Transporter
                 _FoundThings.ForEach(_x =>
                 {
                     
-                    GameComponent_Excalibur.Instance.Comp_Transporter.TransportBuffer.Add(_x);
+                //    GameComponent_Excalibur.Instance.Comp_Transporter.TransportBuffer.Add(_x);
 
                     //GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(_x.stackCount);
                     Comp_Transporter.DisplayTransportEffect(_x);
@@ -123,21 +131,27 @@ namespace EnhancedDevelopment.Excalibur.Transporter
 
         private void TransportRecall()
         {
+            Log.Message("Count: " + GameComponent_Excalibur.Instance.Comp_Transporter.innerContainer.Count);
+           GameComponent_Excalibur.Instance.Comp_Transporter.innerContainer.TryDropAll(this.parent.Position, this.parent.Map, ThingPlaceMode.Near,  );
 
-            GameComponent_Excalibur.Instance.Comp_Transporter.TransportBuffer.ForEach(_X =>
-            {
-                GenPlace.TryPlaceThing(_X, this.parent.Position, this.parent.Map, ThingPlaceMode.Near);
-                Comp_Transporter.DisplayTransportEffect(_X);             
 
-                Pawn _pawn = _X as Pawn;
-                if (_pawn != null)
-                {
-                    _pawn.SetFactionDirect(Faction.OfPlayer);
-                }
-            }
-            );
+            //GenDrop.
 
-            GameComponent_Excalibur.Instance.Comp_Transporter.TransportBuffer.Clear();
+
+            //GameComponent_Excalibur.Instance.Comp_Transporter.TransportBuffer.ForEach(_X =>
+            //{
+            //    GenPlace.TryPlaceThing(_X, this.parent.Position, this.parent.Map, ThingPlaceMode.Near);
+            //    Comp_Transporter.DisplayTransportEffect(_X);             
+
+            //    Pawn _pawn = _X as Pawn;
+            //    if (_pawn != null)
+            //    {
+            //        _pawn.SetFactionDirect(Faction.OfPlayer);
+            //    }
+            //}
+            //);
+
+           // GameComponent_Excalibur.Instance.Comp_Transporter.TransportBuffer.Clear();
         }
 
         public static void DisplayTransportEffect(Thing thingToTransport)
