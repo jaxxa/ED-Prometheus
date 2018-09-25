@@ -115,6 +115,7 @@
     <Compile Include="Shields\Utilities\VectorsUtils.cs" />
     <Compile Include="Transporter\CompProperties_Transporter.cs" />
     <Compile Include="Transporter\Comp_Transporter.cs" />
+    <Compile Include="Transporter\WorldComponent_Transporter.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

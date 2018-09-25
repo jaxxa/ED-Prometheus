@@ -127,7 +127,13 @@ namespace EnhancedDevelopment.Excalibur.Transporter
             GameComponent_Excalibur.Instance.Comp_Transporter.TransportBuffer.ForEach(_X =>
             {
                 GenPlace.TryPlaceThing(_X, this.parent.Position, this.parent.Map, ThingPlaceMode.Near);
-                Comp_Transporter.DisplayTransportEffect(_X);
+                Comp_Transporter.DisplayTransportEffect(_X);             
+
+                Pawn _pawn = _X as Pawn;
+                if (_pawn != null)
+                {
+                    _pawn.SetFactionDirect(Faction.OfPlayer);
+                }
             }
             );
 
