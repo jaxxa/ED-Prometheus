@@ -3,25 +3,6 @@
 
 	<!--================================ Abstract bases ======================================-->
 
-	<!--
-	
-  <ThingDef Name="BuildingBase" Abstract="True">
-    <category>Building</category>
-    <thingClass>Building</thingClass>
-    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
-    <selectable>true</selectable>
-    <drawerType>MapMeshAndRealTime</drawerType>
-    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-    <repairEffect>Repair</repairEffect>
-    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
-    <filthLeaving>Filth_RubbleBuilding</filthLeaving>
-		<statBases>
-			<SellPriceFactor>0.70</SellPriceFactor>
-		</statBases>
-  </ThingDef>
-
-	-->
-
 	<ThingDef ParentName="BuildingBase" Name="EDSN_BuildingBase" Abstract="True">
 		<minifiedDef>MinifiedThing</minifiedDef>
 		<statBases>
@@ -29,38 +10,7 @@
 		</statBases>	
 		<thingCategories>
 			<li>BuildingsSpecial</li>
-		</thingCategories>	
-		<inspectorTabs>
-			<li>ITab_Bills</li>
-		</inspectorTabs>
-	</ThingDef>
-
-
-	<!--
-
-	<ThingDef Name="EDNS_BenchBase" ParentName="EDSN_BuildingBase" Abstract="True">
-		<canOverlapZones>false</canOverlapZones>
-		<minifiedDef>MinifiedThing</minifiedDef>
-		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
-		<thingCategories>
-			<li>BuildingsProduction</li>
 		</thingCategories>
-		<statBases>
-			<Mass>20</Mass>
-		</statBases>
-		<building>
-			<workSpeedPenaltyOutdoors>true</workSpeedPenaltyOutdoors>
-			<workSpeedPenaltyTemperature>true</workSpeedPenaltyTemperature>
-		</building>
-		<interactionCellIcon>DiningChair</interactionCellIcon>
-		<comps>
-			<li>
-				<compClass>CompReportWorkSpeed</compClass>
-			</li>
-		</comps>
-		<placeWorkers>
-			<li>PlaceWorker_ReportWorkSpeedPenalties</li>
-		</placeWorkers>
 	</ThingDef>
-	-->
+
 </Defs>
