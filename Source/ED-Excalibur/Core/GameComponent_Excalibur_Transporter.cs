@@ -9,22 +9,23 @@ namespace EnhancedDevelopment.Excalibur.Core
     class GameComponent_Excalibur_Transporter : GameComponent_BaseClass
     {
         public override void ExposeData()
-        {   
-            //Scribe_Deep.Look<List<Thing>>(ref this.TransportBuffer, "TransportBuffer");
+        {
+
+        }
+
+        public void ExposeData_WorldComp()
+        {
             Scribe_Collections.Look<Thing>(ref this.TransportBuffer, "TransportBuffer", LookMode.Deep);
 
- 
         }
 
         public override int GetTickInterval()
         {
             return int.MaxValue;
-           //throw new NotImplementedException();
         }
 
         public override void TickOnInterval()
         {
-            //throw new NotImplementedException();
         }
 
 
