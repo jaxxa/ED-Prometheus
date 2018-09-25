@@ -82,11 +82,12 @@ namespace EnhancedDevelopment.Excalibur.Transporter
                 _Pawns.ForEach(_x =>
                 {
 
-                    GameComponent_Excalibur.Instance.Comp_Transporter.TransportBuffer.Add(_x);
+                    _x.DeSpawn();
+                    GameComponent_Excalibur.Instance.Comp_Transporter.TryAcceptThing(_x);
+                    //GameComponent_Excalibur.Instance.Comp_Transporter.TransportBuffer.Add(_x);
                     //GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(_x.stackCount);
                     Comp_Transporter.DisplayTransportEffect(_x);
 
-                    _x.DeSpawn();
 
                     // Tell the MapDrawer that here is something thats changed
                     this.parent.Map.mapDrawer.MapMeshDirty(_x.Position, MapMeshFlag.Things, true, false);
@@ -94,6 +95,8 @@ namespace EnhancedDevelopment.Excalibur.Transporter
 
 
             }
+
+            Log.Message("Count: " + GameComponent_Excalibur.Instance.Comp_Transporter.innerContainer.Count());
         }
 
         private void TransportThings()
@@ -105,44 +108,54 @@ namespace EnhancedDevelopment.Excalibur.Transporter
             {
                 _FoundThings.ForEach(_x =>
                 {
-                    
-                    GameComponent_Excalibur.Instance.Comp_Transporter.TransportBuffer.Add(_x);
+
+                    _x.DeSpawn();
+                    GameComponent_Excalibur.Instance.Comp_Transporter.TryAcceptThing(_x);
 
                     //GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(_x.stackCount);
                     Comp_Transporter.DisplayTransportEffect(_x);
-
-                    _x.DeSpawn();
-
+                    
                     // Tell the MapDrawer that here is something thats changed
                     this.parent.Map.mapDrawer.MapMeshDirty(_x.Position, MapMeshFlag.Things, true, false);
                 });
 
             }
-            
+
+            Log.Message("Count: " + GameComponent_Excalibur.Instance.Comp_Transporter.innerContainer.Count());
+
         }
 
         private void TransportRecall()
         {
 
-            GameComponent_Excalibur.Instance.Comp_Transporter.TransportBuffer.ForEach(_X =>
-            {
-                GenPlace.TryPlaceThing(_X, this.parent.Position, this.parent.Map, ThingPlaceMode.Near);
-                Comp_Transporter.DisplayTransportEffect(_X);             
+            GameComponent_Excalibur.Instance.Comp_Transporter.EjectContents(this.parent.Position, this.parent.Map);
 
-                Pawn _pawn = _X as Pawn;
-                if (_pawn != null)
-                {
-                    _pawn.SetFactionDirect(Faction.OfPlayer);
-                }
-            }
-            );
+            //GameComponent_Excalibur.Instance.Comp_Transporter.TransportBuffer.ForEach(_X =>
+            //{
+            //    GenPlace.TryPlaceThing(_X, this.parent.Position, this.parent.Map, ThingPlaceMode.Near);
+            //    Comp_Transporter.DisplayTransportEffect(_X);             
 
-            GameComponent_Excalibur.Instance.Comp_Transporter.TransportBuffer.Clear();
+            //    Pawn _pawn = _X as Pawn;
+            //    if (_pawn != null)
+            //    {
+            //        _pawn.SetFactionDirect(Faction.OfPlayer);
+            //    }
+            //}
+            //);
+
+            //GameComponent_Excalibur.Instance.Comp_Transporter.TransportBuffer.Clear();
+
+
         }
 
         public static void DisplayTransportEffect(Thing thingToTransport)
         {
             MoteMaker.MakeStaticMote(thingToTransport.Position, thingToTransport.Map, ThingDefOf.Mote_ExplosionFlash, 10);
+        }
+
+        public override void PostExposeData()
+        {
+            base.PostExposeData();
         }
 
     }
