@@ -68,6 +68,9 @@ namespace EnhancedDevelopment.Excalibur.Settings
             _listing_Standard_BuildingChargeAmount.IntSetter(ref this.NanoShieldBuildingChargeAmount, SettingSection_NanoShields.DEFAULT_NANO_SHIELD_BUILDING_CHARGE_AMOUNT, "Default");
             _listing_Standard_BuildingChargeAmount.End();
 
+            listing_Standard.GapLine(12f);
+
+            listing_Standard.End();
         }
 
         public override void ExposeData()

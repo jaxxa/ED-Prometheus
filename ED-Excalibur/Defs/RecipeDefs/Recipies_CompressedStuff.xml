@@ -4,8 +4,8 @@
 	<!-- Compress_Steel -->
 	<RecipeDef>
 		<defName>Compress_Steel</defName>
-		<label>Compresses Steel into a stronger Compressed Steel</label>
-		<description>Compresses Steel into a stronger Compressed Steel</description>
+		<label>Compressed Steel</label>
+		<description>Compressed Steel</description>
 		<jobString>Creating Compressed Steel from Steel.</jobString>
 		<workAmount>20</workAmount>
 		<workSpeedStat>SmithingSpeed</workSpeedStat>
@@ -35,8 +35,8 @@
 	<!-- Compress_Plasteel -->
 	<RecipeDef>
 		<defName>Compress_Plasteel</defName>
-		<label>Compresses Plasteel into a stronger Compressed Plasteel</label>
-		<description>Compresses Plasteel into a stronger Compressed Plasteel</description>
+		<label>Compressed Plasteel</label>
+		<description>Compressed Plasteel</description>
 		<jobString>Creating Compressed Plasteel from Plasteel.</jobString>
 		<workAmount>20</workAmount>
 		<workSpeedStat>SmithingSpeed</workSpeedStat>
@@ -66,8 +66,8 @@
 	<!-- Compress_WoodLog -->
 	<RecipeDef>
 		<defName>Compress_WoodLog</defName>
-		<label>Compresses Wood into a stronger Compressed Wood</label>
-		<description>Compresses Wood into a stronger Compressed Wood</description>
+		<label>Compressed Wood</label>
+		<description>Compresses Wood</description>
 		<jobString>Creating Compressed Wood from Wood.</jobString>
 		<workAmount>20</workAmount>
 		<workSpeedStat>SmithingSpeed</workSpeedStat>

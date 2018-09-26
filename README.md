@@ -39,7 +39,8 @@ Features:
 0.19.0.8
  * Removed NanoShieldCharger Reserve Power
  * Research Rework
-
+ * Fixes for Transporter System Saving / Loading
+ 
 0.19.0.7
  * Ship To Surface Power Distribution
  * Transport Beaming
