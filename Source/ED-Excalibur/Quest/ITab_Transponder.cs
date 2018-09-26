@@ -44,8 +44,7 @@ namespace EnhancedDevelopment.Excalibur.Quest
         public ITab_Transponder()
         {
             base.size = ITab_Transponder.WinSize;
-            base.labelKey = "TransponderTab";
-            //base.tutorTag = "ShieldGenenerator";
+            base.labelKey = "Transponder";
         }
 
         protected override void FillTab()

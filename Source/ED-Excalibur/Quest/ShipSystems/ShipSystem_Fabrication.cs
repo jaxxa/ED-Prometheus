@@ -29,27 +29,27 @@ namespace EnhancedDevelopment.Excalibur.Quest.ShipSystems
         {
             if (this.CurrentLevel >= 1)
             {
-                //ResearchHelper.QuestComplete("Research_ED_ShieldGenerators");
+                ResearchHelper.QuestComplete("Research_ED_Excalibur_Fabrication_1");
             }
             if (this.CurrentLevel >= 2)
             {
-                ResearchHelper.QuestComplete("Research_ED_OmniGel");
+                ResearchHelper.QuestComplete("Research_ED_Excalibur_Fabrication_2");
             }
             if (this.CurrentLevel >= 3)
             {
-                ResearchHelper.QuestComplete("Research_ED_Replicator_MK1");
+                ResearchHelper.QuestComplete("Research_ED_Excalibur_Fabrication_3");
             }
             if (this.CurrentLevel >= 4)
             {
-                ResearchHelper.QuestComplete("Research_ED_Replicator_MK2");
+                ResearchHelper.QuestComplete("Research_ED_Excalibur_Fabrication_4");
             }
             if (this.CurrentLevel >= 5)
             {
-                ResearchHelper.QuestComplete("Research_ED_Replicator_MK3");
+                ResearchHelper.QuestComplete("Research_ED_Excalibur_Fabrication_5");
             }
             if (this.CurrentLevel >= 6)
             {
-                ResearchHelper.QuestComplete("Research_ED_MolecularReinforcementCompressor");
+                ResearchHelper.QuestComplete("Research_ED_Excalibur_Fabrication_6");
             }
         }
         

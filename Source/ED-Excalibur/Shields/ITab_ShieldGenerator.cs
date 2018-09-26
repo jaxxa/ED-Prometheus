@@ -51,8 +51,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
         public ITab_ShieldGenerator()
         {
             base.size = ITab_ShieldGenerator.WinSize;
-            base.labelKey = "ShieldGeneratorTab";
-            //base.tutorTag = "ShieldGenenerator";
+            base.labelKey = "Shield";
         }
 
         protected override void FillTab()

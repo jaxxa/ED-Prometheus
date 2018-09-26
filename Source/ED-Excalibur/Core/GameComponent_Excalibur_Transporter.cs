@@ -10,18 +10,22 @@ namespace EnhancedDevelopment.Excalibur.Core
     {
         public override void ExposeData()
         {
-           // throw new NotImplementedException();
+
+        }
+
+        public void ExposeData_WorldComp()
+        {
+            Scribe_Collections.Look<Thing>(ref this.TransportBuffer, "TransportBuffer", LookMode.Deep);
+
         }
 
         public override int GetTickInterval()
         {
             return int.MaxValue;
-           //throw new NotImplementedException();
         }
 
         public override void TickOnInterval()
         {
-            //throw new NotImplementedException();
         }
 
 

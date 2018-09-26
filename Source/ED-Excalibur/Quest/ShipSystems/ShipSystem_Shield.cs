@@ -22,15 +22,15 @@ namespace EnhancedDevelopment.Excalibur.Quest.ShipSystems
         {
             if (this.CurrentLevel >= 1)
             {
-                ResearchHelper.QuestComplete("Research_ED_ShieldGenerators");
+                ResearchHelper.QuestComplete("Research_ED_Excalibur_Shields_1");
             }
             if (this.CurrentLevel >= 2)
             {
-                ResearchHelper.QuestComplete("Research_ED_ShieldUpgrades");
+                ResearchHelper.QuestComplete("Research_ED_Excalibur_Shields_2");
             }
             if (this.CurrentLevel >= 3)
             {
-                ResearchHelper.QuestComplete("Research_ED_Personal_Quantum_Shield");
+                ResearchHelper.QuestComplete("Research_ED_Excalibur_Shields_3");
             }
         }
     }

@@ -18,11 +18,11 @@ namespace EnhancedDevelopment.Excalibur.Core
 
         public ShipSystem_Fabrication ShipSystem_Fabrication;
         public ShipSystem_PowerDistribution ShipSystem_PowerDistribution;
-        public ShipSystem_PowerGeneration ShipSystem_PowerGeneration;
-        public ShipSystem_Regeneration ShipSystem_Regeneration;
-        public ShipSystem_Resourcing ShipSystem_Resourcing;
+        //public ShipSystem_PowerGeneration ShipSystem_PowerGeneration;
+        //public ShipSystem_Regeneration ShipSystem_Regeneration;
+        //public ShipSystem_Resourcing ShipSystem_Resourcing;
         public ShipSystem_Shield ShipSystem_Shield;
-        public ShipSystem_Tactical ShipSystem_Tactical;
+        //public ShipSystem_Tactical ShipSystem_Tactical;
         public ShipSystem_Transport ShipSystem_Transport;
 
 
@@ -54,20 +54,20 @@ namespace EnhancedDevelopment.Excalibur.Core
             this.ShipSystem_PowerDistribution = new ShipSystem_PowerDistribution();
             this.m_ShipSystems.Add(this.ShipSystem_PowerDistribution);
 
-            this.ShipSystem_PowerGeneration = new ShipSystem_PowerGeneration();
-            this.m_ShipSystems.Add(this.ShipSystem_PowerGeneration);
+            //this.ShipSystem_PowerGeneration = new ShipSystem_PowerGeneration();
+            //this.m_ShipSystems.Add(this.ShipSystem_PowerGeneration);
 
-            this.ShipSystem_Regeneration = new ShipSystem_Regeneration();
-            this.m_ShipSystems.Add(this.ShipSystem_Regeneration);
+            //this.ShipSystem_Regeneration = new ShipSystem_Regeneration();
+            //this.m_ShipSystems.Add(this.ShipSystem_Regeneration);
 
-            this.ShipSystem_Resourcing = new ShipSystem_Resourcing();
-            this.m_ShipSystems.Add(this.ShipSystem_Resourcing);
+            //this.ShipSystem_Resourcing = new ShipSystem_Resourcing();
+            //this.m_ShipSystems.Add(this.ShipSystem_Resourcing);
 
             this.ShipSystem_Shield = new ShipSystem_Shield();
             this.m_ShipSystems.Add(this.ShipSystem_Shield);
 
-            this.ShipSystem_Tactical = new ShipSystem_Tactical();
-            this.m_ShipSystems.Add(this.ShipSystem_Tactical);
+            //this.ShipSystem_Tactical = new ShipSystem_Tactical();
+            //this.m_ShipSystems.Add(this.ShipSystem_Tactical);
 
             this.ShipSystem_Transport = new ShipSystem_Transport();
             this.m_ShipSystems.Add(this.ShipSystem_Transport);

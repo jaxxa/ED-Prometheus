@@ -19,7 +19,9 @@ namespace EnhancedDevelopment.Excalibur.Quest
             
             if (GameComponent_Excalibur.Instance.Comp_Quest.m_QuestStatus >= 4)
             {
-                ResearchHelper.QuestComplete("Research_ED_Excalibur_Fabrication");
+                GameComponent_Excalibur.Instance.Comp_Quest.ShipSystem_Fabrication.UpgradeTo(1);
+
+                //ResearchHelper.QuestComplete("Research_ED_Excalibur_Fabrication");
             }        
 
         }
