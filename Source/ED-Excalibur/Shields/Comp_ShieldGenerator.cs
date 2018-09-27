@@ -106,6 +106,11 @@ namespace EnhancedDevelopment.Excalibur.Shields
         {
             return m_InterceptDropPod_Avalable && m_InterceptDropPod_Requested;
         }
+        
+        public bool IsInterceptDropPod_Avalable()
+        {
+            return this.m_InterceptDropPod_Avalable;
+        }
 
         // Identify Friend Foe ------------------------------------------------------
 
@@ -156,7 +161,6 @@ namespace EnhancedDevelopment.Excalibur.Shields
             //Log.Message("RecalculateStatistics");
 
             //Visual Settings
-            this.m_ShowVisually_Active = true;
             this.m_ColourRed = 0.5f;
             this.m_ColourGreen = 0.0f;
             this.m_ColourBlue = 0.5f;
@@ -802,24 +806,24 @@ namespace EnhancedDevelopment.Excalibur.Shields
 
         } //CompGetGizmosExtra()
 
-        private void SwitchDirect()
+        public void SwitchDirect()
         {
             this.m_BlockDirect_Requested = !this.m_BlockDirect_Requested;
         }
 
-        private void SwitchIndirect()
+        public void SwitchIndirect()
         {
             this.m_BlockIndirect_Requested = !this.m_BlockIndirect_Requested;
         }
 
-        private void SwitchInterceptDropPod()
+        public void SwitchInterceptDropPod()
         {
             this.m_InterceptDropPod_Requested = !this.m_InterceptDropPod_Requested;
         }
 
         private void SwitchVisual()
         {
-            m_ShowVisually_Active = !m_ShowVisually_Active;
+            this.m_ShowVisually_Active = !this.m_ShowVisually_Active;
         }
 
         #endregion UI

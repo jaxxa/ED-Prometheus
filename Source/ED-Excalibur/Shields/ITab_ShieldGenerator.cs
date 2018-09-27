@@ -19,7 +19,6 @@ namespace EnhancedDevelopment.Excalibur.Shields
 
         //}
 
-
         private static readonly Vector2 WinSize = new Vector2(500f, 400f);
 
         private Comp_ShieldGenerator SelectedCompShieldGenerator
@@ -82,7 +81,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
 
             listing_Standard.GapLine(12f);
             listing_Standard.Label("Charge: " + this.SelectedCompShieldGenerator.FieldIntegrity_Current + " / " + this.SelectedCompShieldGenerator.m_FieldIntegrity_Max);
-            
+
             listing_Standard.Gap(12f);
 
             listing_Standard.Label("Radius: " + this.SelectedCompShieldGenerator.m_FieldRadius_Requested + " / " + this.SelectedCompShieldGenerator.m_FieldRadius_Avalable);
@@ -90,6 +89,74 @@ namespace EnhancedDevelopment.Excalibur.Shields
             if (this.SelectedCompShieldGenerator.m_FieldRadius_Requested > this.SelectedCompShieldGenerator.m_FieldRadius_Avalable)
             {
                 this.SelectedCompShieldGenerator.m_FieldRadius_Requested = this.SelectedCompShieldGenerator.m_FieldRadius_Avalable;
+            }
+
+            //Direct
+            if (this.SelectedCompShieldGenerator.BlockDirect_Active())
+            {
+                if (listing_Standard.ButtonText("Toggle Direct: Active"))
+                {
+                    this.SelectedCompShieldGenerator.SwitchDirect();
+                }
+            } 
+            else
+            {
+                if (listing_Standard.ButtonText("Toggle Direct: Inactive"))
+                {
+                    this.SelectedCompShieldGenerator.SwitchDirect();
+                }
+
+            }
+
+            //Indirect
+            if (this.SelectedCompShieldGenerator.BlockIndirect_Active())
+            {
+                if (listing_Standard.ButtonText("Toggle Indirect: Active"))
+                {
+                    this.SelectedCompShieldGenerator.SwitchIndirect();
+                }
+            }
+            else
+            {
+                if (listing_Standard.ButtonText("Toggle Indirect: Inactive"))
+                {
+                    this.SelectedCompShieldGenerator.SwitchIndirect();
+                }
+
+            }
+
+            if (this.SelectedCompShieldGenerator.IsInterceptDropPod_Avalable())
+            {
+                if (this.SelectedCompShieldGenerator.IntercepDropPod_Active())
+                {
+                    if (listing_Standard.ButtonText("Toggle DropPod Intercept: Active"))
+                    {
+                        this.SelectedCompShieldGenerator.SwitchInterceptDropPod();
+                    }
+                }
+                else
+                {
+                    if (listing_Standard.ButtonText("Toggle DropPod Intercept: Inactive"))
+                    {
+                        this.SelectedCompShieldGenerator.SwitchInterceptDropPod();
+                    }
+
+                }
+                               
+            }
+            else
+            {
+                listing_Standard.Label("DropPod Intercept Unavalable");
+            }
+
+            if (this.SelectedCompShieldGenerator.IdentifyFriendFoe_Active())
+            {
+                listing_Standard.Label("IFF Active");
+
+            }
+            else
+            {
+                listing_Standard.Label("IFF Inactive");
             }
 
             listing_Standard.End();
