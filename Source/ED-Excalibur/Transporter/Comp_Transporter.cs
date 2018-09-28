@@ -6,12 +6,27 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 using Verse;
 
 namespace EnhancedDevelopment.Excalibur.Transporter
 {
+    [StaticConstructorOnStartup]
     class Comp_Transporter : ThingComp
     {
+
+
+        private static Texture2D UI_TRANSPORT_PEOPLE;
+        private static Texture2D UI_TRANSPORT_RESOURCES;
+        private static Texture2D UI_TRANSPORT_RECALL;
+
+        static Comp_Transporter()
+        {
+
+            UI_TRANSPORT_PEOPLE = ContentFinder<Texture2D>.Get("UI/Transport/TransportPeople", true);
+            UI_TRANSPORT_RESOURCES = ContentFinder<Texture2D>.Get("UI/Transport/TransportResources", true);
+            UI_TRANSPORT_RECALL = ContentFinder<Texture2D>.Get("UI/Transport/TransportRecall", true);
+        }
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
@@ -31,7 +46,7 @@ namespace EnhancedDevelopment.Excalibur.Transporter
                     Command_Action act = new Command_Action();
                     //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
                     act.action = () => this.TransportColonists();
-                    //    act.icon = UI_ADD_RESOURCES;
+                    act.icon = UI_TRANSPORT_PEOPLE;
                     act.defaultLabel = "TransportColonists";
                     act.defaultDesc = "TransportColonists";
                     act.activateSound = SoundDef.Named("Click");
@@ -45,7 +60,7 @@ namespace EnhancedDevelopment.Excalibur.Transporter
                     Command_Action act = new Command_Action();
                     //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
                     act.action = () => this.TransportThings();
-                    //    act.icon = UI_ADD_RESOURCES;
+                    act.icon = UI_TRANSPORT_RESOURCES;
                     act.defaultLabel = "TransportThings";
                     act.defaultDesc = "TransportThings";
                     act.activateSound = SoundDef.Named("Click");
@@ -59,7 +74,7 @@ namespace EnhancedDevelopment.Excalibur.Transporter
                     Command_Action act = new Command_Action();
                     //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
                     act.action = () => this.TransportRecall();
-                    //    act.icon = UI_ADD_RESOURCES;
+                    act.icon = UI_TRANSPORT_RECALL;
                     act.defaultLabel = "TransportRecall";
                     act.defaultDesc = "TransportRecall";
                     act.activateSound = SoundDef.Named("Click");
@@ -68,7 +83,7 @@ namespace EnhancedDevelopment.Excalibur.Transporter
                     yield return act;
                 }
             }
-        }     
+        }
 
         private void TransportColonists()
         {
@@ -105,7 +120,7 @@ namespace EnhancedDevelopment.Excalibur.Transporter
             {
                 _FoundThings.ForEach(_x =>
                 {
-                    
+
                     GameComponent_Excalibur.Instance.Comp_Transporter.TransportBuffer.Add(_x);
 
                     //GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(_x.stackCount);
@@ -118,7 +133,7 @@ namespace EnhancedDevelopment.Excalibur.Transporter
                 });
 
             }
-            
+
         }
 
         private void TransportRecall()
@@ -127,7 +142,7 @@ namespace EnhancedDevelopment.Excalibur.Transporter
             GameComponent_Excalibur.Instance.Comp_Transporter.TransportBuffer.ForEach(_X =>
             {
                 GenPlace.TryPlaceThing(_X, this.parent.Position, this.parent.Map, ThingPlaceMode.Near);
-                Comp_Transporter.DisplayTransportEffect(_X);             
+                Comp_Transporter.DisplayTransportEffect(_X);
 
                 Pawn _pawn = _X as Pawn;
                 if (_pawn != null)
