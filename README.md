@@ -36,6 +36,9 @@ Features:
 
 #Change Log
 
+0.19.0.9
+ * Aditional option on Shield Tab.
+
 0.19.0.8
  * Removed NanoShieldCharger Reserve Power
  * Research Rework
