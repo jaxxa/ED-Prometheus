@@ -47,8 +47,8 @@ namespace EnhancedDevelopment.Prometheus.Transporter
                     //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
                     act.action = () => this.TransportColonists();
                     act.icon = UI_TRANSPORT_PEOPLE;
-                    act.defaultLabel = "TransportColonists";
-                    act.defaultDesc = "TransportColonists";
+                    act.defaultLabel = "Colonists";
+                    act.defaultDesc = "Transport Colonists to the ship";
                     act.activateSound = SoundDef.Named("Click");
                     //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
                     //act.groupKey = 689736;
@@ -61,8 +61,8 @@ namespace EnhancedDevelopment.Prometheus.Transporter
                     //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
                     act.action = () => this.TransportThings();
                     act.icon = UI_TRANSPORT_RESOURCES;
-                    act.defaultLabel = "TransportThings";
-                    act.defaultDesc = "TransportThings";
+                    act.defaultLabel = "Things";
+                    act.defaultDesc = "Transport Things to the ship";
                     act.activateSound = SoundDef.Named("Click");
                     //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
                     //act.groupKey = 689736;
@@ -75,8 +75,8 @@ namespace EnhancedDevelopment.Prometheus.Transporter
                     //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
                     act.action = () => this.TransportRecall();
                     act.icon = UI_TRANSPORT_RECALL;
-                    act.defaultLabel = "TransportRecall";
-                    act.defaultDesc = "TransportRecall";
+                    act.defaultLabel = "Recall";
+                    act.defaultDesc = "Recall Colonists and Things from the ship";
                     act.activateSound = SoundDef.Named("Click");
                     //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
                     //act.groupKey = 689736;
