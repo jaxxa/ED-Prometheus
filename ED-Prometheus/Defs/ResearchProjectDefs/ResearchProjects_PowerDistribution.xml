@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	
+	<ResearchProjectDef>
+		<defName>Research_ED_Prometheus_PowerDistribution_1</defName>
+		<label>Power Distribution Level 1</label>
+		<description>Using a laser, drill into the steam and magma network deep within the planet.</description>
+		<baseCost>4000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>Research_ED_Prometheus_Fabrication_1</li>
+		</prerequisites>
+		<tab>EDSN-Prometheus</tab>
+		<researchViewX>2</researchViewX>
+		<researchViewY>2</researchViewY>	
+		<requiredResearchFacilities>
+			<li>PrometheusQuestLock</li>
+		</requiredResearchFacilities>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef>
+		<defName>Research_ED_Prometheus_PowerDistribution_2</defName>
+		<label>Power Distribution Level 2 - Geyser Drill</label>
+		<description>Requires Power Distribution 2
+Using a laser, drill into the steam and magma network deep within the planet.</description>
+		<baseCost>4000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>Research_ED_Prometheus_PowerDistribution_1</li>
+		</prerequisites>
+		<tab>EDSN-Prometheus</tab>
+		<researchViewX>3</researchViewX>
+		<researchViewY>2</researchViewY>	
+		<requiredResearchFacilities>
+			<li>PrometheusQuestLock</li>
+		</requiredResearchFacilities>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef>
+		<defName>Research_ED_Prometheus_PowerDistribution_3</defName>
+		<label>Power Distribution Level 3 - Space To Space Power Transfer</label>
+		<description>Allows using a standard power transfer beam to supply other ships, wither for profit or to enhance trade.</description>
+		<baseCost>1500</baseCost>
+		<techLevel>Spacer</techLevel>
+		<tab>EDSN-Prometheus</tab>
+		<researchViewX>4</researchViewX>
+		<researchViewY>2</researchViewY>
+		<prerequisites>
+			<li>Research_ED_Prometheus_PowerDistribution_2</li>
+		</prerequisites>	
+		<requiredResearchFacilities>
+			<li>PrometheusQuestLock</li>
+		</requiredResearchFacilities>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>Research_ED_Prometheus_PowerDistribution_4</defName>
+		<label>Power Distribution Level 4 - Space To Ground Power Transfer</label>
+		<description>Allows power to be sent from the ship to supply ground instalations.</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Spacer</techLevel>
+		<tab>EDSN-Prometheus</tab>
+		<researchViewX>5</researchViewX>
+		<researchViewY>2</researchViewY>	
+		<requiredResearchFacilities>
+			<li>PrometheusQuestLock</li>
+		</requiredResearchFacilities>
+		<prerequisites>
+			<li>Research_ED_Prometheus_PowerDistribution_3</li>
+		</prerequisites>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>Research_ED_Prometheus_PowerDistribution_5</defName>
+		<label>Power Distribution Level 5</label>
+		<description>.</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Spacer</techLevel>
+		<tab>EDSN-Prometheus</tab>
+		<researchViewX>6</researchViewX>
+		<researchViewY>2</researchViewY>	
+		<requiredResearchFacilities>
+			<li>PrometheusQuestLock</li>
+		</requiredResearchFacilities>
+		<prerequisites>
+			<li>Research_ED_Prometheus_PowerDistribution_4</li>
+		</prerequisites>
+	</ResearchProjectDef>
+	
+
+</Defs>

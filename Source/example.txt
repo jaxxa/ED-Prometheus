@@ -1,8 +1,8 @@
-Core.GameComponent_Excalibur.Instance.Comp_Quest
-Mod_EDExcalibur.Settings.LaserDrill.RequiredFillWork;
+Core.GameComponent_Prometheus.Instance.Comp_Quest
+Mod_EDPrometheus.Settings.LaserDrill.RequiredFillWork;
 
 <LowFoodDesc>You are dangerously low on food.\n\n    Full bars worth of food in storage: {0}\n    Colonists and prisoners getting food: {1}\n    Days worth of food in storage: {2}\n\nGrow, buy, find, or kill some food.</LowFoodDesc>
 return string.Format("LowFoodDesc".Translate(), totalHumanEdibleNutrition.ToString("F0"), num.ToStringCached(), num2.ToStringCached());
 
 
-if (GameComponent_Excalibur.Instance.Comp_Quest.ShipSystem_Transport.IsTransporterUnlocked())
+if (GameComponent_Prometheus.Instance.Comp_Quest.ShipSystem_Transport.IsTransporterUnlocked())
