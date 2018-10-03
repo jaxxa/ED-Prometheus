@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- ========================= Work tables ==========================-->
+
+	<ThingDef ParentName="EDSN_BuildingBase">
+		<defName>Table_MK1_Replicator</defName>
+		<label>Mark 1 Matter Replicator</label>
+		<thingClass>Building_WorkTable</thingClass>
+		<description>An advanced matter replication device.</description>
+		<graphicData>
+			<texPath>Things/Items/MK1Replicator</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(3,1)</drawSize>
+		</graphicData>
+		<researchPrerequisites>
+			<li>Research_ED_Prometheus_Fabrication_3</li>
+			<li>Research_ED_Prometheus_Quest_Unlock</li>
+		</researchPrerequisites>
+		<costList>
+			<ComponentSpacer>2</ComponentSpacer>
+			<Steel>100</Steel>
+			<Silver>50</Silver>
+		</costList>
+		<altitudeLayer>Building</altitudeLayer>
+		<size>(3,1)</size>
+		<designationCategory>Production</designationCategory>
+		<passability>Impassable</passability>
+		<hasInteractionCell>True</hasInteractionCell>
+		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+		<surfaceType>Item</surfaceType>
+		<constructEffect>ConstructMetal</constructEffect>
+		<recipes>
+			<li>Replicate_MK1_SlagFromOmniGel</li>
+			<li>Replicate_MK1_ChunkSandstoneFromOmniGel</li>
+			<li>Replicate_MK1_ChunkGraniteFromOmniGel</li>
+			<li>Replicate_MK1_ChunkLimestoneFromOmniGel</li>
+			<li>Replicate_MK1_ChunkSlateFromOmniGel</li>
+			<li>Replicate_MK1_ChunkMarbleFromOmniGel</li>
+		</recipes>
+		<inspectorTabs>
+			<li>ITab_Bills</li>
+		</inspectorTabs>
+		<comps>
+			<li Class="EnhancedDevelopment.Prometheus.Fabrication.CompProperties_Fabricated">
+				<RequiredPower>500</RequiredPower>
+				<RequiredMaterials>200</RequiredMaterials>
+				<RequiredWork>90</RequiredWork>
+			</li>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>1200</basePowerConsumption>
+				<transmitsPower>false</transmitsPower>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="CompProperties_Glower">
+				<glowRadius>6</glowRadius>
+				<glowColor>(217,112,33,0)</glowColor>
+			</li>
+		</comps>
+		<building>
+			<spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+		</building>
+	</ThingDef>
+
+
+	<ThingDef ParentName="EDSN_BuildingBase">
+		<defName>Table_MK2_Replicator</defName>
+		<label>Mark 2 Matter Replicator</label>
+		<thingClass>Building_WorkTable</thingClass>
+		<description>An advanced matter replication device.</description>
+		<graphicData>
+			<texPath>Things/Items/MK2Replicator</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(3,1)</drawSize>
+		</graphicData>
+		<researchPrerequisites>
+			<li>Research_ED_Prometheus_Quest_Unlock</li>
+			<li>Research_ED_Prometheus_Fabrication_4</li>
+		</researchPrerequisites>
+		<costList>
+			<ComponentSpacer>4</ComponentSpacer>
+			<Steel>200</Steel>
+			<Silver>100</Silver>
+		</costList>
+		<altitudeLayer>Building</altitudeLayer>
+		<size>(3,1)</size>
+		<designationCategory>Production</designationCategory>
+		<passability>Impassable</passability>
+		<hasInteractionCell>True</hasInteractionCell>
+		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+		<surfaceType>Item</surfaceType>
+		<constructEffect>ConstructMetal</constructEffect>
+		<recipes>
+			<li>Replicate_MK2_SteelFromOmniGel</li>
+			<li>Replicate_MK2_SilverFromOmniGel</li>
+			<li>Replicate_MK2_GoldFromOmniGel</li>
+		</recipes>
+		<inspectorTabs>
+			<li>ITab_Bills</li>
+		</inspectorTabs>
+		<comps>
+			<li Class="EnhancedDevelopment.Prometheus.Fabrication.CompProperties_Fabricated">
+				<RequiredPower>500</RequiredPower>
+				<RequiredMaterials>200</RequiredMaterials>
+				<RequiredWork>90</RequiredWork>
+			</li>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>1200</basePowerConsumption>
+				<transmitsPower>false</transmitsPower>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="CompProperties_Glower">
+				<glowRadius>6</glowRadius>
+				<glowColor>(217,112,33,0)</glowColor>
+			</li>
+		</comps>
+		<building>
+			<spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+		</building>
+	</ThingDef>
+
+	<ThingDef ParentName="EDSN_BuildingBase">
+		<defName>Table_MK3_Replicator</defName>
+		<label>Mark 3 Matter Replicator</label>
+		<thingClass>Building_WorkTable</thingClass>
+		<description>An advanced matter replication device.</description>
+		<graphicData>
+			<texPath>Things/Items/MK3Replicator</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(3,1)</drawSize>
+		</graphicData>
+		<researchPrerequisites>
+			<li>Research_ED_Prometheus_Quest_Unlock</li>
+			<li>Research_ED_Prometheus_Fabrication_5</li>
+		</researchPrerequisites>
+		<costList>
+			<ComponentSpacer>4</ComponentSpacer>
+			<Steel>200</Steel>
+			<Silver>400</Silver>
+		</costList>
+		<altitudeLayer>Building</altitudeLayer>
+		<size>(3,1)</size>
+		<designationCategory>Production</designationCategory>
+		<passability>Impassable</passability>
+		<hasInteractionCell>True</hasInteractionCell>
+		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+		<surfaceType>Item</surfaceType>
+		<constructEffect>ConstructMetal</constructEffect>
+		<recipes>
+			<li>Replicate_MK3_PlasteelFromOmniGel</li>
+			<li>Replicate_MK3_UraniumFromOmniGel</li>
+			<li>Replicate_MK3_JadeFromOmniGel</li>
+			<li>Replicate_MK3_MedicineFromOmniGel</li>
+			<li>Replicate_MK3_GlitterMedicineFromOmniGel</li>
+		</recipes>
+		<inspectorTabs>
+			<li>ITab_Bills</li>
+		</inspectorTabs>
+		<comps>
+			<li Class="EnhancedDevelopment.Prometheus.Fabrication.CompProperties_Fabricated">
+				<RequiredPower>500</RequiredPower>
+				<RequiredMaterials>200</RequiredMaterials>
+				<RequiredWork>90</RequiredWork>
+			</li>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>1200</basePowerConsumption>
+				<transmitsPower>false</transmitsPower>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="CompProperties_Glower">
+				<glowRadius>6</glowRadius>
+				<glowColor>(217,112,33,0)</glowColor>
+			</li>
+		</comps>
+		<building>
+			<spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+		</building>
+	</ThingDef>
+	
+	<ThingDef ParentName="EDSN_BuildingBase">
+		<defName>MolecularCompressor</defName>
+		<label>Molecular Compressor</label>
+		<thingClass>Building_WorkTable</thingClass>
+		<description>An advanced matter replication device.</description>
+		<graphicData>
+			<texPath>MolecularReinforcementCompressor</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(3,2)</drawSize>
+			<damageData>
+				<rect>(0.02,0.25,2.96,2.85)</rect>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+			</damageData>
+		</graphicData>
+		<researchPrerequisites>
+			<li>Research_ED_Prometheus_Fabrication_6</li>
+			<li>Research_ED_Prometheus_Quest_Unlock</li>
+		</researchPrerequisites>
+		<costList>
+			<ComponentSpacer>2</ComponentSpacer>
+			<Steel>100</Steel>
+			<Silver>50</Silver>
+		</costList>
+		<altitudeLayer>Building</altitudeLayer>
+		<size>(3,2)</size>
+		<designationCategory>Production</designationCategory>
+		<passability>Impassable</passability>
+		<hasInteractionCell>True</hasInteractionCell>
+		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+		<surfaceType>Item</surfaceType>
+		<constructEffect>ConstructMetal</constructEffect>
+		<recipes>
+			<li>Compress_Steel</li>
+			<li>Compress_Plasteel</li>
+			<li>Compress_WoodLog</li>
+			<li>Compress_Sandstone</li>
+			<li>Compress_Granite</li>
+			<li>Compress_Limestone</li>
+			<li>Compress_Slate</li>
+			<li>Compress_Marble</li>
+		</recipes>
+		<inspectorTabs>
+			<li>ITab_Bills</li>
+		</inspectorTabs>
+		<comps>
+			<li Class="EnhancedDevelopment.Prometheus.Fabrication.CompProperties_Fabricated">
+				<RequiredPower>500</RequiredPower>
+				<RequiredMaterials>200</RequiredMaterials>
+				<RequiredWork>90</RequiredWork>
+			</li>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>1200</basePowerConsumption>
+				<transmitsPower>false</transmitsPower>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>
+			<li Class="CompProperties_Glower">
+				<glowRadius>6</glowRadius>
+				<glowColor>(217,112,33,0)</glowColor>
+			</li>
+		</comps>
+		<building>
+			<spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+		</building>
+	</ThingDef>
+
+
+</Defs>

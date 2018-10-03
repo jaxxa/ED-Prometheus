@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ResearchTabDef>
+		<defName>EDSN-Prometheus</defName>
+		<label>E.D.S.N. Prometheus</label>
+	</ResearchTabDef>
+	
+</Defs>

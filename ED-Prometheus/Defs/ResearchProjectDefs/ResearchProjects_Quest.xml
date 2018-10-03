@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ResearchProjectDef>
+		<defName>Research_ED_Prometheus_Quest_Unlock</defName>
+		<label>Prometheus Quest Unlock</label>
+		<description>NOTE: Research Projects that require Prometheus Quest Lock are unlocked through Quest Progression.</description>
+		<baseCost>999</baseCost>
+		<techLevel>Spacer</techLevel>
+		<tab>EDSN-Prometheus</tab>
+		<researchViewX>0</researchViewX>
+		<researchViewY>0</researchViewY>
+		<requiredResearchFacilities>
+			<li>PrometheusQuestLock</li>
+		</requiredResearchFacilities>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>Research_ED_Prometheus_AnalyseStrangeSignal</defName>
+		<label>Analyse Strange Signal</label>
+		<description>Analyse the Strange Signal and figure out how to build the EDSN Transponder described in the message.</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Spacer</techLevel>
+		<tab>EDSN-Prometheus</tab>
+		<researchViewX>0</researchViewX>
+		<researchViewY>1</researchViewY>	
+		<requiredResearchFacilities>
+			<li>PrometheusQuestLock</li>
+		</requiredResearchFacilities>
+	</ResearchProjectDef>
+
+
+</Defs>
+
+<!--
+    <prerequisites>
+      <li>ShipBasics</li>
+    </prerequisites>
+	
+-->
