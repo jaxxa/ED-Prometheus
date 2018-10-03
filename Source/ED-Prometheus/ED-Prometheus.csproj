@@ -52,10 +52,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\GameComponent_BaseClass.cs" />
-    <Compile Include="Core\GameComponent_Excalibur_Fabrication.cs" />
-    <Compile Include="Core\GameComponent_Excalibur_NanoShields.cs" />
-    <Compile Include="Core\GameComponent_Excalibur_Quest.cs" />
-    <Compile Include="Core\GameComponent_Excalibur_Transporter.cs" />
+    <Compile Include="Core\GameComponent_Prometheus_Fabrication.cs" />
+    <Compile Include="Core\GameComponent_Prometheus_NanoShields.cs" />
+    <Compile Include="Core\GameComponent_Prometheus_Quest.cs" />
+    <Compile Include="Core\GameComponent_Prometheus_Transporter.cs" />
     <Compile Include="Fabrication\Compression\CompProperties_CompressedStuff.cs" />
     <Compile Include="Fabrication\Compression\CompProperties_MolecularCompressor.cs" />
     <Compile Include="Fabrication\Compression\Comp_CompressedStuff.cs" />
@@ -72,13 +72,13 @@
     <Compile Include="Quest\CompProperties_EDSNTransponder.cs" />
     <Compile Include="Quest\Comp_EDSNTransponder.cs" />
     <Compile Include="Quest\Dialog\Dialog_0_Generic.cs" />
-    <Compile Include="Quest\Dialog\Dialog_Excalibur.cs" />
+    <Compile Include="Quest\Dialog\Dialog_Prometheus.cs" />
     <Compile Include="Quest\ITab_Fabrication.cs" />
     <Compile Include="Quest\ITab_Transponder.cs" />
     <Compile Include="Quest\ResearchHelper.cs" />
     <Compile Include="NanoShields\Building_NanoShieldCharger.cs" />
     <Compile Include="NanoShields\CompNanoShield.cs" />
-    <Compile Include="Core\GameComponent_Excalibur.cs" />
+    <Compile Include="Core\GameComponent_Prometheus.cs" />
     <Compile Include="NanoShields\Gizmo_NanoShieldStatus.cs" />
     <Compile Include="Patch\Patch.cs" />
     <Compile Include="Patch\Patcher.cs" />
@@ -95,8 +95,8 @@
     <Compile Include="Quest\ShipSystems\ShipSystem_Transport.cs" />
     <Compile Include="Quest\ShipSystems\ShipSystem_PowerDistribution.cs" />
     <Compile Include="Quest\ShipSystems\ShipSystem_Shield.cs" />
-    <Compile Include="Settings\ModSettings_EDExcalibur.cs" />
-    <Compile Include="Settings\Mod_EDExcalibur.cs" />
+    <Compile Include="Settings\ModSettings_EDPrometheus.cs" />
+    <Compile Include="Settings\Mod_EDPrometheus.cs" />
     <Compile Include="Settings\SettingSection_LaserDrill.cs" />
     <Compile Include="Settings\SettingSection_NanoShields.cs" />
     <Compile Include="Settings\SettingSection_Quest.cs" />
