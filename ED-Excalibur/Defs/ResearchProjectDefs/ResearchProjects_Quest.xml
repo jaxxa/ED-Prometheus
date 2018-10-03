@@ -2,30 +2,30 @@
 <Defs>
 
 	<ResearchProjectDef>
-		<defName>Research_ED_Excalibur_Quest_Unlock</defName>
-		<label>Excalibur Quest Unlock</label>
-		<description>NOTE: Research Projects that require Excalibur Quest Lock are unlocked through Quest Progression.</description>
+		<defName>Research_ED_Prometheus_Quest_Unlock</defName>
+		<label>Prometheus Quest Unlock</label>
+		<description>NOTE: Research Projects that require Prometheus Quest Lock are unlocked through Quest Progression.</description>
 		<baseCost>999</baseCost>
 		<techLevel>Spacer</techLevel>
-		<tab>EDSN-Excalibur</tab>
+		<tab>EDSN-Prometheus</tab>
 		<researchViewX>0</researchViewX>
 		<researchViewY>0</researchViewY>
 		<requiredResearchFacilities>
-			<li>ExcaliburQuestLock</li>
+			<li>PrometheusQuestLock</li>
 		</requiredResearchFacilities>
 	</ResearchProjectDef>
 
 	<ResearchProjectDef>
-		<defName>Research_ED_Excalibur_AnalyseStrangeSignal</defName>
+		<defName>Research_ED_Prometheus_AnalyseStrangeSignal</defName>
 		<label>Analyse Strange Signal</label>
 		<description>Analyse the Strange Signal and figure out how to build the EDSN Transponder described in the message.</description>
 		<baseCost>1000</baseCost>
 		<techLevel>Spacer</techLevel>
-		<tab>EDSN-Excalibur</tab>
+		<tab>EDSN-Prometheus</tab>
 		<researchViewX>0</researchViewX>
 		<researchViewY>1</researchViewY>	
 		<requiredResearchFacilities>
-			<li>ExcaliburQuestLock</li>
+			<li>PrometheusQuestLock</li>
 		</requiredResearchFacilities>
 	</ResearchProjectDef>
 

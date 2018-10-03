@@ -2,71 +2,71 @@
 <Defs>
 	
 	<ResearchProjectDef>
-		<defName>Research_ED_Excalibur_Transport_1</defName>
+		<defName>Research_ED_Prometheus_Transport_1</defName>
 		<label>Transport Level 1</label>
 		<description>Transporter system.</description>
 		<baseCost>4000</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
-			<li>Research_ED_Excalibur_Fabrication_1</li>
+			<li>Research_ED_Prometheus_Fabrication_1</li>
 		</prerequisites>
-		<tab>EDSN-Excalibur</tab>
+		<tab>EDSN-Prometheus</tab>
 		<researchViewX>2</researchViewX>
 		<researchViewY>3</researchViewY>	
 		<requiredResearchFacilities>
-			<li>ExcaliburQuestLock</li>
+			<li>PrometheusQuestLock</li>
 		</requiredResearchFacilities>
 	</ResearchProjectDef>
 
 <!--	
 	<ResearchProjectDef>
-		<defName>Research_ED_Excalibur_Transport_2</defName>
+		<defName>Research_ED_Prometheus_Transport_2</defName>
 		<label>Transport Level 2</label>
 		<description>WIP</description>
 		<baseCost>4000</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
-			<li>Research_ED_Excalibur_Transport_1</li>
+			<li>Research_ED_Prometheus_Transport_1</li>
 		</prerequisites>
-		<tab>EDSN-Excalibur</tab>
+		<tab>EDSN-Prometheus</tab>
 		<researchViewX>3</researchViewX>
 		<researchViewY>3</researchViewY>	
 		<requiredResearchFacilities>
-			<li>ExcaliburQuestLock</li>
+			<li>PrometheusQuestLock</li>
 		</requiredResearchFacilities>
 	</ResearchProjectDef>
 	
 	<ResearchProjectDef>
-		<defName>Research_ED_Excalibur_Transport_3</defName>
+		<defName>Research_ED_Prometheus_Transport_3</defName>
 		<label>Transport Level 3</label>
 		<description>WIP</description>
 		<baseCost>1500</baseCost>
 		<techLevel>Spacer</techLevel>
-		<tab>EDSN-Excalibur</tab>
+		<tab>EDSN-Prometheus</tab>
 		<researchViewX>4</researchViewX>
 		<researchViewY>3</researchViewY>
 		<prerequisites>
-			<li>Research_ED_Excalibur_Transport_2</li>
+			<li>Research_ED_Prometheus_Transport_2</li>
 		</prerequisites>	
 		<requiredResearchFacilities>
-			<li>ExcaliburQuestLock</li>
+			<li>PrometheusQuestLock</li>
 		</requiredResearchFacilities>
 	</ResearchProjectDef>
 
 	<ResearchProjectDef>
-		<defName>Research_ED_Excalibur_Transport_4</defName>
+		<defName>Research_ED_Prometheus_Transport_4</defName>
 		<label>Transport Level 4</label>
 		<description>WIP</description>
 		<baseCost>1000</baseCost>
 		<techLevel>Spacer</techLevel>
-		<tab>EDSN-Excalibur</tab>
+		<tab>EDSN-Prometheus</tab>
 		<researchViewX>5</researchViewX>
 		<researchViewY>3</researchViewY>	
 		<requiredResearchFacilities>
-			<li>ExcaliburQuestLock</li>
+			<li>PrometheusQuestLock</li>
 		</requiredResearchFacilities>
 		<prerequisites>
-			<li>Research_ED_Excalibur_Transport_3</li>
+			<li>Research_ED_Prometheus_Transport_3</li>
 		</prerequisites>
 	</ResearchProjectDef>
 -->

@@ -28,7 +28,7 @@
 	</ThingDef>
 
 	<ThingDef ParentName="ResourceBase">
-		<thingClass>EnhancedDevelopment.Excalibur.Fabrication.ResourceUnit</thingClass>
+		<thingClass>EnhancedDevelopment.Prometheus.Fabrication.ResourceUnit</thingClass>
 		<defName>ResourceUnit</defName>
 		<label>Resource Unit</label>
 		<description>Materials packaged for imediate Transport to on EDSN Starships and Facilities, used in Fabrication.</description>
@@ -54,7 +54,7 @@
 	</ThingDef>
 
 	<ThingDef ParentName="ResourceBase">
-		<thingClass>EnhancedDevelopment.Excalibur.Fabrication.ResourceUnit</thingClass>
+		<thingClass>EnhancedDevelopment.Prometheus.Fabrication.ResourceUnit</thingClass>
 		<defName>NanoMaterial</defName>
 		<label>Nano Materials</label>
 		<description>Used in bring ship systems online.</description>
@@ -78,7 +78,7 @@
 			<li>ResourcesRaw</li>
 		</thingCategories>
 		<comps>
-			<li Class="EnhancedDevelopment.Excalibur.Fabrication.CompProperties_Fabricated">
+			<li Class="EnhancedDevelopment.Prometheus.Fabrication.CompProperties_Fabricated">
 				<RequiredPower>500</RequiredPower>
 				<RequiredMaterials>100</RequiredMaterials>
 				<RequiredWork>200</RequiredWork>

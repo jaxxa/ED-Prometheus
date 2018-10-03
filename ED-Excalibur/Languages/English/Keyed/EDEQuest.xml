@@ -13,7 +13,7 @@ It is a repeating automated message that appears to be a destress call. It expla
 
 	
 	<EDE_Dialog_Title_2_FirstContact>First Contact</EDE_Dialog_Title_2_FirstContact>
-	<EDE_Dialog_2_FirstContact>You make contact with the source of the strange signal. The female voice on the other end identifies herself as Alex. She state that she is the only survivor on an Experimental Command Carrier named the E.D.S.N. Excalibur, further explaining that it was once the massive Flagship of an incredibly advance Glitterworld, able to support an entire fleet of ship and numerous ground forces to exert control over entire star systems. 
+	<EDE_Dialog_2_FirstContact>You make contact with the source of the strange signal. The female voice on the other end identifies herself as Alex. She state that she is the only survivor on an Experimental Command Carrier named the E.D.S.N. Prometheus, further explaining that it was once the massive Flagship of an incredibly advance Glitterworld, able to support an entire fleet of ship and numerous ground forces to exert control over entire star systems. 
 
 Unfortunately in its present condition it is little better than derelict, not even a vague shadow of its former glory. An indeterminable time ago an unknown calamity befell the ship, causing it to drift dead through space for many years until recently when it drifted close enough to this Solar System to be captured by this star's gravity and into the decaying orbit where it currently resides, drifting ever closer to its imminent collision with the Star. Although since this dealing with astronomical distances the imminent collision is a year or more away.
 
@@ -21,24 +21,24 @@ Fortunately the encounter with the start system also caused Alex to awaken, but 
 
 Alex has a plan to save the ship (and herself) from hitting the Star by bring part of the propulsion systems online and entering orbit of the Rimworld that you are on, but to do this she will need help from your colony. The first thing she needs is energy to power up the Auto Repair System and run a diagnostic on the Engines.
 
-Because the ship was designed for long term operations including ground operations it has a number of fabricated buildings and the facilities that can be deployed to the surface of a planet. One of these is the Quantum Power Relay that can be used to send power from a ground installation back to the Excalibur that is now being sent to your colony.
+Because the ship was designed for long term operations including ground operations it has a number of fabricated buildings and the facilities that can be deployed to the surface of a planet. One of these is the Quantum Power Relay that can be used to send power from a ground installation back to the Prometheus that is now being sent to your colony.
 
-In exchange for helping save the E.D.S.N Excalibur, Alex offers to help your Colony using of the ships systems as they are brought online.
+In exchange for helping save the E.D.S.N Prometheus, Alex offers to help your Colony using of the ships systems as they are brought online.
 
-	Initiating drop of "Quantum Power Relay", use this to charge the Excalibur then contact the ship again.
+	Initiating drop of "Quantum Power Relay", use this to charge the Prometheus then contact the ship again.
 	
 	
 	</EDE_Dialog_2_FirstContact>
 
 	<EDE_Dialog_Title_3_InitialCharge>Providing Power</EDE_Dialog_Title_3_InitialCharge>
-	<EDE_Dialog_3_InitialCharge>Power transfer to E.D.S.N Excalibur in Progress.
+	<EDE_Dialog_3_InitialCharge>Power transfer to E.D.S.N Prometheus in Progress.
 
 	Current Progress: {0} / {1}</EDE_Dialog_3_InitialCharge>
 
 	<EDE_Dialog_Title_4_NeedResources>Providing Metal</EDE_Dialog_Title_4_NeedResources>
 	<EDE_Dialog_4_NeedResources>You contact Alex to check on the results of the diagnostic. She has discovered that while the main engines are extremely damaged with some materials is should be possible to bring the secondary manoeuvring system online. While the ship will not be going anywhere in a hurry, this should be enough to bring it out of danger.
 To this end she has modified the ground building fabrication system so that it can now construct replacement parts for the ship, but it will require the raw resources in order to do so, specifically metal at this stage.
-Fortunately there were enough materials could be scavenged to repair the Transporter Beaming System. She provides you with instructions on modifying your existing Transponder so it can be used for targeting the Transport Beams. You can then use this system to provide Metal to the E.D.S.N Excalibur to continue repairs by using the Bills option to tag Metal for Transport.
+Fortunately there were enough materials could be scavenged to repair the Transporter Beaming System. She provides you with instructions on modifying your existing Transponder so it can be used for targeting the Transport Beams. You can then use this system to provide Metal to the E.D.S.N Prometheus to continue repairs by using the Bills option to tag Metal for Transport.
 
 	Current Progress: {0} / {1} 
 	</EDE_Dialog_4_NeedResources>

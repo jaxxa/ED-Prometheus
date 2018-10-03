@@ -14,8 +14,8 @@
 			<drawSize>(3,1)</drawSize>
 		</graphicData>
 		<researchPrerequisites>
-			<li>Research_ED_Excalibur_Fabrication_3</li>
-			<li>Research_ED_Excalibur_Quest_Unlock</li>
+			<li>Research_ED_Prometheus_Fabrication_3</li>
+			<li>Research_ED_Prometheus_Quest_Unlock</li>
 		</researchPrerequisites>
 		<costList>
 			<ComponentSpacer>2</ComponentSpacer>
@@ -42,7 +42,7 @@
 			<li>ITab_Bills</li>
 		</inspectorTabs>
 		<comps>
-			<li Class="EnhancedDevelopment.Excalibur.Fabrication.CompProperties_Fabricated">
+			<li Class="EnhancedDevelopment.Prometheus.Fabrication.CompProperties_Fabricated">
 				<RequiredPower>500</RequiredPower>
 				<RequiredMaterials>200</RequiredMaterials>
 				<RequiredWork>90</RequiredWork>
@@ -76,8 +76,8 @@
 			<drawSize>(3,1)</drawSize>
 		</graphicData>
 		<researchPrerequisites>
-			<li>Research_ED_Excalibur_Quest_Unlock</li>
-			<li>Research_ED_Excalibur_Fabrication_4</li>
+			<li>Research_ED_Prometheus_Quest_Unlock</li>
+			<li>Research_ED_Prometheus_Fabrication_4</li>
 		</researchPrerequisites>
 		<costList>
 			<ComponentSpacer>4</ComponentSpacer>
@@ -101,7 +101,7 @@
 			<li>ITab_Bills</li>
 		</inspectorTabs>
 		<comps>
-			<li Class="EnhancedDevelopment.Excalibur.Fabrication.CompProperties_Fabricated">
+			<li Class="EnhancedDevelopment.Prometheus.Fabrication.CompProperties_Fabricated">
 				<RequiredPower>500</RequiredPower>
 				<RequiredMaterials>200</RequiredMaterials>
 				<RequiredWork>90</RequiredWork>
@@ -134,8 +134,8 @@
 			<drawSize>(3,1)</drawSize>
 		</graphicData>
 		<researchPrerequisites>
-			<li>Research_ED_Excalibur_Quest_Unlock</li>
-			<li>Research_ED_Excalibur_Fabrication_5</li>
+			<li>Research_ED_Prometheus_Quest_Unlock</li>
+			<li>Research_ED_Prometheus_Fabrication_5</li>
 		</researchPrerequisites>
 		<costList>
 			<ComponentSpacer>4</ComponentSpacer>
@@ -161,7 +161,7 @@
 			<li>ITab_Bills</li>
 		</inspectorTabs>
 		<comps>
-			<li Class="EnhancedDevelopment.Excalibur.Fabrication.CompProperties_Fabricated">
+			<li Class="EnhancedDevelopment.Prometheus.Fabrication.CompProperties_Fabricated">
 				<RequiredPower>500</RequiredPower>
 				<RequiredMaterials>200</RequiredMaterials>
 				<RequiredWork>90</RequiredWork>
@@ -199,8 +199,8 @@
 			</damageData>
 		</graphicData>
 		<researchPrerequisites>
-			<li>Research_ED_Excalibur_Fabrication_6</li>
-			<li>Research_ED_Excalibur_Quest_Unlock</li>
+			<li>Research_ED_Prometheus_Fabrication_6</li>
+			<li>Research_ED_Prometheus_Quest_Unlock</li>
 		</researchPrerequisites>
 		<costList>
 			<ComponentSpacer>2</ComponentSpacer>
@@ -229,7 +229,7 @@
 			<li>ITab_Bills</li>
 		</inspectorTabs>
 		<comps>
-			<li Class="EnhancedDevelopment.Excalibur.Fabrication.CompProperties_Fabricated">
+			<li Class="EnhancedDevelopment.Prometheus.Fabrication.CompProperties_Fabricated">
 				<RequiredPower>500</RequiredPower>
 				<RequiredMaterials>200</RequiredMaterials>
 				<RequiredWork>90</RequiredWork>

@@ -4,10 +4,10 @@
 	<ThingDef ParentName="EDSN_BuildingBase">
 		<defName>Building_EDSN_Transponder</defName>
 		<label>EDSN Transponder</label>
-		<description>Provides the ability to communicate with the E.D.S.N. Excalibur.</description>
+		<description>Provides the ability to communicate with the E.D.S.N. Prometheus.</description>
 		<thingClass>Building_WorkTable</thingClass>
 		<researchPrerequisites>
-			<li>Research_ED_Excalibur_AnalyseStrangeSignal</li>
+			<li>Research_ED_Prometheus_AnalyseStrangeSignal</li>
 		</researchPrerequisites>
 		<graphicData>
 			<texPath>Things/ShieldBuilding_Red</texPath>
@@ -25,21 +25,21 @@
 				<compClass>CompPowerTrader</compClass>
 				<basePowerConsumption>1000</basePowerConsumption>
 			</li>
-			<li Class="EnhancedDevelopment.Excalibur.Fabrication.CompProperties_Fabricated">
+			<li Class="EnhancedDevelopment.Prometheus.Fabrication.CompProperties_Fabricated">
 				<RequiredPower>500</RequiredPower>
 				<RequiredMaterials>200</RequiredMaterials>
 				<RequiredWork>90</RequiredWork>
 			</li>
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Breakdownable"/>
-			<li Class="EnhancedDevelopment.Excalibur.Quest.CompProperties_EDSNTransponder"/>
-			<li Class="EnhancedDevelopment.Excalibur.Transporter.CompProperties_Transporter"/>
+			<li Class="EnhancedDevelopment.Prometheus.Quest.CompProperties_EDSNTransponder"/>
+			<li Class="EnhancedDevelopment.Prometheus.Transporter.CompProperties_Transporter"/>
 		</comps>
 		<costList>
 		</costList>
 		<inspectorTabs>
-			<li>EnhancedDevelopment.Excalibur.Quest.ITab_Transponder</li>
-			<li>EnhancedDevelopment.Excalibur.Quest.ITab_Fabrication</li>
+			<li>EnhancedDevelopment.Prometheus.Quest.ITab_Transponder</li>
+			<li>EnhancedDevelopment.Prometheus.Quest.ITab_Fabrication</li>
 			<li>ITab_Bills</li>
 		</inspectorTabs>
 		<recipes>

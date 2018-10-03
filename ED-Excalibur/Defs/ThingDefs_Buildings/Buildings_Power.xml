@@ -5,7 +5,7 @@
 		<defName>QuantumPowerRelay</defName>
 		<label>Quantum Power Relay</label>
 		<description>Stores electricity for later use. Charged batteries explode when exposed to rain or fire.</description>
-		<thingClass>EnhancedDevelopment.Excalibur.Power.Building_QuantumPowerRelay</thingClass>
+		<thingClass>EnhancedDevelopment.Prometheus.Power.Building_QuantumPowerRelay</thingClass>
 		<graphicData>
 			<texPath>Things/Building/Power/Battery</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
@@ -25,8 +25,8 @@
 		<fillPercent>0.40</fillPercent>
 		<tickerType>Normal</tickerType>
 		<researchPrerequisites>
-			<li>Research_ED_Excalibur_Quest_Unlock</li>
-			<li>Research_ED_Excalibur_PowerDistribution_1</li>
+			<li>Research_ED_Prometheus_Quest_Unlock</li>
+			<li>Research_ED_Prometheus_PowerDistribution_1</li>
 		</researchPrerequisites>
 		<statBases>
 			<MaxHitPoints>100</MaxHitPoints>
@@ -41,7 +41,7 @@
 			<ComponentSpacer>2</ComponentSpacer>
 		</costList>
 		<comps>
-			<li Class="EnhancedDevelopment.Excalibur.Fabrication.CompProperties_Fabricated">
+			<li Class="EnhancedDevelopment.Prometheus.Fabrication.CompProperties_Fabricated">
 				<RequiredPower>500</RequiredPower>
 				<RequiredMaterials>200</RequiredMaterials>
 				<RequiredWork>90</RequiredWork>
@@ -89,12 +89,12 @@
 			<wantsHopperAdjacent>false</wantsHopperAdjacent>
 		</building>
 		<comps>
-			<li Class="EnhancedDevelopment.Excalibur.Fabrication.CompProperties_Fabricated">
+			<li Class="EnhancedDevelopment.Prometheus.Fabrication.CompProperties_Fabricated">
 				<RequiredPower>500</RequiredPower>
 				<RequiredMaterials>200</RequiredMaterials>
 				<RequiredWork>90</RequiredWork>
 			</li>
-			<li Class="EnhancedDevelopment.Excalibur.LaserDrill.CompProperties_LaserDrill">
+			<li Class="EnhancedDevelopment.Prometheus.LaserDrill.CompProperties_LaserDrill">
 				<FillMode>False</FillMode>
 			</li>
 			<li Class="CompProperties_Power">
@@ -116,8 +116,8 @@
 		<designationCategory>Power</designationCategory>
 		<staticSunShadowHeight>0.75</staticSunShadowHeight>
 		<researchPrerequisites>
-			<li>Research_ED_Excalibur_Quest_Unlock</li>
-			<li>Research_ED_Excalibur_PowerDistribution_2</li>
+			<li>Research_ED_Prometheus_Quest_Unlock</li>
+			<li>Research_ED_Prometheus_PowerDistribution_2</li>
 		</researchPrerequisites>
 	</ThingDef>
 
@@ -153,12 +153,12 @@
 			<li>Stony</li>
 		</stuffCategories>
 		<comps>
-			<li Class="EnhancedDevelopment.Excalibur.Fabrication.CompProperties_Fabricated">
+			<li Class="EnhancedDevelopment.Prometheus.Fabrication.CompProperties_Fabricated">
 				<RequiredPower>500</RequiredPower>
 				<RequiredMaterials>200</RequiredMaterials>
 				<RequiredWork>90</RequiredWork>
 			</li>
-			<li Class="EnhancedDevelopment.Excalibur.LaserDrill.CompProperties_LaserDrill">
+			<li Class="EnhancedDevelopment.Prometheus.LaserDrill.CompProperties_LaserDrill">
 				<FillMode>True</FillMode>
 			</li>
 			<li Class="CompProperties_Power">
@@ -177,8 +177,8 @@
 			<soundAmbient>GeothermalPlant_Ambience</soundAmbient>
 		</building>
 		<researchPrerequisites>
-			<li>Research_ED_Excalibur_Quest_Unlock</li>
-			<li>Research_ED_Excalibur_PowerDistribution_2</li>
+			<li>Research_ED_Prometheus_Quest_Unlock</li>
+			<li>Research_ED_Prometheus_PowerDistribution_2</li>
 		</researchPrerequisites>
 	</ThingDef>
 

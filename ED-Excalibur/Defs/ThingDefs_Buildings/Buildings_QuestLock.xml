@@ -2,8 +2,8 @@
 <Defs>
 
 	<ThingDef ParentName="EDSN_BuildingBase">
-		<defName>ExcaliburQuestLock</defName>
-		<label>Excalibur Quest Lock</label>
+		<defName>PrometheusQuestLock</defName>
+		<label>Prometheus Quest Lock</label>
 		<description>A dummy Building for Locking research to Quest Progression.</description>
 		<thingClass>Building</thingClass>
 		<graphicData>

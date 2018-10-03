@@ -4,7 +4,7 @@
 	<!-- Replicate Slag -->
 	<RecipeDef>
 		<defName>TransportResourceUnit_Steel</defName>
-		<label>Packages Steel for Transport to the Excalibur</label>
+		<label>Packages Steel for Transport to the Prometheus</label>
 		<description>RU.</description>
 		<jobString>Creating slag from Omni-Gel.</jobString>
 		<workAmount>20</workAmount>
@@ -30,12 +30,12 @@
 			</thingDefs>
 		</fixedIngredientFilter>
 		<workSkill>Crafting</workSkill>
-		<researchPrerequisite>Research_ED_Excalibur_Fabrication_1</researchPrerequisite>
+		<researchPrerequisite>Research_ED_Prometheus_Fabrication_1</researchPrerequisite>
 	</RecipeDef>
 	
 	<RecipeDef>
 		<defName>TransportResourceUnit_OmniGel</defName>
-		<label>Packages OmniGel for Transport to the Excalibur</label>
+		<label>Packages OmniGel for Transport to the Prometheus</label>
 		<description>RU - OmniGel</description>
 		<jobString>Creating slag from Omni-Gel.</jobString>
 		<workAmount>20</workAmount>
@@ -61,7 +61,7 @@
 			</thingDefs>
 		</fixedIngredientFilter>
 		<workSkill>Crafting</workSkill>
-		<researchPrerequisite>Research_ED_Excalibur_Fabrication_2</researchPrerequisite>
+		<researchPrerequisite>Research_ED_Prometheus_Fabrication_2</researchPrerequisite>
 	</RecipeDef>
 
 </Defs>
