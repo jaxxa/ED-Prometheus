@@ -7,8 +7,8 @@
     <ProjectGuid>{975C4632-336D-4100-87BB-32D726A1D86D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EnhancedDevelopment.Excalibur</RootNamespace>
-    <AssemblyName>ED-Excalibur</AssemblyName>
+    <RootNamespace>EnhancedDevelopment.Prometheus</RootNamespace>
+    <AssemblyName>ED-Prometheus</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -17,7 +17,7 @@
     <DebugSymbols>false</DebugSymbols>
     <DebugType>none</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\ED-Excalibur\Assemblies\</OutputPath>
+    <OutputPath>..\..\ED-Prometheus\Assemblies\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -25,7 +25,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\ED-Excalibur\Assemblies\</OutputPath>
+    <OutputPath>..\..\ED-Prometheus\Assemblies\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
