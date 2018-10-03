@@ -5,9 +5,9 @@ using System.Text;
 using UnityEngine;
 using Verse;
 
-namespace EnhancedDevelopment.Excalibur.Settings
+namespace EnhancedDevelopment.Prometheus.Settings
 {
-    class ModSettings_EDExcalibur : ModSettings
+    class ModSettings_EDPrometheus : ModSettings
     {
         public List<SettingSection> m_Settings;
 
@@ -16,7 +16,7 @@ namespace EnhancedDevelopment.Excalibur.Settings
         public SettingSection_LaserDrill LaserDrill = new SettingSection_LaserDrill();
         public SettingSection_Quest Quest = new SettingSection_Quest();
         
-        public ModSettings_EDExcalibur()
+        public ModSettings_EDPrometheus()
         {
             this.m_Settings = new List<SettingSection>() { Shields, NanoShields, LaserDrill, Quest};
         }

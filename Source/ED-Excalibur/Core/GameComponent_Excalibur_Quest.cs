@@ -1,9 +1,9 @@
-﻿using EnhancedDevelopment.Excalibur.Fabrication;
-using EnhancedDevelopment.Excalibur.Power;
-using EnhancedDevelopment.Excalibur.Quest;
-using EnhancedDevelopment.Excalibur.Quest.Dialog;
-using EnhancedDevelopment.Excalibur.Quest.ShipSystems;
-using EnhancedDevelopment.Excalibur.Settings;
+﻿using EnhancedDevelopment.Prometheus.Fabrication;
+using EnhancedDevelopment.Prometheus.Power;
+using EnhancedDevelopment.Prometheus.Quest;
+using EnhancedDevelopment.Prometheus.Quest.Dialog;
+using EnhancedDevelopment.Prometheus.Quest.ShipSystems;
+using EnhancedDevelopment.Prometheus.Settings;
 using RimWorld;
 using System;
 using System.Collections.Generic;
@@ -11,9 +11,9 @@ using System.Linq;
 using System.Text;
 using Verse;
 
-namespace EnhancedDevelopment.Excalibur.Core
+namespace EnhancedDevelopment.Prometheus.Core
 {
-    class GameComponent_Excalibur_Quest : GameComponent_BaseClass
+    class GameComponent_Prometheus_Quest : GameComponent_BaseClass
     {
 
         public ShipSystem_Fabrication ShipSystem_Fabrication;
@@ -38,7 +38,7 @@ namespace EnhancedDevelopment.Excalibur.Core
 
         #region Constructor
 
-        public GameComponent_Excalibur_Quest() : base()
+        public GameComponent_Prometheus_Quest() : base()
         {
 
             this.m_ResourcesStored.Add(EnumResourceType.Power, 0);
@@ -115,7 +115,7 @@ namespace EnhancedDevelopment.Excalibur.Core
                     if (CommsConsoleUtility.PlayerHasPoweredCommsConsole())
                     {
                         m_QuestStatus++;
-                        this.ContactExcalibur();
+                        this.ContactPrometheus();
                     }
                     break;
                 default:
@@ -133,7 +133,7 @@ namespace EnhancedDevelopment.Excalibur.Core
                     if (!r.Destroyed)
                     {
                         _ResourceStackSizeAdded += r.stackCount;
-                        GameComponent_Excalibur.Instance.Comp_Quest.ResourceAddToReserves(EnumResourceType.ResourceUnits, r.stackCount);
+                        GameComponent_Prometheus.Instance.Comp_Quest.ResourceAddToReserves(EnumResourceType.ResourceUnits, r.stackCount);
 
                         Transporter.Comp_Transporter.DisplayTransportEffect(r);
 
@@ -203,11 +203,11 @@ namespace EnhancedDevelopment.Excalibur.Core
         public static string GetSingleLineResourceStatus()
         {
             return "Nano Materials: " +
-                    Core.GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(Core.GameComponent_Excalibur_Quest.EnumResourceType.NanoMaterials) +
+                    Core.GameComponent_Prometheus.Instance.Comp_Quest.ResourceGetReserveStatus(Core.GameComponent_Prometheus_Quest.EnumResourceType.NanoMaterials) +
                     " RU: " +
-                    GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.ResourceUnits) +
+                    GameComponent_Prometheus.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Prometheus_Quest.EnumResourceType.ResourceUnits) +
                    " Power: " +
-                   GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.Power);
+                   GameComponent_Prometheus.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Prometheus_Quest.EnumResourceType.Power);
         }
         #endregion //Resourcing
 
@@ -225,10 +225,10 @@ namespace EnhancedDevelopment.Excalibur.Core
 
         #region QuestCommunication
 
-        public void ContactExcalibur(Building contactSource = null)
+        public void ContactPrometheus(Building contactSource = null)
         {
 
-            Log.Message("Contacting Excalibur");
+            Log.Message("Contacting Prometheus");
 
             //Updating Quest Status
 
@@ -259,33 +259,33 @@ namespace EnhancedDevelopment.Excalibur.Core
                     break;
                 case 3: //Charging
 
-                    if (this.m_ResourcesStored[EnumResourceType.Power] >= Mod_EDExcalibur.Settings.Quest.InitialShipSetup_PowerRequired)
+                    if (this.m_ResourcesStored[EnumResourceType.Power] >= Mod_EDPrometheus.Settings.Quest.InitialShipSetup_PowerRequired)
                     {
                         m_QuestStatus++;
-                        this.ResourceAddToReserves(EnumResourceType.Power, -Mod_EDExcalibur.Settings.Quest.InitialShipSetup_PowerRequired);
+                        this.ResourceAddToReserves(EnumResourceType.Power, -Mod_EDPrometheus.Settings.Quest.InitialShipSetup_PowerRequired);
                         this.ShipSystem_PowerDistribution.CurrentLevel += 1;
-                        this.ContactExcalibur();
+                        this.ContactPrometheus();
                     }
                     else
                     {
-                        Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_Title_3_InitialCharge".Translate(), String.Format("EDE_Dialog_3_InitialCharge".Translate(), this.m_ResourcesStored[EnumResourceType.Power].ToString(), Mod_EDExcalibur.Settings.Quest.InitialShipSetup_PowerRequired.ToString())));
+                        Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_Title_3_InitialCharge".Translate(), String.Format("EDE_Dialog_3_InitialCharge".Translate(), this.m_ResourcesStored[EnumResourceType.Power].ToString(), Mod_EDPrometheus.Settings.Quest.InitialShipSetup_PowerRequired.ToString())));
                     }
 
                     break;
                 case 4:
 
-                    if (this.ResourceGetReserveStatus(EnumResourceType.ResourceUnits) >= Mod_EDExcalibur.Settings.Quest.InitialShipSetup_ResourcesRequired)
+                    if (this.ResourceGetReserveStatus(EnumResourceType.ResourceUnits) >= Mod_EDPrometheus.Settings.Quest.InitialShipSetup_ResourcesRequired)
                     {
                         m_QuestStatus++;
 
-                        this.ResourceAddToReserves(EnumResourceType.ResourceUnits, -Mod_EDExcalibur.Settings.Quest.InitialShipSetup_ResourcesRequired);
+                        this.ResourceAddToReserves(EnumResourceType.ResourceUnits, -Mod_EDPrometheus.Settings.Quest.InitialShipSetup_ResourcesRequired);
                         this.ShipSystem_Fabrication.CurrentLevel += 1;
 
-                        this.ContactExcalibur();
+                        this.ContactPrometheus();
                     }
                     else
                     {
-                        Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_Title_4_NeedResources".Translate(), String.Format("EDE_Dialog_4_NeedResources".Translate(), this.ResourceGetReserveStatus(EnumResourceType.ResourceUnits).ToString(), Mod_EDExcalibur.Settings.Quest.InitialShipSetup_ResourcesRequired.ToString())));
+                        Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_Title_4_NeedResources".Translate(), String.Format("EDE_Dialog_4_NeedResources".Translate(), this.ResourceGetReserveStatus(EnumResourceType.ResourceUnits).ToString(), Mod_EDPrometheus.Settings.Quest.InitialShipSetup_ResourcesRequired.ToString())));
                     }
 
                     break;
@@ -301,11 +301,11 @@ namespace EnhancedDevelopment.Excalibur.Core
                 case 7:
                     //Long Term Contact
 
-                    Find.WindowStack.Add(new Dialog_Excalibur());
+                    Find.WindowStack.Add(new Dialog_Prometheus());
                     break;
 
                 default:
-                    //Find.WindowStack.Add(new Dialog_Excalibur());
+                    //Find.WindowStack.Add(new Dialog_Prometheus());
 
                     Find.WindowStack.Add(new Dialog_0_Generic("EDETestString", "EDETestString".Translate()));
                     m_QuestStatus = 1;
@@ -325,7 +325,7 @@ namespace EnhancedDevelopment.Excalibur.Core
         public void UpdateAllResearch()
         {
             ResearchHelper.UpdateQuestStatusResearch();
-            Core.GameComponent_Excalibur.Instance.Comp_Quest.m_ShipSystems.ForEach(s => s.ApplyRequiredResearchUnlocks());
+            Core.GameComponent_Prometheus.Instance.Comp_Quest.m_ShipSystems.ForEach(s => s.ApplyRequiredResearchUnlocks());
         }
     }
 }

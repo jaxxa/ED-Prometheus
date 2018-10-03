@@ -1,6 +1,6 @@
-﻿using EnhancedDevelopment.Excalibur.Core;
-using EnhancedDevelopment.Excalibur.Quest;
-using EnhancedDevelopment.Excalibur.Settings;
+﻿using EnhancedDevelopment.Prometheus.Core;
+using EnhancedDevelopment.Prometheus.Quest;
+using EnhancedDevelopment.Prometheus.Settings;
 using RimWorld;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Text;
 using UnityEngine;
 using Verse;
 
-namespace EnhancedDevelopment.Excalibur.Transporter
+namespace EnhancedDevelopment.Prometheus.Transporter
 {
     [StaticConstructorOnStartup]
     class Comp_Transporter : ThingComp
@@ -39,7 +39,7 @@ namespace EnhancedDevelopment.Excalibur.Transporter
             }
 
 
-            if (GameComponent_Excalibur.Instance.Comp_Quest.ShipSystem_Transport.IsTransporterUnlocked())
+            if (GameComponent_Prometheus.Instance.Comp_Quest.ShipSystem_Transport.IsTransporterUnlocked())
             {
                 if (true)
                 {
@@ -97,8 +97,8 @@ namespace EnhancedDevelopment.Excalibur.Transporter
                 _Pawns.ForEach(_x =>
                 {
 
-                    GameComponent_Excalibur.Instance.Comp_Transporter.TransportBuffer.Add(_x);
-                    //GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(_x.stackCount);
+                    GameComponent_Prometheus.Instance.Comp_Transporter.TransportBuffer.Add(_x);
+                    //GameComponent_Prometheus.Instance.Comp_Quest.AddReserveMaterials(_x.stackCount);
                     Comp_Transporter.DisplayTransportEffect(_x);
 
                     _x.DeSpawn();
@@ -121,9 +121,9 @@ namespace EnhancedDevelopment.Excalibur.Transporter
                 _FoundThings.ForEach(_x =>
                 {
 
-                    GameComponent_Excalibur.Instance.Comp_Transporter.TransportBuffer.Add(_x);
+                    GameComponent_Prometheus.Instance.Comp_Transporter.TransportBuffer.Add(_x);
 
-                    //GameComponent_Excalibur.Instance.Comp_Quest.AddReserveMaterials(_x.stackCount);
+                    //GameComponent_Prometheus.Instance.Comp_Quest.AddReserveMaterials(_x.stackCount);
                     Comp_Transporter.DisplayTransportEffect(_x);
 
                     _x.DeSpawn();
@@ -139,7 +139,7 @@ namespace EnhancedDevelopment.Excalibur.Transporter
         private void TransportRecall()
         {
 
-            GameComponent_Excalibur.Instance.Comp_Transporter.TransportBuffer.ForEach(_X =>
+            GameComponent_Prometheus.Instance.Comp_Transporter.TransportBuffer.ForEach(_X =>
             {
                 GenPlace.TryPlaceThing(_X, this.parent.Position, this.parent.Map, ThingPlaceMode.Near);
                 Comp_Transporter.DisplayTransportEffect(_X);
@@ -152,7 +152,7 @@ namespace EnhancedDevelopment.Excalibur.Transporter
             }
             );
 
-            GameComponent_Excalibur.Instance.Comp_Transporter.TransportBuffer.Clear();
+            GameComponent_Prometheus.Instance.Comp_Transporter.TransportBuffer.Clear();
         }
 
         public static void DisplayTransportEffect(Thing thingToTransport)

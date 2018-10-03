@@ -5,11 +5,11 @@ using System.Text;
 using Verse;
 using RimWorld;
 using UnityEngine;
-using EnhancedDevelopment.Excalibur.Core;
+using EnhancedDevelopment.Prometheus.Core;
 
-namespace EnhancedDevelopment.Excalibur.Quest.Dialog
+namespace EnhancedDevelopment.Prometheus.Quest.Dialog
 {
-    class Dialog_Excalibur : Window
+    class Dialog_Prometheus : Window
     {
 
         #region Enumerations
@@ -34,7 +34,7 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
 
         #region Constructor
 
-        public Dialog_Excalibur()
+        public Dialog_Prometheus()
         {
             this.resizeable = false;
 
@@ -93,7 +93,7 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
             }
             else if (this.m_CurrentTab == EnumDialogTabSelection.Fabrication)
             {
-                Dialog_Excalibur.DoGuiFabrication(_WindowContent, false);
+                Dialog_Prometheus.DoGuiFabrication(_WindowContent, false);
             }
 
             // Footer (System Status) -----------------------------------------
@@ -129,14 +129,14 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
         {
 
             Widgets.DrawLineHorizontal(rectContentWindow.xMin, rectContentWindow.yMin, rectContentWindow.width);
-            Widgets.TextArea(rectContentWindow, GameComponent_Excalibur_Quest.GetSingleLineResourceStatus(), true);
+            Widgets.TextArea(rectContentWindow, GameComponent_Prometheus_Quest.GetSingleLineResourceStatus(), true);
 
         }
 
         public void DoGuiSystemStatus(Rect rectContentWindow)
         {
 
-            float _ViewContentHeight = (Core.GameComponent_Excalibur.Instance.Comp_Quest.m_ShipSystems.Count() + 1) * ShipSystem.m_Height + 6f;
+            float _ViewContentHeight = (Core.GameComponent_Prometheus.Instance.Comp_Quest.m_ShipSystems.Count() + 1) * ShipSystem.m_Height + 6f;
 
 
             GUI.color = Color.white;
@@ -149,9 +149,9 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
             Widgets.BeginScrollView(outRect, ref m_ScrollPosition, viewRect, true);
 
             float num = 0f;
-            for (int i = 0; i < Core.GameComponent_Excalibur.Instance.Comp_Quest.m_ShipSystems.Count(); i++)
+            for (int i = 0; i < Core.GameComponent_Prometheus.Instance.Comp_Quest.m_ShipSystems.Count(); i++)
             {
-                ShipSystem _BuildingInProgress = Core.GameComponent_Excalibur.Instance.Comp_Quest.m_ShipSystems[i];
+                ShipSystem _BuildingInProgress = Core.GameComponent_Prometheus.Instance.Comp_Quest.m_ShipSystems[i];
                 Rect rect3 = _BuildingInProgress.DoInterface(0f, num, viewRect.width, i);
                 //if (!bill.DeletedOrDereferenced && Mouse.IsOver(rect3))
                 //{
@@ -166,9 +166,9 @@ namespace EnhancedDevelopment.Excalibur.Quest.Dialog
 
         public static void DoGuiFabrication(Rect rectContentWindow, bool showOnlyActiveThings, IntVec3 dropLocation = new IntVec3(), Map dropMap = null)
         {
-            Core.GameComponent_Excalibur.Instance.Comp_Fabrication.AddNewBuildingsUnderConstruction();
+            Core.GameComponent_Prometheus.Instance.Comp_Fabrication.AddNewBuildingsUnderConstruction();
 
-            GameComponent_Excalibur.Instance.Comp_Fabrication.DoListing(rectContentWindow, ref Dialog_Excalibur.m_ScrollPosition, ref viewHeight, showOnlyActiveThings, dropLocation, dropMap);
+            GameComponent_Prometheus.Instance.Comp_Fabrication.DoListing(rectContentWindow, ref Dialog_Prometheus.m_ScrollPosition, ref viewHeight, showOnlyActiveThings, dropLocation, dropMap);
 
         }
 

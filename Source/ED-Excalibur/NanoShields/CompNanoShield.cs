@@ -1,4 +1,4 @@
-﻿using EnhancedDevelopment.Excalibur.Settings;
+﻿using EnhancedDevelopment.Prometheus.Settings;
 using RimWorld;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using UnityEngine;
 using Verse;
 using Verse.Sound;
 
-namespace EnhancedDevelopment.Excalibur.NanoShields
+namespace EnhancedDevelopment.Prometheus.NanoShields
 {
     [StaticConstructorOnStartup]
     class CompNanoShield : ThingComp
@@ -33,7 +33,7 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
         {
             if (this.NanoShieldActive)
             {
-                return "Nano Shield:" + NanoShieldChargeLevelCurrent + " / " + Mod_EDExcalibur.Settings.NanoShields.NanoShieldChargeLevelMax +
+                return "Nano Shield:" + NanoShieldChargeLevelCurrent + " / " + Mod_EDPrometheus.Settings.NanoShields.NanoShieldChargeLevelMax +
                         Environment.NewLine + base.GetDescriptionPart();
             }
             return base.GetDescriptionPart();
@@ -181,20 +181,20 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
 
         public int RechargeShield(int chargeAvalable)
         {
-            if (!this.NanoShieldActive || this.NanoShieldChargeLevelCurrent >= Mod_EDExcalibur.Settings.NanoShields.NanoShieldChargeLevelMax)
+            if (!this.NanoShieldActive || this.NanoShieldChargeLevelCurrent >= Mod_EDPrometheus.Settings.NanoShields.NanoShieldChargeLevelMax)
             {
                 return 0;
             }
 
             this.NanoShieldChargeLevelCurrent += chargeAvalable;
 
-            if (this.NanoShieldChargeLevelCurrent <= Mod_EDExcalibur.Settings.NanoShields.NanoShieldChargeLevelMax)
+            if (this.NanoShieldChargeLevelCurrent <= Mod_EDPrometheus.Settings.NanoShields.NanoShieldChargeLevelMax)
             {
                 return chargeAvalable;
             }
             else
             {
-                int _Overcharge = this.NanoShieldChargeLevelCurrent - Mod_EDExcalibur.Settings.NanoShields.NanoShieldChargeLevelMax;
+                int _Overcharge = this.NanoShieldChargeLevelCurrent - Mod_EDPrometheus.Settings.NanoShields.NanoShieldChargeLevelMax;
                 this.NanoShieldChargeLevelCurrent -= _Overcharge;
                 return chargeAvalable - _Overcharge;
             }

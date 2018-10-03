@@ -8,7 +8,7 @@ using UnityEngine;
 using Verse;
 using Verse.Sound;
 
-namespace EnhancedDevelopment.Excalibur.Shields
+namespace EnhancedDevelopment.Prometheus.Shields
 {
     [StaticConstructorOnStartup]
     class ShieldManagerMapComp : MapComponent

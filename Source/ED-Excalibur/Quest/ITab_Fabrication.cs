@@ -1,6 +1,6 @@
-﻿using EnhancedDevelopment.Excalibur.Core;
-using EnhancedDevelopment.Excalibur.Power;
-using EnhancedDevelopment.Excalibur.Quest.Dialog;
+﻿using EnhancedDevelopment.Prometheus.Core;
+using EnhancedDevelopment.Prometheus.Power;
+using EnhancedDevelopment.Prometheus.Quest.Dialog;
 using RimWorld;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Text;
 using UnityEngine;
 using Verse;
 
-namespace EnhancedDevelopment.Excalibur.Quest
+namespace EnhancedDevelopment.Prometheus.Quest
 {
     class ITab_Fabrication : ITab
     {
@@ -76,7 +76,7 @@ namespace EnhancedDevelopment.Excalibur.Quest
                 _DropLocation = this.SelectedCompTransponder.DropLocation;
             }
 
-            Dialog_Excalibur.DoGuiFabrication(_MainWindow,
+            Dialog_Prometheus.DoGuiFabrication(_MainWindow,
                                               true,
                                               _DropLocation,
                                               this.SelectedCompTransponder.parent.Map);

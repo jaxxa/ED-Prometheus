@@ -6,14 +6,14 @@ using System.Text;
 using Verse;
 using Harmony;
 
-namespace EnhancedDevelopment.Excalibur.Patch
+namespace EnhancedDevelopment.Prometheus.Patch
 {
     [StaticConstructorOnStartup]
     internal class Patcher
     {
         static Patcher()
         {
-            string _LogLocation = "EnhancedDevelopment.Excalibur.Patches.Patcher(): ";
+            string _LogLocation = "EnhancedDevelopment.Prometheus.Patches.Patcher(): ";
 
             Log.Message(_LogLocation + "Starting.");
 
@@ -24,7 +24,7 @@ namespace EnhancedDevelopment.Excalibur.Patch
             _Patches.Add(new Patches.PatchDropPodIncoming());
 
             //Create Harmony Instance
-            HarmonyInstance _Harmony = HarmonyInstance.Create("EnhancedDevelopment.Excalibur");
+            HarmonyInstance _Harmony = HarmonyInstance.Create("EnhancedDevelopment.Prometheus");
 
             //Iterate Patches
             _Patches.ForEach(p => p.ApplyPatchIfRequired(_Harmony));

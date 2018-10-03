@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using Verse;
 
-namespace EnhancedDevelopment.Excalibur.Core
+namespace EnhancedDevelopment.Prometheus.Core
 {
-    class GameComponent_Excalibur_Transporter : GameComponent_BaseClass
+    class GameComponent_Prometheus_Transporter : GameComponent_BaseClass
     {
         public override void ExposeData()
         {

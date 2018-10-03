@@ -1,4 +1,4 @@
-﻿using EnhancedDevelopment.Excalibur.Settings;
+﻿using EnhancedDevelopment.Prometheus.Settings;
 using RimWorld;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Text;
 using UnityEngine;
 using Verse;
 
-namespace EnhancedDevelopment.Excalibur.NanoShields
+namespace EnhancedDevelopment.Prometheus.NanoShields
 {
     [StaticConstructorOnStartup]
     internal class Gizmo_NanoShieldStatus : Gizmo
@@ -47,12 +47,12 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
                 Widgets.Label(rect2, "Nano Shield Status");
                 Rect rect3 = rect;
                 rect3.yMin = overRect.height / 2f;
-                float fillPercent = Mathf.Min(1f, (float)(Math.Max(1, this.QuantumShield.NanoShieldChargeLevelCurrent)) / (float)Mod_EDExcalibur.Settings.NanoShields.NanoShieldChargeLevelMax);
+                float fillPercent = Mathf.Min(1f, (float)(Math.Max(1, this.QuantumShield.NanoShieldChargeLevelCurrent)) / (float)Mod_EDPrometheus.Settings.NanoShields.NanoShieldChargeLevelMax);
                 //Log.Message("Fill: " + fillPercent);
                 Widgets.FillableBar(rect3, fillPercent, Gizmo_NanoShieldStatus.FullShieldBarTex, Gizmo_NanoShieldStatus.EmptyShieldBarTex, false);
                 Text.Font = GameFont.Small;
                 Text.Anchor = TextAnchor.MiddleCenter;
-                Widgets.Label(rect3, (this.QuantumShield.NanoShieldChargeLevelCurrent).ToString("F0") + " / " + (Mod_EDExcalibur.Settings.NanoShields.NanoShieldChargeLevelMax).ToString("F0"));
+                Widgets.Label(rect3, (this.QuantumShield.NanoShieldChargeLevelCurrent).ToString("F0") + " / " + (Mod_EDPrometheus.Settings.NanoShields.NanoShieldChargeLevelMax).ToString("F0"));
                 Text.Anchor = TextAnchor.UpperLeft;
             }, true, false, 1f);
             return new GizmoResult(GizmoState.Clear);

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Verse;
 
-namespace EnhancedDevelopment.Excalibur.Fabrication
+namespace EnhancedDevelopment.Prometheus.Fabrication
 {
     class CompProperties_CompressedStuff : CompProperties
     {

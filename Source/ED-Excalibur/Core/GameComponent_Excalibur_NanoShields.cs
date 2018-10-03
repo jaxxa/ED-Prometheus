@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using Verse;
 
-namespace EnhancedDevelopment.Excalibur.Core
+namespace EnhancedDevelopment.Prometheus.Core
 {
-    class GameComponent_Excalibur_NanoShields : GameComponent_BaseClass
+    class GameComponent_Prometheus_NanoShields : GameComponent_BaseClass
     {
         //----------------Nano Shields----------------
         //Saved
@@ -23,7 +23,7 @@ namespace EnhancedDevelopment.Excalibur.Core
 
         public override void TickOnInterval()
         {
-            GameComponent_Excalibur.Instance.Comp_Shields.ReturnCharge(1);
+            GameComponent_Prometheus.Instance.Comp_Shields.ReturnCharge(1);
             //Log.Message("GameCompTick");
         }
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Verse;
 
-namespace EnhancedDevelopment.Excalibur.Quest
+namespace EnhancedDevelopment.Prometheus.Quest
 {
     class CompProperties_EDSNTransponder : CompProperties
     {

@@ -5,7 +5,7 @@ using System.Text;
 using Verse;
 using Harmony;
 
-namespace EnhancedDevelopment.Excalibur.Patch
+namespace EnhancedDevelopment.Prometheus.Patch
 {
     abstract class Patch
     {

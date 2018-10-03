@@ -1,21 +1,21 @@
-﻿using EnhancedDevelopment.Excalibur.Quest.Dialog;
+﻿using EnhancedDevelopment.Prometheus.Quest.Dialog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Verse;
 
-namespace EnhancedDevelopment.Excalibur.Core
+namespace EnhancedDevelopment.Prometheus.Core
 {
-    class GameComponent_Excalibur : Verse.GameComponent
+    class GameComponent_Prometheus : Verse.GameComponent
     {
 
-        public static GameComponent_Excalibur Instance;
+        public static GameComponent_Prometheus Instance;
 
-        public GameComponent_Excalibur_NanoShields Comp_Shields;
-        public GameComponent_Excalibur_Quest Comp_Quest;
-        public GameComponent_Excalibur_Fabrication Comp_Fabrication;
-        public GameComponent_Excalibur_Transporter Comp_Transporter;
+        public GameComponent_Prometheus_NanoShields Comp_Shields;
+        public GameComponent_Prometheus_Quest Comp_Quest;
+        public GameComponent_Prometheus_Fabrication Comp_Fabrication;
+        public GameComponent_Prometheus_Transporter Comp_Transporter;
 
         private List<GameComponent_BaseClass> m_SubComponents = new List<GameComponent_BaseClass>();
 
@@ -24,21 +24,21 @@ namespace EnhancedDevelopment.Excalibur.Core
 
         #endregion
 
-        public GameComponent_Excalibur(Game game)
+        public GameComponent_Prometheus(Game game)
         {
             //Record the instance for easy acess.
-            GameComponent_Excalibur.Instance = this;
+            GameComponent_Prometheus.Instance = this;
 
-            this.Comp_Shields = new GameComponent_Excalibur_NanoShields();
+            this.Comp_Shields = new GameComponent_Prometheus_NanoShields();
             this.m_SubComponents.Add(this.Comp_Shields);
 
-            this.Comp_Quest = new GameComponent_Excalibur_Quest();
+            this.Comp_Quest = new GameComponent_Prometheus_Quest();
             this.m_SubComponents.Add(this.Comp_Quest);
 
-            this.Comp_Fabrication = new GameComponent_Excalibur_Fabrication();
+            this.Comp_Fabrication = new GameComponent_Prometheus_Fabrication();
             this.m_SubComponents.Add(this.Comp_Fabrication);
 
-            this.Comp_Transporter = new GameComponent_Excalibur_Transporter();
+            this.Comp_Transporter = new GameComponent_Prometheus_Transporter();
             this.m_SubComponents.Add(Comp_Transporter);
 
         }

@@ -1,11 +1,11 @@
-﻿using EnhancedDevelopment.Excalibur.Core;
+﻿using EnhancedDevelopment.Prometheus.Core;
 using RimWorld.Planet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace EnhancedDevelopment.Excalibur.Transporter
+namespace EnhancedDevelopment.Prometheus.Transporter
 {
     class WorldComponent_Transporter : WorldComponent
     {
@@ -24,7 +24,7 @@ namespace EnhancedDevelopment.Excalibur.Transporter
         public override void ExposeData()
         {
 
-            GameComponent_Excalibur.Instance.Comp_Transporter.ExposeData_WorldComp();
+            GameComponent_Prometheus.Instance.Comp_Transporter.ExposeData_WorldComp();
         }
 
         public override void FinalizeInit()

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using EnhancedDevelopment.Excalibur.NanoShields;
+using EnhancedDevelopment.Prometheus.NanoShields;
 using Harmony;
 using Verse;
 
-namespace EnhancedDevelopment.Excalibur.Patch.Patches
+namespace EnhancedDevelopment.Prometheus.Patch.Patches
 {
     class PatchThingWithComps_Nano : Patch
     {

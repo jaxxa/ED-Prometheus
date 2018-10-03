@@ -1,27 +1,27 @@
-﻿using EnhancedDevelopment.Excalibur.Core;
+﻿using EnhancedDevelopment.Prometheus.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Verse;
 
-namespace EnhancedDevelopment.Excalibur.Quest
+namespace EnhancedDevelopment.Prometheus.Quest
 {
     static class ResearchHelper
     {
         public static void UpdateQuestStatusResearch()
         {
 
-            if (GameComponent_Excalibur.Instance.Comp_Quest.m_QuestStatus >= 1)
+            if (GameComponent_Prometheus.Instance.Comp_Quest.m_QuestStatus >= 1)
             {
-                ResearchHelper.QuestUnlock("Research_ED_Excalibur_AnalyseStrangeSignal");
+                ResearchHelper.QuestUnlock("Research_ED_Prometheus_AnalyseStrangeSignal");
             }
             
-            if (GameComponent_Excalibur.Instance.Comp_Quest.m_QuestStatus >= 4)
+            if (GameComponent_Prometheus.Instance.Comp_Quest.m_QuestStatus >= 4)
             {
-                GameComponent_Excalibur.Instance.Comp_Quest.ShipSystem_Fabrication.UpgradeTo(1);
+                GameComponent_Prometheus.Instance.Comp_Quest.ShipSystem_Fabrication.UpgradeTo(1);
 
-                //ResearchHelper.QuestComplete("Research_ED_Excalibur_Fabrication");
+                //ResearchHelper.QuestComplete("Research_ED_Prometheus_Fabrication");
             }        
 
         }

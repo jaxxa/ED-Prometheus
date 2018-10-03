@@ -1,4 +1,4 @@
-﻿using EnhancedDevelopment.Excalibur.Core;
+﻿using EnhancedDevelopment.Prometheus.Core;
 using RimWorld;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Text;
 using UnityEngine;
 using Verse;
 
-namespace EnhancedDevelopment.Excalibur.Fabrication
+namespace EnhancedDevelopment.Prometheus.Fabrication
 {
     class ThingForDeployment
     {
@@ -138,7 +138,7 @@ namespace EnhancedDevelopment.Excalibur.Fabrication
         {
             if (this.defName == "NanoMaterial")
             {
-                GameComponent_Excalibur.Instance.Comp_Quest.ResourceAddToReserves(GameComponent_Excalibur_Quest.EnumResourceType.NanoMaterials, this.UnitsAvalable);
+                GameComponent_Prometheus.Instance.Comp_Quest.ResourceAddToReserves(GameComponent_Prometheus_Quest.EnumResourceType.NanoMaterials, this.UnitsAvalable);
                 this.UnitsAvalable = 0;
             }
         }

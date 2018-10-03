@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using Verse;
 
-namespace EnhancedDevelopment.Excalibur.Fabrication
+namespace EnhancedDevelopment.Prometheus.Fabrication
 {
     class Comp_MolecularCompressor : ThingComp
     {

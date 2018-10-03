@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 using Verse;
 
-namespace EnhancedDevelopment.Excalibur.Quest
+namespace EnhancedDevelopment.Prometheus.Quest
 {
     abstract class ShipSystem
     {
@@ -53,7 +53,7 @@ namespace EnhancedDevelopment.Excalibur.Quest
 
         private bool IsEnoughNanoMaterialsToUpgrade()
         {
-            return Core.GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(Core.GameComponent_Excalibur_Quest.EnumResourceType.NanoMaterials) >= this.NanoMaterialNeededForUpgrade();
+            return Core.GameComponent_Prometheus.Instance.Comp_Quest.ResourceGetReserveStatus(Core.GameComponent_Prometheus_Quest.EnumResourceType.NanoMaterials) >= this.NanoMaterialNeededForUpgrade();
         }
 
         public virtual string GetDescriptionText()
@@ -134,10 +134,10 @@ namespace EnhancedDevelopment.Excalibur.Quest
 
         public void TryUpgradeLevel()
         {
-            Core.GameComponent_Excalibur.Instance.Comp_Quest.ResourceRequestReserve(Core.GameComponent_Excalibur_Quest.EnumResourceType.NanoMaterials,  this.NanoMaterialNeededForUpgrade());
+            Core.GameComponent_Prometheus.Instance.Comp_Quest.ResourceRequestReserve(Core.GameComponent_Prometheus_Quest.EnumResourceType.NanoMaterials,  this.NanoMaterialNeededForUpgrade());
             this.CurrentLevel += 1;
 
-            Core.GameComponent_Excalibur.Instance.Comp_Quest.UpdateAllResearch();
+            Core.GameComponent_Prometheus.Instance.Comp_Quest.UpdateAllResearch();
 
         }
 

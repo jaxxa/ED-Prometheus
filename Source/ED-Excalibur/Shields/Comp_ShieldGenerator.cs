@@ -7,7 +7,7 @@ using RimWorld;
 using UnityEngine;
 using System.Reflection;
 
-namespace EnhancedDevelopment.Excalibur.Shields
+namespace EnhancedDevelopment.Prometheus.Shields
 {
 
     [StaticConstructorOnStartup]
@@ -573,7 +573,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
             }
 
             //Draw field
-            this.DrawField(EnhancedDevelopment.Excalibur.Shields.Utilities.VectorsUtils.IntVecToVec(this.parent.Position));
+            this.DrawField(EnhancedDevelopment.Prometheus.Shields.Utilities.VectorsUtils.IntVecToVec(this.parent.Position));
 
         }
 
@@ -584,7 +584,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
 
         public void DrawSubField(IntVec3 center, float radius)
         {
-            this.DrawSubField(EnhancedDevelopment.Excalibur.Shields.Utilities.VectorsUtils.IntVecToVec(center), radius);
+            this.DrawSubField(EnhancedDevelopment.Prometheus.Shields.Utilities.VectorsUtils.IntVecToVec(center), radius);
         }
 
         //Draw the field on map
@@ -608,7 +608,7 @@ namespace EnhancedDevelopment.Excalibur.Shields
                 //currentMatrialColour = SolidColorMaterials.NewSolidColorMaterial(new Color(0.5f, 0.0f, 0.0f, 0.15f), ShaderDatabase.MetaOverlay);
             }
 
-            UnityEngine.Graphics.DrawMesh(EnhancedDevelopment.Excalibur.Shields.Utilities.Graphics.CircleMesh, matrix, currentMatrialColour, 0);
+            UnityEngine.Graphics.DrawMesh(EnhancedDevelopment.Prometheus.Shields.Utilities.Graphics.CircleMesh, matrix, currentMatrialColour, 0);
 
         }
 

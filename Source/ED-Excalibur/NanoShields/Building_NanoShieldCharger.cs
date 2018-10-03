@@ -1,6 +1,6 @@
-﻿using EnhancedDevelopment.Excalibur.Core;
-using EnhancedDevelopment.Excalibur.Quest;
-using EnhancedDevelopment.Excalibur.Settings;
+﻿using EnhancedDevelopment.Prometheus.Core;
+using EnhancedDevelopment.Prometheus.Quest;
+using EnhancedDevelopment.Prometheus.Settings;
 using RimWorld;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Text;
 using UnityEngine;
 using Verse;
 
-namespace EnhancedDevelopment.Excalibur.NanoShields
+namespace EnhancedDevelopment.Prometheus.NanoShields
 {
     [StaticConstructorOnStartup]
     class Building_NanoShieldCharger : Building
@@ -63,7 +63,7 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
 
             int currentTick = Find.TickManager.TicksGame;
             //Only every 10 ticks
-            if (currentTick % Mod_EDExcalibur.Settings.NanoShields.NanoShieldBuildingChargeDelay != 0)
+            if (currentTick % Mod_EDPrometheus.Settings.NanoShields.NanoShieldBuildingChargeDelay != 0)
             {
                 return;
             }
@@ -71,7 +71,7 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
             {
                 if (this.flag_charge)
                 {
-                    this.rechargePawns(Mod_EDExcalibur.Settings.NanoShields.NanoShieldBuildingChargeAmount);
+                    this.rechargePawns(Mod_EDPrometheus.Settings.NanoShields.NanoShieldBuildingChargeAmount);
                 }
             }
         }
@@ -178,7 +178,7 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
 
         public int rechargePawns(int chargeToRequest)
         {
-            int _RemainingCharge = GameComponent_Excalibur.Instance.Comp_Shields.RequestCharge(chargeToRequest);
+            int _RemainingCharge = GameComponent_Prometheus.Instance.Comp_Shields.RequestCharge(chargeToRequest);
 
             foreach (CompNanoShield _ShieldComp in this.ShieldCompsInRangeAndOfFaction())
             {
@@ -188,14 +188,14 @@ namespace EnhancedDevelopment.Excalibur.NanoShields
                 }
             }
 
-            GameComponent_Excalibur.Instance.Comp_Shields.ReturnCharge(_RemainingCharge);
+            GameComponent_Prometheus.Instance.Comp_Shields.ReturnCharge(_RemainingCharge);
             return _RemainingCharge;
         }
 
         public override string GetInspectString()
         {
 
-            return GameComponent_Excalibur.Instance.Comp_Shields.GetInspectStringStatus() + Environment.NewLine + base.GetInspectString();
+            return GameComponent_Prometheus.Instance.Comp_Shields.GetInspectStringStatus() + Environment.NewLine + base.GetInspectString();
         }
 
     }

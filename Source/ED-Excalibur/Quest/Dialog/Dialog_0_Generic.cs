@@ -6,7 +6,7 @@ using Verse;
 using RimWorld;
 using UnityEngine;
 
-namespace EnhancedDevelopment.Excalibur.Quest.Dialog
+namespace EnhancedDevelopment.Prometheus.Quest.Dialog
 {
     class Dialog_0_Generic : Window
     {

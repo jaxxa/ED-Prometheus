@@ -7,9 +7,9 @@ using System.Text;
 using Verse;
 using Harmony;
 using UnityEngine;
-using EnhancedDevelopment.Excalibur.Shields;
+using EnhancedDevelopment.Prometheus.Shields;
 
-namespace EnhancedDevelopment.Excalibur.Patch.Patches
+namespace EnhancedDevelopment.Prometheus.Patch.Patches
 {
     class PatchProjectile : Patch
     {

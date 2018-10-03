@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Verse;
 
-namespace EnhancedDevelopment.Excalibur.Transporter
+namespace EnhancedDevelopment.Prometheus.Transporter
 {
     class CompProperties_Transporter : CompProperties
     {

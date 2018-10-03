@@ -1,4 +1,4 @@
-﻿using EnhancedDevelopment.Excalibur.Settings;
+﻿using EnhancedDevelopment.Prometheus.Settings;
 using RimWorld;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using Verse;
 
-namespace EnhancedDevelopment.Excalibur.LaserDrill
+namespace EnhancedDevelopment.Prometheus.LaserDrill
 {
     class Comp_LaserDrill : ThingComp
     {
@@ -138,11 +138,11 @@ namespace EnhancedDevelopment.Excalibur.LaserDrill
         {
             if (this.Properties.FillMode)
             {
-                this.DrillWork = Mod_EDExcalibur.Settings.LaserDrill.RequiredFillWork;
+                this.DrillWork = Mod_EDPrometheus.Settings.LaserDrill.RequiredFillWork;
             }
             else
             {
-                this.DrillWork = Mod_EDExcalibur.Settings.LaserDrill.RequiredDrillWork;
+                this.DrillWork = Mod_EDPrometheus.Settings.LaserDrill.RequiredDrillWork;
             }
         }
 

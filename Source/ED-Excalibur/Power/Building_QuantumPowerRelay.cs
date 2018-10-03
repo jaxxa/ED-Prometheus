@@ -1,4 +1,4 @@
-﻿using EnhancedDevelopment.Excalibur.Core;
+﻿using EnhancedDevelopment.Prometheus.Core;
 using RimWorld;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Text;
 using UnityEngine;
 using Verse;
 
-namespace EnhancedDevelopment.Excalibur.Power
+namespace EnhancedDevelopment.Prometheus.Power
 {
     [StaticConstructorOnStartup]
     class Building_QuantumPowerRelay : Building
@@ -62,7 +62,7 @@ namespace EnhancedDevelopment.Excalibur.Power
         public override string GetInspectString()
         {
             string _Base = base.GetInspectString();
-            _Base = _Base + Environment.NewLine + "Ship Power: " + GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.Power);
+            _Base = _Base + Environment.NewLine + "Ship Power: " + GameComponent_Prometheus.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Prometheus_Quest.EnumResourceType.Power);
 
 
             return _Base;
@@ -78,15 +78,15 @@ namespace EnhancedDevelopment.Excalibur.Power
             if (this.CompPowerBattery.StoredEnergy - _PowerBlock >= _HalfEnergy)
             {
                 this.CompPowerBattery.DrawPower(_PowerBlock);
-                GameComponent_Excalibur.Instance.Comp_Quest.ResourceAddToReserves(GameComponent_Excalibur_Quest.EnumResourceType.Power, _PowerBlock);
+                GameComponent_Prometheus.Instance.Comp_Quest.ResourceAddToReserves(GameComponent_Prometheus_Quest.EnumResourceType.Power, _PowerBlock);
             }
 
-            if (GameComponent_Excalibur.Instance.Comp_Quest.ShipSystem_PowerDistribution.IsShipToSurfacePowerAvalable())
+            if (GameComponent_Prometheus.Instance.Comp_Quest.ShipSystem_PowerDistribution.IsShipToSurfacePowerAvalable())
             {
                 //Check if need to download power.
                 if (this.CompPowerBattery.StoredEnergy + _PowerBlock <= _HalfEnergy)
                 {
-                    float _ReturnedPower = GameComponent_Excalibur.Instance.Comp_Quest.ResourceRequestReserve(GameComponent_Excalibur_Quest.EnumResourceType.Power, _PowerBlock);
+                    float _ReturnedPower = GameComponent_Prometheus.Instance.Comp_Quest.ResourceRequestReserve(GameComponent_Prometheus_Quest.EnumResourceType.Power, _PowerBlock);
                     this.CompPowerBattery.AddEnergy(_ReturnedPower);
                 }
             }

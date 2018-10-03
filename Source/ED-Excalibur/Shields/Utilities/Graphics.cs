@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 using Verse;
 
-namespace EnhancedDevelopment.Excalibur.Shields.Utilities
+namespace EnhancedDevelopment.Prometheus.Shields.Utilities
 {
     public static class Graphics
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-namespace EnhancedDevelopment.Excalibur.Settings
+namespace EnhancedDevelopment.Prometheus.Settings
 {
     abstract class SettingSection
     {

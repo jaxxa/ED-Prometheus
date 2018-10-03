@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Verse;
 
-namespace EnhancedDevelopment.Excalibur.LaserDrill
+namespace EnhancedDevelopment.Prometheus.LaserDrill
 {
     class CompProperties_LaserDrill : CompProperties
     {

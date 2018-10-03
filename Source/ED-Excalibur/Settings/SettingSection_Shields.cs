@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 using Verse;
 
-namespace EnhancedDevelopment.Excalibur.Settings
+namespace EnhancedDevelopment.Prometheus.Settings
 {
     class SettingSection_Shields : SettingSection
     {

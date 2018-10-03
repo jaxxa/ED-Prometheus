@@ -1,5 +1,5 @@
-﻿using EnhancedDevelopment.Excalibur.Core;
-using EnhancedDevelopment.Excalibur.Power;
+﻿using EnhancedDevelopment.Prometheus.Core;
+using EnhancedDevelopment.Prometheus.Power;
 using RimWorld;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Text;
 using UnityEngine;
 using Verse;
 
-namespace EnhancedDevelopment.Excalibur.Quest
+namespace EnhancedDevelopment.Prometheus.Quest
 {
     class ITab_Transponder : ITab
     {
@@ -60,7 +60,7 @@ namespace EnhancedDevelopment.Excalibur.Quest
             _Listing_Standard.Begin(rect);
 
             _Listing_Standard.GapLine(12f);
-            _Listing_Standard.Label(GameComponent_Excalibur_Quest.GetSingleLineResourceStatus());
+            _Listing_Standard.Label(GameComponent_Prometheus_Quest.GetSingleLineResourceStatus());
 
             _Listing_Standard.Gap(12f);
 

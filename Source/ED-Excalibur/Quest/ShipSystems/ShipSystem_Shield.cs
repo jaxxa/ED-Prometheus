@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Verse;
 
-namespace EnhancedDevelopment.Excalibur.Quest.ShipSystems
+namespace EnhancedDevelopment.Prometheus.Quest.ShipSystems
 {
     class ShipSystem_Shield : ShipSystem
     {
@@ -22,15 +22,15 @@ namespace EnhancedDevelopment.Excalibur.Quest.ShipSystems
         {
             if (this.CurrentLevel >= 1)
             {
-                ResearchHelper.QuestComplete("Research_ED_Excalibur_Shields_1");
+                ResearchHelper.QuestComplete("Research_ED_Prometheus_Shields_1");
             }
             if (this.CurrentLevel >= 2)
             {
-                ResearchHelper.QuestComplete("Research_ED_Excalibur_Shields_2");
+                ResearchHelper.QuestComplete("Research_ED_Prometheus_Shields_2");
             }
             if (this.CurrentLevel >= 3)
             {
-                ResearchHelper.QuestComplete("Research_ED_Excalibur_Shields_3");
+                ResearchHelper.QuestComplete("Research_ED_Prometheus_Shields_3");
             }
         }
     }

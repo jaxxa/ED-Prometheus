@@ -5,21 +5,21 @@ using System.Text;
 using UnityEngine;
 using Verse;
 
-namespace EnhancedDevelopment.Excalibur.Settings
+namespace EnhancedDevelopment.Prometheus.Settings
 {
-    class Mod_EDExcalibur : Verse.Mod
+    class Mod_EDPrometheus : Verse.Mod
     {
 
-        public static ModSettings_EDExcalibur Settings;
+        public static ModSettings_EDPrometheus Settings;
 
-        public Mod_EDExcalibur(ModContentPack content) : base(content)
+        public Mod_EDPrometheus(ModContentPack content) : base(content)
         {
-            Mod_EDExcalibur.Settings = GetSettings<ModSettings_EDExcalibur>();
+            Mod_EDPrometheus.Settings = GetSettings<ModSettings_EDPrometheus>();
         }
 
         public override string SettingsCategory()
         {
-            return "ED-Excalibur";
+            return "ED-Prometheus";
             //return base.SettingsCategory();
         }
 

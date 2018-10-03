@@ -7,10 +7,10 @@ using System.Text;
 using Verse;
 using Harmony;
 using UnityEngine;
-using EnhancedDevelopment.Excalibur.Shields;
+using EnhancedDevelopment.Prometheus.Shields;
 using RimWorld;
 
-namespace EnhancedDevelopment.Excalibur.Patch.Patches
+namespace EnhancedDevelopment.Prometheus.Patch.Patches
 {
     class PatchDropPodIncoming : Patch
     {

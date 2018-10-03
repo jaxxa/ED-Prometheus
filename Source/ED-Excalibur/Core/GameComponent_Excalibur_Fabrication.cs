@@ -1,5 +1,5 @@
-﻿using EnhancedDevelopment.Excalibur.Fabrication;
-using EnhancedDevelopment.Excalibur.Settings;
+﻿using EnhancedDevelopment.Prometheus.Fabrication;
+using EnhancedDevelopment.Prometheus.Settings;
 using RimWorld;
 using System;
 using System.Collections.Generic;
@@ -8,9 +8,9 @@ using System.Text;
 using UnityEngine;
 using Verse;
 
-namespace EnhancedDevelopment.Excalibur.Core
+namespace EnhancedDevelopment.Prometheus.Core
 {
-    class GameComponent_Excalibur_Fabrication : GameComponent_BaseClass
+    class GameComponent_Prometheus_Fabrication : GameComponent_BaseClass
     {
         public override void ExposeData()
         {
@@ -52,16 +52,16 @@ namespace EnhancedDevelopment.Excalibur.Core
                     ThingForDeployment _ThingToStart = this.ThingForDeployment.Where(b => b.UnitsRequestedAditional >= 1).RandomElement();
 
                     if (_ThingToStart != null &&
-                        GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.Power) >= _ThingToStart.TotalNeededPower &&
-                        GameComponent_Excalibur.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Excalibur_Quest.EnumResourceType.ResourceUnits) >= _ThingToStart.TotalNeededResources)
+                        GameComponent_Prometheus.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Prometheus_Quest.EnumResourceType.Power) >= _ThingToStart.TotalNeededPower &&
+                        GameComponent_Prometheus.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Prometheus_Quest.EnumResourceType.ResourceUnits) >= _ThingToStart.TotalNeededResources)
                     {
 
                         _ThingToStart.ConstructionInProgress = true;
                         _ThingToStart.UnitsRequestedAditional--;
                         _ThingToStart.WorkRemaining = _ThingToStart.TotalNeededWork;
 
-                        GameComponent_Excalibur.Instance.Comp_Quest.ResourceAddToReserves(GameComponent_Excalibur_Quest.EnumResourceType.ResourceUnits, -_ThingToStart.TotalNeededResources);
-                        GameComponent_Excalibur.Instance.Comp_Quest.ResourceAddToReserves(GameComponent_Excalibur_Quest.EnumResourceType.Power, -_ThingToStart.TotalNeededPower);
+                        GameComponent_Prometheus.Instance.Comp_Quest.ResourceAddToReserves(GameComponent_Prometheus_Quest.EnumResourceType.ResourceUnits, -_ThingToStart.TotalNeededResources);
+                        GameComponent_Prometheus.Instance.Comp_Quest.ResourceAddToReserves(GameComponent_Prometheus_Quest.EnumResourceType.Power, -_ThingToStart.TotalNeededPower);
                     }
                 }
             }
@@ -130,7 +130,7 @@ namespace EnhancedDevelopment.Excalibur.Core
             DefDatabase<ThingDef>.AllDefs.ToList().ForEach(x =>
             {
                 Fabrication.CompProperties_Fabricated _FabricationCompPropeties = x.GetCompProperties<Fabrication.CompProperties_Fabricated>();
-                if (_FabricationCompPropeties != null && (x.researchPrerequisites == null || x.researchPrerequisites.All(r => r.IsFinished || string.Equals(r.defName, "Research_ED_Excalibur_Quest_Unlock"))))
+                if (_FabricationCompPropeties != null && (x.researchPrerequisites == null || x.researchPrerequisites.All(r => r.IsFinished || string.Equals(r.defName, "Research_ED_Prometheus_Quest_Unlock"))))
                 {
                     if (!this.ThingForDeployment.Any(b => string.Equals(b.defName, x.defName)))
                     {

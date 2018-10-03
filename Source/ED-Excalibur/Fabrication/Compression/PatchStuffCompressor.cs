@@ -6,7 +6,7 @@ using Harmony;
 using RimWorld;
 using Verse;
 
-namespace EnhancedDevelopment.Excalibur.Patch.Patches
+namespace EnhancedDevelopment.Prometheus.Patch.Patches
 {
     class PatchStuffCompressor : Patch
     {
