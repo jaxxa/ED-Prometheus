@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
 	<name>ED-Excalibur</name>
-	<targetVersion>0.19.2006</targetVersion>
+	<targetVersion>1.0.2044</targetVersion>
 	<author>Jaxxa</author>
 	<url>https://ludeon.com/forums/index.php?topic=37158</url>
-	<description>Version: 0.19.0.8
+	<description>Version: 1.0.0.0
 Discussion, Non Steam Downloads and GitHub Repositories of this mod is available at: https://ludeon.com/forums/index.php?topic=37158
 
 When a Strange Signal is detected by your colony, it triggers your symbiotic interactions with an Advanced Ancient Starship as you assist them bringing the ship systems back online from the brink of disaster in exchange for access to their advanced technology. 
