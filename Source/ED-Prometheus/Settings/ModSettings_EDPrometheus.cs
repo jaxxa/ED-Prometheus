@@ -35,7 +35,7 @@ namespace EnhancedDevelopment.Prometheus.Settings
         public void DoSettingsWindowContents(Rect canvas)
         {
 
-            Rect _ButtonRect = new Rect(300f, 0f, 150f, 35f);
+            Rect _ButtonRect = new Rect(350f, 0f, 150f, 35f);
 
             if (Widgets.ButtonText(_ButtonRect, "Select Page", true, false, true))
             {
@@ -57,7 +57,7 @@ namespace EnhancedDevelopment.Prometheus.Settings
             if (this.m_CurrentSetting != null)
             {
                 Text.Font = GameFont.Medium;
-                Widgets.Label(new Rect(460f, 0f, 150f, 35f), this.m_CurrentSetting.Name());
+                Widgets.Label(new Rect(510f, 0f, 150f, 35f), this.m_CurrentSetting.Name());
                 Text.Font = GameFont.Small;
 
                 this.m_CurrentSetting.DoSettingsWindowContents(canvas);
