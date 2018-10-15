@@ -69,6 +69,7 @@
     <Compile Include="LaserDrill\MapComp_LaserDrill.cs" />
     <Compile Include="Patch\Patches\PatchDropPodIncoming.cs" />
     <Compile Include="Fabrication\Compression\PatchStuffCompressor.cs" />
+    <Compile Include="Patch\Patches\PatchNanoMaterialCost.cs" />
     <Compile Include="Quest\CompProperties_EDSNTransponder.cs" />
     <Compile Include="Quest\Comp_EDSNTransponder.cs" />
     <Compile Include="Quest\Dialog\Dialog_0_Generic.cs" />

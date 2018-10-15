@@ -12,9 +12,14 @@ namespace EnhancedDevelopment.Prometheus.Settings
 
         private const int DEFAULT_INITAL_SHIP_SETUP_POWER_REQUIRED = 10000;
         private const int DEFAULT_INITAL_SHIP_SETUP_RESOURCES_REQUIRED = 500;
-        
+
+        private const int DEFAULT_INITAL_OVERRIDE_DISABLED = -1;
+
         public int InitialShipSetup_PowerRequired = SettingSection_Quest.DEFAULT_INITAL_SHIP_SETUP_POWER_REQUIRED;
         public int InitialShipSetup_ResourcesRequired = SettingSection_Quest.DEFAULT_INITAL_SHIP_SETUP_RESOURCES_REQUIRED;
+
+        public int Quest_PowerForNanoMaterial = SettingSection_Quest.DEFAULT_INITAL_OVERRIDE_DISABLED;
+        public int Quest_ResourceUnitsForNanoMaterial = SettingSection_Quest.DEFAULT_INITAL_OVERRIDE_DISABLED;
 
         public override void DoSettingsWindowContents(Rect canvas)
         {
@@ -53,6 +58,40 @@ namespace EnhancedDevelopment.Prometheus.Settings
 
             listing_Standard.GapLine(12f);
 
+            listing_Standard.Label("-1 indicates a default value set in XML");
+
+            listing_Standard.Gap(12f);
+
+            listing_Standard.Label("Power For Nano Material: " + Quest_PowerForNanoMaterial.ToString());
+            listing_Standard.Label("XML Default is: 500");
+            listing_Standard.Gap();
+            Listing_Standard _listing_Standard_Quest_PowerForNanoMaterial = new Listing_Standard();
+            _listing_Standard_Quest_PowerForNanoMaterial.Begin(listing_Standard.GetRect(30f));
+            _listing_Standard_Quest_PowerForNanoMaterial.ColumnWidth = 70;
+            _listing_Standard_Quest_PowerForNanoMaterial.IntAdjuster(ref Quest_PowerForNanoMaterial, 1, 0);
+            _listing_Standard_Quest_PowerForNanoMaterial.NewColumn();
+            _listing_Standard_Quest_PowerForNanoMaterial.IntAdjuster(ref Quest_PowerForNanoMaterial, 100, 0);
+            _listing_Standard_Quest_PowerForNanoMaterial.NewColumn();
+            _listing_Standard_Quest_PowerForNanoMaterial.IntSetter(ref Quest_PowerForNanoMaterial, SettingSection_Quest.DEFAULT_INITAL_OVERRIDE_DISABLED, "Default");
+            _listing_Standard_Quest_PowerForNanoMaterial.End();
+
+            listing_Standard.Gap(12f);
+
+            listing_Standard.Label("Resource Units For Nano Material: " + Quest_ResourceUnitsForNanoMaterial.ToString());
+            listing_Standard.Label("XML Default is: 100");
+            listing_Standard.Gap();
+            Listing_Standard _listing_Standard_Quest_ResourceUnitsForNanoMaterial = new Listing_Standard();
+            _listing_Standard_Quest_ResourceUnitsForNanoMaterial.Begin(listing_Standard.GetRect(30f));
+            _listing_Standard_Quest_ResourceUnitsForNanoMaterial.ColumnWidth = 70;
+            _listing_Standard_Quest_ResourceUnitsForNanoMaterial.IntAdjuster(ref Quest_ResourceUnitsForNanoMaterial, 1, 0);
+            _listing_Standard_Quest_ResourceUnitsForNanoMaterial.NewColumn();
+            _listing_Standard_Quest_ResourceUnitsForNanoMaterial.IntAdjuster(ref Quest_ResourceUnitsForNanoMaterial, 100, 0);
+            _listing_Standard_Quest_ResourceUnitsForNanoMaterial.NewColumn();
+            _listing_Standard_Quest_ResourceUnitsForNanoMaterial.IntSetter(ref Quest_ResourceUnitsForNanoMaterial, SettingSection_Quest.DEFAULT_INITAL_OVERRIDE_DISABLED, "Default");
+            _listing_Standard_Quest_ResourceUnitsForNanoMaterial.End();
+
+            listing_Standard.GapLine(12f);
+
             listing_Standard.End();
 
 
@@ -63,6 +102,9 @@ namespace EnhancedDevelopment.Prometheus.Settings
             //throw new NotImplementedException();
             Scribe_Values.Look<int>(ref InitialShipSetup_PowerRequired, "InitialShipSetup_PowerRequired", SettingSection_Quest.DEFAULT_INITAL_SHIP_SETUP_POWER_REQUIRED);
             Scribe_Values.Look<int>(ref InitialShipSetup_ResourcesRequired, "InitialShipSetup_ResourcesRequired", SettingSection_Quest.DEFAULT_INITAL_SHIP_SETUP_RESOURCES_REQUIRED);
+            Scribe_Values.Look<int>(ref Quest_PowerForNanoMaterial, "Quest_PowerForNanoMaterial", SettingSection_Quest.DEFAULT_INITAL_OVERRIDE_DISABLED);
+            Scribe_Values.Look<int>(ref Quest_ResourceUnitsForNanoMaterial, "Quest_ResourceUnitsForNanoMaterial", SettingSection_Quest.DEFAULT_INITAL_OVERRIDE_DISABLED);
+
         }
 
         public override string Name()

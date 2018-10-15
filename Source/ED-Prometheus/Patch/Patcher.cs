@@ -22,6 +22,7 @@ namespace EnhancedDevelopment.Prometheus.Patch
             _Patches.Add(new Patches.PatchProjectile());
             _Patches.Add(new Patches.PatchThingWithComps_Nano());
             _Patches.Add(new Patches.PatchDropPodIncoming());
+            _Patches.Add(new Patches.PatchNanoMaterialCost());
 
             //Create Harmony Instance
             HarmonyInstance _Harmony = HarmonyInstance.Create("EnhancedDevelopment.Prometheus");
