@@ -137,7 +137,7 @@
 			</li>
 			<li Class="CompProperties_AffectedByFacilities">
 				<linkableFacilities>
-					<li>Building_ShieldStandard</li>
+					<li>Building_ShieldGenerator</li>
 				</linkableFacilities>
 			</li>
 		</comps>
