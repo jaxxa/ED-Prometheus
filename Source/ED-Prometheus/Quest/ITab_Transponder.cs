@@ -37,7 +37,8 @@ namespace EnhancedDevelopment.Prometheus.Quest
         {
             get
             {
-                return this.SelectedCompTransponder != null;
+                return false;
+               // return this.SelectedCompTransponder != null;
             }
         }
 
