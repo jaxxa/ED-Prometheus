@@ -4,7 +4,7 @@
 	<!-- Shield Building -->
 
 	<ThingDef ParentName="EDSN_BuildingBase">
-		<defName>Building_ShieldStandard</defName>
+		<defName>Building_ShieldGenerator</defName>
 		<label>Shield Generator</label>
 		<description>Creates a Shield designed to protect critical ground installations. Can be upgraded with various enhancement modules.</description>
 		<thingClass>EnhancedDevelopment.Prometheus.Shields.Building_Shield</thingClass>
@@ -62,7 +62,7 @@
 			<li Class="EnhancedDevelopment.Prometheus.Fabrication.CompProperties_Fabricated">
 				<RequiredPower>500</RequiredPower>
 				<RequiredMaterials>200</RequiredMaterials>
-				<RequiredWork>90</RequiredWork>
+				<RequiredWork>100</RequiredWork>
 			</li>
 			<li Class="EnhancedDevelopment.Prometheus.Shields.CompProperties_ShieldGenerator">
 
@@ -133,11 +133,11 @@
 			<li Class="EnhancedDevelopment.Prometheus.Fabrication.CompProperties_Fabricated">
 				<RequiredPower>500</RequiredPower>
 				<RequiredMaterials>200</RequiredMaterials>
-				<RequiredWork>90</RequiredWork>
+				<RequiredWork>200</RequiredWork>
 			</li>
 			<li Class="CompProperties_AffectedByFacilities">
 				<linkableFacilities>
-					<li>Building_ShieldStandard</li>
+					<li>Building_ShieldGenerator</li>
 				</linkableFacilities>
 			</li>
 		</comps>
@@ -270,7 +270,7 @@ This allows the Shield Generator to remain functioning in the event that main po
 			<li Class="EnhancedDevelopment.Prometheus.Fabrication.CompProperties_Fabricated">
 				<RequiredPower>500</RequiredPower>
 				<RequiredMaterials>200</RequiredMaterials>
-				<RequiredWork>90</RequiredWork>
+				<RequiredWork>300</RequiredWork>
 			</li>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>

@@ -18,7 +18,8 @@ namespace EnhancedDevelopment.Prometheus.Settings
         
         public ModSettings_EDPrometheus()
         {
-            this.m_Settings = new List<SettingSection>() { Shields, NanoShields, LaserDrill, Quest};
+            //this.m_Settings = new List<SettingSection>() { Shields, NanoShields, LaserDrill, Quest };
+            this.m_Settings = new List<SettingSection>() { NanoShields, LaserDrill, Quest };
         }
 
         public override void ExposeData()
