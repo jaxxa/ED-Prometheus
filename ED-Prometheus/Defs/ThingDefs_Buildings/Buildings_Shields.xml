@@ -4,7 +4,7 @@
 	<!-- Shield Building -->
 
 	<ThingDef ParentName="EDSN_BuildingBase">
-		<defName>Building_ShieldStandard</defName>
+		<defName>Building_ShieldGenerator</defName>
 		<label>Shield Generator</label>
 		<description>Creates a Shield designed to protect critical ground installations. Can be upgraded with various enhancement modules.</description>
 		<thingClass>EnhancedDevelopment.Prometheus.Shields.Building_Shield</thingClass>
