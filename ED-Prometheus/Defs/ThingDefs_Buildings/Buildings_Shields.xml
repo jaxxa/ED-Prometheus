@@ -62,7 +62,7 @@
 			<li Class="EnhancedDevelopment.Prometheus.Fabrication.CompProperties_Fabricated">
 				<RequiredPower>500</RequiredPower>
 				<RequiredMaterials>200</RequiredMaterials>
-				<RequiredWork>90</RequiredWork>
+				<RequiredWork>100</RequiredWork>
 			</li>
 			<li Class="EnhancedDevelopment.Prometheus.Shields.CompProperties_ShieldGenerator">
 
@@ -133,7 +133,7 @@
 			<li Class="EnhancedDevelopment.Prometheus.Fabrication.CompProperties_Fabricated">
 				<RequiredPower>500</RequiredPower>
 				<RequiredMaterials>200</RequiredMaterials>
-				<RequiredWork>90</RequiredWork>
+				<RequiredWork>200</RequiredWork>
 			</li>
 			<li Class="CompProperties_AffectedByFacilities">
 				<linkableFacilities>
@@ -270,7 +270,7 @@ This allows the Shield Generator to remain functioning in the event that main po
 			<li Class="EnhancedDevelopment.Prometheus.Fabrication.CompProperties_Fabricated">
 				<RequiredPower>500</RequiredPower>
 				<RequiredMaterials>200</RequiredMaterials>
-				<RequiredWork>90</RequiredWork>
+				<RequiredWork>300</RequiredWork>
 			</li>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>

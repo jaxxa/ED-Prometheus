@@ -28,7 +28,7 @@
 			<li Class="EnhancedDevelopment.Prometheus.Fabrication.CompProperties_Fabricated">
 				<RequiredPower>500</RequiredPower>
 				<RequiredMaterials>200</RequiredMaterials>
-				<RequiredWork>90</RequiredWork>
+				<RequiredWork>100</RequiredWork>
 			</li>
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Breakdownable"/>

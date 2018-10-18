@@ -44,7 +44,7 @@
 			<li Class="EnhancedDevelopment.Prometheus.Fabrication.CompProperties_Fabricated">
 				<RequiredPower>500</RequiredPower>
 				<RequiredMaterials>200</RequiredMaterials>
-				<RequiredWork>90</RequiredWork>
+				<RequiredWork>100</RequiredWork>
 			</li>
 			<li Class="CompProperties_Battery">
 				<storedEnergyMax>400</storedEnergyMax>
@@ -92,7 +92,7 @@
 			<li Class="EnhancedDevelopment.Prometheus.Fabrication.CompProperties_Fabricated">
 				<RequiredPower>500</RequiredPower>
 				<RequiredMaterials>200</RequiredMaterials>
-				<RequiredWork>90</RequiredWork>
+				<RequiredWork>200</RequiredWork>
 			</li>
 			<li Class="EnhancedDevelopment.Prometheus.LaserDrill.CompProperties_LaserDrill">
 				<FillMode>False</FillMode>
@@ -156,7 +156,7 @@
 			<li Class="EnhancedDevelopment.Prometheus.Fabrication.CompProperties_Fabricated">
 				<RequiredPower>500</RequiredPower>
 				<RequiredMaterials>200</RequiredMaterials>
-				<RequiredWork>90</RequiredWork>
+				<RequiredWork>200</RequiredWork>
 			</li>
 			<li Class="EnhancedDevelopment.Prometheus.LaserDrill.CompProperties_LaserDrill">
 				<FillMode>True</FillMode>
