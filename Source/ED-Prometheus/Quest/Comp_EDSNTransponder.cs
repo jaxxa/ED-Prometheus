@@ -1,4 +1,5 @@
 ﻿using EnhancedDevelopment.Prometheus.Core;
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,9 +55,21 @@ namespace EnhancedDevelopment.Prometheus.Quest
                 //act.action = () => Designator_Deconstruct.DesignateDeconstruct(this);
                 act2.action = () =>
                 {
-                    Core.GameComponent_Prometheus.Instance.Comp_Quest.ResourceAddToReserves(GameComponent_Prometheus_Quest.EnumResourceType.ResourceUnits, 50);
-                    Core.GameComponent_Prometheus.Instance.Comp_Quest.ResourceAddToReserves(GameComponent_Prometheus_Quest.EnumResourceType.Power, 500);
-                    Core.GameComponent_Prometheus.Instance.Comp_Quest.ResourceAddToReserves(GameComponent_Prometheus_Quest.EnumResourceType.NanoMaterials, 1);
+
+                    if (KeyBindingDefOf.ModifierIncrement_10x.IsDown || KeyBindingDefOf.ModifierIncrement_100x.IsDown)
+                    {                    
+                        Core.GameComponent_Prometheus.Instance.Comp_Quest.ResourceAddToReserves(GameComponent_Prometheus_Quest.EnumResourceType.ResourceUnits, 500);
+                        Core.GameComponent_Prometheus.Instance.Comp_Quest.ResourceAddToReserves(GameComponent_Prometheus_Quest.EnumResourceType.Power, 5000);
+                        Core.GameComponent_Prometheus.Instance.Comp_Quest.ResourceAddToReserves(GameComponent_Prometheus_Quest.EnumResourceType.NanoMaterials, 10);
+
+                    }
+                    else
+                    {
+                        Core.GameComponent_Prometheus.Instance.Comp_Quest.ResourceAddToReserves(GameComponent_Prometheus_Quest.EnumResourceType.ResourceUnits, 50);
+                        Core.GameComponent_Prometheus.Instance.Comp_Quest.ResourceAddToReserves(GameComponent_Prometheus_Quest.EnumResourceType.Power, 500);
+                        Core.GameComponent_Prometheus.Instance.Comp_Quest.ResourceAddToReserves(GameComponent_Prometheus_Quest.EnumResourceType.NanoMaterials, 1);
+                    }
+
                 };
                 //act.icon = UI_DIRECT_ON;
                 act2.defaultLabel = "Debug Resources";
