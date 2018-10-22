@@ -50,8 +50,7 @@ namespace EnhancedDevelopment.Prometheus.Shields
 
 
         #endregion Variables
-
-
+        
         #region Settings
 
         // Power Usage --------------------------------------------------------------
@@ -254,7 +253,7 @@ namespace EnhancedDevelopment.Prometheus.Shields
         {
             base.CompTick();
 
-            this.RecalculateStatistics();
+            //this.RecalculateStatistics();
 
             this.UpdateShieldStatus();
 
