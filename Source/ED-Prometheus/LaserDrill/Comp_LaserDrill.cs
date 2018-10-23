@@ -18,6 +18,11 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
         private CompFlickable _FlickComp;
         private CompProperties_LaserDrill Properties;
 
+
+        private static readonly FloatRange AngleRange = new FloatRange(-12f, 12f);
+
+        public int duration = 1000;
+
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
             base.PostSpawnSetup(respawningAfterLoad);
@@ -29,6 +34,14 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
             {
                 this.CalculateWorkStart();
             }
+
+
+            float _Angle = Comp_LaserDrill.AngleRange.RandomInRange;
+            int _StartTick = Find.TickManager.TicksGame;
+            this.parent.GetComp<CompAffectsSky>().StartFadeInHoldFadeOut(30, this.duration - 30 - 15, 15, 1f);
+            this.parent.GetComp<CompOrbitalBeam>().StartAnimation(this.duration, 10, _Angle);
+
+            MoteMaker.MakeBombardmentMote(this.parent.Position, this.parent.Map);
         }
 
         public override void PostExposeData()
