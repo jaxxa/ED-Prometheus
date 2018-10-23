@@ -39,6 +39,12 @@ namespace EnhancedDevelopment.Prometheus.Shields
             this.GetComp<Comp_ShieldGenerator>().FieldIntegrity_Current -= projectile.DamageAmount;
         }
 
+        public void RecalculateStatistics()
+        {
+            //Log.Message("Calculate");
+            this.GetComp<Comp_ShieldGenerator>().RecalculateStatistics();
+        }               
+        
         #endregion //Methods
 
     }

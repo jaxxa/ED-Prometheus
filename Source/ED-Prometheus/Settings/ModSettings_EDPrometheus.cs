@@ -28,7 +28,6 @@ namespace EnhancedDevelopment.Prometheus.Settings
 
             this.m_Settings.ForEach(s => s.ExposeData());
             
-            //            Scribe_Values.Look<bool>(ref ShowLettersThreatBig, "ShowLettersThreatBig", true, true);
         }
 
         private SettingSection m_CurrentSetting = null;

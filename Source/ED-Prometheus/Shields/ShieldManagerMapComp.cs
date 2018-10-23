@@ -66,7 +66,12 @@ namespace EnhancedDevelopment.Prometheus.Shields
 
             return false;
         }
-                   
+              
+        public void RecalaculateAll()
+        {
+            List<Building_Shield> _ShieldBuildings = map.listerBuildings.AllBuildingsColonistOfClass<Building_Shield>().ToList();
+            _ShieldBuildings.ForEach(x => x.RecalculateStatistics());
+        }
 
     }
 }

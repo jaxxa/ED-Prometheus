@@ -17,7 +17,18 @@ namespace EnhancedDevelopment.Prometheus.Shields
             base.PostSpawnSetup(respawningAfterLoad);
 
             this.Properties = ((CompProperties_ShieldUpgrade)this.props);
+            
+            this.parent.Map.GetComponent<ShieldManagerMapComp>().RecalaculateAll();
+
         }
 
+        public override void PostDeSpawn(Map map)
+        {
+            base.PostDeSpawn(map);
+
+            map.GetComponent<ShieldManagerMapComp>().RecalaculateAll();
+
+        }
+        
     }
 }
