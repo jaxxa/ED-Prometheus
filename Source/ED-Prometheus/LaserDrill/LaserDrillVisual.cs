@@ -33,7 +33,7 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
             base.Tick();
             if (!base.Destroyed)
             {
-                if (Find.TickManager.TicksGame % 20 == 0)
+                if (Find.TickManager.TicksGame % 50 == 0)
                 {
                     this.StartRandomFire();
                 }
@@ -47,7 +47,7 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
                 true
             },
             {
-                new CurvePoint(10f, 0.1f),
+                new CurvePoint(10f, 0.0f),
                 true
             }
         };
