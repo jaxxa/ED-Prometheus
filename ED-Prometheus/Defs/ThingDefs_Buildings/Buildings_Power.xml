@@ -104,19 +104,6 @@
 			</li>
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Breakdownable"/>
-			<li Class="CompProperties_OrbitalBeam">
-				<width>8</width>
-				<color>(255, 245, 214, 242)</color>
-				<sound>OrbitalBeam</sound>
-			</li>
-			<li Class="CompProperties_AffectsSky">
-				<skyColors>
-					<sky>(255, 230, 200)</sky>
-					<shadow>(225, 220, 185)</shadow>
-					<overlay>(255, 255, 255)</overlay>
-					<saturation>1.3</saturation>
-				</skyColors>
-			</li>
 		</comps>
 		<size>(6,6)</size>
 		<costList>
@@ -193,6 +180,31 @@
 			<li>Research_ED_Prometheus_Quest_Unlock</li>
 			<li>Research_ED_Prometheus_PowerDistribution_2</li>
 		</researchPrerequisites>
+	</ThingDef>
+
+	<ThingDef Name="LaserDrillVisual" ParentName="EtherealThingBase">
+		<thingClass>EnhancedDevelopment.Prometheus.LaserDrill.LaserDrillVisual</thingClass>
+		<defName>LaserDrillVisual</defName>
+		<label>LaserDrillVisual</label>
+		<tickerType>Normal</tickerType>
+		<drawerType>RealtimeOnly</drawerType>
+		<drawOffscreen>true</drawOffscreen>
+		<seeThroughFog>true</seeThroughFog>
+		<comps>
+			<li Class="CompProperties_AffectsSky">
+				<skyColors>
+					<sky>(255, 230, 200)</sky>
+					<shadow>(225, 220, 185)</shadow>
+					<overlay>(255, 255, 255)</overlay>
+					<saturation>1.3</saturation>
+				</skyColors>
+			</li>
+			<li Class="CompProperties_OrbitalBeam">
+				<width>8</width>
+				<color>(255, 245, 214, 242)</color>
+				<sound>OrbitalBeam</sound>
+			</li>
+		</comps>
 	</ThingDef>
 
 

@@ -19,8 +19,6 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
         private CompProperties_LaserDrill Properties;
 
 
-        private static readonly FloatRange AngleRange = new FloatRange(-12f, 12f);
-
         public int duration = 1000;
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
@@ -35,13 +33,6 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
                 this.CalculateWorkStart();
             }
 
-
-            float _Angle = Comp_LaserDrill.AngleRange.RandomInRange;
-            int _StartTick = Find.TickManager.TicksGame;
-            this.parent.GetComp<CompAffectsSky>().StartFadeInHoldFadeOut(30, this.duration - 30 - 15, 15, 1f);
-            this.parent.GetComp<CompOrbitalBeam>().StartAnimation(this.duration, 10, _Angle);
-
-            MoteMaker.MakeBombardmentMote(this.parent.Position, this.parent.Map);
         }
 
         public override void PostExposeData()
@@ -78,6 +69,7 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
                     {
                         Messages.Message("SteamGeyser Removed.", MessageTypeDefOf.TaskCompletion);
                         this.FindClosestGuyser().DeSpawn();
+                        this.TriggerLaser();
                         this.parent.Destroy(DestroyMode.Vanish);
                     }
                     else
@@ -88,6 +80,7 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
                 else
                 {
                     Messages.Message("SteamGeyser Created.", MessageTypeDefOf.TaskCompletion);
+                    this.TriggerLaser();
                     GenSpawn.Spawn(ThingDef.Named("SteamGeyser"), this.parent.Position, this.parent.Map);
 
                     //Destroy
@@ -186,5 +179,14 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
             }
             return currentLowestGuyser;
         }
+
+        public void TriggerLaser()
+        {
+
+            IntVec3 _Position = IntVec3.FromVector3(new UnityEngine.Vector3(parent.Position.x, parent.Position.y, parent.Position.z - 2));
+
+            LaserDrillVisual _LaserDrillVisual = (LaserDrillVisual)GenSpawn.Spawn(ThingDef.Named("LaserDrillVisual"), _Position, parent.Map, WipeMode.Vanish);
+        }
+
     }
 }
