@@ -10,12 +10,12 @@ namespace EnhancedDevelopment.Prometheus.Settings
     class SettingSection_LaserDrill : SettingSection
     {
 
-        private const int DEFAULT_REQUIRED_DRILL_WORK = 500;
-        private const int DEFAULT_REQUIRED_FILL_WORK = 500;
+        private const int DEFAULT_REQUIRED_DRILL_SCANNING = 500;
+        private const int DEFAULT_REQUIRED_DRILL_SHIP_POWER = 10000;
 
         //Fields
-        public int RequiredDrillWork = SettingSection_LaserDrill.DEFAULT_REQUIRED_DRILL_WORK;
-        public int RequiredFillWork = SettingSection_LaserDrill.DEFAULT_REQUIRED_FILL_WORK;
+        public int RequiredDrillScanning = SettingSection_LaserDrill.DEFAULT_REQUIRED_DRILL_SCANNING;
+        public int RequiredDrillShipPower = SettingSection_LaserDrill.DEFAULT_REQUIRED_DRILL_SHIP_POWER;
        // public bool AllowSimultaneousDrilling = false;
 
 
@@ -27,31 +27,33 @@ namespace EnhancedDevelopment.Prometheus.Settings
 
             listing_Standard.GapLine(12f);
 
-            listing_Standard.Label("Drilling Work Required: " + RequiredDrillWork.ToString());
+            listing_Standard.Label("Drill Scanning Time: " + RequiredDrillScanning.ToString());
             listing_Standard.Gap();
-            Listing_Standard _listing_Standard_RequiredDrillWork = new Listing_Standard();
-            _listing_Standard_RequiredDrillWork.Begin(listing_Standard.GetRect(30f));
-            _listing_Standard_RequiredDrillWork.ColumnWidth = 70;
-            _listing_Standard_RequiredDrillWork.IntAdjuster(ref RequiredDrillWork, 10, 10);
-            _listing_Standard_RequiredDrillWork.NewColumn();
-            _listing_Standard_RequiredDrillWork.IntAdjuster(ref RequiredDrillWork, 100, 100);
-            _listing_Standard_RequiredDrillWork.NewColumn();
-            _listing_Standard_RequiredDrillWork.IntSetter(ref RequiredDrillWork, SettingSection_LaserDrill.DEFAULT_REQUIRED_DRILL_WORK, "Default");
-            _listing_Standard_RequiredDrillWork.End();
+            Listing_Standard _listing_Standard_RequiredDrillScanning = new Listing_Standard();
+            _listing_Standard_RequiredDrillScanning.Begin(listing_Standard.GetRect(30f));
+            _listing_Standard_RequiredDrillScanning.ColumnWidth = 70;
+            _listing_Standard_RequiredDrillScanning.IntAdjuster(ref RequiredDrillScanning, 10, 10);
+            _listing_Standard_RequiredDrillScanning.NewColumn();
+            _listing_Standard_RequiredDrillScanning.IntAdjuster(ref RequiredDrillScanning, 100, 100);
+            _listing_Standard_RequiredDrillScanning.NewColumn();
+            _listing_Standard_RequiredDrillScanning.IntSetter(ref RequiredDrillScanning, SettingSection_LaserDrill.DEFAULT_REQUIRED_DRILL_SCANNING, "Default");
+            _listing_Standard_RequiredDrillScanning.End();
 
             listing_Standard.GapLine(12f);
 
-            listing_Standard.Label("Filling Work Required: " + RequiredFillWork.ToString());
+            
+            listing_Standard.Label("Required Ship Power: " + RequiredDrillShipPower.ToString());
             listing_Standard.Gap();
-            Listing_Standard _listing_Standard_RequiredFillWork = new Listing_Standard();
-            _listing_Standard_RequiredFillWork.Begin(listing_Standard.GetRect(30f));
-            _listing_Standard_RequiredFillWork.ColumnWidth = 70;
-            _listing_Standard_RequiredFillWork.IntAdjuster(ref RequiredFillWork, 10, 10);
-            _listing_Standard_RequiredFillWork.NewColumn();
-            _listing_Standard_RequiredFillWork.IntAdjuster(ref RequiredFillWork, 100, 100);
-            _listing_Standard_RequiredFillWork.NewColumn();
-            _listing_Standard_RequiredFillWork.IntSetter(ref RequiredFillWork, SettingSection_LaserDrill.DEFAULT_REQUIRED_FILL_WORK, "Default");
-            _listing_Standard_RequiredFillWork.End();
+            Listing_Standard _listing_Standard_RequiredRequiredDrillShipPower = new Listing_Standard();
+            _listing_Standard_RequiredRequiredDrillShipPower.Begin(listing_Standard.GetRect(30f));
+            _listing_Standard_RequiredRequiredDrillShipPower.ColumnWidth = 70;
+            _listing_Standard_RequiredRequiredDrillShipPower.IntAdjuster(ref RequiredDrillShipPower, 100, 100);
+            _listing_Standard_RequiredRequiredDrillShipPower.NewColumn();
+            _listing_Standard_RequiredRequiredDrillShipPower.IntAdjuster(ref RequiredDrillShipPower, 1000, 1000);
+            _listing_Standard_RequiredRequiredDrillShipPower.NewColumn();
+            _listing_Standard_RequiredRequiredDrillShipPower.IntSetter(ref RequiredDrillShipPower, SettingSection_LaserDrill.DEFAULT_REQUIRED_DRILL_SHIP_POWER, "Default");
+            _listing_Standard_RequiredRequiredDrillShipPower.End();
+            
 
             listing_Standard.GapLine(12f);
 
@@ -66,8 +68,8 @@ namespace EnhancedDevelopment.Prometheus.Settings
 
         public override void ExposeData()
         {
-            Scribe_Values.Look<int>(ref RequiredDrillWork, "RequiredDrillWork", SettingSection_LaserDrill.DEFAULT_REQUIRED_DRILL_WORK);
-            Scribe_Values.Look<int>(ref RequiredFillWork, "RequiredFillWork", SettingSection_LaserDrill.DEFAULT_REQUIRED_FILL_WORK);
+            Scribe_Values.Look<int>(ref RequiredDrillScanning, "RequiredDrillScanning", SettingSection_LaserDrill.DEFAULT_REQUIRED_DRILL_SCANNING);
+            Scribe_Values.Look<int>(ref RequiredDrillShipPower, "RequiredDrillShipPower", SettingSection_LaserDrill.DEFAULT_REQUIRED_DRILL_SHIP_POWER);
             //Scribe_Values.Look<bool>(ref AllowSimultaneousDrilling, "AllowSimultaneousDrilling", false);
         }
 
