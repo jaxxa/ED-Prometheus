@@ -31,6 +31,7 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
         private CompProperties_LaserDrill Properties;
 
         private static Texture2D UI_LASER_ACTIVATE;
+        private static Texture2D UI_LASER_ACTIVATEFILL;
 
         private EnumLaserDrillState m_CurrentStaus = EnumLaserDrillState.Scanning;
 
@@ -41,7 +42,8 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
         static Comp_LaserDrill()
         {
 
-            UI_LASER_ACTIVATE = ContentFinder<Texture2D>.Get("UI/DirectOn", true);
+            UI_LASER_ACTIVATE = ContentFinder<Texture2D>.Get("UI/Power/SteamGeyser", true);
+            UI_LASER_ACTIVATEFILL = ContentFinder<Texture2D>.Get("UI/Power/RemoveSteamGeyser", true);
         }
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
@@ -159,7 +161,7 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
             {
                 Command_Action act = new Command_Action();
                 act.action = () => this.TriggerLaserToFill();
-                act.icon = UI_LASER_ACTIVATE;
+                act.icon = UI_LASER_ACTIVATEFILL;
                 act.defaultLabel = "Activate Laser Fill";
                 act.defaultDesc = "Activate Laser Fill";
                 act.activateSound = SoundDef.Named("Click");
