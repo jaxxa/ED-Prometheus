@@ -10,35 +10,7 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
     class LaserDrillVisual : ThingWithComps
     {
 
-        private static readonly FloatRange AngleRange = new FloatRange(-12f, 12f);
-        public int duration = 600;
-
-        public override void SpawnSetup(Map map, bool respawningAfterLoad)
-        {
-            base.SpawnSetup(map, respawningAfterLoad);
-
-            Log.Message("Laser");
-            float _Angle = LaserDrillVisual.AngleRange.RandomInRange;
-            //int _StartTick = Find.TickManager.TicksGame;
-            this.GetComp<CompAffectsSky>().StartFadeInHoldFadeOut(30, this.duration - 30 - 15, 15, 1f);
-            this.GetComp<CompOrbitalBeam>().StartAnimation(this.duration, 10, _Angle);
-
-            MoteMaker.MakeBombardmentMote(this.Position, this.Map);
-            MoteMaker.MakePowerBeamMote(this.Position, this.Map);
-        }
-
-
-        public override void Tick()
-        {
-            base.Tick();
-            if (!base.Destroyed)
-            {
-                if (Find.TickManager.TicksGame % 50 == 0)
-                {
-                    this.StartRandomFire();
-                }
-            }
-        }
+        #region StaticSettings
 
         private static readonly SimpleCurve DistanceChanceFactor = new SimpleCurve
         {
@@ -52,6 +24,73 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
             }
         };
 
+
+        private static readonly FloatRange AngleRange = new FloatRange(-12f, 12f);
+
+        #endregion
+
+        #region Variables
+
+        private float Angle;
+
+        public int Duration = 600;
+
+        private int StartTick;
+
+        #endregion
+        
+        #region Override Methods
+
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
+        {
+            base.SpawnSetup(map, respawningAfterLoad);
+
+            //Log.Message("Laser");
+            this.Angle = LaserDrillVisual.AngleRange.RandomInRange;
+
+            this.StartTick = Find.TickManager.TicksGame;
+            this.GetComp<CompAffectsSky>().StartFadeInHoldFadeOut(30, this.Duration - 30 - 15, 15, 1f);
+            this.GetComp<CompOrbitalBeam>().StartAnimation(this.Duration, 10, this.Angle);
+
+            MoteMaker.MakeBombardmentMote(this.Position, this.Map);
+            MoteMaker.MakePowerBeamMote(this.Position, this.Map);
+        }
+
+        public override void Tick()
+        {
+            base.Tick();
+
+            if (this.TicksPassed >= this.Duration)
+            {
+                this.Destroy(DestroyMode.Vanish);
+            }
+
+            if (!base.Destroyed)
+            {
+                if (Find.TickManager.TicksGame % 50 == 0)
+                {
+                    this.StartRandomFire();
+                }
+            }
+        }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Values.Look<int>(ref this.Duration, "Duration", 0, false);
+            Scribe_Values.Look<float>(ref this.Angle, "Angle", 0f, false);
+            Scribe_Values.Look<int>(ref this.StartTick, "StartTick", 0, false);
+        }
+
+        public override void Draw()
+        {
+            base.Comps_PostDraw();
+        }
+
+        #endregion
+
+        #region Methods
+        
         private void StartRandomFire()
         {
             IntVec3 c = (from x in GenRadial.RadialCellsAround(base.Position, 25f, true)
@@ -60,12 +99,27 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
             FireUtility.TryStartFireIn(c, base.Map, Rand.Range(0.1f, 0.925f));
         }
 
+        #endregion
 
-
-        public override void Draw()
+        #region Properties
+                     
+        protected int TicksLeft
         {
-            base.Comps_PostDraw();
+            get
+            {
+                return this.Duration - this.TicksPassed;
+            }
         }
 
+        protected int TicksPassed
+        {
+            get
+            {
+                return Find.TickManager.TicksGame - this.StartTick;
+            }
+        }
+
+        #endregion
+        
     }
 }
