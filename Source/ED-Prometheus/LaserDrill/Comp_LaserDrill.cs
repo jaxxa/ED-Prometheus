@@ -13,7 +13,6 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
     class Comp_LaserDrill : ThingComp
     {
 
-
         public enum EnumLaserDrillState
         {
             Scanning,
@@ -21,16 +20,13 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
             ReadyToActivate,
             NoGuyser
         }
-
-
+        
         #region Variables
 
         //Saved
         private int DrillWork;
 
         //Unsaved
-        //private CompPowerTrader _PowerComp;
-        //private CompFlickable _FlickComp;
         private CompProperties_LaserDrill Properties;
 
         private static Texture2D UI_LASER_ACTIVATE;
