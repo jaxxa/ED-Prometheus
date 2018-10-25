@@ -97,13 +97,6 @@
 			<li Class="EnhancedDevelopment.Prometheus.LaserDrill.CompProperties_LaserDrill">
 				<FillMode>False</FillMode>
 			</li>
-			<li Class="CompProperties_Power">
-				<compClass>CompPowerTrader</compClass>
-				<basePowerConsumption>1200</basePowerConsumption>
-				<transmitsPower>true</transmitsPower>
-			</li>
-			<li Class="CompProperties_Flickable"/>
-			<li Class="CompProperties_Breakdownable"/>
 		</comps>
 		<size>(6,6)</size>
 		<costList>
@@ -146,12 +139,9 @@
 		<description>Removes a nearby SteamGeyser by filling it with rock and melting that rock with a laser to create a buildable surface</description>
 		<size>(3,3)</size>
 		<costList>
-			<ComponentSpacer>4</ComponentSpacer>
+			<ComponentSpacer>2</ComponentSpacer>
+			<Steel>200</Steel>
 		</costList>
-		<costStuffCount>500</costStuffCount>
-		<stuffCategories>
-			<li>Stony</li>
-		</stuffCategories>
 		<comps>
 			<li Class="EnhancedDevelopment.Prometheus.Fabrication.CompProperties_Fabricated">
 				<RequiredPower>500</RequiredPower>
@@ -161,13 +151,6 @@
 			<li Class="EnhancedDevelopment.Prometheus.LaserDrill.CompProperties_LaserDrill">
 				<FillMode>True</FillMode>
 			</li>
-			<li Class="CompProperties_Power">
-				<compClass>CompPowerTrader</compClass>
-				<basePowerConsumption>1200</basePowerConsumption>
-				<transmitsPower>true</transmitsPower>
-			</li>
-			<li Class="CompProperties_Flickable"/>
-			<li Class="CompProperties_Breakdownable"/>
 		</comps>
 		<rotatable>false</rotatable>
 		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
