@@ -13,8 +13,6 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
         {
             this.compClass = typeof(Comp_LaserDrill);
         }
-
-        public bool FillMode = false;
-
+        
     }
 }

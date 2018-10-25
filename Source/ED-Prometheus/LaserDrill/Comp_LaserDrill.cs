@@ -19,8 +19,7 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
         {
             Scanning,
             LowPower,
-            ReadyToActivate,
-            NoGuyser
+            ReadyToActivate
         }
 
         #region Variables
@@ -33,7 +32,7 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
 
         private static Texture2D UI_LASER_ACTIVATE;
 
-        private EnumLaserDrillState m_CurrentStaus = EnumLaserDrillState.LowPower;
+        private EnumLaserDrillState m_CurrentStaus = EnumLaserDrillState.Scanning;
 
         #endregion Variables
 
@@ -72,11 +71,7 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
         public override void CompTickRare()
         {
 
-            if (this.Properties.FillMode && this.FindClosestGuyser() == null)
-            {
-                this.m_CurrentStaus = EnumLaserDrillState.NoGuyser;
-            }
-            else if (this.DrillScanningRemaining <= 0)
+            if (this.DrillScanningRemaining <= 0)
             {
                 if (GameComponent_Prometheus.Instance.Comp_Quest.ResourceGetReserveStatus(EnumResourceType.Power) < Mod_EDPrometheus.Settings.LaserDrill.RequiredDrillShipPower)
                 {
@@ -120,10 +115,6 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
                     _StringBuilder.AppendLine("Scan complete");
                     _StringBuilder.AppendLine("Low Power on Ship");
                 }
-                else if (this.m_CurrentStaus == EnumLaserDrillState.NoGuyser)
-                {
-                    _StringBuilder.AppendLine("Error: No Guyser found");
-                }
                 else if (this.m_CurrentStaus == EnumLaserDrillState.ReadyToActivate)
                 {
                     _StringBuilder.AppendLine("Scan complete");
@@ -131,7 +122,7 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
                 }
                 else if (this.m_CurrentStaus == EnumLaserDrillState.Scanning)
                 {
-                    _StringBuilder.AppendLine("Scanning in Progress - Remaining: " + this.DrillScanningRemaining); 
+                    _StringBuilder.AppendLine("Scanning in Progress - Remaining: " + this.DrillScanningRemaining);
                 }
 
                 _StringBuilder.Append("Ship Power: " + (GameComponent_Prometheus.Instance.Comp_Quest.ResourceGetReserveStatus(EnumResourceType.Power).ToString() + " / " + Mod_EDPrometheus.Settings.LaserDrill.RequiredDrillShipPower).ToString());
@@ -152,13 +143,25 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
             }
 
             if (this.m_CurrentStaus == EnumLaserDrillState.ReadyToActivate)
-            //if (true)
             {
                 Command_Action act = new Command_Action();
                 act.action = () => this.TriggerLaser();
                 act.icon = UI_LASER_ACTIVATE;
                 act.defaultLabel = "Activate Laser";
                 act.defaultDesc = "Activate Laser";
+                act.activateSound = SoundDef.Named("Click");
+                //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
+                //act.groupKey = 689736;
+                yield return act;
+            }
+
+            if (this.m_CurrentStaus == EnumLaserDrillState.ReadyToActivate)
+            {
+                Command_Action act = new Command_Action();
+                act.action = () => this.TriggerLaserToFill();
+                act.icon = UI_LASER_ACTIVATE;
+                act.defaultLabel = "Activate Laser Fill";
+                act.defaultDesc = "Activate Laser Fill";
                 act.activateSound = SoundDef.Named("Click");
                 //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
                 //act.groupKey = 689736;
@@ -182,14 +185,14 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
             this.DrillScanningRemaining = Mod_EDPrometheus.Settings.LaserDrill.RequiredDrillScanning;
         }
 
-        public Thing FindClosestGuyser()
+        public Thing FindClosestGeyser()
         {
-            List<Thing> steamGeysers = this.parent.Map.listerThings.ThingsOfDef(ThingDefOf.SteamGeyser);
-            Thing currentLowestGuyser = null;
+            List<Thing> steamGeyser = this.parent.Map.listerThings.ThingsOfDef(ThingDefOf.SteamGeyser);
+            Thing currentLowestGeyser = null;
 
             double lowestDistance = double.MaxValue;
 
-            foreach (Thing currentGuyser in steamGeysers)
+            foreach (Thing currentGuyser in steamGeyser)
             {
                 //if (currentGuyser.SpawnedInWorld)
                 if (currentGuyser.Spawned)
@@ -202,48 +205,41 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
                         {
 
                             lowestDistance = distance;
-                            currentLowestGuyser = currentGuyser;
+                            currentLowestGeyser = currentGuyser;
                         }
                     }
                 }
             }
-            return currentLowestGuyser;
+            return currentLowestGeyser;
+        }
+
+        public void TriggerLaserToFill()
+        {
+            if (this.FindClosestGeyser() != null)
+            {
+                Messages.Message("SteamGeyser Removed.", MessageTypeDefOf.TaskCompletion);
+                this.FindClosestGeyser().DeSpawn();
+                GameComponent_Prometheus.Instance.Comp_Quest.ResourceRequestReserve(Core.GameComponent_Prometheus_Quest.EnumResourceType.Power, Mod_EDPrometheus.Settings.LaserDrill.RequiredDrillShipPower);
+                this.ShowLaserVisually();
+
+                this.parent.Destroy(DestroyMode.Vanish);
+            }
+            else
+            {
+                Messages.Message("SteamGeyser not found to Remove.", MessageTypeDefOf.NegativeEvent);
+            }
         }
 
         public void TriggerLaser()
         {
+            Messages.Message("SteamGeyser Created.", MessageTypeDefOf.TaskCompletion);
+            GameComponent_Prometheus.Instance.Comp_Quest.ResourceRequestReserve(Core.GameComponent_Prometheus_Quest.EnumResourceType.Power, Mod_EDPrometheus.Settings.LaserDrill.RequiredDrillShipPower);
+            this.ShowLaserVisually();
+            GenSpawn.Spawn(ThingDef.Named("SteamGeyser"), this.parent.Position, this.parent.Map);
 
+            //Destroy
 
-            if (this.Properties.FillMode)
-            {
-                if (this.FindClosestGuyser() != null)
-                {
-                    Messages.Message("SteamGeyser Removed.", MessageTypeDefOf.TaskCompletion);
-                    this.FindClosestGuyser().DeSpawn();
-                    GameComponent_Prometheus.Instance.Comp_Quest.ResourceRequestReserve(Core.GameComponent_Prometheus_Quest.EnumResourceType.Power, Mod_EDPrometheus.Settings.LaserDrill.RequiredDrillShipPower);
-                    this.ShowLaserVisually();
-
-                    this.parent.Destroy(DestroyMode.Vanish);
-                }
-                else
-                {
-                    Messages.Message("SteamGeyser not found to Remove.", MessageTypeDefOf.TaskCompletion);
-                }
-            }
-            else
-            {
-                Messages.Message("SteamGeyser Created.", MessageTypeDefOf.TaskCompletion);
-                GameComponent_Prometheus.Instance.Comp_Quest.ResourceRequestReserve(Core.GameComponent_Prometheus_Quest.EnumResourceType.Power, Mod_EDPrometheus.Settings.LaserDrill.RequiredDrillShipPower);
-                this.ShowLaserVisually();
-                GenSpawn.Spawn(ThingDef.Named("SteamGeyser"), this.parent.Position, this.parent.Map);
-
-                //Destroy
-
-                this.parent.Destroy(DestroyMode.Vanish);
-
-            }
-
-
+            this.parent.Destroy(DestroyMode.Vanish);
         }
 
         private void ShowLaserVisually()

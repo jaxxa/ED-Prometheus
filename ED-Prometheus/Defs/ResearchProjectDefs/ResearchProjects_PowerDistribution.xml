@@ -22,7 +22,7 @@
 		<defName>Research_ED_Prometheus_PowerDistribution_2</defName>
 		<label>Power Distribution Level 2 - Geyser Drill</label>
 		<description>Requires Power Distribution 2
-Using a laser, drill into the steam and magma network deep within the planet.</description>
+Using the ships weapon systems to drill into the steam and magma network deep within the planet.</description>
 		<baseCost>4000</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
