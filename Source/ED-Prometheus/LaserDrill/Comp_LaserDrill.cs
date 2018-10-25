@@ -12,23 +12,34 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
     [StaticConstructorOnStartup]
     class Comp_LaserDrill : ThingComp
     {
-        
+
+
+        public enum EnumLaserDrillState
+        {
+            Scanning,
+            LowPower,
+            ReadyToActivate,
+            NoGuyser
+        }
+
+
         #region Variables
 
         //Saved
         private int DrillWork;
 
         //Unsaved
-        private CompPowerTrader _PowerComp;
-        private CompFlickable _FlickComp;
+        //private CompPowerTrader _PowerComp;
+        //private CompFlickable _FlickComp;
         private CompProperties_LaserDrill Properties;
 
         private static Texture2D UI_LASER_ACTIVATE;
 
-        #endregion Variables
-        
-        #region Initilisation
+        private EnumLaserDrillState m_CurrentStaus = EnumLaserDrillState.LowPower;
 
+        #endregion Variables
+
+        #region Initilisation
 
         static Comp_LaserDrill()
         {
@@ -39,8 +50,8 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
             base.PostSpawnSetup(respawningAfterLoad);
-            this._PowerComp = this.parent.GetComp<CompPowerTrader>();
-            this._FlickComp = this.parent.GetComp<CompFlickable>();
+            //this._PowerComp = this.parent.GetComp<CompPowerTrader>();
+            //this._FlickComp = this.parent.GetComp<CompFlickable>();
             this.Properties = this.props as CompProperties_LaserDrill;
 
             if (!respawningAfterLoad)
@@ -53,38 +64,43 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
         #endregion Initilisation
 
         #region Overrides
-
-
+        
         public override void PostExposeData()
         {
             base.PostExposeData();
             Scribe_Values.Look<int>(ref this.DrillWork, "DrillWork", 0);
-        }
+        } //PostExposeData()
 
         public override void CompTickRare()
         {
-            //if (!this.parent.Map.GetComponent<MapComp_LaserDrill>().IsActive(this.parent))
-            //{
-            //    return;
-            //}
-
-            if (this._PowerComp.PowerOn)
+        
+            if (this.Properties.FillMode && this.FindClosestGuyser() == null)
             {
-                if (this.Properties.FillMode)
+                this.m_CurrentStaus = EnumLaserDrillState.NoGuyser;
+            }
+            else if (this.DrillWork <= 0)
+            {
+                if (Core.GameComponent_Prometheus.Instance.Comp_Quest.ResourceGetReserveStatus(Core.GameComponent_Prometheus_Quest.EnumResourceType.Power) > 1000)
                 {
-                    if (this.FindClosestGuyser() == null)
-                    {
-                        return;
-                    }
+                    this.m_CurrentStaus = EnumLaserDrillState.LowPower;
                 }
+                else
+                {
+                    this.m_CurrentStaus = EnumLaserDrillState.ReadyToActivate;
+                }
+                
+            }
+            else
+            {
+                this.m_CurrentStaus = EnumLaserDrillState.Scanning;
+
                 this.DrillWork = this.DrillWork - 1;
             }
-
-
-
+            
+            
             base.CompTickRare();
 
-        }
+        } //CompTickRare()
 
         public override string CompInspectStringExtra()
         {
@@ -100,39 +116,30 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
                 //    _StringBuilder.Append("Drill Status: Offline, Waiting for another drill to finish.");
                 //}
                 //else
+
+                if (this.m_CurrentStaus == EnumLaserDrillState.LowPower)
                 {
-                    if (this._PowerComp.PowerOn)
-                    {
-                        if (this.Properties.FillMode)
-                        {
-
-                            if (this.FindClosestGuyser() != null)
-                            {
-                                _StringBuilder.AppendLine("Drill Status: Online");
-                            }
-                            else
-                            {
-                                _StringBuilder.AppendLine("Drill Status: No Found Guyser");
-                            }
-                        }
-                        else
-                        {
-                            _StringBuilder.AppendLine("Drill Status: Online");
-                        }
-
-                    }
-                    else
-                    {
-                        _StringBuilder.AppendLine("Drill Status: Low Power");
-                    }
-
-                    _StringBuilder.Append("Drill Work Remaining: " + this.DrillWork);
+                    _StringBuilder.AppendLine("Scan complete");
+                    _StringBuilder.Append("Low Power on Ship");
+                }
+                else if(this.m_CurrentStaus == EnumLaserDrillState.NoGuyser)
+                {
+                    _StringBuilder.Append("Error: No Guyser found");
+                }
+                else if (this.m_CurrentStaus == EnumLaserDrillState.ReadyToActivate)
+                {
+                    _StringBuilder.AppendLine("Scan complete");
+                    _StringBuilder.Append("Ready for Laser Activation");
+                }
+                else if(this.m_CurrentStaus == EnumLaserDrillState.Scanning)
+                {
+                    _StringBuilder.AppendLine("Scanning in Progress");
+                    _StringBuilder.Append("Work Remaining: " + this.DrillWork);
                 }
             }
 
             return _StringBuilder.ToString();
-        }
-
+        } //CompInspectStringExtra()
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
@@ -144,20 +151,27 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
                 yield return g;
             }
 
-            //if (this.DrillWork <= 0)
-            if (true)
+            if (this.m_CurrentStaus == EnumLaserDrillState.ReadyToActivate)
+            //if (true)
             {
                 Command_Action act = new Command_Action();
                 act.action = () => this.TriggerLaser();
                 act.icon = UI_LASER_ACTIVATE;
-                act.defaultLabel = "Block Direct";
-                act.defaultDesc = "On";
+                act.defaultLabel = "Activate Laser";
+                act.defaultDesc = "Activate Laser";
                 act.activateSound = SoundDef.Named("Click");
                 //act.hotKey = KeyBindingDefOf.DesignatorDeconstruct;
                 //act.groupKey = 689736;
                 yield return act;
             }
+
         } //CompGetGizmosExtra()
+        
+        public override void PostDeSpawn(Map map)
+        {
+            this.CalculateWorkStart();
+            base.PostDeSpawn(map);
+        }
 
         #endregion Overrides
 
@@ -243,6 +257,7 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
         }
 
         #endregion
+
 
     } //Comp_LaserDrill
 
