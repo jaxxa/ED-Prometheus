@@ -66,6 +66,7 @@
     <Compile Include="Fabrication\ResourceUnit.cs" />
     <Compile Include="LaserDrill\CompProperties_LaserDrill.cs" />
     <Compile Include="LaserDrill\Comp_LaserDrill.cs" />
+    <Compile Include="LaserDrill\LaserDrillVisual.cs" />
     <Compile Include="LaserDrill\MapComp_LaserDrill.cs" />
     <Compile Include="Patch\Patches\PatchDropPodIncoming.cs" />
     <Compile Include="Fabrication\Compression\PatchStuffCompressor.cs" />
