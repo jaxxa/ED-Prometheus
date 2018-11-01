@@ -1,4 +1,4 @@
-# ED-Excalibur
+# ED-Prometheus
 
 #About
 
@@ -35,6 +35,13 @@ Features:
 
 
 #Change Log
+
+1.0.0.0
+ * Uppdate for Rimworld 1.0
+ * Rename to ED-Prometheus
+
+0.19.0.9
+ * Aditional option on Shield Tab.
 
 0.19.0.8
  * Removed NanoShieldCharger Reserve Power

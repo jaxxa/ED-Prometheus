@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{975C4632-336D-4100-87BB-32D726A1D86D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EnhancedDevelopment.Prometheus</RootNamespace>
+    <AssemblyName>ED-Prometheus</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\ED-Prometheus\Assemblies\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\ED-Prometheus\Assemblies\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\RW-DLL\Harmony\1.2.0.1\Release\net35\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\..\RW-DLL\1.0\2059\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\..\RW-DLL\1.0\2059\UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\GameComponent_BaseClass.cs" />
+    <Compile Include="Core\GameComponent_Prometheus_Fabrication.cs" />
+    <Compile Include="Core\GameComponent_Prometheus_NanoShields.cs" />
+    <Compile Include="Core\GameComponent_Prometheus_Quest.cs" />
+    <Compile Include="Core\GameComponent_Prometheus_Transporter.cs" />
+    <Compile Include="Fabrication\Compression\CompProperties_CompressedStuff.cs" />
+    <Compile Include="Fabrication\Compression\CompProperties_MolecularCompressor.cs" />
+    <Compile Include="Fabrication\Compression\Comp_CompressedStuff.cs" />
+    <Compile Include="Fabrication\Compression\Comp_MolecularCompressor.cs" />
+    <Compile Include="Fabrication\ThingForDeployment.cs" />
+    <Compile Include="Fabrication\CompProperties_Fabricated.cs" />
+    <Compile Include="Fabrication\Comp_Fabricated.cs" />
+    <Compile Include="Fabrication\ResourceUnit.cs" />
+    <Compile Include="LaserDrill\CompProperties_LaserDrill.cs" />
+    <Compile Include="LaserDrill\Comp_LaserDrill.cs" />
+    <Compile Include="LaserDrill\LaserDrillVisual.cs" />
+    <Compile Include="LaserDrill\MapComp_LaserDrill.cs" />
+    <Compile Include="Patch\Patches\PatchDropPodIncoming.cs" />
+    <Compile Include="Fabrication\Compression\PatchStuffCompressor.cs" />
+    <Compile Include="Patch\Patches\PatchNanoMaterialCost.cs" />
+    <Compile Include="Quest\CompProperties_EDSNTransponder.cs" />
+    <Compile Include="Quest\Comp_EDSNTransponder.cs" />
+    <Compile Include="Quest\Dialog\Dialog_0_Generic.cs" />
+    <Compile Include="Quest\Dialog\Dialog_Prometheus.cs" />
+    <Compile Include="Quest\ITab_Fabrication.cs" />
+    <Compile Include="Quest\ITab_Transponder.cs" />
+    <Compile Include="Quest\ResearchHelper.cs" />
+    <Compile Include="NanoShields\Building_NanoShieldCharger.cs" />
+    <Compile Include="NanoShields\CompNanoShield.cs" />
+    <Compile Include="Core\GameComponent_Prometheus.cs" />
+    <Compile Include="NanoShields\Gizmo_NanoShieldStatus.cs" />
+    <Compile Include="Patch\Patch.cs" />
+    <Compile Include="Patch\Patcher.cs" />
+    <Compile Include="Patch\Patches\PatchProjectile.cs" />
+    <Compile Include="Patch\Patches\PatchThingWithComps_Nano.cs" />
+    <Compile Include="Power\Building_QuantumPowerRelay.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Quest\ShipSystems\ShipSystem.cs" />
+    <Compile Include="Quest\ShipSystems\ShipSystem_Fabrication.cs" />
+    <Compile Include="Quest\ShipSystems\ShipSystem_PowerGeneration.cs" />
+    <Compile Include="Quest\ShipSystems\ShipSystem_Tactical.cs" />
+    <Compile Include="Quest\ShipSystems\ShipSystem_Resourcing.cs" />
+    <Compile Include="Quest\ShipSystems\ShipSystem_Regeneration.cs" />
+    <Compile Include="Quest\ShipSystems\ShipSystem_Transport.cs" />
+    <Compile Include="Quest\ShipSystems\ShipSystem_PowerDistribution.cs" />
+    <Compile Include="Quest\ShipSystems\ShipSystem_Shield.cs" />
+    <Compile Include="Settings\ModSettings_EDPrometheus.cs" />
+    <Compile Include="Settings\Mod_EDPrometheus.cs" />
+    <Compile Include="Settings\SettingSection_LaserDrill.cs" />
+    <Compile Include="Settings\SettingSection_NanoShields.cs" />
+    <Compile Include="Settings\SettingSection_Quest.cs" />
+    <Compile Include="Settings\SettingSection_Shields.cs" />
+    <Compile Include="Settings\SettingSection.cs" />
+    <Compile Include="Shields\Building_Shield.cs" />
+    <Compile Include="Shields\CompProperties_ShieldUpgrade.cs" />
+    <Compile Include="Shields\CompProperties_ShieldGenerator.cs" />
+    <Compile Include="Shields\Comp_ShieldGenerator.cs" />
+    <Compile Include="Shields\Comp_ShieldUpgrade.cs" />
+    <Compile Include="Shields\EnumShieldStatus.cs" />
+    <Compile Include="Shields\ITab_ShieldGenerator.cs" />
+    <Compile Include="Shields\ShieldManagerMapComp.cs" />
+    <Compile Include="Shields\Utilities\Graphics.cs" />
+    <Compile Include="Shields\Utilities\VectorsUtils.cs" />
+    <Compile Include="Transporter\CompProperties_Transporter.cs" />
+    <Compile Include="Transporter\Comp_Transporter.cs" />
+    <Compile Include="Transporter\WorldComponent_Transporter.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

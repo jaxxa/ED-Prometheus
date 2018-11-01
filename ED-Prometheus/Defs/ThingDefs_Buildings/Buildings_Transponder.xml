@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<ThingDef ParentName="EDSN_BuildingBase">
+		<defName>Building_EDSN_Transponder</defName>
+		<label>EDSN Transponder</label>
+		<description>Provides the ability to communicate with the E.D.S.N. Prometheus.</description>
+		<thingClass>Building_WorkTable</thingClass>
+		<researchPrerequisites>
+			<li>Research_ED_Prometheus_AnalyseStrangeSignal</li>
+		</researchPrerequisites>
+		<graphicData>
+			<texPath>Things/ShieldBuilding_Red</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(1,1)</drawSize>
+		</graphicData>		
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<designationCategory>Security</designationCategory>
+		<uiIconPath>Things/ShieldBuilding_Red</uiIconPath>
+		<specialDisplayRadius>5</specialDisplayRadius>
+		<hasInteractionCell>True</hasInteractionCell>
+		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>1000</basePowerConsumption>
+			</li>
+			<li Class="EnhancedDevelopment.Prometheus.Fabrication.CompProperties_Fabricated">
+				<RequiredPower>500</RequiredPower>
+				<RequiredMaterials>200</RequiredMaterials>
+				<RequiredWork>100</RequiredWork>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="EnhancedDevelopment.Prometheus.Quest.CompProperties_EDSNTransponder"/>
+			<li Class="EnhancedDevelopment.Prometheus.Transporter.CompProperties_Transporter"/>
+		</comps>
+		<costList>
+			<Steel>200</Steel>
+			<ComponentIndustrial>4</ComponentIndustrial>
+		</costList>
+		<inspectorTabs>
+			<li>EnhancedDevelopment.Prometheus.Quest.ITab_Transponder</li>
+			<li>EnhancedDevelopment.Prometheus.Quest.ITab_Fabrication</li>
+			<li>ITab_Bills</li>
+		</inspectorTabs>
+		<recipes>
+			<li>TransportResourceUnit_Steel</li>
+			<li>TransportResourceUnit_OmniGel</li>
+		</recipes>
+		<statBases>
+			<MaxHitPoints>500</MaxHitPoints>
+			<WorkToBuild>24000</WorkToBuild>
+			<Flammability>1.0</Flammability>
+			<Beauty>-2</Beauty>
+			<Mass>50</Mass>
+		</statBases>
+	</ThingDef>
+
+</Defs>

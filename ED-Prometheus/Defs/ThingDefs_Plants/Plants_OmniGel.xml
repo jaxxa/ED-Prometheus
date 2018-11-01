@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!--=========================== OmniGel ==============================-->
+
+	<ThingDef ParentName="PlantBase">
+		<defName>PlantOmniGel</defName>
+		<label>OmniGel Plant</label>
+		<description>An OmniGel plant.</description>
+		<graphicData>
+			<texPath>Things/Items/GelPlant</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<selectable>true</selectable>
+		<pathCost>10</pathCost>
+		<tradeability>None</tradeability>
+		<ingestible>
+			<foodType>Plant</foodType>
+			<preferability>NeverForNutrition</preferability>
+		</ingestible>
+		<plant>
+			<dieIfLeafless>true</dieIfLeafless>
+			<harvestTag>Standard</harvestTag>
+			<harvestedThingDef>OmniGel</harvestedThingDef>
+			<harvestYield>2</harvestYield>
+			<sowTags>
+				<li>Ground</li>
+				<li>Hydroponic</li>
+			</sowTags>
+			<topWindExposure>0.1</topWindExposure>
+			<growDays>4.76</growDays>
+			<visualSizeRange>
+				<min>0.3</min>
+				<max>1.05</max>
+			</visualSizeRange>
+		</plant>
+	</ThingDef>
+
+</Defs>
