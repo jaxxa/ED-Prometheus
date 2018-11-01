@@ -31,11 +31,12 @@
 				<RequiredWork>100</RequiredWork>
 			</li>
 			<li Class="CompProperties_Flickable"/>
-			<li Class="CompProperties_Breakdownable"/>
 			<li Class="EnhancedDevelopment.Prometheus.Quest.CompProperties_EDSNTransponder"/>
 			<li Class="EnhancedDevelopment.Prometheus.Transporter.CompProperties_Transporter"/>
 		</comps>
 		<costList>
+			<Steel>200</Steel>
+			<ComponentIndustrial>4</ComponentIndustrial>
 		</costList>
 		<inspectorTabs>
 			<li>EnhancedDevelopment.Prometheus.Quest.ITab_Transponder</li>
@@ -48,7 +49,7 @@
 		</recipes>
 		<statBases>
 			<MaxHitPoints>500</MaxHitPoints>
-			<WorkToMake>0</WorkToMake>
+			<WorkToBuild>24000</WorkToBuild>
 			<Flammability>1.0</Flammability>
 			<Beauty>-2</Beauty>
 			<Mass>50</Mass>

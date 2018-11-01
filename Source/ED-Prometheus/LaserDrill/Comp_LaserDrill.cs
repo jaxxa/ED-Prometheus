@@ -62,6 +62,12 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
 
         #endregion Initilisation
 
+
+        private bool HasSufficientShipPower()
+        {
+            return GameComponent_Prometheus.Instance.Comp_Quest.ResourceGetReserveStatus(EnumResourceType.Power) < Mod_EDPrometheus.Settings.LaserDrill.RequiredDrillShipPower;
+        }
+
         #region Overrides
 
         public override void PostExposeData()
@@ -75,7 +81,7 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
 
             if (this.DrillScanningRemaining <= 0)
             {
-                if (GameComponent_Prometheus.Instance.Comp_Quest.ResourceGetReserveStatus(EnumResourceType.Power) < Mod_EDPrometheus.Settings.LaserDrill.RequiredDrillShipPower)
+                if (this.HasSufficientShipPower())
                 {
                     this.m_CurrentStaus = EnumLaserDrillState.LowPower;
                 }
@@ -125,6 +131,11 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
                 else if (this.m_CurrentStaus == EnumLaserDrillState.Scanning)
                 {
                     _StringBuilder.AppendLine("Scanning in Progress - Remaining: " + this.DrillScanningRemaining);
+
+                    if (!this.HasSufficientShipPower())
+                    {
+                        _StringBuilder.AppendLine("Low Power on Ship");
+                    }
                 }
 
                 _StringBuilder.Append("Ship Power: " + (GameComponent_Prometheus.Instance.Comp_Quest.ResourceGetReserveStatus(EnumResourceType.Power).ToString() + " / " + Mod_EDPrometheus.Settings.LaserDrill.RequiredDrillShipPower).ToString());
@@ -221,7 +232,7 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
             {
                 Messages.Message("SteamGeyser Removed.", MessageTypeDefOf.TaskCompletion);
                 this.FindClosestGeyser().DeSpawn();
-                GameComponent_Prometheus.Instance.Comp_Quest.ResourceRequestReserve(Core.GameComponent_Prometheus_Quest.EnumResourceType.Power, Mod_EDPrometheus.Settings.LaserDrill.RequiredDrillShipPower);
+                GameComponent_Prometheus.Instance.Comp_Quest.ResourceRequestReserve(EnumResourceType.Power, Mod_EDPrometheus.Settings.LaserDrill.RequiredDrillShipPower);
                 this.ShowLaserVisually();
 
                 this.parent.Destroy(DestroyMode.Vanish);
@@ -235,7 +246,7 @@ namespace EnhancedDevelopment.Prometheus.LaserDrill
         public void TriggerLaser()
         {
             Messages.Message("SteamGeyser Created.", MessageTypeDefOf.TaskCompletion);
-            GameComponent_Prometheus.Instance.Comp_Quest.ResourceRequestReserve(Core.GameComponent_Prometheus_Quest.EnumResourceType.Power, Mod_EDPrometheus.Settings.LaserDrill.RequiredDrillShipPower);
+            GameComponent_Prometheus.Instance.Comp_Quest.ResourceRequestReserve(GameComponent_Prometheus_Quest.EnumResourceType.Power, Mod_EDPrometheus.Settings.LaserDrill.RequiredDrillShipPower);
             this.ShowLaserVisually();
             GenSpawn.Spawn(ThingDef.Named("SteamGeyser"), this.parent.Position, this.parent.Map);
 
