@@ -28,3 +28,8 @@ Overview of the Cool Stuff you can get
 10. OmniGel
  
 11. Power Transfer
+
+
+
+
+Settings?
