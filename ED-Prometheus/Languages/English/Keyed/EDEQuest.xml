@@ -47,10 +47,7 @@ Fortunately there were enough materials could be scavenged to repair the Transpo
 	<EDE_Dialog_5_ExecutingBurn>After providing the required materials and enough power the ship executes a long burn with the manoeuvring engines in order to enter a stable orbit and out of any immediate danger.</EDE_Dialog_5_ExecutingBurn>
 
 	<EDE_Dialog_Title_6_ShipStabilised>Ship Stabilised</EDE_Dialog_Title_6_ShipStabilised>
-	<EDE_Dialog_6_ShipStabilised>With the ship now powered and in a stable orbit you are able prioritise the ship systems that you want to bring online to help your colony and continue restoring the ship. These will each have a materials cost and power cost that you will need to provide and will give different bonuses to your colony.
-
-NOTE: Not implemented yet, unlock more systems through Just Research.
-	</EDE_Dialog_6_ShipStabilised>
+	<EDE_Dialog_6_ShipStabilised>With the ship now powered and in a stable orbit you are able prioritise the ship systems that you want to bring online to help your colony and continue restoring the ship. These will each have a materials cost and power cost that you will need to provide and will give different bonuses to your colony.	</EDE_Dialog_6_ShipStabilised>
 
 	<EDETestString>This is the XML Test String.</EDETestString>
 
