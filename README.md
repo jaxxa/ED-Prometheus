@@ -36,6 +36,11 @@ Features:
 
 #Change Log
 
+
+1.0.0.1
+ * Updated Label and JobString for Packaging Resources
+ * Minor update to some quest text.
+ 
 1.0.0.0
  * Uppdate for Rimworld 1.0
  * Rename to ED-Prometheus

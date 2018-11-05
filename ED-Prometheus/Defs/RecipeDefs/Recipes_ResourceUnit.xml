@@ -4,9 +4,9 @@
 	<!-- Replicate Slag -->
 	<RecipeDef>
 		<defName>TransportResourceUnit_Steel</defName>
-		<label>Packages Steel for Transport to the Prometheus</label>
+		<label>Package Steel for Transport to the Ship</label>
 		<description>RU.</description>
-		<jobString>Creating slag from Omni-Gel.</jobString>
+		<jobString>Packaging Steel for Transport to the Prometheus.</jobString>
 		<workAmount>20</workAmount>
 		<workSpeedStat>SmithingSpeed</workSpeedStat>
 		<effectWorking>Smelt</effectWorking>
@@ -35,9 +35,9 @@
 	
 	<RecipeDef>
 		<defName>TransportResourceUnit_OmniGel</defName>
-		<label>Packages OmniGel for Transport to the Prometheus</label>
+		<label>Package OmniGel for Transport to the Ship</label>
 		<description>RU - OmniGel</description>
-		<jobString>Creating slag from Omni-Gel.</jobString>
+		<jobString>Packaging OmniGel for Transport to the Prometheus.</jobString>
 		<workAmount>20</workAmount>
 		<workSpeedStat>SmithingSpeed</workSpeedStat>
 		<effectWorking>Smelt</effectWorking>
