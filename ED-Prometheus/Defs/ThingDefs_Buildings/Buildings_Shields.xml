@@ -147,6 +147,7 @@
 				<RequiredPower>500</RequiredPower>
 				<RequiredMaterials>200</RequiredMaterials>
 				<RequiredWork>100</RequiredWork>
+				<PreventConstruction>true</PreventConstruction>
 			</li>
 			<li Class="EnhancedDevelopment.Prometheus.Shields.CompProperties_ShieldGenerator">
 

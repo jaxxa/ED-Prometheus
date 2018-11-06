@@ -95,10 +95,7 @@ namespace EnhancedDevelopment.Prometheus.Core
             //Text.Anchor = TextAnchor.UpperLeft;
             //GUI.color = Color.white;
 
-            List<ThingForDeployment> _DisplayedThingsForDeployment = this.ThingForDeployment.Where(t => !showOnlyActiveThings || 
-                                                                                                   t.ConstructionInProgress || 
-                                                                                                   t.UnitsAvalable >= 1 || 
-                                                                                                   t.UnitsRequestedAditional >= 1).ToList();
+            List<ThingForDeployment> _DisplayedThingsForDeployment = this.ThingForDeployment.Where(t => t.ShouldBeShown(showOnlyActiveThings)).ToList();
 
 
             Rect outRect = new Rect(rect.xMin, rect.yMin, rect.width, rect.height);
@@ -130,13 +127,15 @@ namespace EnhancedDevelopment.Prometheus.Core
             DefDatabase<ThingDef>.AllDefs.ToList().ForEach(x =>
             {
                 Fabrication.CompProperties_Fabricated _FabricationCompPropeties = x.GetCompProperties<Fabrication.CompProperties_Fabricated>();
-                if (_FabricationCompPropeties != null && (x.researchPrerequisites == null || x.researchPrerequisites.All(r => r.IsFinished || string.Equals(r.defName, "Research_ED_Prometheus_Quest_Unlock"))))
+                if (_FabricationCompPropeties != null && 
+                   (x.researchPrerequisites == null || x.researchPrerequisites.All(r => r.IsFinished || string.Equals(r.defName, "Research_ED_Prometheus_Quest_Unlock"))))
                 {
                     if (!this.ThingForDeployment.Any(b => string.Equals(b.defName, x.defName)))
                     {
                         ThingForDeployment _NewThing = new ThingForDeployment(x.defName, x.label);
                         _NewThing.WorkRemaining = _FabricationCompPropeties.RequiredWork;
                         _NewThing.TotalNeededWork = _FabricationCompPropeties.RequiredWork;
+                        _NewThing.PreventConstruction = _FabricationCompPropeties.PreventConstruction;
                         _NewThing.TotalNeededPower = _FabricationCompPropeties.RequiredPower;
                         _NewThing.TotalNeededResources = _FabricationCompPropeties.RequiredMaterials;
 
