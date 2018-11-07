@@ -25,22 +25,25 @@ Please take your time to familiarise yourself with the procedures and capabiliti
 
 1. E.D.S.N. emergency protocols - (Starting the Quest)
 
-In the event of a catastrophic failure occouring on the ship, the first priority should be restoring 
+In the event of a catastrophic failure occurring on the ship, the first priority should be restoring and maintaining power to primary systems. As there are multiple redundant power systems, the failure of all of them is highly unlikely. However if this is the case and the ship is unable to be repaired contact should be established with allied units in order for them to render assistance.
 
-2. Research / Construction
+In the event that ground teams or allied ships fail to make contact a general destress call with instructions construction of a transponder should be sent in order to allow other allied forces that do not possess a transponder to construct one and provide assistance.
 
-3. First Contact
-
-4. Power Up
-
-5. Basic Repairs
-
-6. Bringing Specific Systems Online
-
-7. Shields 
+2. First Contact
 
 
-8. Laser Drill
+3. Power Up
+
+Power Transfer
+
+4. Basic Repairs
+
+5. Bringing Specific Systems Online
+
+6. Shields 
+
+
+7. Laser Drill
 
 The Laser Drilling system makes use of the shipboard weapon systems, directed at the surface of the planet to create a new or seal an existing Steam Geyser.
 Once the system is Online, Laser Drill Targeting buildings can be requisitioned. 
@@ -50,13 +53,9 @@ Selecting one of these will direct the weapon firing to commence and the geyser 
 Use of the weapon systems in this manner, while not usually causing collateral damage will destroy the targeting building and has been known to start fires in the surrounding area that ground forces should be prepared to contain.
 
 
-9. Transporter
+8. Transporter
 
-10. OmniGel
+9. OmniGel
  
-11. Power Transfer
-
-
-
 
 Settings?
