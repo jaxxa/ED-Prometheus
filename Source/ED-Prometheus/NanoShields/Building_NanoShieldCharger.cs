@@ -164,13 +164,15 @@ namespace EnhancedDevelopment.Prometheus.NanoShields
                 if (!_ShieldComp.NanoShieldActive)
                 {
                     _ShieldComp.NanoShieldActive = true;
+                    _ShieldComp.NanoShieldChargeLevelCurrent = 0;
+
                     _AnyUpgraded = true;
                 }
             }
 
             if (!_AnyUpgraded)
             {
-                Log.Message("No Paws found to add Quantum Shields to.");
+                Log.Message("No PawNs found to add Quantum Shields to.");
             }
 
             return;
