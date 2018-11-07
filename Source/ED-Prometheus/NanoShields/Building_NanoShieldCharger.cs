@@ -67,11 +67,12 @@ namespace EnhancedDevelopment.Prometheus.NanoShields
             {
                 return;
             }
+
             if (this.power.PowerOn == true)
             {
                 if (this.flag_charge)
                 {
-                    this.rechargePawns(Mod_EDPrometheus.Settings.NanoShields.NanoShieldBuildingChargeAmount);
+                    this.RechargePawns();
                 }
             }
         }
@@ -160,7 +161,7 @@ namespace EnhancedDevelopment.Prometheus.NanoShields
 
             foreach (CompNanoShield _ShieldComp in this.ShieldCompsInRangeAndOfFaction())
             {
-                Log.Message("Adding");
+                //Log.Message("Adding");
                 if (!_ShieldComp.NanoShieldActive)
                 {
                     _ShieldComp.NanoShieldActive = true;
@@ -172,26 +173,28 @@ namespace EnhancedDevelopment.Prometheus.NanoShields
 
             if (!_AnyUpgraded)
             {
-                Log.Message("No PawNs found to add Quantum Shields to.");
+                Log.Message("No Pawns found to add Nano Shields to.");
             }
 
             return;
         }
 
-        public int rechargePawns(int chargeToRequest)
+        public void RechargePawns()
         {
-            int _RemainingCharge = GameComponent_Prometheus.Instance.Comp_Shields.RequestCharge(chargeToRequest);
+            int _TotalChargeToRequest = Mod_EDPrometheus.Settings.NanoShields.NanoShieldBuildingChargeAmount;
+
+            int _AvalableCharge = GameComponent_Prometheus.Instance.Comp_Shields.RequestCharge(_TotalChargeToRequest);
 
             foreach (CompNanoShield _ShieldComp in this.ShieldCompsInRangeAndOfFaction())
             {
                 if (_ShieldComp.NanoShieldActive)
                 {
-                    _RemainingCharge -= _ShieldComp.RechargeShield(_RemainingCharge);
+                    //RechargeShield Returns the amount of charge that was used.
+                    _AvalableCharge -= _ShieldComp.RechargeShield(_AvalableCharge);
                 }
             }
 
-            GameComponent_Prometheus.Instance.Comp_Shields.ReturnCharge(_RemainingCharge);
-            return _RemainingCharge;
+            GameComponent_Prometheus.Instance.Comp_Shields.ReturnCharge(_AvalableCharge);
         }
 
         public override string GetInspectString()
