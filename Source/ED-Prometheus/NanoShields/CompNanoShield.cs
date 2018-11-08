@@ -29,6 +29,20 @@ namespace EnhancedDevelopment.Prometheus.NanoShields
 
         #region Overrides
 
+        public override string CompInspectStringExtra()
+        {
+
+            if (this.NanoShieldActive)
+            {
+                return base.CompInspectStringExtra() +
+                       "Nano Shield: " +
+                       NanoShieldChargeLevelCurrent +
+                       " / " +
+                       Mod_EDPrometheus.Settings.NanoShields.NanoShieldChargeLevelMax;
+            }
+            return base.CompInspectStringExtra();
+        }
+
         public override string GetDescriptionPart()
         {
             if (this.NanoShieldActive)
@@ -73,6 +87,7 @@ namespace EnhancedDevelopment.Prometheus.NanoShields
             {
                 return;
             }
+
 
             //TODO Filter on Damage Type
 
@@ -210,7 +225,7 @@ namespace EnhancedDevelopment.Prometheus.NanoShields
             //Increase the charge and return how much was used.
             this.NanoShieldChargeLevelCurrent += _ChargeRequired;
             return _ChargeRequired;
-            
+
         }
 
     }

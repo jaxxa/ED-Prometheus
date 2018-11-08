@@ -40,7 +40,8 @@ Features:
 1.0.0.1
  * Updated Label and JobString for Packaging Resources
  * Minor update to some quest text.
- * Code to Fix Nano Shields with <0 charge
+ * Fix for Nano Shields with <0 charge
+ * 
  
 1.0.0.0
  * Uppdate for Rimworld 1.0
