@@ -41,7 +41,7 @@ Features:
  * Updated Label and JobString for Packaging Resources
  * Minor update to some quest text.
  * Fix for Nano Shields with <0 charge
- * 
+ * Fix for Shields trying to intercept projectiles with no Damage Def (fire spread)
  
 1.0.0.0
  * Uppdate for Rimworld 1.0
