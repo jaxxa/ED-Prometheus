@@ -207,10 +207,11 @@ namespace EnhancedDevelopment.Prometheus.NanoShields
                 return 0;
             }
 
-            //If it has less than 0 set it to 0, it should not be able to get negative.
-            if (this.NanoShieldChargeLevelCurrent < 0)
+            //If it has less than the -MaxValue set it to -MaxValue.
+            //This should handle a reported issue with a value of -999999, while still allowing damage to knock the shield offline and require substantial charging
+            if (this.NanoShieldChargeLevelCurrent < -Mod_EDPrometheus.Settings.NanoShields.NanoShieldChargeLevelMax)
             {
-                this.NanoShieldChargeLevelCurrent = 0;
+                this.NanoShieldChargeLevelCurrent = -Mod_EDPrometheus.Settings.NanoShields.NanoShieldChargeLevelMax;
             }
 
             //Calculate the Charge needed to get it to full
