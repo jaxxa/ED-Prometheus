@@ -268,7 +268,7 @@ namespace EnhancedDevelopment.Prometheus.Core
                     }
                     else
                     {
-                        Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_Title_3_InitialCharge".Translate(), String.Format("EDE_Dialog_3_InitialCharge".Translate(), this.m_ResourcesStored[EnumResourceType.Power].ToString(), Mod_EDPrometheus.Settings.Quest.InitialShipSetup_PowerRequired.ToString())));
+                        Find.WindowStack.Add(new Dialog_1_PowerRequest("EDE_Dialog_Title_3_InitialCharge".Translate(), String.Format("EDE_Dialog_3_InitialCharge".Translate(), this.m_ResourcesStored[EnumResourceType.Power].ToString(), Mod_EDPrometheus.Settings.Quest.InitialShipSetup_PowerRequired.ToString()), contactSource));
                     }
 
                     break;
