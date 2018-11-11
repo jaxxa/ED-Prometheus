@@ -46,6 +46,11 @@ namespace EnhancedDevelopment.Prometheus.Shields
 
         public bool WillProjectileBeBlocked(Verse.Projectile projectile)
         {
+            // Dont intercept projectiles without a Damage Def - Fire Spread
+            if (projectile.def.projectile.damageDef == null)
+            {
+                return false;
+            }
 
             IEnumerable<Building_Shield> _ShieldBuildings = map.listerBuildings.AllBuildingsColonistOfClass<Building_Shield>();
 
