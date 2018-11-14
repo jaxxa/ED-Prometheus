@@ -29,6 +29,20 @@ namespace EnhancedDevelopment.Prometheus.NanoShields
 
         #region Overrides
 
+        public override string CompInspectStringExtra()
+        {
+
+            if (this.NanoShieldActive)
+            {
+                return base.CompInspectStringExtra() +
+                       "Nano Shield: " +
+                       NanoShieldChargeLevelCurrent +
+                       " / " +
+                       Mod_EDPrometheus.Settings.NanoShields.NanoShieldChargeLevelMax;
+            }
+            return base.CompInspectStringExtra();
+        }
+
         public override string GetDescriptionPart()
         {
             if (this.NanoShieldActive)
@@ -73,6 +87,7 @@ namespace EnhancedDevelopment.Prometheus.NanoShields
             {
                 return;
             }
+
 
             //TODO Filter on Damage Type
 
@@ -179,25 +194,39 @@ namespace EnhancedDevelopment.Prometheus.NanoShields
             }
         }
 
+        /// <summary>
+        /// Recharges the Shields.
+        /// </summary>
+        /// <param name="chargeAvalable">The available charge</param>
+        /// <returns>The Charge that was used</returns>
         public int RechargeShield(int chargeAvalable)
         {
+            //Return no charge used if the shield is fully charged or offline.
             if (!this.NanoShieldActive || this.NanoShieldChargeLevelCurrent >= Mod_EDPrometheus.Settings.NanoShields.NanoShieldChargeLevelMax)
             {
                 return 0;
             }
 
-            this.NanoShieldChargeLevelCurrent += chargeAvalable;
+            //If it has less than the -MaxValue set it to -MaxValue.
+            //This should handle a reported issue with a value of -999999, while still allowing damage to knock the shield offline and require substantial charging
+            if (this.NanoShieldChargeLevelCurrent < -Mod_EDPrometheus.Settings.NanoShields.NanoShieldChargeLevelMax)
+            {
+                this.NanoShieldChargeLevelCurrent = -Mod_EDPrometheus.Settings.NanoShields.NanoShieldChargeLevelMax;
+            }
 
-            if (this.NanoShieldChargeLevelCurrent <= Mod_EDPrometheus.Settings.NanoShields.NanoShieldChargeLevelMax)
+            //Calculate the Charge needed to get it to full
+            int _ChargeRequired = Mod_EDPrometheus.Settings.NanoShields.NanoShieldChargeLevelMax - this.NanoShieldChargeLevelCurrent;
+
+            //Limit Charge to the available charge
+            if (_ChargeRequired > chargeAvalable)
             {
-                return chargeAvalable;
+                _ChargeRequired = chargeAvalable;
             }
-            else
-            {
-                int _Overcharge = this.NanoShieldChargeLevelCurrent - Mod_EDPrometheus.Settings.NanoShields.NanoShieldChargeLevelMax;
-                this.NanoShieldChargeLevelCurrent -= _Overcharge;
-                return chargeAvalable - _Overcharge;
-            }
+
+            //Increase the charge and return how much was used.
+            this.NanoShieldChargeLevelCurrent += _ChargeRequired;
+            return _ChargeRequired;
+
         }
 
     }

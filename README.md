@@ -36,6 +36,14 @@ Features:
 
 #Change Log
 
+
+1.0.0.1
+ * Updated Label and JobString for Packaging Resources
+ * Minor update to some quest text.
+ * Fix for Nano Shields with extreme negative charge
+ * Fix for Shields trying to intercept projectiles with no Damage Def (fire spread)
+ * Ability to request aditional power relays in quest.
+ 
 1.0.0.0
  * Uppdate for Rimworld 1.0
  * Rename to ED-Prometheus
