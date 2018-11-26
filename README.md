@@ -37,6 +37,9 @@ Features:
 #Change Log
 
 
+1.0.0.2
+ * Fix for shield upgrades not linking correctly.
+
 1.0.0.1
  * Updated Label and JobString for Packaging Resources
  * Minor update to some quest text.
