@@ -24,7 +24,7 @@ namespace EnhancedDevelopment.Prometheus.Shields
             
             if (this.def.defName.Equals("Building_ShieldGenerator"))
             {
-                Log.Message("LEgacy Shield Spawned, Replacing With New Building_ED_ShieldGenerator");
+                Log.Message("Legacy Shield Spawned, Replacing With New Building_ED_ShieldGenerator");
 
                 IntVec3 _Position = this.Position;
                 this.DeSpawn();
