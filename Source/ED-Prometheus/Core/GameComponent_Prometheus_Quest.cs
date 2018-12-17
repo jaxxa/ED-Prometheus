@@ -112,7 +112,7 @@ namespace EnhancedDevelopment.Prometheus.Core
             {
                 case 0:
 
-                    if (CommsConsoleUtility.PlayerHasPoweredCommsConsole())
+                    if (CommsConsoleUtility.PlayerHasPoweredCommsConsole() || Mod_EDPrometheus.Settings.Quest.Quest_OverrideConsoleRequired)
                     {
                         m_QuestStatus++;
                         this.ContactPrometheus();
