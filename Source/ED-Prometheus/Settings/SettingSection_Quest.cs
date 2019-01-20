@@ -21,6 +21,8 @@ namespace EnhancedDevelopment.Prometheus.Settings
         public int Quest_PowerForNanoMaterial = SettingSection_Quest.DEFAULT_INITAL_OVERRIDE_DISABLED;
         public int Quest_ResourceUnitsForNanoMaterial = SettingSection_Quest.DEFAULT_INITAL_OVERRIDE_DISABLED;
 
+        public bool Quest_OverrideConsoleRequired = false;
+
         public override void DoSettingsWindowContents(Rect canvas)
         {
             // Widgets.ButtonText(canvas, "Button1", true, false, true);
@@ -92,6 +94,10 @@ namespace EnhancedDevelopment.Prometheus.Settings
 
             listing_Standard.GapLine(12f);
 
+            listing_Standard.CheckboxLabeled("Override Console Required", ref Quest_OverrideConsoleRequired, "Allows detecting the initial signal without needing a communication console.");
+
+            listing_Standard.GapLine(12f);
+
             listing_Standard.End();
 
 
@@ -104,7 +110,7 @@ namespace EnhancedDevelopment.Prometheus.Settings
             Scribe_Values.Look<int>(ref InitialShipSetup_ResourcesRequired, "InitialShipSetup_ResourcesRequired", SettingSection_Quest.DEFAULT_INITAL_SHIP_SETUP_RESOURCES_REQUIRED);
             Scribe_Values.Look<int>(ref Quest_PowerForNanoMaterial, "Quest_PowerForNanoMaterial", SettingSection_Quest.DEFAULT_INITAL_OVERRIDE_DISABLED);
             Scribe_Values.Look<int>(ref Quest_ResourceUnitsForNanoMaterial, "Quest_ResourceUnitsForNanoMaterial", SettingSection_Quest.DEFAULT_INITAL_OVERRIDE_DISABLED);
-
+            Scribe_Values.Look<bool>(ref Quest_OverrideConsoleRequired, "Quest_OverrideConsoleRequired", false);
         }
 
         public override string Name()

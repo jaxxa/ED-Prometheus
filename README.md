@@ -36,6 +36,9 @@ Features:
 
 #Change Log
 
+1.0.0.3
+ * Adding Setting for OverrideConsoleRequired.
+ * Updating Stone StuffAdjective
 
 1.0.0.2
  * Fix for shield upgrades not linking correctly.
