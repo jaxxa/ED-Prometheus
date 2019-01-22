@@ -23,13 +23,14 @@ If you are reading this you have been selected for a most prestigious post, serv
 Please take your time to familiarise yourself with the procedures and capabilities outlined in this manual. Standard shipboard operations that are consistent with existing EDSN fleet operations are not covered in this manual. This focuses on some of the unique features of the Prometheus, primarily its unique capabilities to provide support for ground based operations.
 
 
-1. E.D.S.N. emergency protocols - (Starting the Quest)
+1. E.D.S.N. Emergency Protocols - (Starting the Quest)
 
 In the event of a catastrophic failure occurring on the ship, the first priority should be restoring and maintaining power to primary systems. As there are multiple redundant power systems, the failure of all of them is highly unlikely. However if this is the case and the ship is unable to be repaired contact should be established with allied units in order for them to render assistance.
 
-In the event that ground teams or allied ships fail to make contact a general destress call with instructions construction of a transponder should be sent in order to allow other allied forces that do not possess a transponder to construct one and provide assistance.
+In the event that ground teams or allied ships fail to make contact a general destress call with instructions construction of a transponder should be sent in order to allow slammer groups of allied forces that have not been provided a transponder to construct one using avalable materials and then provide assistance.
 
 2. First Contact
+
 
 
 3. Power Up
