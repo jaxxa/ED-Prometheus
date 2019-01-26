@@ -33,6 +33,9 @@
 				<min>0.3</min>
 				<max>1.05</max>
 			</visualSizeRange>
+			<sowResearchPrerequisites>
+				<li>Research_ED_Prometheus_Fabrication_2</li>
+			</sowResearchPrerequisites>
 		</plant>
 	</ThingDef>
 
