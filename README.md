@@ -39,7 +39,9 @@ Features:
 1.0.0.4
  * Updating to new style of multi version mods.
  * OmniGel requires the research to plant.
-
+ * Fixing bug resulting in NanoMaterials having the incorect cost.
+ 
+ 
 1.0.0.3
  * Adding Setting for OverrideConsoleRequired.
  * Updating Stone StuffAdjective

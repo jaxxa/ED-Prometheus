@@ -38,8 +38,8 @@ Using the ships weapon systems to drill into the steam and magma network deep wi
 	
 	<ResearchProjectDef>
 		<defName>Research_ED_Prometheus_PowerDistribution_3</defName>
-		<label>Power Distribution Level 3 - Space To Space Power Transfer</label>
-		<description>Allows using a standard power transfer beam to supply other ships, wither for profit or to enhance trade.</description>
+		<label>Power Distribution Level 3 - Space To Ground Power Transfer</label>
+		<description>Allows power to be sent from the ship to supply ground installations.</description>
 		<baseCost>1500</baseCost>
 		<techLevel>Spacer</techLevel>
 		<tab>EDSN-Prometheus</tab>
@@ -55,8 +55,8 @@ Using the ships weapon systems to drill into the steam and magma network deep wi
 
 	<ResearchProjectDef>
 		<defName>Research_ED_Prometheus_PowerDistribution_4</defName>
-		<label>Power Distribution Level 4 - Space To Ground Power Transfer</label>
-		<description>Allows power to be sent from the ship to supply ground instalations.</description>
+		<label>Power Distribution Level 4 - Space To Space Power Transfer</label>
+		<description>Allows using a standard power transfer beam to supply other ships and orbital installations.</description>
 		<baseCost>1000</baseCost>
 		<techLevel>Spacer</techLevel>
 		<tab>EDSN-Prometheus</tab>

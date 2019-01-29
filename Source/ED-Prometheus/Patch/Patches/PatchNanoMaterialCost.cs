@@ -35,7 +35,7 @@ namespace EnhancedDevelopment.Prometheus.Patch.Patches
 
         protected override bool ShouldPatchApply()
         {
-            return true;
+            return false;
         }
         
     }
