@@ -79,7 +79,7 @@ namespace EnhancedDevelopment.Prometheus.Fabrication
         public Rect DoInterface(float x, float y, float width, int index, IntVec3 dropLocation = new IntVec3(), Map dropMap = null)
         {
 
-            Rect _RectTotal = new Rect(x, y, width, 100f);
+            Rect _RectTotal = new Rect(x, y, width, 150f);
 
             this.DoInterface_Column1(_RectTotal.LeftHalf(), dropLocation, dropMap);
             this.DoInterface_Column2(_RectTotal.RightHalf(), dropLocation, dropMap);
@@ -94,6 +94,10 @@ namespace EnhancedDevelopment.Prometheus.Fabrication
             Rect _RectBottomHalf = _RectTotal.BottomHalf();
 
             Rect _RectQuarter1 = _RectTopHalf.TopHalf();
+
+
+            Text.Font = GameFont.Medium;
+
             if (this.ConstructionInProgress)
             {
                 Widgets.TextArea(_RectQuarter1, this.label + " - In Progress", true);
@@ -102,6 +106,8 @@ namespace EnhancedDevelopment.Prometheus.Fabrication
             {
                 Widgets.TextArea(_RectQuarter1, this.label, true);
             }
+
+            Text.Font = GameFont.Small;
 
             Rect _RectQuarter2 = _RectTopHalf.BottomHalf();
             Widgets.TextArea(_RectQuarter2, "Work: " + this.WorkRemaining.ToString() + " / " + this.TotalNeededWork.ToString(), true);
