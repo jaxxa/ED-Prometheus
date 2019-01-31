@@ -54,5 +54,10 @@ namespace EnhancedDevelopment.Prometheus.Quest.ShipSystems
         {
             return this.CurrentLevel >= 3;
         }
+
+        public bool IsShipToShipPowerAvalable()
+        {
+            return this.CurrentLevel >= 4;
+        }
     }
 }

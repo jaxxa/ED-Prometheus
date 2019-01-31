@@ -17,7 +17,8 @@ namespace EnhancedDevelopment.Prometheus.Quest.Dialog
         public enum EnumDialogTabSelection
         {
             SystemStatus,
-            Fabrication
+            Fabrication,
+            SystemCommands
         }
 
         #endregion
@@ -95,6 +96,10 @@ namespace EnhancedDevelopment.Prometheus.Quest.Dialog
             {
                 Dialog_Prometheus.DoGuiFabrication(_WindowContent, false);
             }
+            else if (this.m_CurrentTab == EnumDialogTabSelection.SystemCommands)
+            {
+                Dialog_Prometheus.DoGuiSystemCommands(_WindowContent);
+            }
 
             // Footer (System Status) -----------------------------------------
 
@@ -107,7 +112,7 @@ namespace EnhancedDevelopment.Prometheus.Quest.Dialog
         {
 
             // Headder to Select Tabs -----------------------------------------
-            
+
 
             WidgetRow _ButtonWidgetRow = new WidgetRow(rectContentWindow.x, rectContentWindow.y, UIDirection.RightThenDown, 99999f, 4f);
             if (_ButtonWidgetRow.ButtonText("Fabrication", null, true, true))
@@ -121,6 +126,13 @@ namespace EnhancedDevelopment.Prometheus.Quest.Dialog
                 this.optionalTitle = "E.D.S.N Exclibur - System Status";
                 this.m_CurrentTab = EnumDialogTabSelection.SystemStatus;
             }
+
+            if (_ButtonWidgetRow.ButtonText("System Commands", null, true, true))
+            {
+                this.optionalTitle = "E.D.S.N Exclibur - System Commands";
+                this.m_CurrentTab = EnumDialogTabSelection.SystemCommands;
+            }
+
             Widgets.DrawLineHorizontal(rectContentWindow.xMin, rectContentWindow.yMax, rectContentWindow.width);
 
         }
@@ -172,9 +184,73 @@ namespace EnhancedDevelopment.Prometheus.Quest.Dialog
 
         }
 
+        public static void DoGuiSystemCommands(Rect rectContentWindow)
+        {
+            //Widgets.TextArea(rectContentWindow, GameComponent_Prometheus_Quest.GetSingleLineResourceStatus(), true);
+
+            WidgetRow _ButtonWidgetRow = new WidgetRow(rectContentWindow.x, rectContentWindow.y, UIDirection.RightThenDown, rectContentWindow.width, 4f);
+
+            if (GameComponent_Prometheus.Instance.Comp_Quest.ShipSystem_PowerDistribution.IsShipToShipPowerAvalable())
+            {
+                
+                if (_ButtonWidgetRow.ButtonText("Call Random Trade Ship (10k Power)", null, true, true))
+                {
+                    if (GameComponent_Prometheus.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Prometheus_Quest.EnumResourceType.Power) > 10000)
+                    {
+                        GameComponent_Prometheus.Instance.Comp_Quest.ResourceRequestReserve(GameComponent_Prometheus_Quest.EnumResourceType.Power, 10000);
+                        Dialog_Prometheus.SummonTrader();
+                    }
+                }
+
+            }
+        }
+
         static float viewHeight = 1000f;
 
         #endregion
+
+
+
+        private static void SummonTrader(bool orbital = true)
+        {
+            //QueuedIncident _Temp = new QueuedIncident();
+            //_Temp.
+
+            //Verse.Find.Storyteller.incidentQueue.Add(_Temp);
+
+            //List<IncidentDef> _DefList = DefDatabase<IncidentDef>.AllDefs.ToList();
+
+            //foreach (IncidentDef _Def in _DefList)
+            //{
+            //    Log.Message(_Def.defName);
+            //}
+
+            if (orbital)
+            {
+                IncidentDef _DefOrbitalTraderArrival = DefDatabase<IncidentDef>.GetNamed("OrbitalTraderArrival");
+
+
+                IncidentParms _Params = new IncidentParms();
+                _Params.forced = true;
+                _Params.target = Find.CurrentMap;
+
+
+                Patch.Patcher.LogNULL(_DefOrbitalTraderArrival, "_DefOrbitalTraderArrival", true);
+                Patch.Patcher.LogNULL(_DefOrbitalTraderArrival.Worker, "_DefOrbitalTraderArrival.Worker", true);
+                Patch.Patcher.LogNULL(_Params, "_Params", true);
+
+                _DefOrbitalTraderArrival.Worker.TryExecute(_Params);
+            }
+            else
+            {
+                IncidentDef _DefOrbitalTraderArrival = DefDatabase<IncidentDef>.GetNamed("TraderCaravanArrival");
+                IncidentParms _Params = new IncidentParms();
+                _Params.forced = true;
+                _Params.target = Find.CurrentMap;
+                _DefOrbitalTraderArrival.Worker.TryExecute(_Params);
+            }
+        }
+
 
     }
 }
