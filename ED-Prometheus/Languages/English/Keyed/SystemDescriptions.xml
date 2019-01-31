@@ -31,10 +31,9 @@ Level 2:
 Level 3:
  * Ship to Surface
 
-Level 4:#NotImplimented#
+Level 4:
  * Ship to Ship
-   * Call Trade ships
-   * Sell energy to them?
+   * Call Trade ships by giving them Energy
 
 Level 5:#NotImplimented#
  * Zero Point Modules

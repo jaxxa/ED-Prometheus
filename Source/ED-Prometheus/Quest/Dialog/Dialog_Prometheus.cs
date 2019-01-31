@@ -190,15 +190,19 @@ namespace EnhancedDevelopment.Prometheus.Quest.Dialog
 
             WidgetRow _ButtonWidgetRow = new WidgetRow(rectContentWindow.x, rectContentWindow.y, UIDirection.RightThenDown, rectContentWindow.width, 4f);
 
-            if (_ButtonWidgetRow.ButtonText("Call Random Trade Ship (10k Power)", null, true, true))
+            if (GameComponent_Prometheus.Instance.Comp_Quest.ShipSystem_PowerDistribution.IsShipToShipPowerAvalable())
             {
-                if (GameComponent_Prometheus.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Prometheus_Quest.EnumResourceType.Power) > 10000)
+                
+                if (_ButtonWidgetRow.ButtonText("Call Random Trade Ship (10k Power)", null, true, true))
                 {
-                    GameComponent_Prometheus.Instance.Comp_Quest.ResourceRequestReserve(GameComponent_Prometheus_Quest.EnumResourceType.Power, 10000);
-                    Dialog_Prometheus.SummonTrader();
+                    if (GameComponent_Prometheus.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Prometheus_Quest.EnumResourceType.Power) > 10000)
+                    {
+                        GameComponent_Prometheus.Instance.Comp_Quest.ResourceRequestReserve(GameComponent_Prometheus_Quest.EnumResourceType.Power, 10000);
+                        Dialog_Prometheus.SummonTrader();
+                    }
                 }
-            }
 
+            }
         }
 
         static float viewHeight = 1000f;
@@ -214,18 +218,27 @@ namespace EnhancedDevelopment.Prometheus.Quest.Dialog
 
             //Verse.Find.Storyteller.incidentQueue.Add(_Temp);
 
-            List<IncidentDef> _DefList = DefDatabase<IncidentDef>.AllDefs.ToList();
+            //List<IncidentDef> _DefList = DefDatabase<IncidentDef>.AllDefs.ToList();
 
-            /*foreach (IncidentDef _Def in _DefList)
-            {
-                Log.Message(_Def.defName);
-            }*/
+            //foreach (IncidentDef _Def in _DefList)
+            //{
+            //    Log.Message(_Def.defName);
+            //}
 
             if (orbital)
             {
                 IncidentDef _DefOrbitalTraderArrival = DefDatabase<IncidentDef>.GetNamed("OrbitalTraderArrival");
+
+
                 IncidentParms _Params = new IncidentParms();
                 _Params.forced = true;
+                _Params.target = Find.CurrentMap;
+
+
+                Patch.Patcher.LogNULL(_DefOrbitalTraderArrival, "_DefOrbitalTraderArrival", true);
+                Patch.Patcher.LogNULL(_DefOrbitalTraderArrival.Worker, "_DefOrbitalTraderArrival.Worker", true);
+                Patch.Patcher.LogNULL(_Params, "_Params", true);
+
                 _DefOrbitalTraderArrival.Worker.TryExecute(_Params);
             }
             else
@@ -233,6 +246,7 @@ namespace EnhancedDevelopment.Prometheus.Quest.Dialog
                 IncidentDef _DefOrbitalTraderArrival = DefDatabase<IncidentDef>.GetNamed("TraderCaravanArrival");
                 IncidentParms _Params = new IncidentParms();
                 _Params.forced = true;
+                _Params.target = Find.CurrentMap;
                 _DefOrbitalTraderArrival.Worker.TryExecute(_Params);
             }
         }

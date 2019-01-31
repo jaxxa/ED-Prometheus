@@ -41,6 +41,7 @@ Features:
  * OmniGel requires the research to plant.
  * Fixing bug resulting in NanoMaterials having the incorect cost.
  * Increasing Name Font Size in Fabrication menu. 
+ * Ship to Ship Power - Call Trade ships by giving them Energy
  
 1.0.0.3
  * Adding Setting for OverrideConsoleRequired.
