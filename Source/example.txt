@@ -6,3 +6,6 @@ return string.Format("LowFoodDesc".Translate(), totalHumanEdibleNutrition.ToStri
 
 
 if (GameComponent_Prometheus.Instance.Comp_Quest.ShipSystem_Transport.IsTransporterUnlocked())
+
+
+GameComponent_Prometheus.Instance.Comp_Quest.ResourceGetReserveStatus(GameComponent_Prometheus_Quest.EnumResourceType.ResourceUnits)
