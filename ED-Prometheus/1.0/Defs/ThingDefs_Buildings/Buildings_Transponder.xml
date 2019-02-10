@@ -52,7 +52,6 @@
 			<WorkToBuild>24000</WorkToBuild>
 			<Flammability>1.0</Flammability>
 			<Beauty>-2</Beauty>
-			<Mass>50</Mass>
 		</statBases>
 	</ThingDef>
 
