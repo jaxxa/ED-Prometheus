@@ -11,4 +11,4 @@
 **/obj
 
 
-Source/\.vs/
+*.vs/
