@@ -36,7 +36,6 @@
 			<WorkToBuild>2000</WorkToBuild>
 			<Flammability>1.0</Flammability>
 			<Beauty>-2</Beauty>
-			<Mass>50</Mass>
 		</statBases>
 		<costList>
 			<Steel>100</Steel>
@@ -120,7 +119,6 @@
 			<WorkToBuild>2000</WorkToBuild>
 			<Flammability>1.0</Flammability>
 			<Beauty>-2</Beauty>
-			<Mass>50</Mass>
 		</statBases>
 		<costList>
 			<Steel>100</Steel>
@@ -206,7 +204,6 @@
 		<statBases>
 			<MaxHitPoints>200</MaxHitPoints>
 			<WorkToBuild>10000</WorkToBuild>
-			<Mass>100</Mass>
 			<Flammability>1.0</Flammability>
 		</statBases>
 		<costList>
@@ -342,7 +339,6 @@ This allows the Shield Generator to remain functioning in the event that main po
 			<WorkToMake>2000</WorkToMake>
 			<Flammability>1.0</Flammability>
 			<Beauty>-2</Beauty>
-			<Mass>50</Mass>
 		</statBases>
 		<costList>
 			<Steel>100</Steel>
