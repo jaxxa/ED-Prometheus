@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- =========== bases =========== -->
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>OmniGel</defName>
+		<label>Omni Gel</label>
+		<description>For refining into things.</description>
+		<graphicData>
+			<texPath>Things/Items/PurpleBucket</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>60</MaxHitPoints>
+			<MarketValue>0</MarketValue>
+			<Mass>0.5</Mass>
+			<Flammability>0.7</Flammability>
+			<DeteriorationRate>2.0</DeteriorationRate>
+		</statBases>
+		<soundInteract>Metal_Drop</soundInteract>
+		<soundDrop>Metal_Drop</soundDrop>
+		<stackLimit>500</stackLimit>
+		<tradeability>None</tradeability>
+		<thingCategories>
+			<li>ResourcesRaw</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<thingClass>EnhancedDevelopment.Prometheus.Fabrication.ResourceUnit</thingClass>
+		<defName>ResourceUnit</defName>
+		<label>Resource Unit</label>
+		<description>Materials packaged for imediate Transport to on EDSN Starships and Facilities, used in Fabrication.</description>
+		<graphicData>
+			<texPath>Things/Items/BlueBucket</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<tickerType>Long</tickerType>
+		<statBases>
+			<MaxHitPoints>60</MaxHitPoints>
+			<MarketValue>0</MarketValue>
+			<Mass>0.5</Mass>
+			<Flammability>0.7</Flammability>
+			<DeteriorationRate>2.0</DeteriorationRate>
+		</statBases>
+		<soundInteract>Metal_Drop</soundInteract>
+		<soundDrop>Metal_Drop</soundDrop>
+		<stackLimit>500</stackLimit>
+		<tradeability>None</tradeability>
+		<thingCategories>
+			<li>ResourcesRaw</li>
+		</thingCategories>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<thingClass>EnhancedDevelopment.Prometheus.Fabrication.ResourceUnit</thingClass>
+		<defName>NanoMaterial</defName>
+		<label>Nano Materials</label>
+		<description>Used in bring ship systems online.</description>
+		<graphicData>
+			<texPath>Things/Items/PurpleBucket</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<tickerType>Long</tickerType>
+		<statBases>
+			<MaxHitPoints>60</MaxHitPoints>
+			<MarketValue>0</MarketValue>
+			<Mass>0.5</Mass>
+			<Flammability>0.7</Flammability>
+			<DeteriorationRate>2.0</DeteriorationRate>
+		</statBases>
+		<soundInteract>Metal_Drop</soundInteract>
+		<soundDrop>Metal_Drop</soundDrop>
+		<stackLimit>500</stackLimit>
+		<tradeability>None</tradeability>
+		<thingCategories>
+			<li>ResourcesRaw</li>
+		</thingCategories>
+		<comps>
+			<li Class="EnhancedDevelopment.Prometheus.Fabrication.CompProperties_Fabricated">
+				<RequiredPower>500</RequiredPower>
+				<RequiredMaterials>100</RequiredMaterials>
+				<RequiredWork>200</RequiredWork>
+			</li>
+		</comps>
+	</ThingDef>
+
+</Defs>

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Replicate Slag -->
+	<RecipeDef>
+		<defName>TransportResourceUnit_Steel</defName>
+		<label>Package Steel for Transport to the Ship</label>
+		<description>RU.</description>
+		<jobString>Packaging Steel for Transport to the Prometheus.</jobString>
+		<workAmount>20</workAmount>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<effectWorking>Smelt</effectWorking>
+		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Steel</li>
+					</thingDefs>
+				</filter>
+				<count>50</count>
+			</li>
+		</ingredients>
+		<products>
+			<ResourceUnit>50</ResourceUnit>
+		</products>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>ResourceUnit</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workSkill>Crafting</workSkill>
+		<researchPrerequisite>Research_ED_Prometheus_Fabrication_1</researchPrerequisite>
+	</RecipeDef>
+	
+	<RecipeDef>
+		<defName>TransportResourceUnit_OmniGel</defName>
+		<label>Package OmniGel for Transport to the Ship</label>
+		<description>RU - OmniGel</description>
+		<jobString>Packaging OmniGel for Transport to the Prometheus.</jobString>
+		<workAmount>20</workAmount>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<effectWorking>Smelt</effectWorking>
+		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>OmniGel</li>
+					</thingDefs>
+				</filter>
+				<count>50</count>
+			</li>
+		</ingredients>
+		<products>
+			<ResourceUnit>50</ResourceUnit>
+		</products>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>ResourceUnit</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<workSkill>Crafting</workSkill>
+		<researchPrerequisite>Research_ED_Prometheus_Fabrication_2</researchPrerequisite>
+	</RecipeDef>
+
+</Defs>

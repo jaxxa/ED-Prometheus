@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ThingDef ParentName="EDSN_BuildingBase">
+		<defName>PrometheusQuestLock</defName>
+		<label>Prometheus Quest Lock</label>
+		<description>A dummy Building for Locking research to Quest Progression.</description>
+		<thingClass>Building</thingClass>
+		<graphicData>
+			<texPath>Things/Building/Power/Battery</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(2,3)</drawSize>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+			</damageData>
+		</graphicData>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<pathCost>70</pathCost>
+		<blockWind>true</blockWind>
+		<castEdgeShadows>true</castEdgeShadows>
+		<fillPercent>0.40</fillPercent>
+		<tickerType>Normal</tickerType>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>800</WorkToBuild>
+			<Flammability>1.0</Flammability>
+			<Beauty>-15</Beauty>
+		</statBases>
+		<size>(1,2)</size>
+		<costList>
+			<Steel>70</Steel>
+			<ComponentSpacer>2</ComponentSpacer>
+		</costList>
+		<comps>
+		</comps>
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<staticSunShadowHeight>0.5</staticSunShadowHeight>
+		<constructEffect>ConstructMetal</constructEffect>
+		<designationHotKey>Misc4</designationHotKey>
+		<canOverlapZones>false</canOverlapZones>
+	</ThingDef>
+
+</Defs>
