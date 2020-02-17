@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
 	<name>ED-Prometheus</name>
-	<supportedVersions>
+	<packageId>Jaxxa.ED.Prometheus</packageId>
+	<supportedGameVersions>
 		<li>1.0</li>
-	</supportedVersions>
+		<li>1.1</li>
+	</supportedGameVersions>
 	<author>Jaxxa</author>
 	<url>https://github.com/jaxxa/JaxxaRimworldReleaseCollection/blob/master/README.md</url>
-	<description>Version: 1.0.0.4
+	<description>Version: 1.1.0.0
 Links to all my mods including non steam versions available at: https://github.com/jaxxa/JaxxaRimworldReleaseCollection/blob/master/README.md
 
 When a Strange Signal is detected by your colony, it leads to symbiotic interactions with heavily damaged Ancient Starship as you assist them in bringing their systems back online from the brink of disaster in exchange for access to their advanced technology. 
@@ -18,9 +20,6 @@ Features:
  * Transporters: Move people and materials over vast distances.
  * Laser Drills: Drill deep into the surface to unlock the almost unlimited potential of Geothermal Energy.
  * Power Transfer: Provide energy over vast distances.
- * Ship to Ship Power - Call Trade ships by giving them Energy
- * Create a Compressed Strengthened version of Stuff.
 
- 
 	</description>
 </ModMetaData>
