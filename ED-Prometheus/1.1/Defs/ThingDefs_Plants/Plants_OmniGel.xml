@@ -29,13 +29,7 @@
 			</sowTags>
 			<topWindExposure>0.1</topWindExposure>
 			<growDays>4.76</growDays>
-			<visualSizeRange>
-				<min>0.3</min>
-				<max>1.05</max>
-			</visualSizeRange>
-			<sowResearchPrerequisites>
-				<li>Research_ED_Prometheus_Fabrication_2</li>
-			</sowResearchPrerequisites>
+			<visualSizeRange>0.4~0.6</visualSizeRange>
 		</plant>
 	</ThingDef>
 

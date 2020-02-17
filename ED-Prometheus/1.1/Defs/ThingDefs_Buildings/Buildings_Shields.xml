@@ -4,13 +4,13 @@
 	<!-- Shield Building -->
 
 	<ThingDef ParentName="EDSN_BuildingBase">
-		<defName>Building_ED_ShieldGenerator</defName>
+		<defName>Building_ShieldGenerator</defName>
 		<label>Shield Generator</label>
 		<description>Creates a Shield designed to protect critical ground installations. Can be upgraded with various enhancement modules.</description>
 		<thingClass>EnhancedDevelopment.Prometheus.Shields.Building_Shield</thingClass>
 		<researchPrerequisites>
-			<li>Research_ED_Prometheus_Quest_Unlock</li>
-			<li>Research_ED_Prometheus_Shields_1</li>
+			<li>ED_Prometheus_Quest_Unlock_Research</li>
+			<li>ED_Prometheus_Shields_1_Research</li>
 		</researchPrerequisites>
 		<graphicData>
 			<texPath>Things/ShieldBuilding_Blue</texPath>
@@ -36,6 +36,7 @@
 			<WorkToBuild>2000</WorkToBuild>
 			<Flammability>1.0</Flammability>
 			<Beauty>-2</Beauty>
+			<Mass>50</Mass>
 		</statBases>
 		<costList>
 			<Steel>100</Steel>
@@ -62,90 +63,6 @@
 				<RequiredPower>500</RequiredPower>
 				<RequiredMaterials>200</RequiredMaterials>
 				<RequiredWork>100</RequiredWork>
-			</li>
-			<li Class="EnhancedDevelopment.Prometheus.Shields.CompProperties_ShieldGenerator">
-
-				<m_FieldIntegrity_Initial>100</m_FieldIntegrity_Initial>
-				<m_FieldIntegrity_Max_Base>2000</m_FieldIntegrity_Max_Base>
-				<m_Field_Radius_Base>8</m_Field_Radius_Base>
-
-				<m_PowerRequired_Charging>1500</m_PowerRequired_Charging>
-				<m_PowerRequired_Standby>1000</m_PowerRequired_Standby>
-
-
-				<m_RechargeTickDelayInterval_Base>15</m_RechargeTickDelayInterval_Base>
-				<m_RechargeAmmount_Base>1</m_RechargeAmmount_Base>
-				<m_RecoverWarmupDelayTicks_Base>900</m_RecoverWarmupDelayTicks_Base>
-
-				<m_BlockIndirect_Avalable>true</m_BlockIndirect_Avalable>
-				<m_BlockDirect_Avalable>true</m_BlockDirect_Avalable>
-				<m_InterceptDropPod_Avalable>false</m_InterceptDropPod_Avalable>
-				<m_StructuralIntegrityMode>false</m_StructuralIntegrityMode>
-
-			</li>
-		</comps>
-	</ThingDef>
-
-	<!-- Legacy Support for Shields created before the fix for compatibility with "Shield Generators by Frontier Developments" -->
-	<ThingDef ParentName="EDSN_BuildingBase">
-		<defName>Building_ShieldGenerator</defName>
-		<label>Shield Generator</label>
-		<description>Creates a Shield designed to protect critical ground installations. Can be upgraded with various enhancement modules.</description>
-		<thingClass>EnhancedDevelopment.Prometheus.Shields.Building_Shield</thingClass>
-		<researchPrerequisites>
-			<li>Research_ED_Prometheus_Quest_Unlock</li>
-			<li>Research_ED_Prometheus_Shields_1</li>
-		</researchPrerequisites>
-		<graphicData>
-			<texPath>Things/ShieldBuilding_Blue</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(3,3)</drawSize>
-		</graphicData>
-
-		<uiIconPath>Things/ShieldBuilding_Blue</uiIconPath>
-		<altitudeLayer>Building</altitudeLayer>
-		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
-		<blockLight>true</blockLight>
-		<drawerType>MapMeshAndRealTime</drawerType>
-		<staticSunShadowHeight>1.0</staticSunShadowHeight>
-		<fillPercent>1</fillPercent>
-		<size>(3,3)</size>
-		<rotatable>false</rotatable>
-		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-		<holdsRoof>false</holdsRoof>
-		<specialDisplayRadius>8</specialDisplayRadius>
-		<statBases>
-			<MaxHitPoints>500</MaxHitPoints>
-			<WorkToBuild>2000</WorkToBuild>
-			<Flammability>1.0</Flammability>
-			<Beauty>-2</Beauty>
-		</statBases>
-		<costList>
-			<Steel>100</Steel>
-			<Silver>100</Silver>
-			<ComponentSpacer>15</ComponentSpacer>
-		</costList>
-		<inspectorTabs>
-			<li>EnhancedDevelopment.Prometheus.Shields.ITab_ShieldGenerator</li>
-		</inspectorTabs>
-		<passability>Impassable</passability>
-		<selectable>true</selectable>
-		<tickerType>Normal</tickerType>
-		<comps>
-			<li Class="CompProperties_Power">
-				<compClass>CompPowerTrader</compClass>
-				<basePowerConsumption>1000</basePowerConsumption>
-			</li>
-			<li Class="CompProperties_Flickable"/>
-			<li Class="CompProperties_Breakdownable"/>
-			<li Class="CompProperties_Facility">
-				<maxSimultaneous>1</maxSimultaneous>
-			</li>
-			<li Class="EnhancedDevelopment.Prometheus.Fabrication.CompProperties_Fabricated">
-				<RequiredPower>500</RequiredPower>
-				<RequiredMaterials>200</RequiredMaterials>
-				<RequiredWork>100</RequiredWork>
-				<PreventConstruction>true</PreventConstruction>
 			</li>
 			<li Class="EnhancedDevelopment.Prometheus.Shields.CompProperties_ShieldGenerator">
 
@@ -188,8 +105,8 @@
 			</damageData>
 		</graphicData>
 		<researchPrerequisites>
-			<li>Research_ED_Prometheus_Quest_Unlock</li>
-			<li>Research_ED_Prometheus_Shields_2</li>
+			<li>ED_Prometheus_Quest_Unlock_Research</li>
+			<li>ED_Prometheus_Shields_2_Research</li>
 		</researchPrerequisites>
 		<size>(2,2)</size>
 		<rotatable>false</rotatable>
@@ -204,6 +121,7 @@
 		<statBases>
 			<MaxHitPoints>200</MaxHitPoints>
 			<WorkToBuild>10000</WorkToBuild>
+			<Mass>100</Mass>
 			<Flammability>1.0</Flammability>
 		</statBases>
 		<costList>
@@ -219,7 +137,7 @@
 			</li>
 			<li Class="CompProperties_AffectedByFacilities">
 				<linkableFacilities>
-					<li>Building_ED_ShieldGenerator</li>
+					<li>Building_ShieldGenerator</li>
 				</linkableFacilities>
 			</li>
 		</comps>
@@ -312,8 +230,8 @@ This allows the Shield Generator to remain functioning in the event that main po
 		<description>Adds and Recharges Nano Shields on Colonists and Pets. Pulls from a Global Stockpile.</description>
 		<thingClass>EnhancedDevelopment.Prometheus.NanoShields.Building_NanoShieldCharger</thingClass>
 		<researchPrerequisites>
-			<li>Research_ED_Prometheus_Quest_Unlock</li>
-			<li>Research_ED_Prometheus_Shields_3</li>
+			<li>ED_Prometheus_Quest_Unlock_Research</li>
+			<li>ED_Prometheus_Shields_3_Research</li>
 		</researchPrerequisites>
 		<graphicData>
 			<texPath>Things/ShieldBuilding_Red</texPath>
@@ -339,6 +257,7 @@ This allows the Shield Generator to remain functioning in the event that main po
 			<WorkToMake>2000</WorkToMake>
 			<Flammability>1.0</Flammability>
 			<Beauty>-2</Beauty>
+			<Mass>50</Mass>
 		</statBases>
 		<costList>
 			<Steel>100</Steel>

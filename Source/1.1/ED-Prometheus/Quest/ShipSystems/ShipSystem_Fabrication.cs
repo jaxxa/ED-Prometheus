@@ -29,27 +29,27 @@ namespace EnhancedDevelopment.Prometheus.Quest.ShipSystems
         {
             if (this.CurrentLevel >= 1)
             {
-                ResearchHelper.QuestComplete("Research_ED_Prometheus_Fabrication_1");
+                ResearchHelper.QuestComplete("ED_Prometheus_Fabrication_1_Research");
             }
             if (this.CurrentLevel >= 2)
             {
-                ResearchHelper.QuestComplete("Research_ED_Prometheus_Fabrication_2");
+                ResearchHelper.QuestComplete("ED_Prometheus_Fabrication_2_Research");
             }
             if (this.CurrentLevel >= 3)
             {
-                ResearchHelper.QuestComplete("Research_ED_Prometheus_Fabrication_3");
+                ResearchHelper.QuestComplete("ED_Prometheus_Fabrication_3_Research");
             }
             if (this.CurrentLevel >= 4)
             {
-                ResearchHelper.QuestComplete("Research_ED_Prometheus_Fabrication_4");
+                ResearchHelper.QuestComplete("ED_Prometheus_Fabrication_4_Research");
             }
             if (this.CurrentLevel >= 5)
             {
-                ResearchHelper.QuestComplete("Research_ED_Prometheus_Fabrication_5");
+                ResearchHelper.QuestComplete("ED_Prometheus_Fabrication_5_Research");
             }
             if (this.CurrentLevel >= 6)
             {
-                ResearchHelper.QuestComplete("Research_ED_Prometheus_Fabrication_6");
+                ResearchHelper.QuestComplete("ED_Prometheus_Fabrication_6_Research");
             }
         }
         

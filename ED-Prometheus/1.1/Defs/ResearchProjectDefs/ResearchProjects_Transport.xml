@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 	
-	<ResearchProjectDef>
-		<defName>Research_ED_Prometheus_Transport_1</defName>
+	<ResearchProjectDef ParentName="EDSN_ResearchRequirment">
+		<defName>ED_Prometheus_Transport_1_Research</defName>
 		<label>Transport Level 1</label>
 		<description>Transporter system.</description>
 		<baseCost>4000</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
-			<li>Research_ED_Prometheus_Fabrication_1</li>
+			<li>ED_Prometheus_Fabrication_1_Research</li>
 		</prerequisites>
 		<tab>EDSN-Prometheus</tab>
 		<researchViewX>2</researchViewX>

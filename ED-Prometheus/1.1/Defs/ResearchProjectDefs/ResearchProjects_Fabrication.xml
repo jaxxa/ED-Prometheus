@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<ResearchProjectDef>
-		<defName>Research_ED_Prometheus_Fabrication_1</defName>
+	<ResearchProjectDef ParentName="EDSN_ResearchRequirment">
+		<defName>ED_Prometheus_Fabrication_1_Research</defName>
 		<label>Fabrication Level 1</label>
 		<description>Unlocks the Fabrication of Ground Devices.</description>
 		<baseCost>1000</baseCost>
@@ -14,19 +14,19 @@
 			<li>PrometheusQuestLock</li>
 		</requiredResearchFacilities>
 		<prerequisites>
-			<li>Research_ED_Prometheus_AnalyseStrangeSignal</li>
+			<li>ED_Prometheus_AnalyseStrangeSignal_Research</li>
 		</prerequisites>
 	</ResearchProjectDef>
 	
-	<ResearchProjectDef>
-		<defName>Research_ED_Prometheus_Fabrication_2</defName>
+	<ResearchProjectDef ParentName="EDSN_ResearchRequirment">
+		<defName>ED_Prometheus_Fabrication_2_Research</defName>
 		<label>Fabrication Level 2 - Omni Gel</label>
 		<description>Requires Fabrication 2
 Allows you to build the MK1 Replicator, which can transform Omni-Gel into Slag or Rock.</description>
 		<baseCost>1000</baseCost>
 		<techLevel>Spacer</techLevel>
 		<prerequisites>
-			<li>Research_ED_Prometheus_Fabrication_1</li>
+			<li>ED_Prometheus_Fabrication_1_Research</li>
 		</prerequisites>
 		<tab>EDSN-Prometheus</tab>
 		<researchViewX>2</researchViewX>
@@ -36,14 +36,14 @@ Allows you to build the MK1 Replicator, which can transform Omni-Gel into Slag o
 		</requiredResearchFacilities>
 	</ResearchProjectDef>
 
-	<ResearchProjectDef>
-		<defName>Research_ED_Prometheus_Fabrication_3</defName>
+	<ResearchProjectDef ParentName="EDSN_ResearchRequirment">
+		<defName>ED_Prometheus_Fabrication_3_Research</defName>
 		<label>Fabrication Level 3 - Replicator MK1</label>
 		<description>Allows you to build the MK1 Replicator, which can transform Omni-Gel into Slag or Rock.</description>
 		<baseCost>1000</baseCost>
 		<techLevel>Spacer</techLevel>
 		<prerequisites>
-			<li>Research_ED_Prometheus_Fabrication_2</li>
+			<li>ED_Prometheus_Fabrication_2_Research</li>
 		</prerequisites>
 		<tab>EDSN-Prometheus</tab>
 		<researchViewX>3</researchViewX>
@@ -53,8 +53,8 @@ Allows you to build the MK1 Replicator, which can transform Omni-Gel into Slag o
 		</requiredResearchFacilities>
 	</ResearchProjectDef>
 
-	<ResearchProjectDef>
-		<defName>Research_ED_Prometheus_Fabrication_4</defName>
+	<ResearchProjectDef ParentName="EDSN_ResearchRequirment">
+		<defName>ED_Prometheus_Fabrication_4_Research</defName>
 		<label>Fabrication Level 4 - Replicator MK2</label>
 		<description>Allows you to build the MK2 Replicator, which can transform Omni-Gel into Metal or Silver.</description>
 		<baseCost>2000</baseCost>
@@ -63,7 +63,7 @@ Allows you to build the MK1 Replicator, which can transform Omni-Gel into Slag o
 		<researchViewX>4</researchViewX>
 		<researchViewY>1</researchViewY>
 		<prerequisites>
-			<li>Research_ED_Prometheus_Fabrication_3</li>
+			<li>ED_Prometheus_Fabrication_3_Research</li>
 		</prerequisites>	
 		<requiredResearchFacilities>
 			<li>PrometheusQuestLock</li>
@@ -71,7 +71,7 @@ Allows you to build the MK1 Replicator, which can transform Omni-Gel into Slag o
 	</ResearchProjectDef>
 
 	<ResearchProjectDef>
-		<defName>Research_ED_Prometheus_Fabrication_5</defName>
+		<defName>ED_Prometheus_Fabrication_5_Research</defName>
 		<label>Fabrication Level 5 - Replicator MK3</label>
 		<description>Allows you to build the MK3 Replicator, which can transform Omni-Gel into Uranium, Shells or Medicine.</description>
 		<baseCost>3000</baseCost>
@@ -80,15 +80,15 @@ Allows you to build the MK1 Replicator, which can transform Omni-Gel into Slag o
 		<researchViewX>5</researchViewX>
 		<researchViewY>1</researchViewY>
 		<prerequisites>
-			<li>Research_ED_Prometheus_Fabrication_4</li>
+			<li>ED_Prometheus_Fabrication_4_Research</li>
 		</prerequisites>	
 		<requiredResearchFacilities>
 			<li>PrometheusQuestLock</li>
 		</requiredResearchFacilities>
 	</ResearchProjectDef>
 
-	<ResearchProjectDef>
-		<defName>Research_ED_Prometheus_Fabrication_6</defName>
+	<ResearchProjectDef ParentName="EDSN_ResearchRequirment">
+		<defName>ED_Prometheus_Fabrication_6_Research</defName>
 		<label>Fabrication Level 6 - Molecular Reinforcement Compressor</label>
 		<description>Adds a Reinforced version of some Stuff. This allows for stronger constructions. Reinforced stuff has 10x the hitpoints but at 10x build time. Reinforced Stuff is made from 10 Normal Stuff in a Molecular Reinforcement Compressor. Currently Reinforced Stuff can be made from Steel, Plasteel, Wood, Stone, Silver, Gold, Uranium and Jade.</description>
 		<baseCost>3000</baseCost>
@@ -97,7 +97,7 @@ Allows you to build the MK1 Replicator, which can transform Omni-Gel into Slag o
 		<researchViewX>6</researchViewX>
 		<researchViewY>1</researchViewY>
 		<prerequisites>
-			<li>Research_ED_Prometheus_Fabrication_5</li>
+			<li>ED_Prometheus_Fabrication_5_Research</li>
 		</prerequisites>	
 		<requiredResearchFacilities>
 			<li>PrometheusQuestLock</li>

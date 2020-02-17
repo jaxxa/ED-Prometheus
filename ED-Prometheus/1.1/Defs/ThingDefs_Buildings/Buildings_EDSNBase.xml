@@ -6,7 +6,7 @@
 	<ThingDef ParentName="BuildingBase" Name="EDSN_BuildingBase" Abstract="True">
 		<minifiedDef>MinifiedThing</minifiedDef>
 		<statBases>
-			<Mass>10</Mass>
+			<Mass>50</Mass>
 		</statBases>	
 		<thingCategories>
 			<li>BuildingsSpecial</li>

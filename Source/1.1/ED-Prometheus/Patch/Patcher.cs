@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 using Verse;
-using Harmony;
+using HarmonyLib;
 
 namespace EnhancedDevelopment.Prometheus.Patch
 {
@@ -25,8 +25,9 @@ namespace EnhancedDevelopment.Prometheus.Patch
             _Patches.Add(new Patches.PatchNanoMaterialCost());
 
             //Create Harmony Instance
-            HarmonyInstance _Harmony = HarmonyInstance.Create("EnhancedDevelopment.Prometheus");
+            Harmony _Harmony = new HarmonyLib.Harmony("EnhancedDevelopment.Prometheus");
 
+            
             //Iterate Patches
             _Patches.ForEach(p => p.ApplyPatchIfRequired(_Harmony));
 

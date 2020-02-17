@@ -5,17 +5,17 @@ using System.Reflection;
 using System.Text;
 
 using Verse;
-using Harmony;
 using UnityEngine;
 using EnhancedDevelopment.Prometheus.Shields;
 using RimWorld;
+using HarmonyLib;
 
 namespace EnhancedDevelopment.Prometheus.Patch.Patches
 {
     class PatchDropPodIncoming : Patch
     {
 
-        protected override void ApplyPatch(HarmonyInstance harmony = null)
+        protected override void ApplyPatch(Harmony harmony = null)
         {
 
             this.ApplyImpactPatch(harmony);
@@ -33,7 +33,7 @@ namespace EnhancedDevelopment.Prometheus.Patch.Patches
             //return Mod_EnhancedOptions.Settings.Plant24HEnabled;
         }
         
-        private void ApplyImpactPatch(HarmonyInstance harmony)
+        private void ApplyImpactPatch(Harmony harmony)
         {
 
             //Get the Launch Method

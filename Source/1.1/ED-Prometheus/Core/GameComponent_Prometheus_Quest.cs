@@ -112,7 +112,7 @@ namespace EnhancedDevelopment.Prometheus.Core
             {
                 case 0:
 
-                    if (CommsConsoleUtility.PlayerHasPoweredCommsConsole() || Mod_EDPrometheus.Settings.Quest.Quest_OverrideConsoleRequired)
+                    if (CommsConsoleUtility.PlayerHasPoweredCommsConsole())
                     {
                         m_QuestStatus++;
                         this.ContactPrometheus();
@@ -225,7 +225,7 @@ namespace EnhancedDevelopment.Prometheus.Core
 
         #region QuestCommunication
 
-        public void ContactPrometheus(Building contactSource = null)
+        public void ContactPrometheus(Thing contactSource = null)
         {
 
             Log.Message("Contacting Prometheus");
@@ -268,7 +268,7 @@ namespace EnhancedDevelopment.Prometheus.Core
                     }
                     else
                     {
-                        Find.WindowStack.Add(new Dialog_1_PowerRequest("EDE_Dialog_Title_3_InitialCharge".Translate(), String.Format("EDE_Dialog_3_InitialCharge".Translate(), this.m_ResourcesStored[EnumResourceType.Power].ToString(), Mod_EDPrometheus.Settings.Quest.InitialShipSetup_PowerRequired.ToString()), contactSource));
+                        Find.WindowStack.Add(new Dialog_0_Generic("EDE_Dialog_Title_3_InitialCharge".Translate(), String.Format("EDE_Dialog_3_InitialCharge".Translate(), this.m_ResourcesStored[EnumResourceType.Power].ToString(), Mod_EDPrometheus.Settings.Quest.InitialShipSetup_PowerRequired.ToString())));
                     }
 
                     break;

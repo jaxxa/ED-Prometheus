@@ -1,9 +1,9 @@
-﻿using System;
+﻿using HarmonyLib;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Verse;
-using Harmony;
 
 namespace EnhancedDevelopment.Prometheus.Patch
 {
@@ -18,7 +18,7 @@ namespace EnhancedDevelopment.Prometheus.Patch
         /// <summary>
         /// Apply the patch.
         /// </summary>
-        protected abstract void ApplyPatch(HarmonyInstance harmony = null);
+        protected abstract void ApplyPatch(Harmony harmony = null);
 
         /// <summary>
         /// The Description of this patch.
@@ -30,7 +30,7 @@ namespace EnhancedDevelopment.Prometheus.Patch
         /// <summary>
         /// Checks if this Patch needs to be applied, and applies if needed.
         /// </summary>
-        public void ApplyPatchIfRequired(HarmonyInstance harmony = null)
+        public void ApplyPatchIfRequired(Harmony harmony = null)
         {
             string _LogLocation = "Shields.Patch.ApplyPatchIfRequired: ";
 

@@ -25,12 +25,13 @@
 		<fillPercent>0.40</fillPercent>
 		<tickerType>Normal</tickerType>
 		<researchPrerequisites>
-			<li>Research_ED_Prometheus_Quest_Unlock</li>
-			<li>Research_ED_Prometheus_PowerDistribution_1</li>
+			<li>ED_Prometheus_Quest_Unlock_Research</li>
+			<li>ED_Prometheus_PowerDistribution_1_Research</li>
 		</researchPrerequisites>
 		<statBases>
 			<MaxHitPoints>100</MaxHitPoints>
 			<WorkToBuild>800</WorkToBuild>
+			<Mass>20</Mass>
 			<Flammability>1.0</Flammability>
 			<Beauty>-15</Beauty>
 		</statBases>
@@ -81,6 +82,7 @@
 			<WorkToBuild>1800</WorkToBuild>
 			<MaxHitPoints>350</MaxHitPoints>
 			<Flammability>1.0</Flammability>
+			<Mass>100</Mass>
 		</statBases>
 		<description>Conducts a detailed subsurface scan to allow the precise direction of shipboard weapon systems to create or destroy a steam geyser. Warning, the intense heat from the weapon system has been known to start fires.</description>
 		<building>
@@ -105,8 +107,8 @@
 		<designationCategory>Power</designationCategory>
 		<staticSunShadowHeight>0.75</staticSunShadowHeight>
 		<researchPrerequisites>
-			<li>Research_ED_Prometheus_Quest_Unlock</li>
-			<li>Research_ED_Prometheus_PowerDistribution_2</li>
+			<li>ED_Prometheus_Quest_Unlock_Research</li>
+			<li>ED_Prometheus_PowerDistribution_2_Research</li>
 		</researchPrerequisites>
 	</ThingDef>
 

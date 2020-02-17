@@ -22,15 +22,15 @@ namespace EnhancedDevelopment.Prometheus.Quest.ShipSystems
         {
             if (this.CurrentLevel >= 1)
             {
-                ResearchHelper.QuestComplete("Research_ED_Prometheus_Shields_1");
+                ResearchHelper.QuestComplete("ED_Prometheus_Shields_1_Research");
             }
             if (this.CurrentLevel >= 2)
             {
-                ResearchHelper.QuestComplete("Research_ED_Prometheus_Shields_2");
+                ResearchHelper.QuestComplete("ED_Prometheus_Shields_2_Research");
             }
             if (this.CurrentLevel >= 3)
             {
-                ResearchHelper.QuestComplete("Research_ED_Prometheus_Shields_3");
+                ResearchHelper.QuestComplete("ED_Prometheus_Shields_3_Research");
             }
         }
     }

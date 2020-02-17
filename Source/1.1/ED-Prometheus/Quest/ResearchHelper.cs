@@ -14,14 +14,13 @@ namespace EnhancedDevelopment.Prometheus.Quest
 
             if (GameComponent_Prometheus.Instance.Comp_Quest.m_QuestStatus >= 1)
             {
-                ResearchHelper.QuestUnlock("Research_ED_Prometheus_AnalyseStrangeSignal");
+                ResearchHelper.QuestUnlock("ED_Prometheus_AnalyseStrangeSignal_Research");
             }
             
             if (GameComponent_Prometheus.Instance.Comp_Quest.m_QuestStatus >= 4)
             {
                 GameComponent_Prometheus.Instance.Comp_Quest.ShipSystem_Fabrication.UpgradeTo(1);
 
-                //ResearchHelper.QuestComplete("Research_ED_Prometheus_Fabrication");
             }        
 
         }

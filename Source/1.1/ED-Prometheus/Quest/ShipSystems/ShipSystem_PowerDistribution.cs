@@ -22,42 +22,29 @@ namespace EnhancedDevelopment.Prometheus.Quest.ShipSystems
         {
             if (this.CurrentLevel >= 1)
             {
-                ResearchHelper.QuestComplete("Research_ED_Prometheus_PowerDistribution_1");
+                ResearchHelper.QuestComplete("ED_Prometheus_PowerDistribution_1_Research");
             }
             if (this.CurrentLevel >= 2)
             {
-                ResearchHelper.QuestComplete("Research_ED_Prometheus_PowerDistribution_2");
+                ResearchHelper.QuestComplete("ED_Prometheus_PowerDistribution_2_Research");
             }
             if (this.CurrentLevel >= 3)
             {
-                ResearchHelper.QuestComplete("Research_ED_Prometheus_PowerDistribution_3");
+                ResearchHelper.QuestComplete("ED_Prometheus_PowerDistribution_3_Research");
             }
             if (this.CurrentLevel >= 4)
             {
-                ResearchHelper.QuestComplete("Research_ED_Prometheus_PowerDistribution_4");
+                ResearchHelper.QuestComplete("ED_Prometheus_PowerDistribution_4_Research");
             }
             if (this.CurrentLevel >= 5)
             {
-                ResearchHelper.QuestComplete("Research_ED_Prometheus_PowerDistribution_5");
+                ResearchHelper.QuestComplete("ED_Prometheus_PowerDistribution_5_Research");
             }
-            //if (this.CurrentLevel >= 3)
-            //{
-            //    ResearchHelper.QuestComplete("Research_ED_Power_SpaceToSpace");
-            //}
-            //if (this.CurrentLevel >= 4)
-            //{
-            //    ResearchHelper.QuestComplete("Research_ED_Power_SpaceToGround");
-            //}
         }
 
         public bool IsShipToSurfacePowerAvalable()
         {
             return this.CurrentLevel >= 3;
-        }
-
-        public bool IsShipToShipPowerAvalable()
-        {
-            return this.CurrentLevel >= 4;
         }
     }
 }

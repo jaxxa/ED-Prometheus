@@ -14,8 +14,8 @@
 			<drawSize>(3,1)</drawSize>
 		</graphicData>
 		<researchPrerequisites>
-			<li>Research_ED_Prometheus_Fabrication_3</li>
-			<li>Research_ED_Prometheus_Quest_Unlock</li>
+			<li>ED_Prometheus_Fabrication_3_Research</li>
+			<li>ED_Prometheus_Quest_Unlock_Research</li>
 		</researchPrerequisites>
 		<costList>
 			<ComponentSpacer>2</ComponentSpacer>
@@ -76,8 +76,8 @@
 			<drawSize>(3,1)</drawSize>
 		</graphicData>
 		<researchPrerequisites>
-			<li>Research_ED_Prometheus_Quest_Unlock</li>
-			<li>Research_ED_Prometheus_Fabrication_4</li>
+			<li>ED_Prometheus_Quest_Unlock_Research</li>
+			<li>ED_Prometheus_Fabrication_4_Research</li>
 		</researchPrerequisites>
 		<costList>
 			<ComponentSpacer>4</ComponentSpacer>
@@ -134,8 +134,8 @@
 			<drawSize>(3,1)</drawSize>
 		</graphicData>
 		<researchPrerequisites>
-			<li>Research_ED_Prometheus_Quest_Unlock</li>
-			<li>Research_ED_Prometheus_Fabrication_5</li>
+			<li>ED_Prometheus_Quest_Unlock_Research</li>
+			<li>ED_Prometheus_Fabrication_5_Research</li>
 		</researchPrerequisites>
 		<costList>
 			<ComponentSpacer>4</ComponentSpacer>
@@ -199,8 +199,8 @@
 			</damageData>
 		</graphicData>
 		<researchPrerequisites>
-			<li>Research_ED_Prometheus_Fabrication_6</li>
-			<li>Research_ED_Prometheus_Quest_Unlock</li>
+			<li>ED_Prometheus_Fabrication_6_Research</li>
+			<li>ED_Prometheus_Quest_Unlock_Research</li>
 		</researchPrerequisites>
 		<costList>
 			<ComponentSpacer>2</ComponentSpacer>

@@ -24,19 +24,19 @@ namespace EnhancedDevelopment.Prometheus.Quest.ShipSystems
 
             if (this.CurrentLevel >= 1)
             {
-                ResearchHelper.QuestComplete("Research_ED_Prometheus_Transport_1");
+                ResearchHelper.QuestComplete("ED_Prometheus_Transport_1_Research");
             }
             if (this.CurrentLevel >= 2)
             {
-                ResearchHelper.QuestComplete("Research_ED_Prometheus_Transport_2");
+                ResearchHelper.QuestComplete("ED_Prometheus_Transport_2_Research");
             }
             if (this.CurrentLevel >= 3)
             {
-                ResearchHelper.QuestComplete("Research_ED_Prometheus_Transport_3");
+                ResearchHelper.QuestComplete("ED_Prometheus_Transport_3_Research");
             }
             if (this.CurrentLevel >= 4)
             {
-                ResearchHelper.QuestComplete("Research_ED_Prometheus_Transport_4");
+                ResearchHelper.QuestComplete("ED_Prometheus_Transport_4_Research");
             }
         }
 

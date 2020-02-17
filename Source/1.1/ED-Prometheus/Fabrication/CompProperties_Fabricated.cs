@@ -18,6 +18,5 @@ namespace EnhancedDevelopment.Prometheus.Fabrication
         public int RequiredPower = 0;
         public int RequiredMaterials = 0;
         public int RequiredWork = 0;
-        public bool PreventConstruction = false;
     }
 }

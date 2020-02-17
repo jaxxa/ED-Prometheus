@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="MechSerumBase">
+    <defName>MechSerumNanoShield</defName>
+    <label>nano shield serum</label>
+    <description>A one-use super-dose of mechanites tuned to reside in the body and protect it from damage. The mechanites will persist in the body, generating an energy shield for self-defence in responce to threats. The mechanites will need to be charged before they can be effective, and recharged periodically after combat.</description>
+    <graphicData>
+      <texPath>Things/Item/Special/MechSerumHealer</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <stackLimit>10</stackLimit>
+    <statBases>
+      <MarketValue>1300</MarketValue>
+    </statBases>
+    <thingCategories>
+      <li>Items</li>
+    </thingCategories>
+    <tradeability>None</tradeability>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useJob>UseItem</useJob>
+        <useLabel>Use healer mech serum</useLabel>
+        <useDuration>600</useDuration>
+      </li>
+      <li Class="CompProperties_UseEffect">
+        <compClass>EnhancedDevelopment.Prometheus.NanoShields.CompUseEffect_AddNanoShield</compClass>
+      </li>
+      <li Class="CompProperties_UseEffect">
+        <compClass>CompUseEffect_DestroySelf</compClass>
+      </li>
+
+		<li Class="EnhancedDevelopment.Prometheus.Fabrication.CompProperties_Fabricated">
+			<RequiredPower>500</RequiredPower>
+			<RequiredMaterials>200</RequiredMaterials>
+			<RequiredWork>100</RequiredWork>
+		</li>
+    </comps>
+    <thingSetMakerTags>
+      <li>RewardStandardHighFreq</li>
+    </thingSetMakerTags>
+  </ThingDef>
+
+</Defs>

@@ -5,16 +5,16 @@ using System.Reflection;
 using System.Text;
 
 using Verse;
-using Harmony;
 using UnityEngine;
 using EnhancedDevelopment.Prometheus.Shields;
+using HarmonyLib;
 
 namespace EnhancedDevelopment.Prometheus.Patch.Patches
 {
     class PatchNanoMaterialCost : Patch
     {
 
-        protected override void ApplyPatch(HarmonyInstance harmony = null)
+        protected override void ApplyPatch(Harmony harmony = null)
         {
             
             ThingDef _ThingDef = ThingDef.Named("NanoMaterial");
@@ -35,7 +35,7 @@ namespace EnhancedDevelopment.Prometheus.Patch.Patches
 
         protected override bool ShouldPatchApply()
         {
-            return false;
+            return true;
         }
         
     }

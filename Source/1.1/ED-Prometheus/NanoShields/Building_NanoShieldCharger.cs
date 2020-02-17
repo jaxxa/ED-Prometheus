@@ -20,7 +20,7 @@ namespace EnhancedDevelopment.Prometheus.NanoShields
         public bool flag_charge = false;
         CompPowerTrader power;
 
-        private static Texture2D UI_UPGRADE;
+        //private static Texture2D UI_UPGRADE;
         private static Texture2D UI_CHARGE_OFF;
         private static Texture2D UI_CHARGE_ON;
 
@@ -30,7 +30,7 @@ namespace EnhancedDevelopment.Prometheus.NanoShields
         static Building_NanoShieldCharger()
         {
             //Log.Message("Getting graphics");
-            UI_UPGRADE = ContentFinder<Texture2D>.Get("UI/NanoShield/Upgrade", true);
+            //UI_UPGRADE = ContentFinder<Texture2D>.Get("UI/NanoShield/Upgrade", true);
             UI_CHARGE_OFF = ContentFinder<Texture2D>.Get("UI/NanoShield/ChargeOFF", true);
             UI_CHARGE_ON = ContentFinder<Texture2D>.Get("UI/NanoShield/ChargeON", true);
         }
@@ -67,12 +67,11 @@ namespace EnhancedDevelopment.Prometheus.NanoShields
             {
                 return;
             }
-
             if (this.power.PowerOn == true)
             {
                 if (this.flag_charge)
                 {
-                    this.RechargePawns();
+                    this.rechargePawns(Mod_EDPrometheus.Settings.NanoShields.NanoShieldBuildingChargeAmount);
                 }
             }
         }
@@ -99,6 +98,7 @@ namespace EnhancedDevelopment.Prometheus.NanoShields
                 yield return g;
             }
 
+            /*
             if (true)
             {
                 Command_Action act = new Command_Action();
@@ -112,6 +112,7 @@ namespace EnhancedDevelopment.Prometheus.NanoShields
                 //act.groupKey = 689736;
                 yield return act;
             }
+            */
 
             if (flag_charge)
             {
@@ -143,8 +144,33 @@ namespace EnhancedDevelopment.Prometheus.NanoShields
 
         #endregion
 
+        Thing _Shuttle = null;
+
         private void SwitchCharge()
         {
+            
+
+
+
+            if (_Shuttle == null)
+            {
+                this._Shuttle = ThingMaker.MakeThing(ThingDefOf.Shuttle);
+                CompShuttle _ShuttleComp = _Shuttle.TryGetComp<CompShuttle>();
+                _ShuttleComp.requiredItems.Add(new ThingDefCount(ThingDefOf.Steel, 500));
+
+
+                Skyfaller thing2 = SkyfallerMaker.MakeSkyfaller(ThingDefOf.ShuttleIncoming, _Shuttle);
+                GenPlace.TryPlaceThing(thing2, UI.MouseCell(), Find.CurrentMap, ThingPlaceMode.Near);
+            }
+            else
+            {
+                CompShuttle _ShuttleComp2 = this._Shuttle.TryGetComp<CompShuttle>();
+                CompTransporter _Transport = this._Shuttle.TryGetComp<CompTransporter>();
+
+                Log.Error(_Transport.innerContainer.Count().ToString());
+
+
+            }
             flag_charge = !flag_charge;
         }
 
@@ -155,46 +181,44 @@ namespace EnhancedDevelopment.Prometheus.NanoShields
             return _Comps;
         }
 
+        /*
         private void upgradePawns()
         {
             bool _AnyUpgraded = false;
 
             foreach (CompNanoShield _ShieldComp in this.ShieldCompsInRangeAndOfFaction())
             {
-                //Log.Message("Adding");
+                Log.Message("Adding");
                 if (!_ShieldComp.NanoShieldActive)
                 {
                     _ShieldComp.NanoShieldActive = true;
-                    _ShieldComp.NanoShieldChargeLevelCurrent = 0;
-
                     _AnyUpgraded = true;
                 }
             }
 
             if (!_AnyUpgraded)
             {
-                Log.Message("No Pawns found to add Nano Shields to.");
+                Log.Message("No Paws found to add Quantum Shields to.");
             }
 
             return;
         }
+        */
 
-        public void RechargePawns()
+        public int rechargePawns(int chargeToRequest)
         {
-            int _TotalChargeToRequest = Mod_EDPrometheus.Settings.NanoShields.NanoShieldBuildingChargeAmount;
-
-            int _AvalableCharge = GameComponent_Prometheus.Instance.Comp_Shields.RequestCharge(_TotalChargeToRequest);
+            int _RemainingCharge = GameComponent_Prometheus.Instance.Comp_Shields.RequestCharge(chargeToRequest);
 
             foreach (CompNanoShield _ShieldComp in this.ShieldCompsInRangeAndOfFaction())
             {
                 if (_ShieldComp.NanoShieldActive)
                 {
-                    //RechargeShield Returns the amount of charge that was used.
-                    _AvalableCharge -= _ShieldComp.RechargeShield(_AvalableCharge);
+                    _RemainingCharge -= _ShieldComp.RechargeShield(_RemainingCharge);
                 }
             }
 
-            GameComponent_Prometheus.Instance.Comp_Shields.ReturnCharge(_AvalableCharge);
+            GameComponent_Prometheus.Instance.Comp_Shields.ReturnCharge(_RemainingCharge);
+            return _RemainingCharge;
         }
 
         public override string GetInspectString()

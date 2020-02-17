@@ -7,7 +7,7 @@
 		<description>Provides the ability to communicate with the E.D.S.N. Prometheus.</description>
 		<thingClass>Building_WorkTable</thingClass>
 		<researchPrerequisites>
-			<li>Research_ED_Prometheus_AnalyseStrangeSignal</li>
+			<li>ED_Prometheus_AnalyseStrangeSignal_Research</li>
 		</researchPrerequisites>
 		<graphicData>
 			<texPath>Things/ShieldBuilding_Red</texPath>
@@ -33,6 +33,14 @@
 			<li Class="CompProperties_Flickable"/>
 			<li Class="EnhancedDevelopment.Prometheus.Quest.CompProperties_EDSNTransponder"/>
 			<li Class="EnhancedDevelopment.Prometheus.Transporter.CompProperties_Transporter"/>
+				
+		  <li Class="CompProperties_Usable">
+			<useJob>ContactPrometheus</useJob>
+			<useLabel>Contact Prometheus</useLabel>
+		  </li>
+		  <li Class="CompProperties_UseEffect">
+			<compClass>EnhancedDevelopment.Prometheus.Quest.CompUseEffect_ContactPrometheus</compClass>
+		  </li>
 		</comps>
 		<costList>
 			<Steel>200</Steel>
@@ -52,6 +60,7 @@
 			<WorkToBuild>24000</WorkToBuild>
 			<Flammability>1.0</Flammability>
 			<Beauty>-2</Beauty>
+			<Mass>50</Mass>
 		</statBases>
 	</ThingDef>
 

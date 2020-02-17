@@ -5,16 +5,16 @@ using System.Reflection;
 using System.Text;
 
 using Verse;
-using Harmony;
 using UnityEngine;
 using EnhancedDevelopment.Prometheus.Shields;
+using HarmonyLib;
 
 namespace EnhancedDevelopment.Prometheus.Patch.Patches
 {
     class PatchProjectile : Patch
     {
 
-        protected override void ApplyPatch(HarmonyInstance harmony = null)
+        protected override void ApplyPatch(Harmony harmony = null)
         {
 
             this.ApplyLaunchPatch(harmony);
@@ -36,7 +36,7 @@ namespace EnhancedDevelopment.Prometheus.Patch.Patches
 
         #region "Launch Patch"
 
-        private void ApplyLaunchPatch(HarmonyInstance harmony)
+        private void ApplyLaunchPatch(Harmony harmony)
         {
             
             //Get the Launch Method
@@ -74,7 +74,7 @@ namespace EnhancedDevelopment.Prometheus.Patch.Patches
 
         #region "Tick Patch"
 
-        private void ApplyTickPatch(HarmonyInstance harmony)
+        private void ApplyTickPatch(Harmony harmony)
         {
 
             //Get the Launch Method

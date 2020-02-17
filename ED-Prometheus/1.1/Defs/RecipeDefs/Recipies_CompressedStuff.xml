@@ -8,7 +8,7 @@
 		<description>Compressed Steel</description>
 		<jobString>Creating Compressed Steel from Steel.</jobString>
 		<workAmount>20</workAmount>
-		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 		<effectWorking>Smelt</effectWorking>
 		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
 		<ingredients>
@@ -39,7 +39,7 @@
 		<description>Compressed Plasteel</description>
 		<jobString>Creating Compressed Plasteel from Plasteel.</jobString>
 		<workAmount>20</workAmount>
-		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 		<effectWorking>Smelt</effectWorking>
 		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
 		<ingredients>
@@ -70,7 +70,7 @@
 		<description>Compresses Wood</description>
 		<jobString>Creating Compressed Wood from Wood.</jobString>
 		<workAmount>20</workAmount>
-		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 		<effectWorking>Smelt</effectWorking>
 		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
 		<ingredients>
@@ -101,7 +101,7 @@
 		<description>Compresses Sandstone</description>
 		<jobString>Creating Compressed Sandstone.</jobString>
 		<workAmount>20</workAmount>
-		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 		<effectWorking>Smelt</effectWorking>
 		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
 		<ingredients>
@@ -132,7 +132,7 @@
 		<description>Compresses Granite</description>
 		<jobString>Creating Compressed Granite.</jobString>
 		<workAmount>20</workAmount>
-		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 		<effectWorking>Smelt</effectWorking>
 		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
 		<ingredients>
@@ -163,7 +163,7 @@
 		<description>Compresses Limestone</description>
 		<jobString>Creating Compressed Limestone.</jobString>
 		<workAmount>20</workAmount>
-		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 		<effectWorking>Smelt</effectWorking>
 		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
 		<ingredients>
@@ -194,7 +194,7 @@
 		<description>Compresses Slate</description>
 		<jobString>Creating Compressed Slate.</jobString>
 		<workAmount>20</workAmount>
-		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 		<effectWorking>Smelt</effectWorking>
 		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
 		<ingredients>
@@ -225,7 +225,7 @@
 		<description>Compresses Marble</description>
 		<jobString>Creating Compressed Marble.</jobString>
 		<workAmount>20</workAmount>
-		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 		<effectWorking>Smelt</effectWorking>
 		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
 		<ingredients>

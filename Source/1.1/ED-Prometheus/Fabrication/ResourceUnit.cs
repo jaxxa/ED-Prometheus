@@ -20,7 +20,7 @@ namespace EnhancedDevelopment.Prometheus.Fabrication
 
         public override void TickLong()
         {
-            //Tick ling has not been implimented in base Class
+            //Tick long has not been implimented in base Class
             // base.TickLong();
 
             //Tag this as a candidate for Transport.

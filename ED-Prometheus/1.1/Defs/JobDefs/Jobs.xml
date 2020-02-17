@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--========= General ============-->
+
+  <JobDef>
+    <defName>ContactPrometheus</defName>
+    <driverClass>JobDriver_UseItem</driverClass>
+    <reportString>Contacting E.D.S.N. Prometheus.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+</Defs>

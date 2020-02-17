@@ -13,30 +13,16 @@ namespace EnhancedDevelopment.Prometheus.Fabrication
     {
         public string defName;
         public string label;
-
+        
         public int TotalNeededWork = 100;
         public int TotalNeededResources = 100;
         public int TotalNeededPower = 100;
-        public bool PreventConstruction = false;
 
         //Persisted
         public int WorkRemaining = 100;
         public bool ConstructionInProgress = false;
         public int UnitsAvalable = 0;
         public int UnitsRequestedAditional = 0;
-
-
-        public bool ShouldBeShown(bool showOnlyActiveThings)
-        {
-            if (this.PreventConstruction || showOnlyActiveThings)
-            {
-                return this.ConstructionInProgress ||
-                       this.UnitsAvalable >= 1 ||
-                       this.UnitsRequestedAditional >= 1;
-            }
-
-            return true;
-        }
 
 
         public void ExposeData()
@@ -53,7 +39,7 @@ namespace EnhancedDevelopment.Prometheus.Fabrication
             this.defName = defName;
             this.label = label;
         }
-
+        
         public void InitiateDrop(IntVec3 dropLocation, Map dropMap)
         {
             if (this.UnitsAvalable >= 1)
@@ -79,25 +65,21 @@ namespace EnhancedDevelopment.Prometheus.Fabrication
         public Rect DoInterface(float x, float y, float width, int index, IntVec3 dropLocation = new IntVec3(), Map dropMap = null)
         {
 
-            Rect _RectTotal = new Rect(x, y, width, 150f);
+            Rect _RectTotal = new Rect(x, y, width, 100f);
 
             this.DoInterface_Column1(_RectTotal.LeftHalf(), dropLocation, dropMap);
             this.DoInterface_Column2(_RectTotal.RightHalf(), dropLocation, dropMap);
 
             return _RectTotal;
-
+            
         }
-
+        
         void DoInterface_Column1(Rect _RectTotal, IntVec3 dropLocation = new IntVec3(), Map dropMap = null)
         {
             Rect _RectTopHalf = _RectTotal.TopHalf();
             Rect _RectBottomHalf = _RectTotal.BottomHalf();
 
             Rect _RectQuarter1 = _RectTopHalf.TopHalf();
-
-
-            Text.Font = GameFont.Medium;
-
             if (this.ConstructionInProgress)
             {
                 Widgets.TextArea(_RectQuarter1, this.label + " - In Progress", true);
@@ -106,8 +88,6 @@ namespace EnhancedDevelopment.Prometheus.Fabrication
             {
                 Widgets.TextArea(_RectQuarter1, this.label, true);
             }
-
-            Text.Font = GameFont.Small;
 
             Rect _RectQuarter2 = _RectTopHalf.BottomHalf();
             Widgets.TextArea(_RectQuarter2, "Work: " + this.WorkRemaining.ToString() + " / " + this.TotalNeededWork.ToString(), true);
@@ -140,16 +120,13 @@ namespace EnhancedDevelopment.Prometheus.Fabrication
                 }
             };
 
-            if (!this.PreventConstruction)
+            if (Widgets.ButtonText(_RectQuarter4.RightHalf().LeftHalf().RightHalf(), "+"))
             {
-                if (Widgets.ButtonText(_RectQuarter4.RightHalf().LeftHalf().RightHalf(), "+"))
-                {
-                    this.UnitsRequestedAditional += 1 * GenUI.CurrentAdjustmentMultiplier();
-                };
-            }
+                this.UnitsRequestedAditional += 1 * GenUI.CurrentAdjustmentMultiplier();
+            };
 
         }
-
+        
         void DoInterface_Column2(Rect _RectTotal, IntVec3 dropLocation = new IntVec3(), Map dropMap = null)
         {
             string _Description = ThingDef.Named(this.defName).description;

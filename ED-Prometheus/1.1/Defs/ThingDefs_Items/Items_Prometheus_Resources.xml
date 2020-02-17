@@ -33,7 +33,7 @@
 		<label>Resource Unit</label>
 		<description>Materials packaged for imediate Transport to on EDSN Starships and Facilities, used in Fabrication.</description>
 		<graphicData>
-			<texPath>Things/Items/BlueBucket</texPath>
+			<texPath>Things/Items/PurpleBucket</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		<tickerType>Long</tickerType>

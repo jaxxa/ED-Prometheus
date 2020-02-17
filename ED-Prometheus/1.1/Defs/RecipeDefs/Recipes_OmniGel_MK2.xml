@@ -8,7 +8,7 @@
 		<description>Replicates Steel from Omni-Gel.</description>
 		<jobString>Creating Steel from Omni-Gel.</jobString>
 		<workAmount>500</workAmount>
-		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 		<effectWorking>Smelt</effectWorking>
 		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
 		<ingredients>
@@ -40,7 +40,7 @@
 		<description>Replicates Silver from Omni-Gel.</description>
 		<jobString>Creating Silver from Omni-Gel.</jobString>
 		<workAmount>500</workAmount>
-		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 		<effectWorking>Smelt</effectWorking>
 		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
 		<ingredients>
@@ -72,7 +72,7 @@
 		<description>Replicates Gold from Omni-Gel.</description>
 		<jobString>Creating Gold from Omni-Gel.</jobString>
 		<workAmount>500</workAmount>
-		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 		<effectWorking>Smelt</effectWorking>
 		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
 		<ingredients>

@@ -53,8 +53,8 @@
 				<Beauty>1</Beauty>
 				<Flammability>0.4</Flammability>
 			</statFactors>
-			<smeltable>true</smeltable>
 		</stuffProps>
+		<smeltable>true</smeltable>
 	</ThingDef>
 
 	<ThingDef ParentName="ResourceBase">
@@ -106,8 +106,8 @@
 				<WorkToBuild>2.2</WorkToBuild>
 				<MeleeWeapon_CooldownMultiplier>0.8</MeleeWeapon_CooldownMultiplier>
 			</statFactors>
-			<smeltable>true</smeltable>
 		</stuffProps>
+		<smeltable>true</smeltable>
 	</ThingDef>
 
 

@@ -4,14 +4,14 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using EnhancedDevelopment.Prometheus.NanoShields;
-using Harmony;
+using HarmonyLib;
 using Verse;
 
 namespace EnhancedDevelopment.Prometheus.Patch.Patches
 {
     class PatchThingWithComps_Nano : Patch
     {
-        protected override void ApplyPatch(HarmonyInstance harmony = null)
+        protected override void ApplyPatch(Harmony harmony = null)
         {
             MethodInfo _ThingWithComps_InitializeComps = typeof(Verse.ThingWithComps).GetMethod("InitializeComps", BindingFlags.Public | BindingFlags.Instance);
             Patcher.LogNULL(_ThingWithComps_InitializeComps, "_ThingWithComps_InitializeComps", true);

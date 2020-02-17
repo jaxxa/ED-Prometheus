@@ -8,7 +8,7 @@
 		<description>Replicates Plasteel from Omni-Gel.</description>
 		<jobString>Creating Plasteel from Omni-Gel.</jobString>
 		<workAmount>500</workAmount>
-		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 		<effectWorking>Smelt</effectWorking>
 		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
 		<ingredients>
@@ -39,7 +39,7 @@
 		<description>Replicates Uranium from Omni-Gel.</description>
 		<jobString>Creating Uranium from Omni-Gel.</jobString>
 		<workAmount>500</workAmount>
-		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 		<effectWorking>Smelt</effectWorking>
 		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
 		<ingredients>
@@ -70,7 +70,7 @@
 		<description>Replicates Jade from Omni-Gel.</description>
 		<jobString>Creating Jade from Omni-Gel.</jobString>
 		<workAmount>500</workAmount>
-		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 		<effectWorking>Smelt</effectWorking>
 		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
 		<ingredients>
@@ -102,7 +102,7 @@
 		<description>Replicates Medicine from Omni-Gel.</description>
 		<jobString>Creating Medicine from Omni-Gel.</jobString>
 		<workAmount>500</workAmount>
-		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 		<effectWorking>Smelt</effectWorking>
 		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
 		<ingredients>
@@ -133,7 +133,7 @@
 		<description>Upgrades Medicine to Glitterworld Medicine with Omni-Gel.</description>
 		<jobString>Creating Glitterworld Medicine from Omni-Gel and Medicine.</jobString>
 		<workAmount>500</workAmount>
-		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 		<effectWorking>Smelt</effectWorking>
 		<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
 		<ingredients>

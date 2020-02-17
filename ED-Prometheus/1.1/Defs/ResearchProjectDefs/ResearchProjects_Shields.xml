@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<ResearchProjectDef>
-		<defName>Research_ED_Prometheus_Shields_1</defName>
+	<ResearchProjectDef ParentName="EDSN_ResearchRequirment">
+		<defName>ED_Prometheus_Shields_1_Research</defName>
 		<label>Shields Level 1 - Shield Generator</label>
 		<description>Magnetic shield field slows and heats any projectiles to the point of evaporating.
 
@@ -16,12 +16,12 @@
 			<li>PrometheusQuestLock</li>
 		</requiredResearchFacilities>
 		<prerequisites>
-			<li>Research_ED_Prometheus_Fabrication_1</li>
+			<li>ED_Prometheus_Fabrication_1_Research</li>
 		</prerequisites>
 	</ResearchProjectDef>
 
-		<ResearchProjectDef>
-		<defName>Research_ED_Prometheus_Shields_2</defName>
+		<ResearchProjectDef ParentName="EDSN_ResearchRequirment">
+		<defName>ED_Prometheus_Shields_2_Research</defName>
 		<label>Shields Level 2 - Upgrades</label>
 		<description>Allows Shields to be enhanced by upgrade modules.</description>
 		<baseCost>1500</baseCost>
@@ -30,7 +30,7 @@
 		<researchViewX>3</researchViewX>
 		<researchViewY>0</researchViewY>
 		<prerequisites>
-			<li>Research_ED_Prometheus_Shields_1</li>
+			<li>ED_Prometheus_Shields_1_Research</li>
 		</prerequisites>	
 		<requiredResearchFacilities>
 			<li>PrometheusQuestLock</li>
@@ -38,8 +38,8 @@
 	</ResearchProjectDef>
 	
 		
-	<ResearchProjectDef>
-		<defName>Research_ED_Prometheus_Shields_3</defName>
+	<ResearchProjectDef ParentName="EDSN_ResearchRequirment">
+		<defName>ED_Prometheus_Shields_3_Research</defName>
 		<label>Shields Level 3 - Personal Shield</label>
 		<description>Allows the use of Quantum Virtual Particles to protect Colonists and Pets from damage.
 		This Quantum Charge must be recovered from the Quantum Shield Charging Station and pulls from a global charge level.</description>
@@ -47,7 +47,7 @@
 		<techLevel>Spacer</techLevel>
 		<tab>EDSN-Prometheus</tab>
 		<prerequisites>
-			<li>Research_ED_Prometheus_Shields_2</li>
+			<li>ED_Prometheus_Shields_2_Research</li>
 		</prerequisites>	
 		<requiredResearchFacilities>
 			<li>PrometheusQuestLock</li>

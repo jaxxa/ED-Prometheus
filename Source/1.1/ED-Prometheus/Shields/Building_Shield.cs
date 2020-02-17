@@ -18,22 +18,6 @@ namespace EnhancedDevelopment.Prometheus.Shields
     {
 
         #region Methods
-        public override void SpawnSetup(Map map, bool respawningAfterLoad)
-        {
-            base.SpawnSetup(map, respawningAfterLoad);
-            
-            if (this.def.defName.Equals("Building_ShieldGenerator"))
-            {
-                Log.Message("Legacy Shield Spawned, Replacing With New Building_ED_ShieldGenerator");
-
-                IntVec3 _Position = this.Position;
-                this.DeSpawn();
-                
-                GenSpawn.Spawn(ThingDef.Named("Building_ED_ShieldGenerator"), _Position, map);
-            }
-
-        }
-
 
         public override string GetInspectString()
         {
