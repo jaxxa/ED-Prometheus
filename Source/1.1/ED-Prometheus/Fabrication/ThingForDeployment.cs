@@ -27,7 +27,7 @@ namespace EnhancedDevelopment.Prometheus.Fabrication
 
         public void ExposeData()
         {
-            Log.Message("Expose: " + this.defName);
+            //Log.Message("Expose: " + this.defName);
             Scribe_Values.Look<int>(ref WorkRemaining, this.defName + "_WorkRemaining");
             Scribe_Values.Look<bool>(ref ConstructionInProgress, this.defName + "_ConstructionInProgress");
             Scribe_Values.Look<int>(ref UnitsAvalable, this.defName + "_UnitsAvalable");
