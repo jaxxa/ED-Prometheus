@@ -4,30 +4,6 @@
 	<!-- =========== bases =========== -->
 
 	<ThingDef ParentName="ResourceBase">
-		<defName>OmniGel</defName>
-		<label>Omni Gel</label>
-		<description>For refining into things.</description>
-		<graphicData>
-			<texPath>Things/Items/PurpleBucket</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-		</graphicData>
-		<statBases>
-			<MaxHitPoints>60</MaxHitPoints>
-			<MarketValue>0</MarketValue>
-			<Mass>0.5</Mass>
-			<Flammability>0.7</Flammability>
-			<DeteriorationRate>2.0</DeteriorationRate>
-		</statBases>
-		<soundInteract>Metal_Drop</soundInteract>
-		<soundDrop>Metal_Drop</soundDrop>
-		<stackLimit>500</stackLimit>
-		<tradeability>None</tradeability>
-		<thingCategories>
-			<li>ResourcesRaw</li>
-		</thingCategories>
-	</ThingDef>
-
-	<ThingDef ParentName="ResourceBase">
 		<thingClass>EnhancedDevelopment.Prometheus.Fabrication.ResourceUnit</thingClass>
 		<defName>ResourceUnit</defName>
 		<label>Resource Unit</label>

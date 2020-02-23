@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="PatchOperationInsert">
+		<xpath>/Defs/ResearchProjectDef[defName="Research_MK1_Replicator"]/label</xpath>
+		<value>				
+			<techprintCount>99</techprintCount>
+			<techprintCommonality>0</techprintCommonality>
+			<techprintMarketValue>999999</techprintMarketValue>
+			<heldByFactionCategoryTags><li>Ancients</li></heldByFactionCategoryTags>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationInsert">
+		<xpath>/Defs/ResearchProjectDef[defName="Research_MK2_Replicator"]/label</xpath>
+		<value>				
+			<techprintCount>99</techprintCount>
+			<techprintCommonality>0</techprintCommonality>
+			<techprintMarketValue>999999</techprintMarketValue>
+			<heldByFactionCategoryTags><li>Ancients</li></heldByFactionCategoryTags>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationInsert">
+		<xpath>/Defs/ResearchProjectDef[defName="Research_MK3_Replicator"]/label</xpath>
+		<value>				
+			<techprintCount>99</techprintCount>
+			<techprintCommonality>0</techprintCommonality>
+			<techprintMarketValue>999999</techprintMarketValue>
+			<heldByFactionCategoryTags><li>Ancients</li></heldByFactionCategoryTags>
+		</value>
+	</Operation>
+
+</Patch>
