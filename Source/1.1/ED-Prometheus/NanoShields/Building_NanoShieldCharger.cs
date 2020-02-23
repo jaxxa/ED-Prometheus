@@ -148,29 +148,6 @@ namespace EnhancedDevelopment.Prometheus.NanoShields
 
         private void SwitchCharge()
         {
-            
-
-
-
-            if (_Shuttle == null)
-            {
-                this._Shuttle = ThingMaker.MakeThing(ThingDefOf.Shuttle);
-                CompShuttle _ShuttleComp = _Shuttle.TryGetComp<CompShuttle>();
-                _ShuttleComp.requiredItems.Add(new ThingDefCount(ThingDefOf.Steel, 500));
-
-
-                Skyfaller thing2 = SkyfallerMaker.MakeSkyfaller(ThingDefOf.ShuttleIncoming, _Shuttle);
-                GenPlace.TryPlaceThing(thing2, UI.MouseCell(), Find.CurrentMap, ThingPlaceMode.Near);
-            }
-            else
-            {
-                CompShuttle _ShuttleComp2 = this._Shuttle.TryGetComp<CompShuttle>();
-                CompTransporter _Transport = this._Shuttle.TryGetComp<CompTransporter>();
-
-                Log.Error(_Transport.innerContainer.Count().ToString());
-
-
-            }
             flag_charge = !flag_charge;
         }
 
