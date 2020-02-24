@@ -69,10 +69,6 @@
     <Compile Include="Core\GameComponent_Prometheus_NanoShields.cs" />
     <Compile Include="Core\GameComponent_Prometheus_Quest.cs" />
     <Compile Include="Core\GameComponent_Prometheus_Transporter.cs" />
-    <Compile Include="Fabrication\Compression\CompProperties_CompressedStuff.cs" />
-    <Compile Include="Fabrication\Compression\CompProperties_MolecularCompressor.cs" />
-    <Compile Include="Fabrication\Compression\Comp_CompressedStuff.cs" />
-    <Compile Include="Fabrication\Compression\Comp_MolecularCompressor.cs" />
     <Compile Include="Fabrication\ThingForDeployment.cs" />
     <Compile Include="Fabrication\CompProperties_Fabricated.cs" />
     <Compile Include="Fabrication\Comp_Fabricated.cs" />
@@ -83,7 +79,6 @@
     <Compile Include="LaserDrill\MapComp_LaserDrill.cs" />
     <Compile Include="NanoShields\CompUseEffect_AddNanoShield.cs" />
     <Compile Include="Patch\Patches\PatchDropPodIncoming.cs" />
-    <Compile Include="Fabrication\Compression\PatchStuffCompressor.cs" />
     <Compile Include="Patch\Patches\PatchNanoMaterialCost.cs" />
     <Compile Include="Quest\CompProperties_EDSNTransponder.cs" />
     <Compile Include="Quest\Comp_EDSNTransponder.cs" />

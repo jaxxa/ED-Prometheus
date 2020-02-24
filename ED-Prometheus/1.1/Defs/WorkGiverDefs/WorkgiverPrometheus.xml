@@ -2,23 +2,6 @@
 <Defs>
 
 	<WorkGiverDef>
-		<defName>DoBillsOmniGel</defName>
-		<giverClass>WorkGiver_DoBill</giverClass>
-		<workType>Crafting</workType>
-		<priorityInType>104</priorityInType>
-		<fixedBillGiverDefs>
-			<li>Table_MK1_Replicator</li>
-			<li>Table_MK2_Replicator</li>
-			<li>Table_MK3_Replicator</li>
-		</fixedBillGiverDefs>
-		<verb>replicate</verb>
-		<gerund>replicating</gerund>
-		<requiredCapacities>
-			<li>Manipulation</li>
-		</requiredCapacities>
-	</WorkGiverDef>
-
-	<WorkGiverDef>
 		<defName>DoBillsPackageRU</defName>
 		<giverClass>WorkGiver_DoBill</giverClass>
 		<workType>Crafting</workType>
@@ -28,21 +11,6 @@
 		</fixedBillGiverDefs>
 		<verb>replicate</verb>
 		<gerund>replicating</gerund>
-		<requiredCapacities>
-			<li>Manipulation</li>
-		</requiredCapacities>
-	</WorkGiverDef>
-
-	<WorkGiverDef>
-		<defName>DoBillsCompressing</defName>
-		<giverClass>WorkGiver_DoBill</giverClass>
-		<workType>Crafting</workType>
-		<priorityInType>104</priorityInType>
-		<fixedBillGiverDefs>
-			<li>MolecularCompressor</li>
-		</fixedBillGiverDefs>
-		<verb>compress</verb>
-		<gerund>compressing</gerund>
 		<requiredCapacities>
 			<li>Manipulation</li>
 		</requiredCapacities>

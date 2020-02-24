@@ -87,21 +87,4 @@ Allows you to build the MK1 Replicator, which can transform Omni-Gel into Slag o
 		</requiredResearchFacilities>
 	</ResearchProjectDef>
 
-	<ResearchProjectDef ParentName="EDSN_ResearchRequirment">
-		<defName>ED_Prometheus_Fabrication_6_Research</defName>
-		<label>Fabrication Level 6 - Molecular Reinforcement Compressor</label>
-		<description>Adds a Reinforced version of some Stuff. This allows for stronger constructions. Reinforced stuff has 10x the hitpoints but at 10x build time. Reinforced Stuff is made from 10 Normal Stuff in a Molecular Reinforcement Compressor. Currently Reinforced Stuff can be made from Steel, Plasteel, Wood, Stone, Silver, Gold, Uranium and Jade.</description>
-		<baseCost>3000</baseCost>
-		<techLevel>Spacer</techLevel>
-		<tab>EDSN-Prometheus</tab>
-		<researchViewX>6</researchViewX>
-		<researchViewY>1</researchViewY>
-		<prerequisites>
-			<li>ED_Prometheus_Fabrication_5_Research</li>
-		</prerequisites>	
-		<requiredResearchFacilities>
-			<li>PrometheusQuestLock</li>
-		</requiredResearchFacilities>
-	</ResearchProjectDef>
-
 </Defs>

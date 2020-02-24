@@ -144,8 +144,6 @@ namespace EnhancedDevelopment.Prometheus.NanoShields
 
         #endregion
 
-        Thing _Shuttle = null;
-
         private void SwitchCharge()
         {
             flag_charge = !flag_charge;
