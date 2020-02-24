@@ -53,7 +53,6 @@
 		</inspectorTabs>
 		<recipes>
 			<li>TransportResourceUnit_Steel</li>
-			<li>TransportResourceUnit_OmniGel</li>
 		</recipes>
 		<statBases>
 			<MaxHitPoints>500</MaxHitPoints>
