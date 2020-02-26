@@ -33,6 +33,10 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="0ED-Core">
+      <HintPath>..\..\..\ED-Core\ED-Core\1.1\Assemblies\0ED-Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="0Harmony">
       <HintPath>..\..\..\..\RW-DLL\Harmony\~Release 4.7.2\0Harmony.dll</HintPath>
     </Reference>
@@ -73,10 +77,6 @@
     <Compile Include="Fabrication\CompProperties_Fabricated.cs" />
     <Compile Include="Fabrication\Comp_Fabricated.cs" />
     <Compile Include="Fabrication\ResourceUnit.cs" />
-    <Compile Include="LaserDrill\CompProperties_LaserDrill.cs" />
-    <Compile Include="LaserDrill\Comp_LaserDrill.cs" />
-    <Compile Include="LaserDrill\LaserDrillVisual.cs" />
-    <Compile Include="LaserDrill\MapComp_LaserDrill.cs" />
     <Compile Include="NanoShields\CompUseEffect_AddNanoShield.cs" />
     <Compile Include="Patch\Patches\PatchDropPodIncoming.cs" />
     <Compile Include="Patch\Patches\PatchNanoMaterialCost.cs" />

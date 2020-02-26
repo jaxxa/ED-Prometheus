@@ -52,7 +52,6 @@
 			<li>ITab_Bills</li>
 		</inspectorTabs>
 		<recipes>
-			<li>TransportResourceUnit_Steel</li>
 		</recipes>
 		<statBases>
 			<MaxHitPoints>500</MaxHitPoints>
