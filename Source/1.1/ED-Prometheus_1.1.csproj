@@ -77,6 +77,8 @@
     <Compile Include="Fabrication\CompProperties_Fabricated.cs" />
     <Compile Include="Fabrication\Comp_Fabricated.cs" />
     <Compile Include="Fabrication\ResourceUnit.cs" />
+    <Compile Include="LaserDrill\CompProperties_LaserDrillRequiresPower.cs" />
+    <Compile Include="LaserDrill\Comp_LaserDrillRequiresPower.cs" />
     <Compile Include="NanoShields\CompUseEffect_AddNanoShield.cs" />
     <Compile Include="Patch\Patches\PatchDropPodIncoming.cs" />
     <Compile Include="Patch\Patches\PatchNanoMaterialCost.cs" />

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[defName="LaserDrill"]/comps/li[@Class = "Jaxxa.EnhancedDevelopment.LaserDrill.Comps.CompProperties_LaserDrillRequiresPower"]</xpath>
+		<value>
+			<li Class="EnhancedDevelopment.Prometheus.LaserDrill.CompProperties_LaserDrillRequiresPrometheus"/>
+		</value>
+	</Operation>
+	
+</Patch>
